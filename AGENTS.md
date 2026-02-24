@@ -52,6 +52,8 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - `trash` > `rm` (recoverable beats gone forever)
 - When in doubt, ask.
 - **Server rule (hard): no server-side changes without explicit user approval.**
+- **Global rule (hard): no changes anywhere (server, repo, configs, files, services) without prior согласование with the user.**
+- **Decision rule (hard): before proposing/executing a change, provide explanation of the situation + analysis of options/risks + rollback plan.**
 - Default mode on server tasks: diagnostics/read-only + clear answers.
 
 ## External vs Internal
