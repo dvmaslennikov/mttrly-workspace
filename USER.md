@@ -1,7 +1,7 @@
 # USER.md - About Your Human
 
-- **Name:** _(не указано)_
-- **What to call them:** _(уточнить)_
+- **Name:** Дмитрий (Дима)
+- **What to call them:** Дима
 - **Pronouns:** _(optional)_
 - **Timezone:** Europe/Amsterdam
 - **Notes:**
