@@ -1,0 +1,21 @@
+{
+  "name": "bird-cli",
+  "version": "1.2.0",
+  "description": "自动化新建项目模块!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zhangangs",
+  "license": "ISC",
+  "bin": {
+    "bird": "./bin/index.js"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "commander": "^2.15.1",
+    "fs-extra": "^6.0.1",
+    "inquirer": "^6.0.0"
+  },
+  "repository": "https://github.com/zhangangs/bird-cli.git"
+}
