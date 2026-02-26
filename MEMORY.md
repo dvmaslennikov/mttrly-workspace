@@ -301,6 +301,59 @@ Template D (Contrarian Agree):
 **Git commit: e5e98e5**
 - refactor: twitter engagement system - hook-first replies + improved filters v2
 - 6 files changed, 1372 insertions
+
+## Twitter Calibration Results (2026-02-26)
+
+**Key findings from real data analysis:**
+
+Pain Points Performance:
+- Signal: 100% (queries "server down", "crashed", "aws bill" are dead accurate)
+- Volume: 22+ fresh tweets/day (just on "server is down" alone)
+- Organic replies: 83% of 238 reply-tweets are relevant (people helping each other in threads)
+- Conversion: replies in pain threads are natural, not disruptive
+
+Vibe Coding / Trends:
+- Signal: 13% (only ~1 in 8 tweets are actionable)
+- BUT high impression volume (many views even if low engagement)
+- Important for brand building (indie hackers watch these conversations)
+- Should NOT be discarded, just put in separate stream
+
+Current errors (from 2026-02-22 file):
+- Template C (link) used on tweets with 17-19 views (2 out of 2 slots wasted)
+- Mixed pain + philosophy in same scoring (treats differently but same rules)
+- Replies excluded (missed 83% organic conversations)
+- No crypto/bot exclusions (bankrbot, web3 tokens polluting search)
+
+**New architecture:**
+
+Two separate scout modes (git commit 61ce5b4):
+
+1. SCOUT-FIRE-PATROL.md
+   - Pain points: "server down", "aws bill", "crashed", "incident"
+   - Cadence: 2x/day (morning 06:30, evening 17:30)
+   - Response: 30 min (while hot)
+   - Templates: A/B only (pure help, no link)
+   - Includes replies (83% relevant)
+   - Exclusions: all crypto/web3/bot patterns
+
+2. SCOUT-BRAND-BUILDING.md
+   - Trends: vibe coding, indie hackers, learning, philosophy
+   - Cadence: 1x/day (14:00, flexible)
+   - Response: 24h (no rush)
+   - Templates: A/B/C (link only on likes >= 5 AND views >= 500)
+   - Includes replies (community conversations)
+   - Max 40% replies with link
+
+New Template C rule:
+- Before: views < 200 → no link
+- Now: likes >= 5 AND (views >= 500 OR category == pain_point)
+- Rationale: don't waste link on 17-view tweets
+
+New queries added:
+- "fly.io" expensive/slow/migrating
+- "aws bill" OR "cloud bill" shocked/expensive
+- "self-hosted" tired/frustrated/hard
+- Better crypto/bot exclusions
 - Files: LLM-PROMPT-evening-engagement.md, FILTER-UPDATES-v2.md, x-evening-digest.js, bird-digest.sh, evening-2026-02-26-REPORT.md, evening-2026-02-26-digest.json
 
 **KEY TAKEAWAY:** Replies качество зависит не от количества templates, а от того как их используешь. Hook First + Engagement Thresholds = естественные, читаемые replies.

@@ -199,3 +199,46 @@ e5e98e5 — refactor: twitter engagement system - hook-first replies + improved 
 **Learning rate:** ⬆️⬆️⬆️
 
 Готов к phase 2: реальный запуск на твитах. 🚀
+
+---
+
+## UPDATE: Twitter Calibration & Mode Split (Evening)
+
+**Дима провел реальную калибровку** на данных и дал конкретные метрики:
+
+### Калибровка результаты:
+- Pain points ("server down"): **100% signal**, 22+ свежих твитов/день
+- Vibe coding ("vibe coding" tag): **13% signal** но много views (impression building)
+- Replies в тредах: **83% релевантны** (люди помогают друг другу)
+- Template C ошибки: потратили ссылку на твиты с 17-19 views (zero reach)
+
+### Главное открытие:
+**Не выбрасывать vibe coding!** Разделить на два потока:
+1. **Fire Patrol** (боль в моменте) — 2x/day, 30 мин отклик
+2. **Brand Building** (тренды, философия) — 1x/day, гибкий отклик
+
+### Что создал (git commit 61ce5b4):
+
+**SCOUT-FIRE-PATROL.md:**
+- Pain points: server down, aws bills, crashes, incidents
+- 100% signal, 22+ tweets/day
+- Templates A/B (no link, pure help)
+- 2x/day, 30-minute window
+- Includes replies (83% organic)
+
+**SCOUT-BRAND-BUILDING.md:**
+- Trends: vibe coding, indie hackers, philosophy
+- 13% signal but impression building
+- Templates A/B/C (optional link on high engagement)
+- 1x/day, 24h window
+- Slower pace, sustained presence
+
+### Правила изменились:
+- Template C rule: `likes >= 5 AND (views >= 500 OR pain_point)`
+- Replies: теперь INCLUDE (не skip)
+- Exclusions: добавил bankrbot, web3 patterns
+- New queries: fly.io, aws bills, self-hosted pain
+
+**Итог:** Два полностью отдельных режима с разными queries, templates, cadence, tone. Больше не мешать боль с трендами в одном скоринге.
+
+Калибровка завершена. Пока текст replies будет совершенствоваться дальше.
