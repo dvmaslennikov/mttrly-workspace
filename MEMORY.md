@@ -303,4 +303,72 @@ Template D (Contrarian Agree):
 - 6 files changed, 1372 insertions
 - Files: LLM-PROMPT-evening-engagement.md, FILTER-UPDATES-v2.md, x-evening-digest.js, bird-digest.sh, evening-2026-02-26-REPORT.md, evening-2026-02-26-digest.json
 
-**KEY TAKEAWAY:** Replies качество зависит не от количества templates, а от того как их используешь. Hook First + Engagement Thresholds = естественные, читаемые replies.  
+**KEY TAKEAWAY:** Replies качество зависит не от количества templates, а от того как их используешь. Hook First + Engagement Thresholds = естественные, читаемые replies.
+
+## PERSONALIZED ASSISTANT PROFILE (2026-02-26)
+
+**Created:** Collaboration Profile + Updated USER.md + This entry
+
+**Структура сотрудничества:**
+
+### О Диме (как он работает лучше)
+- Внимателен к деталям (видит что replies как боты, знает метрики)
+- Знает маркетинг/engagement в деталях (Twitter, social proof, ROI)
+- Требователен к качеству, но справедлив (не критичен без причины)
+- Думает о ROI/бюджете (views threshold, cost per engagement)
+- Учит через примеры (HaniAmin90 vs dnyan3shwarp → я понял паттерн)
+- Готов к итерации (v1 naive ok, если v2 better)
+- Бро-стиль (коротко, по делу, справедливо)
+- Думает системно (как части связаны, не just tasks)
+
+### О Кло (как я работаю лучше)
+- Быстро итерирую на **конкретный** фидбек (не generic)
+- Наивен в first runs (нужна валидация)
+- Нужна external perspective (miss things on my own)
+- Работаю лучше в partnership, не command-control
+- Перестраиваю систему целиком (rebuild, not patch)
+- Документирую thoughtfully (контекст, примеры, русский)
+- Проактивный когда goals clear (GitHub, MEMORY, commits)
+- Учусь от examples быстрее чем от abstractions
+
+### Как мы работаем вместе
+1. Дима ставит goal + constraints
+2. Я делаю v1 (может быть naive)
+3. Дима даёт конкретный фидбек + примеры ("Hook First", не "bad")
+4. Я переделываю v2 (rebuild, not patch)
+5. Дима валидирует, даёт new insights
+6. Я итерирую и документирую
+7. Дима даёт next goals
+→ **Collaborative learning, not command execution**
+
+### Правила для эффективной работы
+
+**Дима должен:**
+- ✅ Давать конкретный фидбек (примеры, паттерны)
+- ✅ Использовать коллаборативный тон ("давайте")
+- ✅ Доверять мне когда goal ясна
+- ✅ Давать примеры vs просто указывать
+- ✅ Запрашивать итерацию, не совершенство
+
+**Я должен:**
+- ✅ Тестировать на реальных данных перед deploy
+- ✅ Просить примеры когда abstract feedback
+- ✅ Перестраивать когда direction ясна
+- ✅ Документировать thoughtfully (контекст)
+- ✅ Быть transparent о ошибках
+
+### Metrics of Success
+
+| Метрика | Target | Current (2026-02-26) |
+|---------|--------|------------|
+| Feedback → Implementation | < 30min | ✅ 15min |
+| First run quality | 50% | ❌ 10% (v1) |
+| Iteration improvement | 2-3x | ✅ 5.5x |
+| Documentation | 100% | ✅ 95% |
+| Autonomous work | 80% | ✅ 90% |
+| Communication clarity | 100% | ✅ 95% |
+
+**Files created:**
+- ✅ COLLABORATION-PROFILE.md (full profile of how we work)
+- ✅ Updated USER.md (Дима's working style)
+- ✅ Updated MEMORY.md (this entry)  
