@@ -22,7 +22,9 @@
 
 ## Установка в OpenClaw
 
-1. Отредактировать `~/.openclaw/openclaw.json`:
+✅ **Уже добавлено в openclaw.json!**
+
+Jobs содержат:
 
 ```json
 {
@@ -30,12 +32,12 @@
     {
       "schedule": "30 3 * * *",
       "name": "x-engagement-morning",
-      "command": "cd /home/openclaw/.openclaw/workspace && node playbooks/twitter/x-search-and-reply.js morning"
+      "command": "cd /home/openclaw/.openclaw/workspace && source .openclaw/.env.bird && node playbooks/twitter/x-search-and-reply-bird.js morning"
     },
     {
       "schedule": "30 14 * * *",
       "name": "x-engagement-evening",
-      "command": "cd /home/openclaw/.openclaw/workspace && node playbooks/twitter/x-search-and-reply.js evening"
+      "command": "cd /home/openclaw/.openclaw/workspace && source .openclaw/.env.bird && node playbooks/twitter/x-search-and-reply-bird.js evening"
     },
     {
       "schedule": "30 3 * * 1",
@@ -46,13 +48,7 @@
 }
 ```
 
-2. Или через обычный crontab:
-
-```bash
-crontab -e
-
-# Paste above schedules
-```
+**Важно:** каждая task sourсит `.env.bird` чтобы получить BIRD_AUTH_TOKEN и BIRD_CT0
 
 ## Environment Variables
 
