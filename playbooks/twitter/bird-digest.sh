@@ -56,19 +56,19 @@ echo "🔍 Scanning Twitter ($MODE mode, last ${HOURS}h)..."
 echo ""
 
 # ============================================================================
-# КАТЕГОРИЯ 1: PAIN POINTS (high priority)
+# КАТЕГОРИЯ 1: PAIN POINTS (high priority, dev-focused)
 # ============================================================================
 
 echo "📌 Collecting Pain Points..."
 
 PAIN_QUERIES=(
-  '"server is down" OR "site is down" OR "my app crashed"'
-  '"deployment failed" OR "deploy broke" OR "push to production failed"'
-  '"3am alert" OR "pager went off" OR "on-call nightmare"'
-  '"nginx error" OR "502 bad gateway" OR "connection refused"'
-  '"forgot how to deploy" OR "deployment is scary" OR "afraid to deploy"'
-  '"server management" OR "manage my server" OR "VPS setup"'
-  '"downtime" OR "incident response"'
+  '"deployment failed" AND (server OR deploy OR kubernetes OR docker) -railway -vercel -heroku'
+  '"deploy broke" OR "push to prod failed" (kubernetes OR docker OR CI/CD) -indigo -railway'
+  '"3am alert" OR "pager went off" OR "on-call incident" (server OR devops OR deployment)'
+  '"nginx error" OR "502 bad gateway" (deployment OR rollback OR incident) -railway -render'
+  '"app crashed" AND (deployment OR production OR incident) -instagram -facebook -banking'
+  '"rollback" OR "incident response" OR "postmortem" (deployment OR infrastructure OR devops)'
+  '"prod down" OR "production incident" OR "outage" (deployment OR infra) -airline -bank -payment'
 )
 
 > /tmp/pain_points.json
@@ -86,12 +86,14 @@ echo "✓ Pain points collected"
 echo "📌 Collecting Audience Signals..."
 
 AUDIENCE_QUERIES=(
-  '"vibe coding" OR "vibe coder" OR "#vibecoding"'
-  '"built with cursor" OR "built with claude"'
-  '"solo founder" devops OR server'
-  '"no devops" OR "can'\''t afford devops"'
-  '"indie hacker" server OR deploy OR hosting'
-  '"first VPS" OR "first server" OR "learned to deploy"'
+  '"vibe coding" OR "vibe coder" OR "#vibecoding" (deploy OR server OR devops)'
+  '"built with cursor" OR "built with claude" (deploy OR hosting OR server) -windows'
+  '"solo founder" (devops OR server OR deploy OR production) -crypto -shopify'
+  '"indie hacker" (server OR deploy OR hosting OR production) -crypto -dropship'
+  '"can'\''t afford devops" OR "no devops" (deploy OR production OR infrastructure)'
+  '"first VPS" OR "first server" (deploy OR production OR learn) -windows -hosting-promo'
+  '"learning to deploy" OR "deploying my app" (first time OR scared OR anxiety)'
+  '"got my app deployed" OR "deployed to production" (indie OR solo OR first time)'
 )
 
 > /tmp/audience_signals.json
@@ -103,17 +105,19 @@ done
 echo "✓ Audience signals collected"
 
 # ============================================================================
-# КАТЕГОРИЯ 3: КОНКУРЕНТЫ (medium priority)
+# КАТЕГОРИЯ 3: КОНКУРЕНТЫ & PAIN PATTERNS (medium priority)
 # ============================================================================
 
-echo "📌 Collecting Competitor Mentions..."
+echo "📌 Collecting Competitor & Pain Pattern Mentions..."
 
 COMPETITOR_QUERIES=(
-  '"vercel expensive" OR "railway pricing" OR "render slow"'
-  '"moved from heroku" OR "heroku alternative" OR "leaving vercel"'
-  '"need something simpler" hosting OR deploy'
-  '"too complex" kubernetes OR docker OR CI/CD'
-  '"just want to deploy" OR "deploy should be simple"'
+  '"vercel expensive" OR "railway pricing" OR "render slow" -crypto'
+  '"moved from heroku" OR "heroku alternative" OR "left vercel" -crypto'
+  '"need something simpler" (hosting OR deploy OR infrastructure) -shopify'
+  '"too complex" (kubernetes OR docker OR "CI/CD") -kubernetes-guide -tutorial'
+  '"just want to deploy" OR "deploy should be simple" (app OR server OR production) -windows'
+  '"kubernetes overkill" OR "k8s too much" (simple OR small project OR indie)'
+  '"deployment anxiety" OR "afraid to deploy" (first OR learning OR help)'
 )
 
 > /tmp/competitors.json
@@ -131,18 +135,17 @@ echo "✓ Competitors collected"
 echo "📌 Monitoring Watchlist..."
 
 WATCHLIST=(
-  "levelsio"
-  "kelseyhightower"
-  "rakyll"
-  "copyconstruct"
-  "jezhumble"
-  "allspaw"
-  "marclouvier"
-  "tdinh_me"
-  "DanielFosworthy"
-  "railway"
-  "vercel"
-  "render"
+  "levelsio"              # Indie hacker, deployment wisdom
+  "kelseyhightower"       # Kubernetes, DevOps authority
+  "rakyll"                # Go, observability, production insights
+  "copyconstruct"         # Systems design, production concerns
+  "jezhumble"             # DevOps, continuous delivery pioneer
+  "allspaw"               # On-call, incident response culture
+  "tdinh_me"              # Infrastructure, deployment patterns
+  "DanielFosworthy"       # DevOps, automation
+  "railway"               # Platform competitor (signal monitoring)
+  "vercel"                # Platform competitor (signal monitoring)
+  "render"                # Platform competitor (signal monitoring)
 )
 
 > /tmp/watchlist.json

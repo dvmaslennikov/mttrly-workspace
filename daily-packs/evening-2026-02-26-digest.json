@@ -1,0 +1,80 @@
+{
+  "timestamp": "2026-02-26T18:41:10.241Z",
+  "mode": "evening",
+  "stats": {
+    "collected": 209,
+    "passed_filters": 11,
+    "skipped": 198
+  },
+  "categories": {
+    "hot": [
+      {
+        "id": "2026791678992904310",
+        "author": "TheConfigGuy",
+        "text": "@edgaralandough This is basically the modern indie hacker starter pack. The fact that you can ship a...",
+        "likes": 46,
+        "score": 14.24,
+        "reply": "The $30 stack works until one service goes down and you have no idea what broke. That's when people realize cheap isn't the problem—observability is.",
+        "url": "https://x.com/TheConfigGuy/status/2026791678992904310"
+      },
+      {
+        "id": "2026385978512867428",
+        "author": "fluxdiv",
+        "text": "@jiratickets &gt; be cloud hosting company\n&gt; generous free and low tier pricing\n&gt; predatory ov...",
+        "likes": 66,
+        "score": 14.11,
+        "reply": "The overage charges are the killer. People start free, hit $300+ bill, then realize they built on quicksand. The problem isn't price—it's surprise bills.",
+        "url": "https://x.com/fluxdiv/status/2026385978512867428"
+      }
+    ],
+    "good": [
+      {
+        "id": "2027041370834153941",
+        "author": "GoogleCloudTech",
+        "text": "Dive deep into modern development with this skill badge: Building a Smart Cloud Application with Vib...",
+        "likes": 44,
+        "score": 8.22,
+        "reply": "The scary part isn't building fast with vibe coding. It's the deploy moment after. That's where most people hit the wall and stop.",
+        "url": "https://x.com/GoogleCloudTech/status/2027041370834153941"
+      },
+      {
+        "id": "2026746397748265328",
+        "author": "Goldrichie14",
+        "text": "Just jumped into the session with @BuildOnNodeOps and the energy is insane \n\nReal-time vibe coding, ...",
+        "likes": 24,
+        "score": 5.13,
+        "reply": "The scary part isn't building fast with vibe coding. It's the deploy moment after. That's where most people hit the wall and stop.",
+        "url": "https://x.com/Goldrichie14/status/2026746397748265328"
+      },
+      {
+        "id": "2026452426920767492",
+        "author": "walls_jason1",
+        "text": "Solo founder, Master Electrician, zero CS degree. Claude Code helped me build https://t.co/Kfvj0C109...",
+        "likes": 7,
+        "score": 4.35,
+        "reply": "Built a production app without CS background—that's impressive. The hard part wasn't building it, it's shipping and not panicking when something breaks in prod.",
+        "url": "https://x.com/walls_jason1/status/2026452426920767492"
+      }
+    ],
+    "monitoring": [
+      {
+        "id": "2026783119173427528",
+        "author": "levelsio",
+        "text": "🪴 To prove this works, I pulled a random SketchUp garden design from web, put it in 🏡 Interior AI ...",
+        "likes": 289,
+        "score": 3.55,
+        "reply": "What was the moment when you realized X wasn't going to work anymore?",
+        "url": "https://x.com/levelsio/status/2026783119173427528"
+      },
+      {
+        "id": "2027067933759860738",
+        "author": "levelsio",
+        "text": "It's anti-marketing\n\nYou make people think \"Why in the hell he'd post this? He thinks this makes his...",
+        "likes": 28,
+        "score": 2.69,
+        "reply": "The real problem isn't the tool. It's that most tools solve the wrong part of the equation.",
+        "url": "https://x.com/levelsio/status/2027067933759860738"
+      }
+    ]
+  }
+}
