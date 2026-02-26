@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "@steipete/bird": "^0.8.0",
-    "bird-cli": "^1.2.0"
+    "@steipete/bird": "^0.8.0"
   }
 }
