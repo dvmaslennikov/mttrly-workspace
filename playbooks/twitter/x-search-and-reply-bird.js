@@ -44,9 +44,10 @@ const CONFIG = {
 
 function isBot(author) {
   if (!author) return true;
-  if (/^[a-z]{10,}$/.test(author)) return true;
-  if (author.followers && author.followers < 10) return true;
-  if (/bot|news|feed|api|alert|monitor/i.test(author.name || '')) return true;
+  const username = typeof author === 'string' ? author : (author.username || '');
+  const name = typeof author === 'string' ? '' : (author.name || '');
+  if (username && /^[a-z]{14,}$/.test(username)) return true;
+  if (/bot|news|feed|api|alert|monitor/i.test(name)) return true;
   return false;
 }
 
@@ -70,13 +71,13 @@ function getPriority(tweet, category, watchlist) {
   let priority = 'МОНИТОРИНГ';
   let score = 0;
   
-  const engagement = (tweet.public_metrics?.like_count || 0) +
-                    (tweet.public_metrics?.reply_count || 0) +
-                    (tweet.public_metrics?.retweet_count || 0);
+  const engagement = (tweet.public_metrics?.like_count || tweet.likeCount || 0) +
+                    (tweet.public_metrics?.reply_count || tweet.replyCount || 0) +
+                    (tweet.public_metrics?.retweet_count || tweet.retweetCount || 0);
   
+  const username = tweet.username || tweet.author?.username || '';
   const isWatched = watchlist.some(w => 
-    tweet.author_id?.toLowerCase?.() === w.toLowerCase() ||
-    tweet.username?.toLowerCase?.() === w.toLowerCase()
+    username?.toLowerCase?.() === w.toLowerCase()
   );
   
   // Pain point + высокий engagement = ГОРЯЧЕЕ
@@ -222,16 +223,20 @@ async function main() {
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
   });
   
-  // Run bird-digest.sh
-  console.log('[BIRD] Running collection script...');
-  try {
-    execSync(`bash playbooks/twitter/bird-digest.sh ${mode}`, {
-      cwd: '/home/openclaw/.openclaw/workspace',
-      stdio: 'inherit'
-    });
-  } catch (e) {
-    console.error('[ERROR] bird-digest.sh failed:', e.message);
-    process.exit(1);
+  // Run bird-digest.sh unless wrapper already collected
+  if (process.env.SKIP_CRAWL === '1') {
+    console.log('[BIRD] SKIP_CRAWL=1, using existing /tmp/bird_*.json');
+  } else {
+    console.log('[BIRD] Running collection script...');
+    try {
+      execSync(`bash playbooks/twitter/bird-digest.sh ${mode}`, {
+        cwd: '/home/openclaw/.openclaw/workspace',
+        stdio: 'inherit'
+      });
+    } catch (e) {
+      console.error('[ERROR] bird-digest.sh failed:', e.message);
+      process.exit(1);
+    }
   }
   
   console.log('[PARSE] Reading bird outputs...\n');
@@ -239,17 +244,17 @@ async function main() {
   // Parse results from /tmp/*.json
   const allTweets = [];
   const jsonFiles = [
-    '/tmp/pain_points.json',
-    '/tmp/audience_signals.json',
-    '/tmp/competitors.json',
-    '/tmp/watchlist.json'
+    '/tmp/bird_pain.json',
+    '/tmp/bird_audience.json',
+    '/tmp/bird_comp.json',
+    '/tmp/bird_watch.json'
   ];
   
   const categoryMap = {
-    '/tmp/pain_points.json': 'pain_points',
-    '/tmp/audience_signals.json': 'audience',
-    '/tmp/competitors.json': 'competitors',
-    '/tmp/watchlist.json': 'watchlist'
+    '/tmp/bird_pain.json': 'pain_points',
+    '/tmp/bird_audience.json': 'audience',
+    '/tmp/bird_comp.json': 'competitors',
+    '/tmp/bird_watch.json': 'watchlist'
   };
   
   jsonFiles.forEach(file => {
@@ -278,12 +283,12 @@ async function main() {
     if (!isEnglish(t.text)) return false;
     
     // Low engagement
-    const engagement = (t.public_metrics?.like_count || 0) + 
-                      (t.public_metrics?.reply_count || 0);
+    const engagement = (t.public_metrics?.like_count || t.likeCount || 0) + 
+                      (t.public_metrics?.reply_count || t.replyCount || 0);
     if (engagement < CONFIG.minEngagement) return false;
     
     // Bot
-    if (isBot(t.author_id)) return false;
+    if (isBot(t.author || t.author_id || t.username)) return false;
     
     return true;
   });
@@ -305,7 +310,7 @@ async function main() {
   // Display top 5
   console.log('[TOP 5]\n');
   filtered.slice(0, 5).forEach((t, i) => {
-    console.log(`${i+1}. @${t.username || t.author_id} [${t.priority}] ${t.score}`);
+    console.log(`${i+1}. @${t.username || t.author?.username || t.author_id} [${t.priority}] ${t.score}`);
     console.log(`   "${t.text?.substring(0, 70)}..."\n`);
   });
   

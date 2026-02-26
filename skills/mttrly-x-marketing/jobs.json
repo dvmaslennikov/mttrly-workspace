@@ -1,0 +1,16 @@
+{
+  "jobs": [
+    {
+      "schedule": "0 6 * * *",
+      "command": "agent --message 'Утренний скан. Запусти bird-digest.sh morning. Прочитай результаты из /tmp/bird_*.json. Отфильтруй: только твиты с 10+ лайками, на английском, не старше 12 часов. Проверь engagement-tracking.md на дубли. Ранжируй: ГОРЯЧЕЕ (pain point + высокий engagement), ХОРОШЕЕ (audience signal), МОНИТОРИНГ (остальное). Для ГОРЯЧИХ — сгенерируй предложенный реплай в голосе mttrly (полезный совет, без рекламы). Отправь дайджест в Telegram.'"
+    },
+    {
+      "schedule": "0 16 * * *",
+      "command": "agent --message 'Вечерний скан. То же что утром но bird-digest.sh evening. Исключи твиты из утреннего дайджеста.'"
+    },
+    {
+      "schedule": "0 7 * * 1",
+      "command": "agent --message 'Еженедельный отчёт. Используй x-smart-read (uv run scripts/x_briefing.py --hours 168). Посчитай из engagement-tracking.md: сколько реплаев, какие зашли. Отправь в Telegram.'"
+    }
+  ]
+}
