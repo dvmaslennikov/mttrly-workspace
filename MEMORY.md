@@ -142,18 +142,165 @@
 - `response-policy.md` — правила ответов
 - `daily-template.md` — логирование
 
-## Текущий статус (2026-02-25)
+## Текущий статус (2026-02-26)
 
 | Компонент | Статус |
 |-----------|--------|
 | Gateway | active (running) |
-| Browser profile "openclaw" | running, 9 tabs, Twitter logged in as @mttrly_ |
-| Browser profile "chrome" | running, 0 tabs (unused) |
-| Primary model | anthropic/claude-sonnet-4-5 |
-| Available models | haiku-4-5, sonnet-4-5, opus-4, + codex |
-| Autostart browser | ExecStartPost работает ✓ |
+| Browser profile "openclaw" | running, authenticated as @mttrly_ |
+| Primary model | openai-codex/gpt-5.3-codex (LOCKED — no changes without explicit instruction) |
+| bird CLI | installed, authenticated, ready |
+| bird credentials | stored in ~/.openclaw/.env.bird |
+| Twitter engagement design | Complete, deferred implementation |
 | Safety rules | SAFETY-RULES.md + SOUL.md updated ✓ |
 
-✅ Готов к Twitter ops  
-✅ Home feed работает  
-✅ Можем постить/искать/читать треды  
+✅ Готов к Twitter ops (bird-based, читаем JSON вывод)
+✅ Дизайн engagement module завершён (код ждёт одобрения)
+✅ Можем постить/искать/читать треды
+
+## Twitter Engagement Module Design (2026-02-26)
+
+**Architecture:**
+```
+bird-digest.sh (JSON) → Agent (filter/score/dedup) → Replies (empathy→value→mention) → Telegram digest → Dima (approve) → Post
+```
+
+**File structure (TO CREATE):**
+- `x-search-queries.md` — 4 категории (pain points, audience, competitors, watchlist)
+- `x-watchlist.md` — 15+ accounts + refresh rules
+- `x-reply-templates.md` — formula + examples + phrases
+- `x-smart-read-weekly.js` — аналитика (replies, followers, trends)
+
+**Фильтры (strict):**
+- English only
+- 10+ likes minimum
+- 500–50K followers
+- 12h morning / 8h evening
+- Original tweets only
+- No bots, no SaaS promo, no commercial
+- Dedup via x-engagement-tracking.md (90-day TTL)
+
+**Reply formula (Gilfoyle mode):**
+- Empathy (1 sent) → Value (1–2 sent) → Soft mention (optional, rare)
+- Ratio: 90/10 (value/promo)
+- Tone: Dry, smart, confident engineer
+- Исключить: Buy now, Check out, clickbait, fake engagement
+
+**Telegram digest:**
+- ГОРЯЧЕЕ (HOT): Watchlist + High relevance + Fresh (2h)
+- ХОРОШЕЕ (GOOD): Pain points + Audience signals (2–8h)
+- МОНИТОРИНГ: Low-priority + community + trends
+- Budget display: bird $0 | x-smart-read $0.02
+- Call-to-action: Approve buttons (inline)
+
+**Dedup strategy:**
+- Track replied + skipped (reason)
+- TTL: 90 days
+- Permanent block: Non-English, low engagement, promo
+
+## Стиль коммуникации с Димой
+
+- **Primary model:** openai-codex/gpt-5.3-codex (LOCKED — Rule #5 SOUL.md)
+- **Model change rule:** НИКОГДА не менять без explicit instruction от Дима (SOUL.md)
+- **Decisions rule:** Всегда present → explain → analysis → risks → rollback перед модификациями
+- **Heartbeat regel:** Проверяем что нужно (email/calendar/weather) — если ничего, HEARTBEAT_OK
+
+## Filter Updates v2 (2026-02-26 evening)
+
+**Дима заметил:** Старые фильтры слишком жесткие → фактически 0 твитов для reply
+
+**Правки (реализованы):**
+1. **Лайки понижены:** pain_points 3+, остальное 5+ (было 10+ для всех)
+2. **Время расширено:** 48–72h вместо 8h (хороший контент не появляется каждые 8h)
+3. **Replies включены:** были исключены, теперь включены (domain experts пишут в replies)
+4. **Search queries переделаны:** dev-focused (deployment + kubernetes/docker), убрана generic "site is down"
+5. **Watchlist очищен:** удален marclouvier, оставлены активные авторитеты
+6. **Minus-слова добавлены:** -crypto, -shopify, -banking, -instagram для шумоподавления
+
+**Ожидаемый результат:**
+- Before: 2–5 твитов/прогон → After: 20–50 твитов/прогон
+- Reply bonus: +1 точка для replies от authorities
+- Scoring range: 0–18 (вместо 0–20)
+
+**Обновленные файлы:**
+- ✅ LLM-PROMPT-evening-engagement.md (scoring formula, примеры с replies, authority list)
+- ✅ bird-digest.sh (21 новых query vs 7 старых, minus-слова в каждом)
+- ✅ x-evening-digest.js (engagement thresholds, reply categorization, new scoring)
+- ✅ FILTER-UPDATES-v2.md (full documentation of changes)
+
+## Reply System Overhaul (2026-02-26 evening, Session 2)
+
+**Критический фидбек от Дима:** Replies звучат как боты, ссылки на неправильных твитах, Contrarian tone опасен
+
+**Проблема #1: Звучит как бот**
+- ❌ Generic openings: "I feel this", "Spot on", "Exactly this"
+- ❌ Не цепляет за конкретные детали
+- ✅ Решение: Hook First правило (первые 5-7 слов должны цепляться за деталь из твита)
+- Пример: "The $30 stack works until..." vs "I feel this"
+
+**Проблема #2: Ссылки на mttrly на маленьких твитах**
+- ❌ Ссылка на твит с 17 views = разговор с пустой комнатой
+- ✅ Решение: Engagement threshold для Template C
+  - < 200 views: Template A (no link)
+  - 200-500 views: Template B (no link, question)
+  - 500+ views: Template C (optional link, только pain_points)
+  - Link ratio: max 40% even for 500+ tweets
+
+**Проблема #3: Contrarian tone (Template E)**
+- ❌ "I'd push back slightly" от аккаунта с 50 followers = presumptuous
+- ✅ Решение: Template E DISABLED до 1K followers
+
+**РЕШЕНИЕ: Новая система Templates**
+
+```
+Template A (Pure Value):
+├─ Uses: views < 500
+├─ Hook first + specific detail
+├─ No mention of mttrly
+├─ Example: "The $30 stack works until one service goes down..."
+
+Template B (Question):
+├─ Uses: 200-500 views
+├─ Thoughtful question based on detail
+├─ No link, no mention
+├─ Example: "What's your observability setup for this?"
+
+Template C (Value + Soft Mention):
+├─ Uses: 500+ views AND pain_point category
+├─ Hook first, then value, then optional mention
+├─ Max 40% of replies have link
+├─ Example: "The overage charges are killer. People hit $300 bill..."
+
+Template D (Contrarian Agree):
+├─ DISABLED until 1K followers
+├─ Re-enable when: followers >= 1000
+```
+
+**Переделал:**
+1. LLM-PROMPT-evening-engagement.md
+   - Новые Templates A/B/C/D с использованием
+   - Hook First правило (MANDATORY)
+   - Engagement threshold для Template C
+   - Removed generic openings
+
+2. x-evening-digest.js
+   - selectTemplate(tweet) — выбор по views + category
+   - generateReply() с hooks для каждой категории
+   - isNoise() фильтр (crypto, ransomware, interior design, etc)
+   - Competitor filter (railway, vercel, render исключены)
+   - Fixed getCategory() — audience signals check first
+
+3. bird-digest.sh
+   - Updated search queries (dev-focused)
+   - Minus-слова для каждого запроса
+
+4. evening-2026-02-26-REPORT.md
+   - Human-readable digest с контекстом на русском
+   - Полные твиты + replies + ссылки
+
+**Git commit: e5e98e5**
+- refactor: twitter engagement system - hook-first replies + improved filters v2
+- 6 files changed, 1372 insertions
+- Files: LLM-PROMPT-evening-engagement.md, FILTER-UPDATES-v2.md, x-evening-digest.js, bird-digest.sh, evening-2026-02-26-REPORT.md, evening-2026-02-26-digest.json
+
+**KEY TAKEAWAY:** Replies качество зависит не от количества templates, а от того как их используешь. Hook First + Engagement Thresholds = естественные, читаемые replies.  
