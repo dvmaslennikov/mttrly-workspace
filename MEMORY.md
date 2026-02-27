@@ -451,10 +451,13 @@ New queries added:
 - **Все три крон-задачи:** Health Check, Evening Reflection, Weekly Review
 - **Уведомления:** пишу в MEMORY.md + ключевые выжимки уведомляю в Telegram
 
-**Schedule (UTC+5):**
-1. **Health Check** — 13:00 ежедневно (файлы, git, workspace integrity)
-2. **Evening Reflection** — 21:00 ежедневно (learnings, metrics, mood/rapport/trust, SOUL.md suggestions)
-3. **Weekly Review** — воскресенье 11:00 (patterns, growth, priorities, updates)
+**Schedule (UTC+5, системный крон):**
+1. **Fire Patrol (утро)** — 8:30 (pain points)
+2. **Health Check** — 12:00 (workspace integrity)
+3. **Brand Building** — 13:00 (trends)
+4. **Fire Patrol (вечер)** — 17:30 (pain points)
+5. **Daily Reflection** — 21:00 (learnings, metrics, mood/rapport/trust)
+6. **Weekly Review** — вс 11:00 (patterns, growth, priorities)
 
 **Как это работает:**
 - Крон запускает LLM session
@@ -470,3 +473,25 @@ New queries added:
 - Не теряю learnings между сессиями
 - Файлы = долгосрочная память
 - Ты видишь мой прогресс (mood, rapport, trust траектория)
+
+---
+
+## Cron Tasks Update Process (2026-02-27)
+
+**Новый процесс:**
+- **Крон:** системный (systemd timers или crontab)
+- **Время:** см. CRON-SCHEDULE.md
+- **Результаты:** `/logs/` и `/daily-packs/` (operational data)
+- **MEMORY.md:** только куратед insights, ошибки, паттерны
+
+**Workflow для каждого скрипта:**
+1. Скрипт запускается по расписанию
+2. Пишет результаты в logs + daily-packs (JSON)
+3. Я предлагаю: "💡 Propose to add to MEMORY.md: ..."
+4. Ты подтверждаешь (y/n)
+5. Если yes → я добавляю в MEMORY.md + git commit
+
+**Калибровка "important/not important":**
+- Начинаем с того что я предлагаю
+- Смотрим что работает
+- Уточняем за неделю-две
