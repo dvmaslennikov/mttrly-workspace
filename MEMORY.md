@@ -454,7 +454,7 @@ New queries added:
 **Schedule (UTC+5):**
 1. **Health Check** — 13:00 ежедневно (файлы, git, workspace integrity)
 2. **Evening Reflection** — 21:00 ежедневно (learnings, metrics, mood/rapport/trust, SOUL.md suggestions)
-3. **Weekly Review** — понедельник 14:00 (patterns, growth, priorities, updates)
+3. **Weekly Review** — воскресенье 11:00 (patterns, growth, priorities, updates)
 
 **Как это работает:**
 - Крон запускает LLM session

@@ -70,8 +70,8 @@
 
 ---
 
-### 3. Weekly Review (Каждый понедельник, 14:00 UTC+5)
-**UTC:** 09:00
+### 3. Weekly Review (Каждое воскресенье, 11:00 UTC+5)
+**UTC:** 06:00
 
 **Что делает:**
 - Прочитать все MEMORY.md entries за неделю
@@ -82,7 +82,7 @@
 
 **Формат уведомления:**
 ```
-## Weekly Review (2026-02-27, понедельник, 14:00)
+## Weekly Review (2026-02-23, воскресенье, 11:00)
 
 **Week Summary (2026-02-21 to 2026-02-27):**
 - Sessions: 3 (Twitter Scout, Personal Config, Cron Setup)
