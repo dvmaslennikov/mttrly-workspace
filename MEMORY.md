@@ -248,6 +248,19 @@
 ✅ Systemd timers УДАЛЕНЫ (были дубли с crontab)
 ✅ Дизайн engagement module завершён (код ждёт одобрения)
 
+## Consolidated Rules (promoted, 2026-02-27)
+
+1. **Concrete feedback → fastest quality gain**
+   - Примеры и конкретика дают максимальный прирост качества за минимальное время.
+
+2. **Approval gate is non-negotiable**
+   - Любые изменения только после явного "да/делай".
+   - Диагностика и исправление никогда не смешивать.
+
+3. **No silent functionality removal during cleanup/refactor**
+   - Перед cleanup всегда список "что обязано остаться".
+   - Нельзя удалять/отключать рабочий функционал без явного согласования.
+
 ## Twitter Engagement Module Design (2026-02-26)
 
 **Architecture:**
