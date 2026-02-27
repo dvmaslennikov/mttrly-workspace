@@ -158,7 +158,28 @@
 - `response-policy.md` — правила ответов
 - `daily-template.md` — логирование
 
-## Текущий статус (2026-02-26)
+## Fire-Patrol Script Fix (2026-02-27)
+
+**Проблема:** `bird search` выдаёт текстовый вывод, а `npx bird` не работает корректно. Скрипт падал с jq ошибками (Invalid numeric literal).
+
+**Решение:**
+1. Использовать `node .../bird/dist/cli.js` напрямую (абсолютный path через WORKSPACE_DIR)
+2. Добавить флаг `--json` для JSON output
+3. Конвертировать JSON array → JSONL (`.[] | @json` -r) для безопасной обработки
+4. Парсить JSONL в финальный JSON: уникализация по ID + сортировка по лайкам
+
+**Результат:**
+- Собирает 160+ tweets за 10 queries (~30 сек)
+- Выход: `/daily-packs/fire-patrol-candidates-*.json` (120KB, valid JSON)
+
+**Systemd timers (установлены):**
+- `fire-patrol-morning.timer`: 04:30 CET (8:30 UTC+5 ≈ Amsterdam offset)
+- `fire-patrol-evening.timer`: 13:30 CET (17:30 UTC+5)
+- Status: enabled, running, next execution scheduled
+
+**Telegram: bot-to-bot блокирован.** Используем файлы + heartbeat для обзора результатов.
+
+## Текущий статус (2026-02-27)
 
 | Компонент | Статус |
 |-----------|--------|
@@ -167,12 +188,16 @@
 | Primary model | openai-codex/gpt-5.3-codex (LOCKED — no changes without explicit instruction) |
 | bird CLI | installed, authenticated, ready |
 | bird credentials | stored in ~/.openclaw/.env.bird |
+| fire-patrol script | ✅ fixed, tested, systemd timers running |
+| Systemd timers | ✅ fire-patrol-morning + evening enabled |
+| JSON output schema | ✅ working, 120KB per run, deduped + sorted |
 | Twitter engagement design | Complete, deferred implementation |
+| Telegram file sending | ⚠️ blocked (bot-to-bot), using file monitoring instead |
 | Safety rules | SAFETY-RULES.md + SOUL.md updated ✓ |
 
-✅ Готов к Twitter ops (bird-based, читаем JSON вывод)
+✅ Fire patrol fully operational (morning + evening runs)
+✅ Systemd integration working
 ✅ Дизайн engagement module завершён (код ждёт одобрения)
-✅ Можем постить/искать/читать треды
 
 ## Twitter Engagement Module Design (2026-02-26)
 
