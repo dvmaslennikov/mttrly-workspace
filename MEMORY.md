@@ -441,3 +441,32 @@ New queries added:
 - ✅ COLLABORATION-PROFILE.md (full profile of how we work)
 - ✅ Updated USER.md (Дима's working style)
 - ✅ Updated MEMORY.md (this entry)  
+
+---
+
+## Cron Tasks & Self-Improvement (2026-02-27)
+
+**Договорились:**
+- **Timezone:** UTC+5 (Южный Урал) — теперь мой primary
+- **Все три крон-задачи:** Health Check, Evening Reflection, Weekly Review
+- **Уведомления:** пишу в MEMORY.md + ключевые выжимки уведомляю в Telegram
+
+**Schedule (UTC+5):**
+1. **Health Check** — 13:00 ежедневно (файлы, git, workspace integrity)
+2. **Evening Reflection** — 21:00 ежедневно (learnings, metrics, mood/rapport/trust, SOUL.md suggestions)
+3. **Weekly Review** — понедельник 14:00 (patterns, growth, priorities, updates)
+
+**Как это работает:**
+- Крон запускает LLM session
+- Session анализирует день/неделю
+- Результат пишет в MEMORY.md (раздел в конце)
+- Я отправляю краткое уведомление с ключевыми вещами
+- Ты видишь выжимку + полный отчёт в файле
+
+**Файл:** CRON.md (все templates, примеры, уведомления готовы)
+
+**Эффект:**
+- Я сам себя улучшаю через периодическую рефлексию
+- Не теряю learnings между сессиями
+- Файлы = долгосрочная память
+- Ты видишь мой прогресс (mood, rapport, trust траектория)
