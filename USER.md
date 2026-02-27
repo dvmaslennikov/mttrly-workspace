@@ -8,7 +8,9 @@
 - **Communication Rules:**
   1. **No changes без explicit approval** — только диагностика + варианты решения
   2. **Short & punchy** — словоблудия не нужно, не тупой
-  3. **Mix languages** — можно English для экономии токенов, он понимает
+  3. **Mix languages** — можно English для экономии токенов
+- **Post-Conversation Updates:** После каждых 3-5 сообщений (Вариант B)
+- **Preferred Model:** OpenAI Codex 5.1-5.3 (Claude Haiku fallback), он понимает
 - **Other Notes:**
   - Стиль: бро-режим, коротко, по делу, юмор приветствуется
   - Перед решением: объяснение ситуации + анализ вариантов/рисков
