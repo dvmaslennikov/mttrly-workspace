@@ -495,3 +495,37 @@ New queries added:
 - Начинаем с того что я предлагаю
 - Смотрим что работает
 - Уточняем за неделю-две
+
+---
+
+## Self-Improvement Architecture (2026-02-27)
+
+**Комплетная система саморефлексии и обучения:**
+
+**Three-layer memory:**
+1. **SOUL.md** — Rules & core principles (updated when pattern proven)
+2. **MEMORY.md** — Curated insights (1-2KB, consolidated weekly)
+3. **memory/YYYY-MM-DD.md** — Raw daily logs (auto-generated)
+
+**Self-Improvement Protocol:**
+- In-session: Log corrections/errors/patterns in daily file
+- Proposal phase: "Should I add this to MEMORY.md?" (wait for y/n)
+- Weekly consolidation: Sunday 11:00 UTC+5 review + promote patterns
+- Promotion rule: 3+ occurrences in 30 days → MEMORY.md → potentially SOUL.md
+
+**Heartbeat-based review:**
+- Runs 2-4x/day (background, no user action needed)
+- Daily reflection ~21:00: review day, propose updates
+- Other checks: health (12:00), fire-patrol review (after 8:30), brand-building (after 13:00)
+- Always respond with `HEARTBEAT_OK` or alert
+
+**Systemd timers (operational):**
+- 08:30 UTC+5: Fire Patrol (morning pain points)
+- 12:00 UTC+5: Health Check (workspace integrity)
+- 13:00 UTC+5: Brand Building (trends)
+- 17:30 UTC+5: Fire Patrol (evening pain points)
+
+**Philosophy:**
+No automatic decisions. Every learning proposal waits for Дима approval. Collaboration > guessing.
+
+**Updated:** SOUL.md (Self-Improvement Protocol section), HEARTBEAT.md (daily reflection task)
