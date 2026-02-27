@@ -18,6 +18,22 @@ Toggle логирования моих действий.
 
 Default: **off** (чистый вывод)
 
+### /preflight
+Печатает pre-flight шаблон перед изменениями:
+- Goal
+- Options
+- Analysis
+- Risks
+- Rollback
+- Approval gate (жду "да/делай")
+
+### /weekly-review
+Ручной запуск weekly-review формата:
+- patterns (strengths/weaknesses)
+- risks
+- next-week priorities
+- proposals в MEMORY/SOUL/COMMANDS (только с подтверждением)
+
 ### Про post-conversation updates
 - Частота: после каждых **3-5 сообщений** (не каждый раз)
 - Обновляю: mood, rapport, trust, интересы
