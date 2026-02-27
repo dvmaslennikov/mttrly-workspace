@@ -31,6 +31,38 @@ log() {
   echo "[$(date -u +'%Y-%m-%d %H:%M:%S UTC')] $*" | tee -a "$LOG_FILE"
 }
 
+# Telegram alert for failures
+send_telegram_alert() {
+  local alert_msg="$1"
+  local WORKSPACE_DIR
+  WORKSPACE_DIR="$(cd "$SKILL_DIR/../.." && pwd)"
+  local OPENCLAW_DIR
+  OPENCLAW_DIR="$(dirname "$WORKSPACE_DIR")"
+  local CONFIG_FILE="$OPENCLAW_DIR/openclaw.json"
+
+  if [ ! -f "$CONFIG_FILE" ]; then
+    log "WARN: Cannot send Telegram alert — openclaw.json not found"
+    return 1
+  fi
+
+  local BOT_TOKEN
+  BOT_TOKEN=$(node -e "const c=require('$CONFIG_FILE'); console.log(c.channels?.telegram?.botToken||'')" 2>/dev/null)
+  local CHAT_ID
+  CHAT_ID=$(node -e "const a=require('$OPENCLAW_DIR/credentials/telegram-default-allowFrom.json'); const ids=a.allowFrom||a; console.log(Array.isArray(ids)?ids[0]:'')" 2>/dev/null)
+
+  if [ -z "$BOT_TOKEN" ] || [ -z "$CHAT_ID" ]; then
+    log "WARN: Cannot send Telegram alert — missing bot token or chat ID"
+    return 1
+  fi
+
+  curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
+    -H "Content-Type: application/json" \
+    -d "$(node -e "console.log(JSON.stringify({chat_id:'${CHAT_ID}',text:'${alert_msg}',parse_mode:'HTML'}))")" \
+    > /dev/null 2>&1
+
+  log "Telegram failure alert sent"
+}
+
 # Main execution
 main() {
   log "=== twitter-scout $MODE run started ==="
@@ -77,6 +109,19 @@ main() {
     local exit_code=$?
     log ""
     log "❌ Scan failed with exit code: $exit_code"
+
+    # Determine failure reason from log
+    local fail_reason="unknown error (exit code $exit_code)"
+    if grep -qi "401\|403\|auth" "$LOG_FILE" 2>/dev/null; then
+      fail_reason="Auth failure (cookies expired?). Update ~/.openclaw/.env.bird"
+    elif grep -qi "429\|rate.limit" "$LOG_FILE" 2>/dev/null; then
+      fail_reason="Rate limited by Twitter. Will retry next scheduled run."
+    elif grep -qi "All.*queries failed" "$LOG_FILE" 2>/dev/null; then
+      fail_reason="All queries failed. Check bird CLI and auth."
+    fi
+
+    send_telegram_alert "⚠️ <b>Scout ${MODE} FAILED</b>\n\nReason: ${fail_reason}\nTime: $(date -u +%Y-%m-%d\ %H:%M\ UTC)"
+
     return $exit_code
   fi
 
@@ -93,6 +138,7 @@ main() {
       log "✅ Digest processed and sent"
     else
       log "⚠️ Digest processing failed (non-fatal)"
+      send_telegram_alert "⚠️ <b>Digest processing failed</b> (${MODE})\nCheck log: ${LOG_FILE}"
     fi
   else
     log "⚠️ No candidates file found for $MODE"

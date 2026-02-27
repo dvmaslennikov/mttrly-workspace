@@ -56,6 +56,12 @@ declare -a FIRE_PATROL_QUERIES=(
   '"deployment failed" production -scheduled -tutorial'
   '"deploy broke" OR "push broke prod" -howto'
   '"3am alert" OR "woke me up" production issue'
+  # v3 pain-point queries
+  '("my server crashed" OR "my app crashed" OR "site is down" OR "app is down") (deploy OR hosting OR server) -is:retweet'
+  '("no DevOps" OR "cant afford DevOps" OR "DevOps is hard" OR "hate DevOps" OR "DevOps nightmare") -is:retweet'
+  '("woke up to" OR "3am" OR "middle of the night") (server OR deploy OR alert OR incident OR crash OR down) -is:retweet'
+  '("PagerDuty" OR "OpsGenie" OR "Datadog") (expensive OR overkill OR tired OR hate OR alternative OR "too much") -is:retweet'
+  '("deploy from phone" OR "manage server" OR "fix server") (mobile OR phone OR telegram OR chat) -is:retweet'
 )
 
 # Exclusions

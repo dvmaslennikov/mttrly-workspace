@@ -56,6 +56,16 @@ declare -a BRAND_BUILDING_QUERIES=(
   '"moved from vercel" OR "moved from railway" OR "left heroku" why OR migrating'
   '"indie web" movement OR philosophy OR building'
   '"bootstrapped" shipped OR profitable OR sustainable'
+  # v3 brand-building queries
+  '("vibe coding" OR "vibe coder") (server OR deploy OR hosting OR devops OR infrastructure OR crash OR monitoring) -is:retweet'
+  '("indie hacker" OR "solo founder" OR "solo dev") (server OR deploy OR devops OR infrastructure OR hosting OR downtime) -is:retweet'
+  '"vibe coding" (deploy OR production OR broke OR crashed) -is:retweet'
+  '(SRE OR "on-call" OR "incident response") (telegram OR bot OR mobile OR phone OR "from bed") -is:retweet'
+  '("server management" OR "server monitoring") (AI OR bot OR automation OR "natural language") -is:retweet'
+  'from:levelsio (server OR deploy OR hosting OR crash OR infrastructure OR monitor)'
+  'from:marc_louvion (server OR deploy OR hosting OR crash OR infrastructure)'
+  'from:karpathy (vibe coding OR deploy OR infrastructure)'
+  'from:mipsytipsy (on-call OR incident OR monitoring OR alert)'
 )
 
 # Lighter exclusions for brand-building
