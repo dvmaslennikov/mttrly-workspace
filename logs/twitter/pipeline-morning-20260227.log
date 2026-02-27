@@ -1,0 +1,41 @@
+[2026-02-27T06:00:01+01:00] START pipeline mode=morning
+[2026-02-27T06:00:01+01:00] STEP 1: crawl via bird-digest
+🔍 Scanning Twitter (morning mode, last 12h)...
+⚠️ bird command failed: search "server is down" OR "site is down" OR "my app crashed" -n 10 --json
+⚠️ bird command failed: search "deployment failed" OR "deploy broke" OR "push to production failed" -n 10 --json
+⚠️ bird command failed: search "3am alert" OR "pager went off" OR "on-call nightmare" -n 10 --json
+⚠️ bird command failed: search "nginx error" OR "502 bad gateway" -n 10 --json
+⚠️ bird command failed: search "vibe coding" OR "vibe coder" -n 10 --json
+⚠️ bird command failed: search "built with cursor" deploy OR server OR hosting -n 10 --json
+⚠️ bird command failed: search "solo founder" devops OR server -n 10 --json
+⚠️ bird command failed: search "no devops" OR "can't afford devops" -n 10 --json
+⚠️ bird command failed: search "vercel expensive" OR "railway pricing" OR "render slow" -n 10 --json
+⚠️ bird command failed: search "moved from heroku" OR "heroku alternative" -n 10 --json
+⚠️ bird command failed: user-tweets @levelsio -n 5 --json
+⚠️ bird command failed: user-tweets @kelseyhightower -n 5 --json
+⚠️ bird command failed: user-tweets @rakyll -n 5 --json
+⚠️ bird command failed: user-tweets @copyconstruct -n 5 --json
+⚠️ bird command failed: user-tweets @jezhumble -n 5 --json
+⚠️ bird command failed: user-tweets @allspaw -n 5 --json
+⚠️ bird command failed: user-tweets @marclouvier -n 5 --json
+⚠️ bird command failed: user-tweets @tdinh_me -n 5 --json
+⚠️ bird command failed: user-tweets @DanielFosworthy -n 5 --json
+⚠️ bird command failed: user-tweets @railway -n 5 --json
+✅ Scan complete. Raw data in /tmp/bird_*.json
+📋 Pass to OpenClaw agent for filtering and digest generation.
+[2026-02-27T06:00:47+01:00] STEP 2: rank/generate digest (timeout 1200s)
+[X-SEARCH] Starting morning engagement scan
+
+[BIRD] SKIP_CRAWL=1, using existing /tmp/bird_*.json
+[PARSE] Reading bird outputs...
+
+[FILTER] Collected 0 tweets
+
+[FILTERED] 0 passed filters
+
+[TOP 5]
+
+
+[SAVED] /home/openclaw/.openclaw/workspace/daily-packs/digest-2026-02-27T05-00-47-morning.md
+[TELEGRAM] Ready to send digest
+[2026-02-27T06:00:47+01:00] DONE mode=morning

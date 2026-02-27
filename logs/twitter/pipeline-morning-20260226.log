@@ -1,0 +1,61 @@
+[2026-02-26T18:19:32+01:00] START pipeline mode=morning
+[2026-02-26T18:19:32+01:00] STEP 1: crawl via bird-digest
+🔍 Scanning Twitter (morning mode, last 12h)...
+⚠️ bird command failed: user-tweets @DanielFosworthy -n 5 --json
+✅ Scan complete. Raw data in /tmp/bird_*.json
+📋 Pass to OpenClaw agent for filtering and digest generation.
+[2026-02-26T18:20:41+01:00] STEP 2: rank/generate digest (timeout 1200s)
+[X-SEARCH] Starting morning engagement scan
+
+[BIRD] SKIP_CRAWL=1, using existing /tmp/bird_*.json
+[PARSE] Reading bird outputs...
+
+[FILTER] Collected 0 tweets
+
+[FILTERED] 0 passed filters
+
+[TOP 5]
+
+
+[SAVED] /home/openclaw/.openclaw/workspace/daily-packs/digest-2026-02-26T17-20-41-morning.md
+[TELEGRAM] Ready to send digest
+[2026-02-26T18:20:41+01:00] DONE mode=morning
+[2026-02-26T18:22:51+01:00] START pipeline mode=morning
+[2026-02-26T18:22:51+01:00] STEP 1: crawl via bird-digest
+🔍 Scanning Twitter (morning mode, last 12h)...
+⚠️ bird command failed: user-tweets @DanielFosworthy -n 5 --json
+✅ Scan complete. Raw data in /tmp/bird_*.json
+📋 Pass to OpenClaw agent for filtering and digest generation.
+[2026-02-26T18:23:58+01:00] STEP 2: rank/generate digest (timeout 1200s)
+[X-SEARCH] Starting morning engagement scan
+
+[BIRD] SKIP_CRAWL=1, using existing /tmp/bird_*.json
+[PARSE] Reading bird outputs...
+
+[FILTER] Collected 140 tweets
+
+[FILTERED] 21 passed filters
+
+[TOP 5]
+
+1. @_nop33 [ХОРОШЕЕ] 161
+   "With 0 programming experience in Ralph, thanks to the detailed @alephi..."
+
+2. @coopwrenn [ХОРОШЕЕ] 115
+   "A week ago I launched @instaclaws and within days had 3,000+ people on..."
+
+3. @leanmaxxing [ХОРОШЕЕ] 97
+   "@innermaps @Replit @cursor_ai @OpenAI @AnthropicAI @supabase @resend F..."
+
+4. @themkmaker [ХОРОШЕЕ] 96
+   "Reminder if you are a solo founder or work with a small team go setup ..."
+
+5. @Railway [ГОРЯЧЕЕ] 90
+   "🆕 Railway agent skill
+
+Let Claude Code, Codex, Cursor, OpenCode, or a..."
+
+
+[SAVED] /home/openclaw/.openclaw/workspace/daily-packs/digest-2026-02-26T17-23-58-morning.md
+[TELEGRAM] Ready to send digest
+[2026-02-26T18:23:58+01:00] DONE mode=morning

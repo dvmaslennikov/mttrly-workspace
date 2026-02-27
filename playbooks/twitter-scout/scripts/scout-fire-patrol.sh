@@ -8,9 +8,11 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+WORKSPACE_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 REFS_DIR="$SCRIPT_DIR/references"
 ASSETS_DIR="$SCRIPT_DIR/assets"
 OUTPUT_DIR="${OUTPUT_DIR:-.}"
+BIRD_CLI="$WORKSPACE_DIR/node_modules/@steipete/bird/dist/cli.js"
 
 # Load environment
 if [ -f ~/.openclaw/.env.bird ]; then
@@ -49,7 +51,7 @@ declare -a FIRE_PATROL_QUERIES=(
 # Add exclusions to all queries
 EXCLUSIONS='-bankrbot -"deploy the token" -"on Base" -web3 -"on-chain" -airdrop -$SOL -$ETH -"bot token" -"trading bot" -crypto -defi'
 
-# Collect all results
+# Collect all results into temp file
 RESULTS_FILE="/tmp/fire-patrol-results-$$.jsonl"
 > "$RESULTS_FILE"
 
@@ -60,8 +62,8 @@ for query in "${FIRE_PATROL_QUERIES[@]}"; do
   FULL_QUERY="$query $EXCLUSIONS"
   echo "  [$QUERY_COUNT] $query"
   
-  # Run bird search, collect results (JSONL)
-  npx bird search "$FULL_QUERY" -n 20 2>/dev/null | jq -s . >> "$RESULTS_FILE" || true
+  # Run bird search and append each result object to JSONL (one per line)
+  node "$BIRD_CLI" search "$FULL_QUERY" -n 20 --json 2>/dev/null | jq '.[] | @json' -r >> "$RESULTS_FILE" || true
   
   # Rate limit respect
   sleep 2
@@ -73,11 +75,24 @@ echo ""
 # Parse results
 echo "📊 Parsing and filtering..."
 
-# Call LLM-based filtering/generation (when integrated)
-# For now, just aggregate results
-
-echo "💾 Saving candidates to: $OUTPUT_FILE"
-echo "{\"mode\": \"fire-patrol\", \"timestamp\": \"$TIMESTAMP\", \"status\": \"ready_for_llm_filtering\"}" > "$OUTPUT_FILE"
+# Aggregate all results from JSONL file into single JSON array
+if [ -s "$RESULTS_FILE" ]; then
+  # Parse JSONL (one JSON string per line) and build aggregated output
+  TWEET_COUNT=$(wc -l < "$RESULTS_FILE")
+  
+  # Build output with aggregated results
+  echo "💾 Saving $TWEET_COUNT candidates to: $OUTPUT_FILE"
+  jq -s -R '{
+    mode: "fire-patrol",
+    timestamp: "'"$TIMESTAMP"'",
+    query_count: '"$QUERY_COUNT"',
+    tweet_count: ([splits("\n") | select(. != "") | fromjson] | length),
+    candidates: ([splits("\n") | select(. != "") | fromjson] | unique_by(.id) | sort_by(.likeCount) | reverse)
+  }' "$RESULTS_FILE" > "$OUTPUT_FILE"
+else
+  echo "⚠️  No results collected"
+  echo "{\"mode\": \"fire-patrol\", \"timestamp\": \"$TIMESTAMP\", \"status\": \"no_results\", \"candidates\": []}" > "$OUTPUT_FILE"
+fi
 
 echo ""
 echo "✅ Fire Patrol scan complete"
