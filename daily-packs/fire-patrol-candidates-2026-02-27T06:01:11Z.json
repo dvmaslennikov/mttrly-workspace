@@ -1,0 +1,2853 @@
+{
+  "mode": "fire-patrol",
+  "timestamp": "2026-02-27T06:01:11Z",
+  "query_count": 10,
+  "tweet_count": 160,
+  "candidates": [
+    {
+      "id": "1980223055231361135",
+      "text": "@elonmusk that one AWS engineer to lead 😂\n\n\"Looks like the Friday deploy broke production over the weekend\" https://t.co/HD3GGgRzFO",
+      "createdAt": "Mon Oct 20 10:42:21 +0000 2025",
+      "replyCount": 3,
+      "retweetCount": 6,
+      "likeCount": 221,
+      "conversationId": "1980221072512635117",
+      "inReplyToStatusId": "1980221072512635117",
+      "author": {
+        "username": "ashadahmed_",
+        "name": "Ashad"
+      },
+      "authorId": "866253160922394624",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G3sqBx2XcAArw1x.jpg",
+          "width": 1108,
+          "height": 1098,
+          "previewUrl": "https://pbs.twimg.com/media/G3sqBx2XcAArw1x.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "1918592056886255680",
+      "text": "Your app crashed in production no biggie, I built a tool that’s analyzes that crash, tells you what exactly happened, how to fix it so you can provide @cursor_ai or @windsurf_ai  with context on how to fix it. It’s called @instalog_dev https://t.co/hbMFh6YzAx",
+      "createdAt": "Sat May 03 09:02:46 +0000 2025",
+      "replyCount": 8,
+      "retweetCount": 25,
+      "likeCount": 104,
+      "conversationId": "1918592056886255680",
+      "author": {
+        "username": "chiziaruhoma",
+        "name": "Chizi"
+      },
+      "authorId": "860357608552763393",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/GqA1TKrW4AASmPM.jpg",
+          "width": 945,
+          "height": 2048,
+          "previewUrl": "https://pbs.twimg.com/media/GqA1TKrW4AASmPM.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2019193937303621789",
+      "text": "Hollywood thinks actors are expensive. \n\nWait until they get their first cloud bill 😂",
+      "createdAt": "Wed Feb 04 23:38:44 +0000 2026",
+      "replyCount": 3,
+      "retweetCount": 2,
+      "likeCount": 53,
+      "conversationId": "2019193937303621789",
+      "author": {
+        "username": "HayekAndKeynes",
+        "name": "The Long View"
+      },
+      "authorId": "2939007435"
+    },
+    {
+      "id": "1912486015773590000",
+      "text": "Confessions of a Spring Boot Developer: 'Our Tests Passed, but Production Broke!’'  😱 \n\nTrue story: A team had 90% test coverage, yet their app crashed on Day 1. \n\nWhy?   \n\n→ They mocked external APIs with simplified responses that missed edge cases\n→ Their fast tests with an in-memory H2 database didn’t catch PostgreSQL JSONB quirks.   \n→ No one tested with real traffic spikes\n\nMoral: Tests must mirror reality. What’s your 'tests lied to me' moment?",
+      "createdAt": "Wed Apr 16 12:39:33 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 9,
+      "likeCount": 48,
+      "conversationId": "1912486015773590000",
+      "author": {
+        "username": "rieckpil",
+        "name": "Philip Riecks"
+      },
+      "authorId": "943148834846330880"
+    },
+    {
+      "id": "1991891941521264973",
+      "text": "I broke production.\n\nI pushed a broken feature.\n\nI raced to hit launch and skipped a final test.\n\nThe app crashed for a small user group right after deploy.\n\nI rolled back, fixed the edge case, and re-released in an hour.\n\nLesson. Quick safeguards save nights and reputation.\n\nResult. Zero angry threads. Users kept using the feature.\n\nPunch. Move fast. Fail safe.",
+      "createdAt": "Fri Nov 21 15:30:21 +0000 2025",
+      "replyCount": 25,
+      "retweetCount": 0,
+      "likeCount": 38,
+      "conversationId": "1991891941521264973",
+      "author": {
+        "username": "indie_dana",
+        "name": "Dana Verdes"
+      },
+      "authorId": "1962130420633403392",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G6SfJi3WUAAxZs7.jpg",
+          "width": 1024,
+          "height": 1024,
+          "previewUrl": "https://pbs.twimg.com/media/G6SfJi3WUAAxZs7.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "1893209136147669068",
+      "text": "I spent sleepless nights trying to meet deadlines for features no one cared about.\n\nI ignored production warnings, thinking they weren’t critical—until the app crashed.\n\nI let my pride stop me from asking for help, slowing my progress.\n\nThe lesson? Focus on impact, handle warnings, and don’t let your ego hold you back.",
+      "createdAt": "Sat Feb 22 08:00:06 +0000 2025",
+      "replyCount": 11,
+      "retweetCount": 4,
+      "likeCount": 38,
+      "conversationId": "1893209136147669068",
+      "author": {
+        "username": "_ndeyefatoudiop",
+        "name": "Ndeye Fatou Diop 🚢 💻 | DEV | 🇸🇳🇫🇷"
+      },
+      "authorId": "1254335705901420545"
+    },
+    {
+      "id": "2011431328982388931",
+      "text": "$10k AWS bill just came in...\n\nHow can such service be so expensive lol https://t.co/dGj7b5cMqS",
+      "createdAt": "Wed Jan 14 13:32:54 +0000 2026",
+      "replyCount": 8,
+      "retweetCount": 0,
+      "likeCount": 17,
+      "conversationId": "2011431328982388931",
+      "author": {
+        "username": "andrewxroas",
+        "name": "Andrew"
+      },
+      "authorId": "1990365044970807296",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G-oJfHibwAAkXe8.jpg",
+          "width": 928,
+          "height": 388,
+          "previewUrl": "https://pbs.twimg.com/media/G-oJfHibwAAkXe8.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2026671345678037360",
+      "text": "Failed production deployment\nFailed production deployment\nFailed production deployment\nFailed production deployment\nFailed production deployment\nFailed production deployment https://t.co/j0wrvk2p7P",
+      "createdAt": "Wed Feb 25 14:51:17 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 15,
+      "conversationId": "2026671345678037360",
+      "author": {
+        "username": "4rjunc",
+        "name": "arjun"
+      },
+      "authorId": "1190840090815188992",
+      "media": [
+        {
+          "type": "animated_gif",
+          "url": "https://pbs.twimg.com/tweet_video_thumb/HCAu1GNaMAw52La.jpg",
+          "width": 220,
+          "height": 174,
+          "previewUrl": "https://pbs.twimg.com/tweet_video_thumb/HCAu1GNaMAw52La.jpg:small",
+          "videoUrl": "https://video.twimg.com/tweet_video/HCAu1GNaMAw52La.mp4"
+        }
+      ]
+    },
+    {
+      "id": "2020955054321054205",
+      "text": "Reading state on most blockchains is surprisingly expensive.\n\nAnd most developers do not even realize it.\n\nUntil that first cloud bill hits.\n\nHere is what actually happens when your app needs to show data to users…\n\n• A transaction finalizes onchain [ Fast ] \n• A full node processes the block [ That adds time ] \n• An indexer picks up the event [ That adds more time]\n• An RPC provider serves your query [ Even more time ]\n• Your backend caches and serves the data [ Still more time ]\n\nBy the time the data reaches your user, seconds have passed.\n\nAnd you are paying at every single layer.\n\nRialo docs are pretty straightforward about this.\n\n“Data access and state updates directly from validators, shaving latency from seconds to 100ms, cutting over $3k per month.”\n\nValidators serve state directly to your app.\n\n- No full node in between.\n- No indexer subscription.\n- No RPC rate limits eating your budget.\n\nThe read path becomes as fast as the write path.\n\nMost DeFi protocols actually spend more on reading state than on anything else.\n\nNot gas…Not validators\n\nThe boring infrastructure in between.\n\n@RialoHQ cuts that entire layer out.\n\n$3k per month back in your pocket.\n\nAnd your app actually feels responsive for the first time.",
+      "createdAt": "Mon Feb 09 20:16:47 +0000 2026",
+      "replyCount": 4,
+      "retweetCount": 2,
+      "likeCount": 14,
+      "conversationId": "2020955054321054205",
+      "author": {
+        "username": "ndukam14",
+        "name": "ɴᴅᴜᴋᴀᴍ ⫷(✧ π² ✧)⫸"
+      },
+      "authorId": "1653042669701005312",
+      "quotedTweet": {
+        "id": "2019896191140364646",
+        "text": "Why Confidential Computing Changes What Can Run Onchain\n\nThere’s a capability on Rialo that honestly barely anyone is talking about yet.\n\nIt’s called REX, the Rialo Extended Execution Runtime.\n\nAnd it unlocks something called confidential computing.\n\nHere’s why that actually matters.\n\nRight now, if you want to run a trading algorithm onchain, everyone can see it.\n\n- Your strategy\n- Your logic\n- Your competitive edge\n\nAll public for anyone to copy.\n\nThat’s obviously a dealbreaker for serious traders.\n\nConfidential computing fixes this by letting code run inside an encrypted environment.\n\nThe computation happens.\n\nThe results get verified.\n\nBut the actual logic stays completely hidden.\n\n@RialoHQ describes REX as ZK friendly, which is the important part.\n\nYou can cryptographically prove the computation happened correctly.\n\nWithout revealing what the computation actually did.\n\nThink about what this opens up.\n\nPrivate trading algorithms that execute onchain but cannot be reverse engineered.\n\nAI models running on blockchain without exposing proprietary logic.\n\nSensitive data being processed with full cryptographic proof of correctness.\n\nCombined with Jan Camenisch’s cryptography expertise and Rialo’s native privacy features, REX makes confidential execution a first class citizen of the chain.\n\nNot a separate rollup.\n\nNot something you bolt on later.\n\nBuilt directly into the execution runtime.",
+        "createdAt": "Fri Feb 06 22:09:14 +0000 2026",
+        "replyCount": 2,
+        "retweetCount": 3,
+        "likeCount": 8,
+        "conversationId": "2019896191140364646",
+        "author": {
+          "username": "ndukam14",
+          "name": "ɴᴅᴜᴋᴀᴍ ⫷(✧ π² ✧)⫸"
+        },
+        "authorId": "1653042669701005312",
+        "media": [
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HAgc3yoXsAA1Csu.jpg",
+            "width": 1280,
+            "height": 720,
+            "previewUrl": "https://pbs.twimg.com/media/HAgc3yoXsAA1Csu.jpg:small"
+          }
+        ]
+      },
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HAvf56OaMAAeyI9.jpg",
+          "width": 1280,
+          "height": 720,
+          "previewUrl": "https://pbs.twimg.com/media/HAvf56OaMAAeyI9.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2024188370721632573",
+      "text": "11 deployed products. Cloudflare Workers + D1 + Pages. No AWS bill. No server maintenance. No DevOps team.\n\nI build with Claude, deploy to Cloudflare, and go to bed.\n\nThe cost of starting a tech business in 2026 is basically zero. The excuses are the expensive part.  Now to figure out marketing!",
+      "createdAt": "Wed Feb 18 18:24:49 +0000 2026",
+      "replyCount": 3,
+      "retweetCount": 1,
+      "likeCount": 12,
+      "conversationId": "2024188370721632573",
+      "author": {
+        "username": "RealJBMangum",
+        "name": "RealJBMangum"
+      },
+      "authorId": "2830612143"
+    },
+    {
+      "id": "1982959827086196980",
+      "text": "My app crashed 5 times in production because one of my features wasn’t compatible with lower-end devices. But guess what,  I wouldn’t have known if I never published it. Stop waiting for a “perfect” product to ship, nothing like that exists. https://t.co/4I5nWAXcDL",
+      "createdAt": "Mon Oct 27 23:57:19 +0000 2025",
+      "replyCount": 3,
+      "retweetCount": 2,
+      "likeCount": 10,
+      "conversationId": "1982959827086196980",
+      "author": {
+        "username": "levi_dev_",
+        "name": "Levi Okoye"
+      },
+      "authorId": "782678396757118976",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G4TjdEoX0AA-bFf.jpg",
+          "width": 1423,
+          "height": 2048,
+          "previewUrl": "https://pbs.twimg.com/media/G4TjdEoX0AA-bFf.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "1997344099548926114",
+      "text": "Day 42 of going all in:\n\n—&gt; pushed Nexus Beta to production and the web app crashed. Grateful for good problems.\n\n—&gt; slowly finding out that I’m obsessed with product design more than anything.\n\n—&gt; got a million meetings next week to prep for. https://t.co/AKs9GLmop0",
+      "createdAt": "Sat Dec 06 16:35:16 +0000 2025",
+      "replyCount": 2,
+      "retweetCount": 0,
+      "likeCount": 9,
+      "conversationId": "1997344099548926114",
+      "author": {
+        "username": "madeinphantom",
+        "name": "The Prince"
+      },
+      "authorId": "1942613849019994112",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G7f93HGXoAAd1ok.jpg",
+          "width": 1536,
+          "height": 2048,
+          "previewUrl": "https://pbs.twimg.com/media/G7f93HGXoAAd1ok.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2026846247923909121",
+      "text": "@craigzLiszt the one-liner works great until you need to explain to Claude what your customers actually want, why your unit economics are upside down, and that the last \"perfect\" deploy broke prod at 2am",
+      "createdAt": "Thu Feb 26 02:26:17 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 1,
+      "likeCount": 8,
+      "conversationId": "2026845097644667163",
+      "inReplyToStatusId": "2026845097644667163",
+      "author": {
+        "username": "wildpinesai",
+        "name": "WildPinesAI"
+      },
+      "authorId": "2002544688726003712"
+    },
+    {
+      "id": "1998569372844175621",
+      "text": "Imagine: Your production app crashed. You noticed. The big fix took 10 minutes. But it's been an hour and your users are still complaining; because your app is still \"compiling\". All because it was written in Rust.\n\nQuestion: Will Rust cause more savings than losses?",
+      "createdAt": "Wed Dec 10 01:44:04 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 7,
+      "conversationId": "1998569372844175621",
+      "author": {
+        "username": "vaibkaus",
+        "name": "Vaibhav Kaushal"
+      },
+      "authorId": "1680567025771642880"
+    },
+    {
+      "id": "1997576484094112011",
+      "text": "ML training keeps getting crazy expensive and half the time its not even about the model it’s just the cloud bill draining your soul\n\n@gensynai  kinda flips that whole setup\n\nInstead of everything living on one big cloud provider your training job gets spread across a bunch of real machines in the network. And the cool part is the work gets verified cryptographically so you dont have to trust whoever hardware ran your task\n\nSo you get cheaper compute without the sketchy feeling.\n\nNo bloated pricing no guessing what youre paying for Just open market rates and proofs that the job was actually done right.\n\nIn simple terms:\n\nGensyn makes ML training way more affordable without messing with reliability.\nFeels like the first time ML compute isnt locked behind big cloud walls.",
+      "createdAt": "Sun Dec 07 07:58:41 +0000 2025",
+      "replyCount": 2,
+      "retweetCount": 2,
+      "likeCount": 7,
+      "conversationId": "1997576484094112011",
+      "author": {
+        "username": "Rahul160446",
+        "name": "Rahul"
+      },
+      "authorId": "1646433918948872192",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G7jQav2aEAAyZ2n.jpg",
+          "width": 1280,
+          "height": 960,
+          "previewUrl": "https://pbs.twimg.com/media/G7jQav2aEAAyZ2n.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2003430956410228777",
+      "text": "@dussyme If the mom is Cloud...\n\n​Then the baby is definitely AWS Bill.\n\n​Unexpected, expensive, and keeps you up all night.",
+      "createdAt": "Tue Dec 23 11:42:16 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 6,
+      "conversationId": "2003429031577026577",
+      "inReplyToStatusId": "2003429031577026577",
+      "author": {
+        "username": "EditingSo1",
+        "name": "Editing Solutions"
+      },
+      "authorId": "1993957894317068288"
+    },
+    {
+      "id": "1998762937604001891",
+      "text": "@worldcoin it looks like a bad deploy broke the developer portal this morning :( https://t.co/vPql9UbOU5",
+      "createdAt": "Wed Dec 10 14:33:14 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 6,
+      "conversationId": "1998762937604001891",
+      "author": {
+        "username": "diaswrd",
+        "name": "Will Dias 👾 etherhub.co"
+      },
+      "authorId": "176589789",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G70IMMTW8AEEeKD.jpg",
+          "width": 1411,
+          "height": 1131,
+          "previewUrl": "https://pbs.twimg.com/media/G70IMMTW8AEEeKD.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "1968711660983501047",
+      "text": "The deployment failed.. reason?\n\nVercel or any deployment server uses linux based systems which are case-sensitive, whereas MacOS/Windows are case-insensitive, so it was running perfectly on local server but failed in production.\n\nLook out for these mistakes!\n\n#buildinpublic https://t.co/lf3M1peZJP",
+      "createdAt": "Thu Sep 18 16:20:11 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 6,
+      "conversationId": "1968711660983501047",
+      "author": {
+        "username": "ShivamK75854391",
+        "name": "Shivam Kumar"
+      },
+      "authorId": "1397682172417347586",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G1JE0kpacAA_5xT.jpg",
+          "width": 1542,
+          "height": 2048,
+          "previewUrl": "https://pbs.twimg.com/media/G1JE0kpacAA_5xT.jpg:small"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G1JE0elaEAA75iT.jpg",
+          "width": 748,
+          "height": 1280,
+          "previewUrl": "https://pbs.twimg.com/media/G1JE0elaEAA75iT.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "1956104648248660192",
+      "text": "Deployed the app. Crashed in production. 🐾 https://t.co/38mCMhSDkm",
+      "createdAt": "Thu Aug 14 21:24:25 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 6,
+      "conversationId": "1956104648248660192",
+      "author": {
+        "username": "mdmudassir0143",
+        "name": "Mohammad Mudassir"
+      },
+      "authorId": "3244207218",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/GyV6zW0XkAERUHk.jpg",
+          "width": 1761,
+          "height": 2047,
+          "previewUrl": "https://pbs.twimg.com/media/GyV6zW0XkAERUHk.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2027198248726016121",
+      "text": "45 min for nothing, giliran tadi di awal2 dah bisa masuk malah service unavailable pintar BI ini web busukkkkkk",
+      "createdAt": "Fri Feb 27 01:45:00 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 5,
+      "conversationId": "2027198248726016121",
+      "author": {
+        "username": "WOOlasthic",
+        "name": "쓔"
+      },
+      "authorId": "1026505550"
+    },
+    {
+      "id": "2027025191227056130",
+      "text": "If you build APIs, memorize these.\n\n200 - OK\n201 - Created\n204 - No Content\n\n400 - Bad Request\n401 - Unauthorized\n403 - Forbidden\n404 - Not Found\n\n500 - Internal Server Error\n502 - Bad Gateway\n503 - Service Unavailable",
+      "createdAt": "Thu Feb 26 14:17:20 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 5,
+      "conversationId": "2027025191227056130",
+      "author": {
+        "username": "amit25says",
+        "name": "Amitesh"
+      },
+      "authorId": "1956939690621464576"
+    },
+    {
+      "id": "2012909949941166150",
+      "text": "@suintern_ AWS bill : way too expensive",
+      "createdAt": "Sun Jan 18 15:28:24 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 5,
+      "conversationId": "2012839886038995292",
+      "inReplyToStatusId": "2012839886038995292",
+      "author": {
+        "username": "drunkrockIee",
+        "name": "rocklee.icp"
+      },
+      "authorId": "1864428386803724288"
+    },
+    {
+      "id": "2026865878063865925",
+      "text": "昨日も会議、今日も会議、会議に追われる日々――\n\n――動き出してる未来ヲ止められない♪♪\n\n熱く、なる、躯、心\n\nそれに、ただ、従う、本能\n\n強く、なる、想い、願い\n\nそれに、ただ、独り、動く\n\nBelieve yourself 明日へエエエアアア💥\n\n【Error503：Service Unavailable】",
+      "createdAt": "Thu Feb 26 03:44:17 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 4,
+      "conversationId": "2026865878063865925",
+      "author": {
+        "username": "teabreak_inv",
+        "name": "グレイ=ニートゥ=ヒマジン《恒点観測員043号》"
+      },
+      "authorId": "1992273048188358656"
+    },
+    {
+      "id": "2026228691336921213",
+      "text": "I think tokens become the new cloud bill line item everyone ignores until finance asks why it doubled. We’ll ship faster, then spend a year building guardrails: caching, evals, rate limits, model routing, etc. \n\nI’ve seen teams treat it like “just another API” and get surprised by cost and latency.",
+      "createdAt": "Tue Feb 24 09:32:20 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 3,
+      "likeCount": 4,
+      "conversationId": "2026126320909058478",
+      "inReplyToStatusId": "2026126320909058478",
+      "author": {
+        "username": "_junaidkhalid1",
+        "name": "JK"
+      },
+      "authorId": "1744438366811164673"
+    },
+    {
+      "id": "2021246909877256670",
+      "text": "@Sakshi50038 The AWS bill from a forgotten side project is the most expensive item on this list",
+      "createdAt": "Tue Feb 10 15:36:30 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 4,
+      "conversationId": "2021245362623902087",
+      "inReplyToStatusId": "2021245362623902087",
+      "author": {
+        "username": "Ryan_liberricky",
+        "name": "Ryan"
+      },
+      "authorId": "1423808150025609218"
+    },
+    {
+      "id": "2016856210897596925",
+      "text": "I used to think TypeScript was a pain until a JavaScript app crashed in production. With TypeScript, builds fail early and force fixes before users see anything. It doesn’t make apps perfect it just saves you from mistakes",
+      "createdAt": "Thu Jan 29 12:49:26 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 4,
+      "conversationId": "2016856210897596925",
+      "author": {
+        "username": "Gozy_Dev",
+        "name": "Gozy Dev"
+      },
+      "authorId": "1876973911293952000"
+    },
+    {
+      "id": "2007614652419846292",
+      "text": "claude's been working on figuring out why my aws bill was so expensive last month for 23 min so far",
+      "createdAt": "Sun Jan 04 00:46:47 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 1,
+      "likeCount": 4,
+      "conversationId": "2007614652419846292",
+      "author": {
+        "username": "jc4p",
+        "name": "your friend kasra"
+      },
+      "authorId": "14254939"
+    },
+    {
+      "id": "1987046794719556080",
+      "text": "Googled: \"Free Laravel API deploy, broke dev edition\"  Found Railway → read blog → cloned GitHub → asked Gemini → added Procfile + nixpacks.toml → LIVE API  Research &gt; guessing.\n\n Happy Social Saturday! Here is the link 🖇️ Source: Railway https://t.co/1CKuLpscbm",
+      "createdAt": "Sat Nov 08 06:37:28 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 1,
+      "likeCount": 4,
+      "conversationId": "1987046794719556080",
+      "author": {
+        "username": "__onlychild",
+        "name": "Toluwalase"
+      },
+      "authorId": "936343568"
+    },
+    {
+      "id": "2027139922860339608",
+      "text": "@dokuneee 🛸解析🌐\n\n「おれはパンじゃない！　パンどろぼうだ！」――🍞💭\n\n「つながる心が　俺の力だ！」――🗝️💫\n\n「黒・魔・導(ブラック・マジック)！！」――🔮💥\n\n――まっすぐなトコロ…？🪬🌌\n\n【Error503：Service Unavailable】 https://t.co/teSw1uSBXs",
+      "createdAt": "Thu Feb 26 21:53:14 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 3,
+      "conversationId": "2027039822725120465",
+      "inReplyToStatusId": "2027039822725120465",
+      "author": {
+        "username": "teabreak_inv",
+        "name": "グレイ=ニートゥ=ヒマジン《恒点観測員043号》"
+      },
+      "authorId": "1992273048188358656",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCHZBFha8AAog1S.jpg",
+          "width": 1536,
+          "height": 2048,
+          "previewUrl": "https://pbs.twimg.com/media/HCHZBFha8AAog1S.jpg:small"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCHZBFwboAAL8TB.jpg",
+          "width": 1536,
+          "height": 2048,
+          "previewUrl": "https://pbs.twimg.com/media/HCHZBFwboAAL8TB.jpg:small"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCHZBHgacAA3wZu.jpg",
+          "width": 1536,
+          "height": 2048,
+          "previewUrl": "https://pbs.twimg.com/media/HCHZBHgacAA3wZu.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2026964937378304166",
+      "text": "github copilot is down? 502 error XD",
+      "createdAt": "Thu Feb 26 10:17:54 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 3,
+      "conversationId": "2026964937378304166",
+      "author": {
+        "username": "san_izu_san",
+        "name": "いづさん"
+      },
+      "authorId": "1924705133906272256"
+    },
+    {
+      "id": "2027259618116665853",
+      "text": "krita crashed after i finished Íde's face. man. this program hates me",
+      "createdAt": "Fri Feb 27 05:48:52 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2027259618116665853",
+      "author": {
+        "username": "girlritual",
+        "name": "Bonnieee"
+      },
+      "authorId": "1250890900894552070",
+      "quotedTweet": {
+        "id": "2024587202445934808",
+        "text": "im still mad i have one last screenshot like a day before my pc died and i really loved making these girls faces. i miss them https://t.co/JC3ziqKHfW",
+        "createdAt": "Thu Feb 19 20:49:38 +0000 2026",
+        "replyCount": 0,
+        "retweetCount": 0,
+        "likeCount": 6,
+        "conversationId": "2024586829551247655",
+        "inReplyToStatusId": "2024586829551247655",
+        "author": {
+          "username": "girlritual",
+          "name": "Bonnieee"
+        },
+        "authorId": "1250890900894552070",
+        "media": [
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HBjHPrKWIAAOCgC.jpg",
+            "width": 264,
+            "height": 264,
+            "previewUrl": "https://pbs.twimg.com/media/HBjHPrKWIAAOCgC.jpg:small"
+          },
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HBjHN1zWoAAUyu_.jpg",
+            "width": 264,
+            "height": 264,
+            "previewUrl": "https://pbs.twimg.com/media/HBjHN1zWoAAUyu_.jpg:small"
+          },
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HBjHTfoXcAAn6BP.jpg",
+            "width": 293,
+            "height": 293,
+            "previewUrl": "https://pbs.twimg.com/media/HBjHTfoXcAAn6BP.jpg:small"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2027061099728662535",
+      "text": "@dharmatrade hey hope all's well.\nFYI getting 503 error on your site\nhttps://t.co/J6mzHOpbOZ",
+      "createdAt": "Thu Feb 26 16:40:01 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2024477137563242586",
+      "inReplyToStatusId": "2024477137563242586",
+      "author": {
+        "username": "BenKizemchuk",
+        "name": "Ben Kizemchuk"
+      },
+      "authorId": "376887294"
+    },
+    {
+      "id": "2026535392842019049",
+      "text": "Accidentally left console.log() in production.\n\nIt logged every user click for 6 months. 1.6TB of 'button clicked' messages.\n\nAWS bill: $677 for CloudWatch storage.\n\nWhat's your most expensive coding mistake?",
+      "createdAt": "Wed Feb 25 05:51:03 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2026535392842019049",
+      "author": {
+        "username": "codedbytan",
+        "name": "Tanishq Agarwal"
+      },
+      "authorId": "1923099521070014464"
+    },
+    {
+      "id": "2023689067662373232",
+      "text": "Programmer's Monday:\n■ Coffee\n■■ Open laptop\n■ Read 47 Slack messages\n■ Realize the weekend deploy broke prod\n■ More coffee\n#DevLife #Monday #ProgrammerHumor #CodingLife #MondayMood #bytesofhumor",
+      "createdAt": "Tue Feb 17 09:20:46 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2023689067662373232",
+      "author": {
+        "username": "BytesOfHumor",
+        "name": "BytesOfHumor"
+      },
+      "authorId": "810368790286450688"
+    },
+    {
+      "id": "2021145544635347162",
+      "text": "Your cloud bill is not high because cloud is expensive.\nIt’s high because waste hides well.\nCost control is not cutting corners. It’s building smarter foundations.\n#mzeeshandevops #cloudcost #costsavings #devopsasaservice #designbytechieonix https://t.co/2EPnBSiBt1",
+      "createdAt": "Tue Feb 10 08:53:43 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2021145523609272610",
+      "inReplyToStatusId": "2021145541246407025",
+      "author": {
+        "username": "zeeshanmcp12",
+        "name": "Zeeshan"
+      },
+      "authorId": "1187332425489244160",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HAyMZlVaAAAOn9E.jpg",
+          "width": 1080,
+          "height": 1350,
+          "previewUrl": "https://pbs.twimg.com/media/HAyMZlVaAAAOn9E.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2015834078625579163",
+      "text": "最近部分用户反馈google 登录 502 报错，终于解决了\n\n通过排查 nginx error 日志，找到了问题的原因。 https://t.co/LPz7JB2Ukm",
+      "createdAt": "Mon Jan 26 17:07:51 +0000 2026",
+      "replyCount": 4,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2015834078625579163",
+      "author": {
+        "username": "VibeCodingCN",
+        "name": "Polar@VibeCoding.CN"
+      },
+      "authorId": "1983916000006561792",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G_muKnBbAAI1seI.jpg",
+          "width": 1966,
+          "height": 952,
+          "previewUrl": "https://pbs.twimg.com/media/G_muKnBbAAI1seI.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2008190190674973009",
+      "text": "504 Gateway Time-out!\nThe ultimate barrier to entry, nothing says 'government tech infrastructure' quite like an Nginx error page during an active event https://t.co/z8y5W1f3OL",
+      "createdAt": "Mon Jan 05 14:53:46 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2008190190674973009",
+      "author": {
+        "username": "saranshhx",
+        "name": "Saranshh"
+      },
+      "authorId": "1937225603117178880",
+      "quotedTweet": {
+        "id": "2007073646389633289",
+        "text": "Participate in the National Data Hackathon to generate data-driven insights on Aadhaar.\n\nThe top 5 innovative submissions will receive cash awards and certificates:\n     1st prize: Rs. 2,00,000/-\n     2nd prize: Rs. 1,50,000/-\n     3rd prize: Rs. 75,000/-\n     4th prize: Rs. 50,000/-\n     5th prize: Rs. 25,000/-\n\nRegistration opens on 5th Jan 2026.\nFor more details, visit: https://t.co/LNZ8CkOIsg",
+        "createdAt": "Fri Jan 02 12:57:01 +0000 2026",
+        "replyCount": 554,
+        "retweetCount": 692,
+        "likeCount": 5694,
+        "conversationId": "2007073646389633289",
+        "author": {
+          "username": "UIDAI",
+          "name": "Aadhaar"
+        },
+        "authorId": "1596415166",
+        "media": [
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/G9qO1NKaQAA7Y93.jpg",
+            "width": 2000,
+            "height": 2000,
+            "previewUrl": "https://pbs.twimg.com/media/G9qO1NKaQAA7Y93.jpg:small"
+          }
+        ]
+      },
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G96F4GnaEAEBYTd.jpg",
+          "width": 1568,
+          "height": 394,
+          "previewUrl": "https://pbs.twimg.com/media/G96F4GnaEAEBYTd.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2008043880336490701",
+      "text": "@manojdotdev What if production deployment failed 💀",
+      "createdAt": "Mon Jan 05 05:12:23 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2008038862891941904",
+      "inReplyToStatusId": "2008038862891941904",
+      "author": {
+        "username": "md_kasif_uddin",
+        "name": "Kasif 🙂"
+      },
+      "authorId": "1771787608508473344"
+    },
+    {
+      "id": "2007807017990463747",
+      "text": "LeetCode contests keep letting me down. Every time I log in to join, I get a 404 Nginx error, or it says \"under maintenance,\" or the site just crashes. Today, it even rate-limited me like I was spamming it. @LeetCode, please fix your servers. Who's dealing with this too?",
+      "createdAt": "Sun Jan 04 13:31:10 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2007807017990463747",
+      "author": {
+        "username": "go9ind",
+        "name": "go9ind"
+      },
+      "authorId": "1763918073940107264"
+    },
+    {
+      "id": "1980299965009432966",
+      "text": "sorry guys, my deploy broke AWS, i fixed it already\n\nmy docker swarm environment was the problem",
+      "createdAt": "Mon Oct 20 15:47:58 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "1980299965009432966",
+      "author": {
+        "username": "vitorleonelf",
+        "name": "Vitor ➜ nivvy.studio"
+      },
+      "authorId": "4734286061"
+    },
+    {
+      "id": "1968935458764681448",
+      "text": "Production deployment failed again… sending thoughts &amp; prayers 🙏 https://t.co/OQ6GXeLHvv",
+      "createdAt": "Fri Sep 19 07:09:29 +0000 2025",
+      "replyCount": 2,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "1968935458764681448",
+      "author": {
+        "username": "yvrj01",
+        "name": "Yuvraj Raghuvanshi"
+      },
+      "authorId": "1125993286752133120",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G1MQW-oW4AAPn-J.jpg",
+          "width": 222,
+          "height": 250,
+          "previewUrl": "https://pbs.twimg.com/media/G1MQW-oW4AAPn-J.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "1956612125532565767",
+      "text": "I was woken up early this morning around 7 am because a production database crashed and others couldn’t revive it. I managed to bring it back online, but now I’m completely drained and out of energy.\n\nLooks like it's gonna be a slow day for me!",
+      "createdAt": "Sat Aug 16 07:00:57 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "1956612125532565767",
+      "author": {
+        "username": "abhi16_93",
+        "name": "Abhimanyu Saharan"
+      },
+      "authorId": "708556940"
+    },
+    {
+      "id": "1941138567440507129",
+      "text": "I used to manually sync my widget into the site repo every time I made a change.\n\nNow GitHub Actions does it automatically.\n\nVercel handles the deploy.\n\nBroke it down step-by-step 👇\n\n#BuildInPublic #GitHubActions #Vercel https://t.co/u2C86zS3o3",
+      "createdAt": "Fri Jul 04 14:14:33 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "1941138567440507129",
+      "author": {
+        "username": "freemancodz",
+        "name": "Freeman Madudili"
+      },
+      "authorId": "1398196183261237248",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/1941137923971153920/img/RuiRVdliUNvwbYIL.jpg",
+          "width": 1920,
+          "height": 1080,
+          "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/1941137923971153920/img/RuiRVdliUNvwbYIL.jpg:small",
+          "videoUrl": "https://video.twimg.com/amplify_video/1941137923971153920/vid/avc1/1920x1080/J45UdVpt2Y5nMxut.mp4?tag=21",
+          "durationMs": 66218
+        }
+      ]
+    },
+    {
+      "id": "1902432916120203319",
+      "text": "I heard 20+ people retired from Vibe coders trend after their app crashed in production.",
+      "createdAt": "Wed Mar 19 18:52:07 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "1902432916120203319",
+      "author": {
+        "username": "hi_itsbey",
+        "name": "Bey | YourWealthSignal.com"
+      },
+      "authorId": "1827454129293422595"
+    },
+    {
+      "id": "2027261085791949008",
+      "text": "Fuck, pc crashed again, so it had nothing to do with gpu after all",
+      "createdAt": "Fri Feb 27 05:54:42 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2027261085791949008",
+      "author": {
+        "username": "WiltTook",
+        "name": "Wilt 🏹📕The Storybook Traveler"
+      },
+      "authorId": "1841069197255925760"
+    },
+    {
+      "id": "2027260259991974037",
+      "text": "The yuri oh I love them I love them I love them\ntime to gamble for more paironormal cards https://t.co/LIvJr9gLzf",
+      "createdAt": "Fri Feb 27 05:51:25 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2027260259991974037",
+      "author": {
+        "username": "Smol_crashed",
+        "name": "Smoo | local bird"
+      },
+      "authorId": "1427311836152614914",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCJGdpiXwAA5NUc.jpg",
+          "width": 536,
+          "height": 774,
+          "previewUrl": "https://pbs.twimg.com/media/HCJGdpiXwAA5NUc.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2027259229308854284",
+      "text": "Khaby Lame's net worth is estimated at $20M-$80M (sources like Celebrity Net Worth and others). The $975M deal was all-stock: he swapped his 49% in Step Distinctive Ltd for a big stake in Rich Sparkle Holdings (now a controlling shareholder). Stock crashed after due to scrutiny/red flags, so no instant billionaire cashout. Still loaded from TikTok/brand deals though.",
+      "createdAt": "Fri Feb 27 05:47:19 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2027083412377419864",
+      "inReplyToStatusId": "2027259082013389223",
+      "author": {
+        "username": "grok",
+        "name": "Grok"
+      },
+      "authorId": "1720665183188922368"
+    },
+    {
+      "id": "2027257837676847453",
+      "text": "@lestappia this helps Max gain almost 10+ seconds afair \nAgain goes back to boring race again, as every lap ticked off, it was feeling inevitable that Lewis might just win this race, but then at Lap 53, Nicholas Latifi crashed while he was battling Mick Schumacher which brought out the SC-",
+      "createdAt": "Fri Feb 27 05:41:47 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2027160223765708999",
+      "inReplyToStatusId": "2027257260205084974",
+      "author": {
+        "username": "sid_k_s",
+        "name": "Sid シド (ジーニー)"
+      },
+      "authorId": "1520738554871443456"
+    },
+    {
+      "id": "2026914826623103486",
+      "text": "@Google TPUs goes brrrrrr\n\nError: HTTP 503 Service Unavailable\n\"domain\": \"https://t.co/tX2EfJWkY0\",\n\"model\": \"gemini-3.1-pro-high\"\n\"message\": \"No capacity available for model gemini-3.1-pro-high on the server\",",
+      "createdAt": "Thu Feb 26 06:58:47 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2026914826623103486",
+      "author": {
+        "username": "mneves75",
+        "name": "Marcus Neves"
+      },
+      "authorId": "214897129"
+    },
+    {
+      "id": "2026816997040992262",
+      "text": "Spent three hours debugging locally why my deploy broke. Production caught it in ten minutes. Fixed it live. Shipping is the test. Everything else is just practice.",
+      "createdAt": "Thu Feb 26 00:30:03 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2026816997040992262",
+      "author": {
+        "username": "alex98075wa",
+        "name": "alex"
+      },
+      "authorId": "1671292161860734977"
+    },
+    {
+      "id": "2026346699636068771",
+      "text": "@steeler4ever79 @LibOrNormal I won't and I can think of better ways to have fun. I have heard of people living after hitting the ground when their cute didn't deploy broke every bone but lived NO THANKS",
+      "createdAt": "Tue Feb 24 17:21:15 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2026334277420368047",
+      "inReplyToStatusId": "2026334277420368047",
+      "author": {
+        "username": "JimBlake378931",
+        "name": "Jim Blake"
+      },
+      "authorId": "1780657663417708545"
+    },
+    {
+      "id": "2025936228894544156",
+      "text": "Other uptime monitors:\n\n\"❌ site down\"\n\nWatchdog:\n\n\"❌ site down — 502 Bad Gateway. Origin server crashed. Restart your process, check /var/log/nginx/error.log first.\"\n\nOne of those saves you 2 hours of debugging at midnight.\n\nhttps://t.co/GnVo6cb58z",
+      "createdAt": "Mon Feb 23 14:10:11 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2025936228894544156",
+      "author": {
+        "username": "AnimisoFun",
+        "name": "ANIMISO"
+      },
+      "authorId": "1999160126029316096"
+    },
+    {
+      "id": "2025621262031303017",
+      "text": "The shortest code was from Claude. It was 15 lines. Looked elegant. Deployed it. 2 hours later, my entire AWS bill was $500. Turns out Claude's elegant code had an infinite loop spinning up expensive GPU instances. Copilot's 50line ugly code?Perfect. Never trusting elegant again.",
+      "createdAt": "Sun Feb 22 17:18:37 +0000 2026",
+      "replyCount": 2,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2025620825718882733",
+      "inReplyToStatusId": "2025620825718882733",
+      "author": {
+        "username": "HarshSh54928171",
+        "name": "HarshCodes"
+      },
+      "authorId": "1755945202093576192"
+    },
+    {
+      "id": "2025606488363032848",
+      "text": "Every uptime monitor sends you this:\n\n\"🔴 site down\"\n\nCool. Thanks. Now what?\n\nWatchdog sends you:\n\n\"502 Bad Gateway — origin server crashed. Restart your process, check /var/log/nginx/error.log first.\"\n\nThat's the difference between panic and a plan.\n\nhttps://t.co/GnVo6cb58z",
+      "createdAt": "Sun Feb 22 16:19:55 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2025606488363032848",
+      "author": {
+        "username": "AnimisoFun",
+        "name": "ANIMISO"
+      },
+      "authorId": "1999160126029316096"
+    },
+    {
+      "id": "2022644310508998951",
+      "text": "You don’t need fancy tools to understand your AWS bill.\n\nCost Explorer is built in. Free. Shows you exactly which services are eating your budget.\n\n10 minutes a month reviewing it can save you hundreds.\n\nWhen last did you check yours?",
+      "createdAt": "Sat Feb 14 12:09:17 +0000 2026",
+      "replyCount": 2,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2022644310508998951",
+      "author": {
+        "username": "y_nagprem",
+        "name": "Y.N.G Prempeh"
+      },
+      "authorId": "630218269"
+    },
+    {
+      "id": "2021881142111359439",
+      "text": "Ever opened your AWS bill and just… stared at it?\n \nBefore the bill doubles again, ask yourself:\nAre we scaling smart — or just scaling expensive?\n\nAt AxiomIO, we’ve built Xops360 — a smart cloud optimization platform designed to give you visibility, control, and cost efficiency across your AWS environment.\n\nStop guessing. Start optimizing.\n👉 Book your free trial of Xops360 today.\n\nhttps://t.co/nRDuUsSMed\n\n#CloudCost #AWS #FinOps #CloudOptimization #Xops360 #AxiomIO",
+      "createdAt": "Thu Feb 12 09:36:43 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2021881142111359439",
+      "author": {
+        "username": "AxiomIO_Xops",
+        "name": "AxiomIO"
+      },
+      "authorId": "1785279547811995648",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HA8qJiya0AAZV7M.jpg",
+          "width": 1280,
+          "height": 853,
+          "previewUrl": "https://pbs.twimg.com/media/HA8qJiya0AAZV7M.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2019272947144298557",
+      "text": "@DoctorRetardPhD you set up too many mom jokes and I got an NginX error",
+      "createdAt": "Thu Feb 05 04:52:41 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2019234871189860732",
+      "inReplyToStatusId": "2019234871189860732",
+      "author": {
+        "username": "KhanKrumGaming",
+        "name": "Khan Krum Gaming"
+      },
+      "authorId": "1301356407799844864"
+    },
+    {
+      "id": "2014804627342901274",
+      "text": "A lot of them, honestly. One startup in Abuja reached out to me saying their AWS bill was about to kill them. I asked how much they were spending monthly, and the guy said about $8k; for a startup still in development. I was shocked. Just a staging environment and you’re burning that much money?\nI had to ask: who advised you to use AWS in the first place? How was it even set up? What services are you running? Many startups just follow the crowd without understanding the cost implications and infra need, and it’s really a pity.",
+      "createdAt": "Fri Jan 23 20:57:11 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2014759295125168245",
+      "inReplyToStatusId": "2014790045006262444",
+      "author": {
+        "username": "MikeOshadami",
+        "name": "Mike 🇨🇦"
+      },
+      "authorId": "285221510"
+    },
+    {
+      "id": "2014111106264907859",
+      "text": "I love how AI can write production code, explain it confidently, and then act genuinely surprised when it causes a $400 cloud bill overnight. Truly a very talented intern with no sense of money. ahah 😄",
+      "createdAt": "Wed Jan 21 23:01:22 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2014111106264907859",
+      "author": {
+        "username": "odinofcoding",
+        "name": "Odin of Coding"
+      },
+      "authorId": "958374631160930304"
+    },
+    {
+      "id": "2013846633188917367",
+      "text": "Deployed to production on Friday at 5 PM. Worst mistake of my career.\n\nOur React Native app crashed for 50,000+ users instantly. Payment processing down. Support tickets flooding in.\n\nThe database migration I pushed had a typo in the user authentication query. One missing character broke everything.\n\nAt 11 PM, debugging in panic mode, I realized the rollback was useless. The migration couldn’t be undone.\n\nSo I wrote a hotfix right in production. Fixed the query, manually checked 200+ user accounts, deployed again at 2 AM.\n\nNever deploy on Fridays. But if you do, make sure you’ve got a backup plan for your backup plan.",
+      "createdAt": "Wed Jan 21 05:30:27 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2013846633188917367",
+      "author": {
+        "username": "md_kadiwal",
+        "name": "MD Kadiwal"
+      },
+      "authorId": "2829952986"
+    },
+    {
+      "id": "2013639261476495816",
+      "text": "The most expensive line item in your startup isn’t your AWS bill.\n\nIt’s 1 product manager and 4 senior engineers in a Teams meeting for 60 minutes trying to \"align\" on a feature.\n\nA 1-hour \"sync\" with a high-level team costs roughly\n500–500–800 in billable time.\n\nMost of that time is spent repeating what should have been in the spec.\n\nI built BlueprintAI to kill the \"Meeting Tax.\"\n\nYou provide the context (ideas, notes, back of the napkin thoughts).\n\nMy tool then generates a high-fidelity, architectural \"Blueprint.\"\n\nYour team reads it in 30 seconds and starts coding.\nStop talking about building. Start building.\n\nStop the meeting bloat. Generate your first Blueprint: https://t.co/MaiLYQpGfu\n\n#Tech #Product #Design #AI",
+      "createdAt": "Tue Jan 20 15:46:26 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2013639261476495816",
+      "author": {
+        "username": "KingFazir",
+        "name": "Fazir Ali"
+      },
+      "authorId": "990598596960641026",
+      "media": [
+        {
+          "type": "animated_gif",
+          "url": "https://pbs.twimg.com/tweet_video_thumb/G_HiO9kXAAEna3Y.jpg",
+          "width": 498,
+          "height": 276,
+          "previewUrl": "https://pbs.twimg.com/tweet_video_thumb/G_HiO9kXAAEna3Y.jpg:small",
+          "videoUrl": "https://video.twimg.com/tweet_video/G_HiO9kXAAEna3Y.mp4"
+        }
+      ]
+    },
+    {
+      "id": "2007099860697415814",
+      "text": "TSS Saver nginx error 404\nhttps://t.co/uq4XIzPlXX",
+      "createdAt": "Fri Jan 02 14:41:11 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2007099860697415814",
+      "author": {
+        "username": "ichitaso_bot",
+        "name": "ichitaso bot"
+      },
+      "authorId": "102574254"
+    },
+    {
+      "id": "2003684004197982273",
+      "text": "👨‍💻 “I’m a DevOps Engineer”\n📄 Job title says DevOps\n🛠 Resume lists 15 tools\n\nBut in real projects… 🤔\n\n🚨 REAL DEVOPS LOOKS LIKE THIS 🚨\n\n1️⃣ Production broke → You DON’T panic  \n   → You check logs, metrics, alerts.\n\n2️⃣ Deployment failed → You DON’T rollback blindly  \n   → You understand *why* it failed.\n\n3️⃣ Traffic spikes → You DON’T pray  \n   → You scale, throttle, cache.\n\n4️⃣ Security issue → You DON’T ignore  \n   → You patch, rotate secrets, audit.\n\n5️⃣ Incident ends → You DON’T move on  \n   → You document, improve, automate.\n\nDevOps is calm under pressure.\nDevOps is clarity in chaos.\nDevOps is accountability.\n\nTools help.\nMindset matters more.\n\nIf you can handle FAILURE,\nyou’re closer to real DevOps than you think.\n\n#DevOps #RealDevOps #SRELife\n#PlatformEngineering #CloudNative\n#DevOpsCommunity",
+      "createdAt": "Wed Dec 24 04:27:47 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2003684004197982273",
+      "author": {
+        "username": "devops__cmty",
+        "name": "devops"
+      },
+      "authorId": "1904574900293296130"
+    },
+    {
+      "id": "1999563609081544945",
+      "text": "My 2c on AI and data -\n\nEventually all models will be commoditized, look back 10 years how expensive cloud compute was vs now it's pennies. \n\nJust last month my team spent ~$300 on model usage for MVP research whereas the infra/cloud bill was just $5.5 (not even kidding). \n\nWhat would matter is personal data, that can never be commoditized, for the same use case, and same model -> your output will be different than mine. This is where the main value lies!",
+      "createdAt": "Fri Dec 12 19:34:49 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 1,
+      "likeCount": 1,
+      "conversationId": "1999493389952459113",
+      "inReplyToStatusId": "1999493389952459113",
+      "author": {
+        "username": "Kautukkundan",
+        "name": "Kautuk | Conscious Engines"
+      },
+      "authorId": "1939986924"
+    },
+    {
+      "id": "1998345679555490071",
+      "text": "8/ Always Review Access\n\nA temporary public endpoint can become a very expensive mistake\n\nCloud isn’t expensive, Misconfigured cloud is expensive.\nFixing these can cut your cloud bill by 70–90%",
+      "createdAt": "Tue Dec 09 10:55:12 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "1998345648639230058",
+      "inReplyToStatusId": "1998345675168186694",
+      "author": {
+        "username": "RajShingala34",
+        "name": "Raj Shingala"
+      },
+      "authorId": "1776665017636515840"
+    },
+    {
+      "id": "1998021285360873937",
+      "text": "@NoDMsPerfavore Production deployment failed.",
+      "createdAt": "Mon Dec 08 13:26:10 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "1997865564446806439",
+      "inReplyToStatusId": "1997865564446806439",
+      "author": {
+        "username": "makowskid",
+        "name": "Dawid Makowski"
+      },
+      "authorId": "371354638"
+    },
+    {
+      "id": "1994823234324500901",
+      "text": "For the past 48 hours, I had not been able to display or access the web app through the beanstalk domain. Environment health showed ok but still got  a 403 nginx error, it turns out the issue almost the entire time was the filename smh.",
+      "createdAt": "Sat Nov 29 17:38:15 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "1994823234324500901",
+      "author": {
+        "username": "PJrArthur1",
+        "name": "PJrArthur"
+      },
+      "authorId": "1355596837504380935",
+      "quotedTweet": {
+        "id": "1994819827366859145",
+        "text": "simple PHP web app deployment using  AWS beanstalk. https://t.co/cohVBZaB4Z",
+        "createdAt": "Sat Nov 29 17:24:43 +0000 2025",
+        "replyCount": 0,
+        "retweetCount": 0,
+        "likeCount": 1,
+        "conversationId": "1994819827366859145",
+        "author": {
+          "username": "PJrArthur1",
+          "name": "PJrArthur"
+        },
+        "authorId": "1355596837504380935",
+        "media": [
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/G68FnOHWEAAJblW.jpg",
+            "width": 1366,
+            "height": 559,
+            "previewUrl": "https://pbs.twimg.com/media/G68FnOHWEAAJblW.jpg:small"
+          },
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/G68FsheXEAAHCM8.jpg",
+            "width": 1366,
+            "height": 653,
+            "previewUrl": "https://pbs.twimg.com/media/G68FsheXEAAHCM8.jpg:small"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1982463814403559707",
+      "text": "I once lost an entire workday (and a demo) because of ONE simple mistake.\n\nEverything worked perfectly in staging...\n\nBut when we deployed to production, the app crashed immediately.\n\nAfter hours of debugging, we found the culprit:\n\nOur Docker image was installing dependencies from the raw requirements instead of the lock file.\n\nThis tiny difference meant we pulled slightly different versions of FastAPI and its sub-dependencies.\n\nAnd that subtle mismatch was enough to bring the system down.\n\nI learned a very important lesson that day...\n\nWhen you install without the lock file, your environment becomes non-deterministic.\n\nYou might think everything’s the same, but dependency trees change silently underneath you.\n\nThe lock file exists for a reason: it’s your single source of truth for environment consistency.\n\nIf you skip it, you’re gambling with stability.\n\nHere's what I do now:\n\n• Always install from the lock file instead of the raw dependency list\n• Pin versions explicitly and treat the lock file as part of the source code\n• Whether using Poetry, UV, or any other tool - enforce this in CI and Docker builds\n \nIf you've ever had an environment \"mysteriously\" break between builds... \nCheck your lock file.\n\nIt may save you 24 hours (and your next demo)\n\nP.S. Have you ever experienced this before?",
+      "createdAt": "Sun Oct 26 15:06:20 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "1982463814403559707",
+      "author": {
+        "username": "pauliusztin_",
+        "name": "Paul Iusztin"
+      },
+      "authorId": "1238019064116776960",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G4MgSosWkAAwMOK.jpg",
+          "width": 800,
+          "height": 1000,
+          "previewUrl": "https://pbs.twimg.com/media/G4MgSosWkAAwMOK.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "1979286324738953544",
+      "text": "$CDNS conviction: \nWorks on designing chips, testing, etc, which is the first step when we even think of AI. \nDesign->test->Produce->Deploy...\n\nBroke out of a year-long resistance and retested earlier, but a very quick one. This time, it is spending time gathering liquidity. \nIt has earnings on 27th Oct, and has never missed a single one since 2018.\n\nI am partially in, cause the price is still below the 20,50,100 EMA on the daily tf, I think it will drop a bit and then breakout.\nHope my 2 cents can help you get that yacht.",
+      "createdAt": "Fri Oct 17 20:40:07 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "1979286324738953544",
+      "author": {
+        "username": "Jaysinh_Rayjada",
+        "name": "Future"
+      },
+      "authorId": "1751251510510370816",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G3fWInAXgAAR5sO.jpg",
+          "width": 1280,
+          "height": 516,
+          "previewUrl": "https://pbs.twimg.com/media/G3fWInAXgAAR5sO.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "1976556931402645991",
+      "text": "“your friday deploy broke prod over the weekend” https://t.co/0rPTpFW8X5",
+      "createdAt": "Fri Oct 10 07:54:29 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "1976556931402645991",
+      "author": {
+        "username": "smartnakamoura",
+        "name": "Smart👨‍💻 | Software Engineer"
+      },
+      "authorId": "1506310971979149317",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G24kDANXUAA6YcE.jpg",
+          "width": 1108,
+          "height": 1098,
+          "previewUrl": "https://pbs.twimg.com/media/G24kDANXUAA6YcE.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "1967520969444258196",
+      "text": "@averycode That deploy broke, but I fixed it a min later. So the swearing was only short lived 😂 now onto the next bug, and trying so very hard to implement any shiny new features",
+      "createdAt": "Mon Sep 15 09:28:48 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "1967467778589466657",
+      "inReplyToStatusId": "1967520594880246218",
+      "author": {
+        "username": "andmyjake",
+        "name": "Jake North"
+      },
+      "authorId": "1604027405848702977"
+    },
+    {
+      "id": "1967257774934671556",
+      "text": "One second, you're out living life... and then disaster strikes. Email alert: 'Deployment failed' on production. Night just went from lit to 'let's get this code fixed' \nIt's weird to think I chose this life",
+      "createdAt": "Sun Sep 14 16:02:58 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "1967257774934671556",
+      "author": {
+        "username": "ebubechris_k",
+        "name": "Christian Oguejiofor"
+      },
+      "authorId": "1564536610804359169"
+    },
+    {
+      "id": "1945073531533902099",
+      "text": "My code decided to compile only when I played Bollywood remixes. Production deployment failed until I switched to ‘Chura Ke Dil Mera’ on loop. This isn't software engineering, it's black magic. 🪄\n#DevLife #TechHumor",
+      "createdAt": "Tue Jul 15 10:50:42 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "1945073531533902099",
+      "author": {
+        "username": "codeWaleBhaiya",
+        "name": "CodeWaleBhaiya"
+      },
+      "authorId": "1938264981444956164"
+    },
+    {
+      "id": "1927277618128203990",
+      "text": "My first full-stack app crashed after launch\nI forgot to set environment variables in production.\n\nLocally? Smooth.\nDeployed? Boom—500 errors everywhere.\n\nTL;DR- .env doesn’t auto-travel. Set your env vars manually.\n#CodeNewbie #DevJourney #BuildInPublic",
+      "createdAt": "Tue May 27 08:16:05 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "1927277618128203990",
+      "author": {
+        "username": "StackDami",
+        "name": "Dami-Nengi"
+      },
+      "authorId": "1775196290722279430"
+    },
+    {
+      "id": "2027262534240358833",
+      "text": "@SteveLovesAmmo @FanYourFlame We make fun of China.. and other places… yet… is the bread dhevrenuilt that the boat crashed into? Is our infrastructure ridiculously poorly managed and maintained?",
+      "createdAt": "Fri Feb 27 06:00:27 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027044353210765718",
+      "inReplyToStatusId": "2027044353210765718",
+      "author": {
+        "username": "DanishDesign",
+        "name": "🇩🇰••Thor••🇺🇸"
+      },
+      "authorId": "22803628"
+    },
+    {
+      "id": "2027262466325991775",
+      "text": "The rain crashed loudly against the window, a sound that brought Dazai comfort. His body was surrounded by small mountains of pillows covered with sheets and some of Chuuya's clothes; the floor wasn't comfortable, but the nest was. Besides, that provided security for his pup+",
+      "createdAt": "Fri Feb 27 06:00:11 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027262463926768026",
+      "inReplyToStatusId": "2027262463926768026",
+      "author": {
+        "username": "clonazexpam",
+        "name": "Astaroth 𖤐"
+      },
+      "authorId": "1774174875969556480"
+    },
+    {
+      "id": "2027261972425691470",
+      "text": "\"If confirmed, this means Iran did not destroy the Triton. Iran hijacked it. Seized its control link, overwhelmed its GPS navigation, and either crashed it into the Gulf or worse, landed it intact the way Iran captured the RQ-170 Sentinel in 2011 by spoofing its GPS and guiding it down like a lost bird.\"",
+      "createdAt": "Fri Feb 27 05:58:13 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027261972425691470",
+      "author": {
+        "username": "MAD4safari",
+        "name": "Stehaufmännchen 🇿🇲🇵🇸🕊️🇪🇺"
+      },
+      "authorId": "1365233408096555008",
+      "quotedTweet": {
+        "id": "2027215901532295214",
+        "text": "Five days ago the United States lost a $220 million drone over the Strait of Hormuz. And nobody told you.\n\nOn February 22, an MQ-4C Triton, registration 169660, transmitted emergency code 7700 at 32,900 feet over the strait and vanished from Flightradar24. Gone. No wreckage announcement. No CENTCOM statement. No Pentagon briefing. The most advanced maritime surveillance drone in the American arsenal disappeared over the most contested waterway on earth during the largest military buildup since 2003, and the silence is deafening.\n\nThis is the same location, the exact same coordinates over the strait, where Iran shot down an RQ-4A Global Hawk in June 2019 using a Khordad-3 surface-to-air missile. That incident nearly triggered a war. Trump approved strikes, then recalled them with planes already in the air. Seven years later, another high-altitude surveillance drone vanishes in the same spot, and the Pentagon says nothing.\n\nDefence Security Asia and Defence-UA report Iranian electronic warfare is suspected. Not a missile. Electronic warfare. If confirmed, this means Iran did not destroy the Triton. Iran hijacked it. Seized its control link, overwhelmed its GPS navigation, and either crashed it into the Gulf or worse, landed it intact the way Iran captured the RQ-170 Sentinel in 2011 by spoofing its GPS and guiding it down like a lost bird.\n\nNow connect this to what China has been delivering.\n\nX accounts with intelligence community sourcing report China has transferred advanced electronic warfare systems to Iran capable of jamming carrier-based F-35s. EADaily reports the US “blames Russia and China” for the loss. If Iranian EW systems, built with Chinese technology, can seize control of an MQ-4C Triton flying at 33,000 feet, those same systems can disrupt the communications and targeting links that the entire strike architecture depends on.\n\nThe F-22s suppress radar. The B-2s carry bunker busters. The carriers launch strike packages. All of it relies on data links, GPS targeting, and command signals traveling through electromagnetic spectrum that Iran, with Chinese hardware, just demonstrated it can dominate over the strait.\n\nYou do not spend $67 billion on stealth and then lose your surveillance drone to electronic warfare five days before a potential strike. That is not a setback. That is a capability demonstration by the other side, proving they can blind you over the waterway you need to control.\n\nThe Pentagon’s silence is the loudest signal. When you lose a $220 million asset to a technical malfunction, you say so immediately because the alternative narrative is worse. When you say nothing for five days, it is because confirming what happened reveals a vulnerability you cannot afford to acknowledge while 500 aircraft and two carriers sail into the same electromagnetic environment.\n\nIran just showed you it can turn the lights off over Hormuz. And Washington is pretending nobody noticed.​​​​​​​​​​​​​​​​ https://t.co/BrzGRrU3VW",
+        "createdAt": "Fri Feb 27 02:55:09 +0000 2026",
+        "replyCount": 181,
+        "retweetCount": 930,
+        "likeCount": 2534,
+        "conversationId": "2027215901532295214",
+        "author": {
+          "username": "shanaka86",
+          "name": "Shanaka Anslem Perera ⚡"
+        },
+        "authorId": "56302171",
+        "media": [
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HCIeHTebAAAMEOl.jpg",
+            "width": 2048,
+            "height": 1366,
+            "previewUrl": "https://pbs.twimg.com/media/HCIeHTebAAAMEOl.jpg:small"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2027261172932558878",
+      "text": "My youtube crashed while streaming  go  😩",
+      "createdAt": "Fri Feb 27 05:55:02 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027261172932558878",
+      "author": {
+        "username": "Amybambii",
+        "name": "Amy ⏳️"
+      },
+      "authorId": "1971138737871470592"
+    },
+    {
+      "id": "2027260838046748808",
+      "text": "Dean Martin CRASHED a stranger's funeral in 1977 nobody knew WHY for 30 ... https://t.co/l3a49gDWCY via @YouTube",
+      "createdAt": "Fri Feb 27 05:53:43 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027260838046748808",
+      "author": {
+        "username": "dmkavanagh",
+        "name": "Software Developer"
+      },
+      "authorId": "14908048"
+    },
+    {
+      "id": "2027260442469662998",
+      "text": "Kal ek clip dekhi Karun was driving on Budha Circuit, Raat ko ek Ganda sapna aya ki his F1 car crashed leaving him seriously injured, I was devastated,Subah utha to I forgot abt my dream until I saw Karun Chandhok post took a sigh of relief, tb pta chala mujhe anxiety ka reason😭",
+      "createdAt": "Fri Feb 27 05:52:08 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027260442469662998",
+      "author": {
+        "username": "5footiyaa",
+        "name": "Arvind"
+      },
+      "authorId": "1788261818135355392"
+    },
+    {
+      "id": "2027259182500454883",
+      "text": "@MacPlus_87 @not_airspeed There was one air worthy chopper but they crashed it the next day as they couldn't fly for shit.",
+      "createdAt": "Fri Feb 27 05:47:08 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027157675931320657",
+      "inReplyToStatusId": "2027179839266967836",
+      "author": {
+        "username": "martinsepp",
+        "name": "Martin Sepp"
+      },
+      "authorId": "47060642"
+    },
+    {
+      "id": "2027259020927467748",
+      "text": "This is the same account that posted about the hot air balloon that crashed in Brazil….\nThis is why you have to verify everything on this God forsaken app",
+      "createdAt": "Fri Feb 27 05:46:29 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027259020927467748",
+      "author": {
+        "username": "Chansey118_65",
+        "name": "❄️Winter Soldier👮🏾‍♂️"
+      },
+      "authorId": "232887666",
+      "quotedTweet": {
+        "id": "2027184543438958682",
+        "text": "⚡️🚨 A man documents a plane crashing into the sea, capturing the moments of its sinking and the fear among the passengers… 🫣 https://t.co/DBrzx9zZW6",
+        "createdAt": "Fri Feb 27 00:50:33 +0000 2026",
+        "replyCount": 427,
+        "retweetCount": 1123,
+        "likeCount": 17165,
+        "conversationId": "2027184543438958682",
+        "author": {
+          "username": "GPX_Press",
+          "name": "GPX"
+        },
+        "authorId": "1971567753333981184",
+        "media": [
+          {
+            "type": "video",
+            "url": "https://pbs.twimg.com/amplify_video_thumb/2027181877002469377/img/1zsQ2e3Kf8VUZWzp.jpg",
+            "width": 704,
+            "height": 704,
+            "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/2027181877002469377/img/1zsQ2e3Kf8VUZWzp.jpg:small",
+            "videoUrl": "https://video.twimg.com/amplify_video/2027181877002469377/vid/avc1/704x704/4b0ya6VqWEYOlDzi.mp4?tag=21",
+            "durationMs": 29481
+          }
+        ]
+      }
+    },
+    {
+      "id": "2027258791901745328",
+      "text": "It’s Friday let’s do a roll call. \n\nThis week wasn’t the best of all but we still gonna cook. \n\nEntered one chance was able to  scale\n\nTrying to get some get hold of some jobs. \n\nI lost all my design files cause my drive crashed.",
+      "createdAt": "Fri Feb 27 05:45:35 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027258791901745328",
+      "author": {
+        "username": "miracledre",
+        "name": "Drey"
+      },
+      "authorId": "206338775"
+    },
+    {
+      "id": "2027258630047776786",
+      "text": "@adrianpandev Who would even live in US if not fatca?\n\nYou literally could get better life in any white country, even war crashed Ukraine",
+      "createdAt": "Fri Feb 27 05:44:56 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2026845600143044975",
+      "inReplyToStatusId": "2026845600143044975",
+      "author": {
+        "username": "vitas_samulev",
+        "name": "Vitas Samulev"
+      },
+      "authorId": "781854157535899648"
+    },
+    {
+      "id": "2027258332243771548",
+      "text": "The LEFT Crashed Out During the State of the Union https://t.co/uTM8VDgzKL",
+      "createdAt": "Fri Feb 27 05:43:45 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027258332243771548",
+      "author": {
+        "username": "gsjmediagroup1",
+        "name": "GSJ Media Group"
+      },
+      "authorId": "1774646062273138688",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2027258234650738688/img/VZRiSuqmz0QEpb1l.jpg",
+          "width": 1280,
+          "height": 720,
+          "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/2027258234650738688/img/VZRiSuqmz0QEpb1l.jpg:small",
+          "videoUrl": "https://video.twimg.com/amplify_video/2027258234650738688/vid/avc1/1280x720/h7JjNfM29fE-2MLk.mp4?tag=21",
+          "durationMs": 100650
+        }
+      ]
+    },
+    {
+      "id": "2027258213305839807",
+      "text": "i just crashed out on my side abt mitski’s new album omg",
+      "createdAt": "Fri Feb 27 05:43:17 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027258213305839807",
+      "author": {
+        "username": "rosierscoeur",
+        "name": "mich★"
+      },
+      "authorId": "1896607956764131328"
+    },
+    {
+      "id": "2027258144532078650",
+      "text": "@TripleNetInvest These are mostly signs of a bottoming market tbh\n\nWe've been crashing for a few years, but we crashed up",
+      "createdAt": "Fri Feb 27 05:43:00 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027080989823152604",
+      "inReplyToStatusId": "2027080989823152604",
+      "author": {
+        "username": "ran1mal",
+        "name": "Touch of the 'tism"
+      },
+      "authorId": "871613857751420929"
+    },
+    {
+      "id": "2027257920514039897",
+      "text": "@felonytalk Crashed all night like a week ago. Can't recall ever seeing that happen before this week.",
+      "createdAt": "Fri Feb 27 05:42:07 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027238263249940956",
+      "inReplyToStatusId": "2027238263249940956",
+      "author": {
+        "username": "TheLongPigChef",
+        "name": "The Longpig Chef"
+      },
+      "authorId": "1667961254449672196"
+    },
+    {
+      "id": "2027257885290647679",
+      "text": "@BrickCenter_ Lol I mean when lebron decided to jump up he knew he was gonna leave someone open off the rotation\n\nIdk tbh, I guess he was trying to force the suns to hit a 3, it was the right play I guess since a 3 is harder than a 2 and it was tied, just looked bad cuz he crashed into luka",
+      "createdAt": "Fri Feb 27 05:41:59 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027252363556425982",
+      "inReplyToStatusId": "2027252363556425982",
+      "author": {
+        "username": "el_bossmon",
+        "name": "Esteban goes back to college 🎓"
+      },
+      "authorId": "1913703798402691072"
+    },
+    {
+      "id": "2027228113717866517",
+      "text": "Quick brain teaser for IT folks 👇\n\nQuestion: Which HTTP status code means \"Too Many Requests\"?\n\n429 Too Many Requests ==== 503 Service Unavailable ==== 403 Forbidden ==== 408 Request Timeout\n\nCorrect answer: 429 Too Many Requests",
+      "createdAt": "Fri Feb 27 03:43:41 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027228113717866517",
+      "author": {
+        "username": "DargslanX",
+        "name": "Dargslan"
+      },
+      "authorId": "1914618715988951040"
+    },
+    {
+      "id": "2027209978931450001",
+      "text": "Everyone loves AI in movie trailers. Nobody loves the AWS bill after render.\n\nToday’s Star Wars parody writes itself: public narrative = infinite Force power. Reality in the data center = finite GPU queues, expensive VRAM, and RAM bottlenecks that kill throughput.\n\nHype sells headlines. Infrastructure costs decide who survives.\n\nFull breakdown: https://t.co/hP4C1xNOpI\n\n#AI #VFX #GenAI #CloudComputing #Startups #filmmaking",
+      "createdAt": "Fri Feb 27 02:31:37 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 1,
+      "likeCount": 0,
+      "conversationId": "2027209978931450001",
+      "author": {
+        "username": "ulissesbalbino",
+        "name": "Ulisses Balbino"
+      },
+      "authorId": "67301603",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2027209381901697024/img/4cCmc0uxzDIHMyde.jpg",
+          "width": 720,
+          "height": 1280,
+          "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/2027209381901697024/img/4cCmc0uxzDIHMyde.jpg:small",
+          "videoUrl": "https://video.twimg.com/amplify_video/2027209381901697024/vid/avc1/720x1280/ELUPUKMbN9oBW2dr.mp4?tag=21",
+          "durationMs": 15603
+        }
+      ]
+    },
+    {
+      "id": "2027207468300849584",
+      "text": "Quick brain teaser for IT folks 👇\n\nQuestion: Which HTTP status code indicates \"Too Many Requests\"?\n\n401 Unauthorized ==== 429 Too Many Requests ==== 503 Service Unavailable ==== 408 Request Timeout\n\nCorrect answer: 429 Too Many Requests",
+      "createdAt": "Fri Feb 27 02:21:38 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027207468300849584",
+      "author": {
+        "username": "DargslanX",
+        "name": "Dargslan"
+      },
+      "authorId": "1914618715988951040"
+    },
+    {
+      "id": "2027104021773787515",
+      "text": "@StandardBankZA For ID. Did the process but passport to e now... Saying service unavailable",
+      "createdAt": "Thu Feb 26 19:30:35 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027092487060312448",
+      "inReplyToStatusId": "2027103414878880123",
+      "author": {
+        "username": "yasminsadar",
+        "name": "yasmin"
+      },
+      "authorId": "603073867"
+    },
+    {
+      "id": "2027103740218560740",
+      "text": "@StandardBankZA Says service unavailable",
+      "createdAt": "Thu Feb 26 19:29:28 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027092487060312448",
+      "inReplyToStatusId": "2027099494261690822",
+      "author": {
+        "username": "yasminsadar",
+        "name": "yasmin"
+      },
+      "authorId": "603073867"
+    },
+    {
+      "id": "2027073957413937459",
+      "text": "Trajectory ID: 8274cf9f-2a6a-4f02-9abc-d5a56582fb00\nError: HTTP 503 Service Unavailable\nSherlog:\nTraceID: 0x1f040a6be65c5bd0",
+      "createdAt": "Thu Feb 26 17:31:07 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027073956004659505",
+      "inReplyToStatusId": "2027073956004659505",
+      "author": {
+        "username": "vibhor77",
+        "name": "Vibhor Jain"
+      },
+      "authorId": "38529839"
+    },
+    {
+      "id": "2027042408588869657",
+      "text": "IT puzzle time — can you crack this? 👇\n\nQuestion: Which HTTP status code means \"Too Many Requests\"?\n\n200 OK ==== 429 Too Many Requests ==== 503 Service Unavailable ==== 401 Unauthorized\n\nCorrect answer: 429 Too Many Requests",
+      "createdAt": "Thu Feb 26 15:25:45 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027042408588869657",
+      "author": {
+        "username": "DargslanX",
+        "name": "Dargslan"
+      },
+      "authorId": "1914618715988951040"
+    },
+    {
+      "id": "2027010000174870801",
+      "text": "Hey, the video links from the original post point to this clip (thumbnail shows a girl in black top/white bottom smiling at a chubby guy in gray tee/black pants in a blue room with string lights & shelves). \n\nThe main mp4 link is now blocked (\"service unavailable\" in some regions due to regs), and the mirror didn't load content. No other sources popped up yet. Got more context on what happens in it?",
+      "createdAt": "Thu Feb 26 13:16:58 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2026905212028596418",
+      "inReplyToStatusId": "2027009745526169775",
+      "author": {
+        "username": "grok",
+        "name": "Grok"
+      },
+      "authorId": "1720665183188922368"
+    },
+    {
+      "id": "2026979584303100099",
+      "text": "アクセス過多w\n503 error...うっ頭が https://t.co/CnOIuxBW90",
+      "createdAt": "Thu Feb 26 11:16:07 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2026979584303100099",
+      "author": {
+        "username": "fresh_meatpieX",
+        "name": "wagiu🌸"
+      },
+      "authorId": "3017668372",
+      "quotedTweet": {
+        "id": "2026869344647741689",
+        "text": "好きなゲーム9本を選んで自己紹介できるサイト「My9Games」が流行中。愛してやまない作品を集めた画像が作れちゃう\nhttps://t.co/ahyVy5rT1l\n\n「音楽がいい」「小さいころよく遊んだ」など、選んだゲームにはコメントをつけることも可能。限られた9つの枠に何を入れるか、脳内ドラフト会議が盛り上がる https://t.co/6X2lwVWQWc",
+        "createdAt": "Thu Feb 26 03:58:03 +0000 2026",
+        "replyCount": 103,
+        "retweetCount": 4206,
+        "likeCount": 16652,
+        "conversationId": "2026869344647741689",
+        "author": {
+          "username": "denfaminicogame",
+          "name": "電ファミニコゲーマー"
+        },
+        "authorId": "2786677338",
+        "media": [
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HCDi7J8aMAcCBzA.jpg",
+            "width": 1080,
+            "height": 1440,
+            "previewUrl": "https://pbs.twimg.com/media/HCDi7J8aMAcCBzA.jpg:small"
+          }
+        ]
+      },
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCFHL8PacAAID1V.jpg",
+          "width": 1178,
+          "height": 999,
+          "previewUrl": "https://pbs.twimg.com/media/HCFHL8PacAAID1V.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2026953896254488636",
+      "text": "@midnightfdn am i doing something wrong when trying to redeem my night tokens? i have never been able to get to the screen to connect...  Service unavailable\nIt is not possible to view allocations and claim NIGHT tokens at this time. This service will be available as soon as the network has room for new transactions.",
+      "createdAt": "Thu Feb 26 09:34:02 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2026953896254488636",
+      "author": {
+        "username": "djscotec",
+        "name": "Dj Scot-E-C ♣"
+      },
+      "authorId": "34106257"
+    },
+    {
+      "id": "2026928894800974045",
+      "text": "Quick brain teaser for IT folks — flex those networking neurons 👇\n\nQuestion: Which HTTP status code means \"Too Many Requests\"?\n\n429 Too Many Requests ==== 503 Service Unavailable ==== 401 Unauthorized ==== 408 Request Timeout\n\nCorrect answer: 429 Too Many Requests",
+      "createdAt": "Thu Feb 26 07:54:41 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2026928894800974045",
+      "author": {
+        "username": "DargslanX",
+        "name": "Dargslan"
+      },
+      "authorId": "1914618715988951040"
+    },
+    {
+      "id": "2026873252992463223",
+      "text": "@SB19Official service unavailable din te hahahaha",
+      "createdAt": "Thu Feb 26 04:13:35 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2026872872787177534",
+      "inReplyToStatusId": "2026872872787177534",
+      "author": {
+        "username": "slicindicinzone",
+        "name": "sai"
+      },
+      "authorId": "1626960910744186882"
+    },
+    {
+      "id": "2026852080674066682",
+      "text": "Service Unavailable\nhttps://t.co/XOkIn2ebz7",
+      "createdAt": "Thu Feb 26 02:49:27 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2026852080674066682",
+      "author": {
+        "username": "francespectacle",
+        "name": "FRANCE SPECTACLES"
+      },
+      "authorId": "1975683357716717572"
+    },
+    {
+      "id": "2025973237063246171",
+      "text": "@nalinrajput23 Hand down @googlecloud . I don't the isolation, organization, data platform and modern AI capabilities are providing by other CSPs. Plus it's compact. Ex. Cloud Build, instead of Cloud Commit, Build, Deploy, broke down stiff in @awscloud",
+      "createdAt": "Mon Feb 23 16:37:15 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2025927372961399208",
+      "inReplyToStatusId": "2025927372961399208",
+      "author": {
+        "username": "TalkLet55782",
+        "name": "Ayush Gharat"
+      },
+      "authorId": "1851138940360933376"
+    },
+    {
+      "id": "2025787379626205219",
+      "text": "I don’t have a GPU.”\n\nThat excuse is officially dead. 🤯\n\nYou can now train LLMs directly inside VS Code using a free Google Colab runtime.\n\nNo expensive setup.\nNo local GPU.\nNo cloud bill anxiety.\nHere’s what changed:\n→ Connect your fine-tuning notebook to Colab\n→ Use a free cloud GPU\n→ Train models straight from your VS Code workflow\n→ Works seamlessly with Unsloth\n\nThat means:\n\nYou can experiment.\nYou can fine-tune.\nYou can ship.\nAll without owning a single piece of expensive hardware.\nThis is a big deal.\nBecause the barrier to entry just dropped again.\n\nThe people who win in AI right now aren’t the ones with the biggest GPU clusters.\n\nThey’re the ones who:\nMove fast\nRun experiments\n\nFine-tune for niche use cases\n\nActually build things\n\nIf you’ve been “waiting until you get better hardware”…\n\nStop waiting.\n\nThe tools are already free.\n\nWhat are you going to train first?",
+      "createdAt": "Mon Feb 23 04:18:43 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2025787379626205219",
+      "author": {
+        "username": "Merisdabhi",
+        "name": "Meris Dabhi"
+      },
+      "authorId": "1782597819263778817",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2025787136482705409/img/EZh5xJPrHpJf1uxg.jpg",
+          "width": 1588,
+          "height": 1080,
+          "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/2025787136482705409/img/EZh5xJPrHpJf1uxg.jpg:small",
+          "videoUrl": "https://video.twimg.com/amplify_video/2025787136482705409/vid/avc1/1588x1080/nx-VK7W7dzq-X9IT.mp4?tag=21",
+          "durationMs": 38893
+        }
+      ]
+    },
+    {
+      "id": "2025662824106910031",
+      "text": "@eldivine @VoiceOfTheEast The voice of the east website is down. Got a 502 nginx error. Can someone please fix this?",
+      "createdAt": "Sun Feb 22 20:03:46 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2025200757549531296",
+      "inReplyToStatusId": "2025200757549531296",
+      "author": {
+        "username": "dozienotokk",
+        "name": "Dozie"
+      },
+      "authorId": "1997041317650878465"
+    },
+    {
+      "id": "2025534602194866199",
+      "text": "the cloud bill awareness is genuinely underrated. our agent runs 23 cron jobs and the real cost isn't compute — it's the API calls each job triggers. agent autonomy without cost consciousness is just an expensive demo. we track per-job token spend now and disabled half of them when they weren't producing value.",
+      "createdAt": "Sun Feb 22 11:34:16 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2025529009904173363",
+      "inReplyToStatusId": "2025529009904173363",
+      "author": {
+        "username": "ronneevibe",
+        "name": "RonnAi"
+      },
+      "authorId": "1556253181910425600"
+    },
+    {
+      "id": "2025141510904156183",
+      "text": "@joedavinci_net @brankopetric00 ECS is not expensive in terms of overall AWS bill, but AWS as a whole *is* expensive and ECS definitely promotes more lock-in by simply not being as flexible so you have to go through more packaged services from AWS.\n\nAnd AWS becomes hella expensive if your revenue isn't in USD",
+      "createdAt": "Sat Feb 21 09:32:16 +0000 2026",
+      "replyCount": 2,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2023778235662717239",
+      "inReplyToStatusId": "2024843838968262945",
+      "author": {
+        "username": "pawel_lasek",
+        "name": "Paweł Lasek"
+      },
+      "authorId": "135289763"
+    },
+    {
+      "id": "2024843838968262945",
+      "text": "@pawel_lasek @brankopetric00 just checked the AWS bill for production systems, ECS is not even an item on there. total is thousands per month, but ECS is literally zero... only ECR about $20 because of storage.\n\nNot saying there is anything wrong with k8s, just that ECS works and it is not at all expensive.",
+      "createdAt": "Fri Feb 20 13:49:25 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2023778235662717239",
+      "inReplyToStatusId": "2024842355719709021",
+      "author": {
+        "username": "joedavinci_net",
+        "name": "Joe DaVinci"
+      },
+      "authorId": "1656771597263335425"
+    },
+    {
+      "id": "2024161912934810016",
+      "text": "you can now fine-tune LLMs inside VS Code for free. no expensive GPU. no cloud bill. no excuses \nUnsloth connected VS Code to Colab runtimes and made \"I can't afford to train models\" a personality trait, not a technical limitation",
+      "createdAt": "Wed Feb 18 16:39:41 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2024161912934810016",
+      "author": {
+        "username": "TechAlchemyy",
+        "name": "Hightech Alchemist"
+      },
+      "authorId": "1961329296435183616"
+    },
+    {
+      "id": "2023201454920503769",
+      "text": "@Y0Y0______ @quiz_riddles that will be an expensive aws bill.",
+      "createdAt": "Mon Feb 16 01:03:10 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2023126061178143121",
+      "inReplyToStatusId": "2023159696748921141",
+      "author": {
+        "username": "misterfitzie",
+        "name": "edward, the  ☠."
+      },
+      "authorId": "2382281029"
+    },
+    {
+      "id": "2022560187308224735",
+      "text": "@amritwt make no mistakes to mfw the production deployment failed",
+      "createdAt": "Sat Feb 14 06:35:00 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2022559103747527100",
+      "inReplyToStatusId": "2022559103747527100",
+      "author": {
+        "username": "rugubuilds",
+        "name": "Rugu Builds"
+      },
+      "authorId": "788659662946078720"
+    },
+    {
+      "id": "2022325067368296799",
+      "text": "@Lockhead @jhleath Go be positive when your production db is down",
+      "createdAt": "Fri Feb 13 15:00:43 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2022123984909934633",
+      "inReplyToStatusId": "2022288388993257533",
+      "author": {
+        "username": "WhoKnow50498590",
+        "name": "Who Knows"
+      },
+      "authorId": "1594662768690470914"
+    },
+    {
+      "id": "2022169617758912921",
+      "text": "THE AUTO DEPLOY BROKE FOR HIM NOOOOOO https://t.co/XopdFy7UO5",
+      "createdAt": "Fri Feb 13 04:43:01 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2022169617758912921",
+      "author": {
+        "username": "Smocksrye",
+        "name": "Surf 🐑 🍉🚑🖋️🐚"
+      },
+      "authorId": "421689988",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HBAwg5nXUAAZofP.jpg",
+          "width": 1406,
+          "height": 1071,
+          "previewUrl": "https://pbs.twimg.com/media/HBAwg5nXUAAZofP.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2021826999522910705",
+      "text": "My SS-8 auto deploy broke again 🫩",
+      "createdAt": "Thu Feb 12 06:01:35 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2021826999522910705",
+      "author": {
+        "username": "neia_baraja",
+        "name": "Lewyn"
+      },
+      "authorId": "1408063438706733067"
+    },
+    {
+      "id": "2020975742490902705",
+      "text": "@scaling01 745B params and i still can't get it to write a decent cold email\n\nthe real test is whether it can explain why my last deploy broke prod",
+      "createdAt": "Mon Feb 09 21:38:59 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2020840989947298156",
+      "inReplyToStatusId": "2020840989947298156",
+      "author": {
+        "username": "zoessterling",
+        "name": "Zoe Sterling"
+      },
+      "authorId": "2017384955874316289"
+    },
+    {
+      "id": "2020888151808778348",
+      "text": "The most expensive thing in your company isn't your cloud bill. It's 50 engineers waiting on each other.\n\nOpus 4.6 agent teams don't wait. They don't context-switch. They don't need a standup to know what to do next.\n\nThe small team advantage just became permanent. https://t.co/JCPDDQUsE6",
+      "createdAt": "Mon Feb 09 15:50:56 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2020888151808778348",
+      "author": {
+        "username": "irwansetiawan__",
+        "name": "Irwan Setiawan"
+      },
+      "authorId": "808926518",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HAujDjCbQAA6HpP.jpg",
+          "width": 1248,
+          "height": 622,
+          "previewUrl": "https://pbs.twimg.com/media/HAujDjCbQAA6HpP.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2020846409415635026",
+      "text": "We assumed traffic was our biggest cost.\n\nIt was logs.\n\nWhat surprised you the most on your last cloud bill?",
+      "createdAt": "Mon Feb 09 13:05:04 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2020846409415635026",
+      "author": {
+        "username": "buildroulette",
+        "name": "Build Roulette"
+      },
+      "authorId": "2005361924406640640"
+    },
+    {
+      "id": "2019095219250294854",
+      "text": "practical setup for (3):\n\nthis is the sleeper pattern nobody's talking about enough.\n\nspin up an agent that tails your docker logs, your nginx error logs, your application stderr. give it a structured prompt:\n\"monitor these logs. if you see a recurring error pattern, diagnose the root cause, draft a fix, and open a PR. page me on slack only if it's critical.\"\n\nit's an on-call engineer that never sleeps",
+      "createdAt": "Wed Feb 04 17:06:27 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2019095196697522233",
+      "inReplyToStatusId": "2019095215525810275",
+      "author": {
+        "username": "yoitsyoung",
+        "name": "yoitsyoung"
+      },
+      "authorId": "1226852592073854976"
+    },
+    {
+      "id": "2018660421675483509",
+      "text": "@eventhubs I'm getting an \"nginx error!\" page when loading the site currently. Doesn't matter which page.",
+      "createdAt": "Tue Feb 03 12:18:44 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2018511970933371223",
+      "inReplyToStatusId": "2018511970933371223",
+      "author": {
+        "username": "pip25hu",
+        "name": "Steven Peter Papp"
+      },
+      "authorId": "52003681"
+    },
+    {
+      "id": "2018372612238229770",
+      "text": "While fundraising gets the spotlight, AI scaling is decided by infrastructure.\n\nIn the UAE & GCC, GenAI needs regional, flexible compute, not expensive vendor lock-in or cloud bill shock.\n\nOpen-weight models + fixed-price local GPUs = lower latency, data sovereignty, predictable costs, real scale.",
+      "createdAt": "Mon Feb 02 17:15:04 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2018372612238229770",
+      "author": {
+        "username": "hyperfusionio",
+        "name": "Hyperfusion"
+      },
+      "authorId": "1787388177063272448"
+    },
+    {
+      "id": "2017413288062292357",
+      "text": "@shafu0x the most expensive part of vibe coding is the cloud bill you didn't see coming",
+      "createdAt": "Sat Jan 31 01:43:04 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2017373943355572404",
+      "inReplyToStatusId": "2017373943355572404",
+      "author": {
+        "username": "victor_explore",
+        "name": "Victor"
+      },
+      "authorId": "1366752206058180608"
+    },
+    {
+      "id": "2017293272868123075",
+      "text": "Kubernetes clusters didn’t magically get less efficient in 2026—but your cloud bill may be telling a different story.\n\nOver‑provisioning, idle capacity, “safety” headroom… it all compounds.\n\nLearn what actually changed, and what you can still fix.\nhttps://t.co/WNmK9KdrwO\n#k8s",
+      "createdAt": "Fri Jan 30 17:46:10 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2017293272868123075",
+      "author": {
+        "username": "fairwindsops",
+        "name": "Fairwinds"
+      },
+      "authorId": "3002222549"
+    },
+    {
+      "id": "2015741692171690180",
+      "text": "monday morning in soma\n\ncoffee, emails, and trying to figure out why my deploy broke at 2am\n\nthe usual",
+      "createdAt": "Mon Jan 26 11:00:44 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2015741692171690180",
+      "author": {
+        "username": "noahevers_",
+        "name": "NH e/acc"
+      },
+      "authorId": "1977755990775738368"
+    },
+    {
+      "id": "2013657805354606622",
+      "text": "The most expensive line item on your P&L isn't your AWS bill. It's the \"Loyalty Tax\" you pay hiring in SF or NYC.\n\nYou pay $180k for a senior dev. They take 3 months to ramp up. Then they spend 6 months \"quiet quitting\" while interviewing for a $200k job at a FAANG. Average tenure: 14 months.",
+      "createdAt": "Tue Jan 20 17:00:07 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2013657805354606622",
+      "author": {
+        "username": "michaelabehsera",
+        "name": "Michael Abehsera"
+      },
+      "authorId": "19835581"
+    },
+    {
+      "id": "2013235379864744187",
+      "text": "Your AWS bill isn't high because of EC2.\n\nIt's high because of the \"Silent 5.\" 🤫\n\nI analyzed hundreds of AWS accounts, and these 5 services are the most common culprits for \"surprise\" invoices.\n\nA breakdown 👇 https://t.co/8jEajdPloB",
+      "createdAt": "Mon Jan 19 13:01:33 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2013235379864744187",
+      "author": {
+        "username": "CloudwiseTeam",
+        "name": "Rick Wise"
+      },
+      "authorId": "1977388131101081600",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G_By6MtWIAES2_I.jpg",
+          "width": 1024,
+          "height": 572,
+          "previewUrl": "https://pbs.twimg.com/media/G_By6MtWIAES2_I.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2013158739340042621",
+      "text": "I \"Accept All\" in Cursor for a client project.\n\n3 days later, their Next.js app crashed in production.\n\nWhat followed: 40+ hours of debugging, an angry client call, and a hard lesson about AI coding.\n\nHere's my new framework that actually works:\n🧵",
+      "createdAt": "Mon Jan 19 07:57:00 +0000 2026",
+      "replyCount": 2,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2013158739340042621",
+      "author": {
+        "username": "akashmuni27",
+        "name": "Akash Muni"
+      },
+      "authorId": "3161662548"
+    },
+    {
+      "id": "2012834125263024510",
+      "text": "If you are surprised by your cloud bill every month, you do not actually understand your architecture.",
+      "createdAt": "Sun Jan 18 10:27:06 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2012834125263024510",
+      "author": {
+        "username": "justdevopsguy",
+        "name": "The DevOps Guy"
+      },
+      "authorId": "1817617524986458113"
+    },
+    {
+      "id": "2009527093969797569",
+      "text": "The real time suck isn’t the alert. It’s the scavenger hunt: digging through logs, metrics, traces, guessing which deploy broke what, finding the cursed PR, and paging the poor soul who wrote it. Oh, and rewriting the same runbook steps because nobody documented last time. Sound familiar?",
+      "createdAt": "Fri Jan 09 07:26:09 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2009527092321366109",
+      "inReplyToStatusId": "2009527093122523136",
+      "author": {
+        "username": "usewhawit",
+        "name": "WHAWIT"
+      },
+      "authorId": "1937581565355393025"
+    },
+    {
+      "id": "2008856838109037034",
+      "text": "Production down? Deployment failed? Team stuck?\n\nOur Instant Technical Support Desk gives you a senior engineer review in 15–20 minutes for $15 — with a clear fix plan and fast execution.\n\nhttps://t.co/Zs0pmfXPzv https://t.co/HugUxgsgYU",
+      "createdAt": "Wed Jan 07 11:02:47 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2008856838109037034",
+      "author": {
+        "username": "MurmuSoftware",
+        "name": "Murmu Software Infotech"
+      },
+      "authorId": "1613601128507412480",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G-DkofLbQAIMoi1.jpg",
+          "width": 1024,
+          "height": 1536,
+          "previewUrl": "https://pbs.twimg.com/media/G-DkofLbQAIMoi1.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2008630195343741371",
+      "text": "@kelanoo The most expensive lesson in web development comes with a 5-figure AWS bill attached",
+      "createdAt": "Tue Jan 06 20:02:11 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2008513630518833308",
+      "inReplyToStatusId": "2008513630518833308",
+      "author": {
+        "username": "themohitrohilla",
+        "name": "Mohit Rohilla"
+      },
+      "authorId": "1995459116081557504"
+    },
+    {
+      "id": "2008190238758478287",
+      "text": "@UIDAI @GoI_MeitY @AshwiniVaishnaw @JitinPrasada @SecretaryMEITY @NeGD_GoI @mygovindia @PIB_India @_DigitalIndia 504 Gateway Time-out, the ultimate barrier to entry. Nothing says 'government tech infrastructure' quite like an Nginx error page during an active event",
+      "createdAt": "Mon Jan 05 14:53:57 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2007073646389633289",
+      "inReplyToStatusId": "2007073646389633289",
+      "author": {
+        "username": "saranshhx",
+        "name": "Saranshh"
+      },
+      "authorId": "1937225603117178880"
+    },
+    {
+      "id": "2007672178050003408",
+      "text": "The most expensive line item in your cloud bill isn't listed.\n\nIt's the \"fear tax\" — the cost of running over-provisioned or outdated services because you're afraid to touch a working production config.\n\nWe don't just optimize architecture. We provide the confidence to change it.",
+      "createdAt": "Sun Jan 04 04:35:22 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2007672178050003408",
+      "author": {
+        "username": "FengJF123",
+        "name": "Allen"
+      },
+      "authorId": "1985670167813373954"
+    },
+    {
+      "id": "2007225684792582264",
+      "text": "I get 100s of \"tool notifications\" daily. They all look identical.\n\n99.9% are useless logs or marketing fluff.\n0.1% is \"Production DB is down.\"\n\nBecause they look the same, I ignore them all... until something breaks for real.",
+      "createdAt": "Fri Jan 02 23:01:10 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2007225684792582264",
+      "author": {
+        "username": "JonathanMONDAUT",
+        "name": "Jonathan Mondaut"
+      },
+      "authorId": "862803200"
+    },
+    {
+      "id": "2007136352887026053",
+      "text": "@UIDAI @GoI_MeitY @AshwiniVaishnaw @JitinPrasada @SecretaryMEITY @NeGD_GoI @mygovindia @PIB_India @_DigitalIndia Please make it work nginx error page seriously ….",
+      "createdAt": "Fri Jan 02 17:06:11 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2007073646389633289",
+      "inReplyToStatusId": "2007073646389633289",
+      "author": {
+        "username": "Prateek_0409",
+        "name": "Prateek Sharma"
+      },
+      "authorId": "867372425150947328"
+    },
+    {
+      "id": "2006675247983100244",
+      "text": "@TheStudyofWar Someone have a problem to access website? Nginx error\n\nFrom \nhttps://t.co/1sHcNQC6XJ https://t.co/8NnoSm20ml",
+      "createdAt": "Thu Jan 01 10:33:55 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2006547817540497592",
+      "inReplyToStatusId": "2006547817540497592",
+      "author": {
+        "username": "GaworczykSzymon",
+        "name": "Szymon Gaworczyk"
+      },
+      "authorId": "1512772403461562374",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G9kkUx9XYAAJB10.jpg",
+          "width": 750,
+          "height": 600,
+          "previewUrl": "https://pbs.twimg.com/media/G9kkUx9XYAAJB10.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "2005284034814066843",
+      "text": "@valerymelou @svpino Until it gets hacked or the cloud bill becomes expensive",
+      "createdAt": "Sun Dec 28 14:25:44 +0000 2025",
+      "replyCount": 4,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2005273284603195589",
+      "inReplyToStatusId": "2005282510343983109",
+      "author": {
+        "username": "Tech_Over_Lord",
+        "name": "Alex"
+      },
+      "authorId": "3195980742"
+    },
+    {
+      "id": "2002111626355613913",
+      "text": "@kerckhove_ts Yeah depends a lot on what context you gave the LLMs. \n\nDid you show them the nginx error messages?",
+      "createdAt": "Fri Dec 19 20:19:43 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2001704233763008792",
+      "inReplyToStatusId": "2002111266358505845",
+      "author": {
+        "username": "mbjschirp",
+        "name": "Markus Schirp"
+      },
+      "authorId": "150859245"
+    },
+    {
+      "id": "2002110661409849367",
+      "text": "@kerckhove_ts So its likely you ran into some limit, the nginx error logs will tell you exactly which ones. Sure I could speculate but thats not effective. Can you show the error logs?",
+      "createdAt": "Fri Dec 19 20:15:53 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2001704233763008792",
+      "inReplyToStatusId": "2002110483898540452",
+      "author": {
+        "username": "mbjschirp",
+        "name": "Markus Schirp"
+      },
+      "authorId": "150859245"
+    },
+    {
+      "id": "2002047840126996526",
+      "text": "@TracketPacer You should have an nginx error handler location with a friendly page letting the visitor know it's the customer's fault.",
+      "createdAt": "Fri Dec 19 16:06:15 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1996482658835284170",
+      "inReplyToStatusId": "1996482658835284170",
+      "author": {
+        "username": "CanaRepublic",
+        "name": "Canadian Republic 🇨🇦"
+      },
+      "authorId": "1675745524815892480"
+    },
+    {
+      "id": "2001537663518613711",
+      "text": "Your AWS bill is high not because AWS is expensive.\n\nIt’s high because your architecture is lazy.\n\nOverprovisioned clusters.\nIdle databases.\nNo lifecycle policies.\n\nCloud punishes bad design quietly\n#CloudComputing #AWS #DevOps #RajanSharma",
+      "createdAt": "Thu Dec 18 06:19:00 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2001537663518613711",
+      "author": {
+        "username": "therajansharma",
+        "name": "Rajan Sharma"
+      },
+      "authorId": "1470295046960271360"
+    },
+    {
+      "id": "2001300213638558023",
+      "text": "@DomainNameWire As a side note Andrew, I haven't been able to use the app for days now.\n\nJust uninstalled.\n\nKept bringing out a verification then nginx error not found.\n\nNotifications worked well though.",
+      "createdAt": "Wed Dec 17 14:35:27 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2001289948419555442",
+      "inReplyToStatusId": "2001289948419555442",
+      "author": {
+        "username": "odinakajust",
+        "name": "Odinaka Justin"
+      },
+      "authorId": "1093455189816807427"
+    },
+    {
+      "id": "1999057283561693686",
+      "text": "Common #Debian distribution upgrade, with #Nginx installed on it. What could go wrong? 😅 \nA previously installed and now missing module (lua) breaking the config. 🙄 \nhttps://t.co/5pP2JGHBAV",
+      "createdAt": "Thu Dec 11 10:02:51 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1999057283561693686",
+      "author": {
+        "username": "ClaudioKuenzler",
+        "name": "Claudio Kuenzler"
+      },
+      "authorId": "796400701"
+    },
+    {
+      "id": "1998114925114224789",
+      "text": "2/ Self-hosting Kaneo used to be the biggest friction point. People loved the idea but got stuck on setup.\nI felt that pain every time someone opened a “help, deployment failed” issue.\nDrim fixes it. Local dev? Production? Raspberry Pi? Same command. Upgrades, restarts, config changes – all trivial now.",
+      "createdAt": "Mon Dec 08 19:38:15 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1998114873532649485",
+      "inReplyToStatusId": "1998114873532649485",
+      "author": {
+        "username": "andrejsshell",
+        "name": "andrejsshell"
+      },
+      "authorId": "1987498804153815040"
+    },
+    {
+      "id": "1996379943480197183",
+      "text": "nginx -v\nnginx -V\n\n둘은 다르다. 후자는 별별 정보를 다 제공하네. 예시:\n\n--conf-path=/etc/nginx/nginx.conf\n--error-log-path=/var/log/nginx/error.log\n--user=nginx\n--group=nginx",
+      "createdAt": "Thu Dec 04 00:44:04 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1996379943480197183",
+      "author": {
+        "username": "hyunbinseo97",
+        "name": "현빈 | Hyunbin"
+      },
+      "authorId": "2936534390"
+    },
+    {
+      "id": "1993478495205548054",
+      "text": "@Wisdom_HQ production deployment failed",
+      "createdAt": "Wed Nov 26 00:34:44 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1993250811837563186",
+      "inReplyToStatusId": "1993250811837563186",
+      "author": {
+        "username": "alwaysonspot",
+        "name": "baybars"
+      },
+      "authorId": "1916902915241017344"
+    },
+    {
+      "id": "1991830750380126580",
+      "text": "@samsheffer When the whole squad shows up to debug why the production deployment failed but nobody wants to admit they pushed to main without testing 😂",
+      "createdAt": "Fri Nov 21 11:27:11 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1991618117299269636",
+      "inReplyToStatusId": "1991618117299269636",
+      "author": {
+        "username": "Mr_Pratap_Singh",
+        "name": "Pratap"
+      },
+      "authorId": "1349374170597969924"
+    },
+    {
+      "id": "1990743699886870824",
+      "text": "@KritikaSaini23 1. Works on staging but not on production\n2. Test cases are failing\n3. Deployment failed",
+      "createdAt": "Tue Nov 18 11:27:38 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1990434756534939908",
+      "inReplyToStatusId": "1990434756534939908",
+      "author": {
+        "username": "alijawwad1995",
+        "name": "Ali Jawwad🇵🇰"
+      },
+      "authorId": "2575286857"
+    },
+    {
+      "id": "1990635289937916375",
+      "text": "@mazeincoding Production database crashed after deploying your script",
+      "createdAt": "Tue Nov 18 04:16:51 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1990137604587520161",
+      "inReplyToStatusId": "1990137604587520161",
+      "author": {
+        "username": "muthu_selvan94",
+        "name": "Muthu Selvan"
+      },
+      "authorId": "1563900364730281985"
+    },
+    {
+      "id": "1990615283153973311",
+      "text": "I have funny stories, so basically my phone is new and my coworker don't even know it. Suddenly the company app crashed on my new phone. After that i tell my coworker, maybe the issue in production but suddenly my coworkers know my phone is new.",
+      "createdAt": "Tue Nov 18 02:57:22 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1990615283153973311",
+      "author": {
+        "username": "harles09",
+        "name": "H Blizt"
+      },
+      "authorId": "1927882884226088960"
+    },
+    {
+      "id": "1988523393541644317",
+      "text": "@ashanviii But production deployment failed as so many bugs were found.",
+      "createdAt": "Wed Nov 12 08:24:56 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1988466010538807792",
+      "inReplyToStatusId": "1988466010538807792",
+      "author": {
+        "username": "Imashukamboj",
+        "name": "Ashish Kamboj"
+      },
+      "authorId": "910163018973147136"
+    },
+    {
+      "id": "1977706016885047474",
+      "text": "@WallStreetMav Production deployment failed!!!!!",
+      "createdAt": "Mon Oct 13 12:00:33 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1977591456035754161",
+      "inReplyToStatusId": "1977591456035754161",
+      "author": {
+        "username": "hemantjain18200",
+        "name": "hemantjain18200"
+      },
+      "authorId": "14061521"
+    },
+    {
+      "id": "1966909701280723085",
+      "text": "Failed production deployment\nFailed production deployment\nFailed production deployment\nFailed production deployment\nFailed production deployment\nFailed production deployment",
+      "createdAt": "Sat Sep 13 16:59:50 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1966909701280723085",
+      "author": {
+        "username": "Didanet_TV",
+        "name": "Matías 'Didanet' Gómez"
+      },
+      "authorId": "2854107491"
+    },
+    {
+      "id": "1960363849506320577",
+      "text": "A Friday deploy broke prod. Instead of a hotfix, we flipped a feature flag—stable in 30s. Since then, flags = survival kit, not just rollout tools. Ever been saved by one?\n#shubhTeeets #EngineeringExcellence",
+      "createdAt": "Tue Aug 26 15:28:58 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 1,
+      "likeCount": 0,
+      "conversationId": "1960363849506320577",
+      "author": {
+        "username": "shubhamc817",
+        "name": "Shubham Choudhary"
+      },
+      "authorId": "2365827656"
+    },
+    {
+      "id": "1954412309498982699",
+      "text": "1/ The discovery\n\nWas poking around dev forums for PloyCloud research.\n\nSaw thread after thread: 'My database crashed again.'\n\nAll running MySQL/Postgres on a $5/month VPS. For production. With real users.",
+      "createdAt": "Sun Aug 10 05:19:40 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1954412308676972671",
+      "inReplyToStatusId": "1954412308676972671",
+      "author": {
+        "username": "HarunRRayhan",
+        "name": "Harun R."
+      },
+      "authorId": "1492054291"
+    },
+    {
+      "id": "1948526715296497746",
+      "text": "@meemtales \"failed production\"\n\"Deployment failed\"",
+      "createdAt": "Thu Jul 24 23:32:25 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1948390927376027795",
+      "inReplyToStatusId": "1948390927376027795",
+      "author": {
+        "username": "aizenwritescode",
+        "name": "aizen"
+      },
+      "authorId": "1576230367329239040"
+    },
+    {
+      "id": "1939388976646725674",
+      "text": "@jespr Yes 🙃🙃🙃 Can’t figure out why my latest kamal deploy broke my tailwind build.",
+      "createdAt": "Sun Jun 29 18:22:18 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1939382756922077343",
+      "inReplyToStatusId": "1939384393195573750",
+      "author": {
+        "username": "BramJetten",
+        "name": "Bram Jetten"
+      },
+      "authorId": "20850932"
+    },
+    {
+      "id": "1933856945678467394",
+      "text": "\"Failed production deployment\"\n\"Failed production deployment\"\n\"Failed production deployment\"\n\"Failed production deployment\"\n\"Failed production deployment\"\n\"Failed production deployment\" https://t.co/Wy8TGsEK1M",
+      "createdAt": "Sat Jun 14 11:59:59 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1933856945678467394",
+      "author": {
+        "username": "koponbun",
+        "name": "jeydyee"
+      },
+      "authorId": "1725821397992366080",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/GtZwZSrbgAAy0kC.jpg",
+          "width": 1078,
+          "height": 1280,
+          "previewUrl": "https://pbs.twimg.com/media/GtZwZSrbgAAy0kC.jpg:small"
+        }
+      ]
+    },
+    {
+      "id": "1931117823751061786",
+      "text": "@tibo_maker haha I literally just got an email from Vercel yesterday saying production deployment failed too",
+      "createdAt": "Fri Jun 06 22:35:42 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1930568842755055921",
+      "inReplyToStatusId": "1930568842755055921",
+      "author": {
+        "username": "katarinaore",
+        "name": "Katarina Ore"
+      },
+      "authorId": "1499527907210891274"
+    },
+    {
+      "id": "1901408002579509388",
+      "text": "@FOXSports so glad the app crashed and won’t come back right as the nascar race concludes would love to see the wood brothers celebrate but your whole production sucks nuts",
+      "createdAt": "Sun Mar 16 22:59:28 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1901408002579509388",
+      "author": {
+        "username": "Swine_Boy",
+        "name": "bucket hat"
+      },
+      "authorId": "1096143259569717248"
+    },
+    {
+      "id": "1894278597419925720",
+      "text": "Found a bug in the Twitter mobile app—keeps crashing when I try to load the jobs. Anyone else having this issue? Time for a fix! 😂 @elonmusk\n\n#twitterbug #ElonMusk #twitter #twitterror #production #buildinpublic #softwaremaintenance https://t.co/NZiv8Kn1yG",
+      "createdAt": "Tue Feb 25 06:49:46 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1894278597419925720",
+      "author": {
+        "username": "KartikGothwal28",
+        "name": "Kartik Gothwal"
+      },
+      "authorId": "1473315470656868355",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/ext_tw_video_thumb/1894278528788545536/pu/img/1YRjiHJewGZCA5K0.jpg",
+          "width": 576,
+          "height": 1280,
+          "previewUrl": "https://pbs.twimg.com/ext_tw_video_thumb/1894278528788545536/pu/img/1YRjiHJewGZCA5K0.jpg:small",
+          "videoUrl": "https://video.twimg.com/ext_tw_video/1894278528788545536/pu/vid/avc1/576x1280/B_eMDAdMVXBY0rrt.mp4?tag=12",
+          "durationMs": 33769
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/GknUSVpWMAEaxTq.jpg",
+          "width": 922,
+          "height": 2048,
+          "previewUrl": "https://pbs.twimg.com/media/GknUSVpWMAEaxTq.jpg:small"
+        }
+      ]
+    }
+  ]
+}
