@@ -11,7 +11,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 WORKSPACE_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 REFS_DIR="$SCRIPT_DIR/references"
 ASSETS_DIR="$SCRIPT_DIR/assets"
-OUTPUT_DIR="${OUTPUT_DIR:-$WORKSPACE_DIR}"
+OUTPUT_DIR="${OUTPUT_DIR:-$WORKSPACE_DIR/daily-packs}"
 BIRD_CLI="$WORKSPACE_DIR/node_modules/@steipete/bird/dist/cli.js"
 
 # Load environment (AUTH_TOKEN + CT0 for bird CLI)

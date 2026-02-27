@@ -1,146 +1,110 @@
-# CRON-SCHEDULE.md — Системный крон (systemd timer)
+# CRON-SCHEDULE.md — Полное расписание задач
 
-**Timezone:** UTC+5
-
----
-
-## Schedule
-
-```
-8:30  UTC+5  → Fire Patrol (morning pain points)
-12:00 UTC+5  → Health Check (workspace integrity)
-13:00 UTC+5  → Brand Building (trends)
-17:30 UTC+5  → Fire Patrol (evening pain points)
-21:00 UTC+5  → Daily Reflection (learnings, mood, metrics)
-вс 11:00 UTC+5 → Weekly Review (patterns, growth)
-```
+**Последнее обновление:** 2026-02-27 (Дима + Claude Opus)
 
 ---
 
-## Systemd Timers (preferred over crontab)
+## Timezone: UTC+5 (Asia/Yekaterinburg)
 
-**Why systemd over cron:**
-- Better logging (journalctl)
-- Can run as specific user (openclaw)
-- Easier to manage/reload
-- Built-in dependency management
+Дима живёт на Южном Урале. Все времена — по UTC+5.
 
 ---
 
-## Installation
+## Две системы запуска
 
-### 1. Create timer units in `/etc/systemd/system/`
+### 1. Crontab (юзер `openclaw`) — bash-скрипты
 
-**fire-patrol-morning.timer**
-```ini
-[Unit]
-Description=Twitter Scout Fire Patrol (morning)
-After=network-online.target
+Проверить: `crontab -l`
 
-[Timer]
-OnCalendar=*-*-* 08:30:00
-Persistent=true
-Unit=fire-patrol-morning.service
+| Время (UTC+5) | День | Задача | Скрипт |
+|---|---|---|---|
+| 08:30 | ежедневно | Fire Patrol (утро) | `run-scout.sh fire-patrol` |
+| 13:00 | ежедневно | Brand Building | `run-scout.sh brand-building` |
+| 17:30 | ежедневно | Fire Patrol (вечер) | `run-scout.sh fire-patrol` |
+| 07:00 | понедельник | Weekly Analytics | `x-smart-read-weekly.js` |
 
-[Install]
-WantedBy=timers.target
+### 2. OpenClaw Gateway (APScheduler) — LLM-сессии
+
+Эти задачи запускаются через gateway как LLM-сессии (не bash). Описание в CRON.md и HEARTBEAT.md.
+
+| Время (UTC+5) | День | Задача | Описание |
+|---|---|---|---|
+| 12:00 | ежедневно | Health Check | Целостность workspace, git status, валидация файлов |
+| 21:00 | ежедневно | Daily Reflection | Обзор дня, learnings, mood/rapport/trust, предложения в MEMORY.md |
+| 11:00 | воскресенье | Weekly Review | Паттерны за неделю, рост, приоритеты, предложения в SOUL.md |
+
+Конфиг: `~/.openclaw/cron/jobs.json`
+Инструкции: CRON.md (шаблоны), HEARTBEAT.md (протокол)
+
+---
+
+## Pipeline crontab-задач
+
+```
+crontab (UTC+5)
+  → run-scout.sh [mode]
+    → scout-fire-patrol.sh / scout-brand-building.sh (bird CLI → собирает твиты)
+    → process-digest.js (фильтрует → скорит → вызывает LLM → генерит replies)
+    → отправляет Telegram дайджест Диме
+    → сохраняет JSON в daily-packs/
 ```
 
-**fire-patrol-morning.service**
-```ini
-[Unit]
-Description=Twitter Scout Fire Patrol (morning)
-After=network-online.target
+### Файлы скриптов
 
-[Service]
-Type=oneshot
-User=openclaw
-WorkingDirectory=/home/openclaw/.openclaw/workspace
-ExecStart=/home/openclaw/.openclaw/workspace/playbooks/twitter-scout/scripts/scout-fire-patrol.sh
-StandardOutput=journal
-StandardError=journal
-```
+**Twitter Scout** (`playbooks/twitter-scout/scripts/`):
 
-### 2. Repeat for all tasks:
-- `health-check.timer` + `health-check.service` (12:00)
-- `brand-building.timer` + `brand-building.service` (13:00)
-- `fire-patrol-evening.timer` + `fire-patrol-evening.service` (17:30)
-- `daily-reflection.timer` + `daily-reflection.service` (21:00)
-- `weekly-review.timer` + `weekly-review.service` (вс 11:00)
+| Файл | Что делает |
+|---|---|
+| `run-scout.sh` | Обёртка: логирование, env, вызов скрипта + digest |
+| `scout-fire-patrol.sh` | 10 queries по pain points (server down, 502, aws bill...) |
+| `scout-brand-building.sh` | 10 queries по трендам (vibe coding, indie hackers...) |
+| `process-digest.js` | Фильтрация, скоринг, LLM replies, Telegram отправка |
 
-### 3. Enable and start
+**Аналитика** (`playbooks/twitter/`):
+
+| Файл | Что делает |
+|---|---|
+| `x-smart-read-weekly.js` | Еженедельный отчёт: impressions, engagements, followers, budget |
+
+### Выходные файлы
+
+| Файл | Где |
+|---|---|
+| Логи scout | `playbooks/twitter-scout/logs/scout-[mode]-YYYY-MM-DD_HH-MM-SS.log` |
+| Кандидаты (сырые) | `[mode]-candidates-YYYY-MM-DDTHH:MM:SSZ.json` |
+| Дайджест (финальный) | `daily-packs/[mode]-digest-YYYY-MM-DD.json` |
+| Логи weekly | `logs/twitter/weekly-YYYYMMDD.log` |
+
+Старые candidates-файлы автоматически удаляются через 3 дня.
+
+---
+
+## Правила
+
+1. **НЕ трогай crontab** без явной команды от Димы
+2. **НЕ добавляй systemd timers** — используем только crontab (systemd timers удалены 2026-02-27)
+3. **НЕ меняй timezone** — UTC+5 (Asia/Yekaterinburg) зафиксирован
+4. **НЕ запускай скрипты вручную** без просьбы Димы
+5. **НЕ удаляй задачи** из крона без явного разрешения Димы
+6. Если крон сломался — сообщи Диме, не чини сам
+
+---
+
+## Диагностика
+
 ```bash
-sudo systemctl daemon-reload
-sudo systemctl enable fire-patrol-morning.timer
-sudo systemctl start fire-patrol-morning.timer
-sudo systemctl list-timers  # verify all running
+# Проверить расписание
+crontab -l
+
+# Посмотреть последний лог
+ls -lt playbooks/twitter-scout/logs/ | head -5
+
+# Посмотреть последний дайджест
+ls -lt daily-packs/*digest* | head -5
+
+# Проверить что bird CLI работает
+source ~/.openclaw/.env.bird && npx bird whoami
+
+# Gateway cron jobs
+cat ~/.openclaw/cron/jobs.json
 ```
-
-### 4. View logs
-```bash
-journalctl -u fire-patrol-morning.service -f
-journalctl -S today  # all tasks today
-```
-
----
-
-## Or: Simple crontab (if systemd not available)
-
-Add to `crontab -e`:
-```
-30 8 * * * /home/openclaw/.openclaw/workspace/playbooks/twitter-scout/scripts/scout-fire-patrol.sh >> /home/openclaw/.openclaw/workspace/logs/fire-patrol-morning.log 2>&1
-0 12 * * * /home/openclaw/.openclaw/workspace/playbooks/twitter-scout/scripts/health-check.sh >> /home/openclaw/.openclaw/workspace/logs/health-check.log 2>&1
-0 13 * * * /home/openclaw/.openclaw/workspace/playbooks/twitter-scout/scripts/scout-brand-building.sh >> /home/openclaw/.openclaw/workspace/logs/brand-building.log 2>&1
-30 17 * * * /home/openclaw/.openclaw/workspace/playbooks/twitter-scout/scripts/scout-fire-patrol.sh >> /home/openclaw/.openclaw/workspace/logs/fire-patrol-evening.log 2>&1
-0 21 * * * [daily-reflection-command] >> /home/openclaw/.openclaw/workspace/logs/daily-reflection.log 2>&1
-0 11 * * 0 [weekly-review-command] >> /home/openclaw/.openclaw/workspace/logs/weekly-review.log 2>&1
-```
-
----
-
-## Output & Notification Flow
-
-**Each task:**
-1. Runs script → collects results
-2. Writes to `/logs/[task]-YYYY-MM-DD.log`
-3. Writes to `/daily-packs/[task]-YYYY-MM-DD.json`
-4. **Proposes MEMORY.md updates** (see below)
-5. Notifies user with summary + key findings
-6. Waits for approval to add to MEMORY.md
-
----
-
-## Memory.md Update Proposal Pattern
-
-After each script runs:
-
-```
-🤙 Fire Patrol (08:30, 2026-02-27)
-Found: 5 candidates (Top: @TheConfigGuy, @fluxdiv)
-
-💡 Propose to add to MEMORY.md:
-- Pattern: "$30 stack" tweets get 14+ score consistently
-- Error: Filter caught 1 false positive (non-English)
-- Action: Lower non-English detection threshold?
-
-✅ Approve? (y/n)
-```
-
-If yes → I add to MEMORY.md + commit.
-If no → skip, try again tomorrow.
-
----
-
-## Next Steps (for Dima)
-
-Choose:
-1. **Systemd timers** (recommended, better logging)
-2. **crontab** (simpler, if systemd unavailable)
-
-Then I'll:
-- Create timer/service files (or provide crontab commands)
-- Update each script to output results + MEMORY.md proposals
-- Test one task end-to-end
-- Set up logging
-
-Готов? 🤙

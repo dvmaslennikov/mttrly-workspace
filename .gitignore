@@ -1,2 +1,9 @@
 .env
 .env.github
+
+# Generated scout output
+daily-packs/*-candidates-*.json
+daily-packs/*-digest-*.json
+
+# Scout logs
+playbooks/twitter-scout/logs/

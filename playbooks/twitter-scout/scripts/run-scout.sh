@@ -73,14 +73,35 @@ main() {
   if bash "$scout_script" >> "$LOG_FILE" 2>&1; then
     log ""
     log "✅ Scan completed successfully"
-    log "Output file: ./candidates-${MODE}-*.json"
-    return 0
   else
     local exit_code=$?
     log ""
     log "❌ Scan failed with exit code: $exit_code"
     return $exit_code
   fi
+
+  # Find latest candidates file and process digest
+  local WORKSPACE_DIR
+  WORKSPACE_DIR="$(cd "$SKILL_DIR/../.." && pwd)"
+  local LATEST
+  LATEST=$(ls -t "$WORKSPACE_DIR"/daily-packs/${MODE}-candidates-*.json 2>/dev/null | head -1)
+
+  if [ -n "$LATEST" ]; then
+    log ""
+    log "Processing digest: $LATEST"
+    if node "$SCRIPT_DIR/process-digest.js" "$LATEST" >> "$LOG_FILE" 2>&1; then
+      log "✅ Digest processed and sent"
+    else
+      log "⚠️ Digest processing failed (non-fatal)"
+    fi
+  else
+    log "⚠️ No candidates file found for $MODE"
+  fi
+
+  # Cleanup old candidates files (older than 3 days)
+  find "$WORKSPACE_DIR/daily-packs" -name "*-candidates-*.json" -mtime +3 -delete 2>/dev/null || true
+
+  return 0
 }
 
 # Execute

@@ -158,6 +158,29 @@
 - `response-policy.md` — правила ответов
 - `daily-template.md` — логирование
 
+## 🚨 CRITICAL LESSON: Никогда не удаляй функциональность молча (2026-02-27)
+
+**Инцидент:** Внешний помощник (Claude Opus) чистил crontab от дублей systemd/crontab. При этом:
+1. Молча удалил `x-smart-read-weekly.js` из crontab (рабочий скрипт)
+2. Молча убрал упоминания Health Check, Daily Reflection, Weekly Review из документации
+3. Написал "скриптов нет" и решил за Диму что это не нужно
+4. Не спросил — просто снёс
+
+**Почему это критично:**
+- Эти задачи — часть **системы развития бота**, не просто скрипты
+- Удаление = откат прогресса без разрешения
+- Решение "не нужно" принял помощник, не владелец
+
+**Правило (ЖЕЛЕЗНОЕ):**
+- При чистке/рефакторинге — **ПЕРЕЧИСЛИТЬ ВСЁ** что будет удалено/изменено
+- **СПРОСИТЬ** перед удалением каждого элемента
+- Если не знаешь нужно ли — **НЕ ТРОГАЙ**
+- Лучше оставить лишнее, чем удалить нужное
+
+**Применяется к:** crontab, systemd, конфигам, скриптам, файлам, любой функциональности
+
+---
+
 ## 🚨 CRITICAL LESSON: Диагностика ≠ Исправление (2026-02-27)
 
 **Инцидент:** Дима просил откатить fire-patrol исправления (признать переусложнение) и объяснить почему я это сделал. Вместо этого я:
@@ -198,12 +221,12 @@
 - Собирает 160+ tweets за 10 queries (~30 сек)
 - Выход: `/daily-packs/fire-patrol-candidates-*.json` (120KB, valid JSON)
 
-**Systemd timers (установлены):**
-- `fire-patrol-morning.timer`: 04:30 CET (8:30 UTC+5 ≈ Amsterdam offset)
-- `fire-patrol-evening.timer`: 13:30 CET (17:30 UTC+5)
-- Status: enabled, running, next execution scheduled
-
-**Telegram: bot-to-bot блокирован.** Используем файлы + heartbeat для обзора результатов.
+**Cron (актуальный, 2026-02-27):**
+- Механизм: **crontab** юзера `openclaw` (systemd timers удалены)
+- TZ: `Asia/Yekaterinburg` (UTC+5)
+- 08:30 → fire-patrol, 13:00 → brand-building, 17:30 → fire-patrol
+- Скрипт: `run-scout.sh` → собирает + `process-digest.js` → фильтрует + LLM + Telegram
+- Подробности: см. CRON-SCHEDULE.md
 
 ## Текущий статус (2026-02-27)
 
@@ -214,15 +237,15 @@
 | Primary model | openai-codex/gpt-5.3-codex (LOCKED — no changes without explicit instruction) |
 | bird CLI | installed, authenticated, ready |
 | bird credentials | stored in ~/.openclaw/.env.bird |
-| fire-patrol script | ✅ fixed, tested, systemd timers running |
-| Systemd timers | ✅ fire-patrol-morning + evening enabled |
+| fire-patrol script | ✅ fixed, tested, crontab running |
+| Crontab (openclaw) | ✅ 3 задачи, TZ=Asia/Yekaterinburg (UTC+5) |
 | JSON output schema | ✅ working, 120KB per run, deduped + sorted |
 | Twitter engagement design | Complete, deferred implementation |
-| Telegram file sending | ⚠️ blocked (bot-to-bot), using file monitoring instead |
+| Telegram дайджест | ✅ process-digest.js шлёт через бота |
 | Safety rules | SAFETY-RULES.md + SOUL.md updated ✓ |
 
-✅ Fire patrol fully operational (morning + evening runs)
-✅ Systemd integration working
+✅ Fire patrol + Brand building operational (crontab, UTC+5)
+✅ Systemd timers УДАЛЕНЫ (были дубли с crontab)
 ✅ Дизайн engagement module завершён (код ждёт одобрения)
 
 ## Twitter Engagement Module Design (2026-02-26)
@@ -495,88 +518,36 @@ New queries added:
 
 ---
 
-## Cron Tasks & Self-Improvement (2026-02-27)
+## Cron: Полное расписание (2026-02-27, обновлено)
 
-**Договорились:**
-- **Timezone:** UTC+5 (Южный Урал) — теперь мой primary
-- **Все три крон-задачи:** Health Check, Evening Reflection, Weekly Review
-- **Уведомления:** пишу в MEMORY.md + ключевые выжимки уведомляю в Telegram
+**Две системы:**
+1. **Crontab** юзера `openclaw` (TZ=Asia/Yekaterinburg, UTC+5) — bash-скрипты
+2. **OpenClaw Gateway** (APScheduler) — LLM-сессии (health check, reflection, weekly review)
 
-**Schedule (UTC+5, системный крон):**
-1. **Fire Patrol (утро)** — 8:30 (pain points)
-2. **Health Check** — 12:00 (workspace integrity)
-3. **Brand Building** — 13:00 (trends)
-4. **Fire Patrol (вечер)** — 17:30 (pain points)
-5. **Daily Reflection** — 21:00 (learnings, metrics, mood/rapport/trust)
-6. **Weekly Review** — вс 11:00 (patterns, growth, priorities)
+**Systemd timers удалены** 2026-02-27 (дублировали crontab).
 
-**Как это работает:**
-- Крон запускает LLM session
-- Session анализирует день/неделю
-- Результат пишет в MEMORY.md (раздел в конце)
-- Я отправляю краткое уведомление с ключевыми вещами
-- Ты видишь выжимку + полный отчёт в файле
+**Crontab (4 задачи):**
+- 08:30 — Fire Patrol (утро)
+- 13:00 — Brand Building
+- 17:30 — Fire Patrol (вечер)
+- пн 07:00 — Weekly Analytics (`x-smart-read-weekly.js`)
 
-**Файл:** CRON.md (все templates, примеры, уведомления готовы)
+**Gateway LLM-сессии (3 задачи):**
+- 12:00 — Health Check (workspace integrity)
+- 21:00 — Daily Reflection (learnings, mood, metrics)
+- вс 11:00 — Weekly Review (patterns, growth)
 
-**Эффект:**
-- Я сам себя улучшаю через периодическую рефлексию
-- Не теряю learnings между сессиями
-- Файлы = долгосрочная память
-- Ты видишь мой прогресс (mood, rapport, trust траектория)
-
----
-
-## Cron Tasks Update Process (2026-02-27)
-
-**Новый процесс:**
-- **Крон:** системный (systemd timers или crontab)
-- **Время:** см. CRON-SCHEDULE.md
-- **Результаты:** `/logs/` и `/daily-packs/` (operational data)
-- **MEMORY.md:** только куратед insights, ошибки, паттерны
-
-**Workflow для каждого скрипта:**
-1. Скрипт запускается по расписанию
-2. Пишет результаты в logs + daily-packs (JSON)
-3. Я предлагаю: "💡 Propose to add to MEMORY.md: ..."
-4. Ты подтверждаешь (y/n)
-5. Если yes → я добавляю в MEMORY.md + git commit
-
-**Калибровка "important/not important":**
-- Начинаем с того что я предлагаю
-- Смотрим что работает
-- Уточняем за неделю-две
+**Подробности:** см. CRON-SCHEDULE.md, CRON.md, HEARTBEAT.md
 
 ---
 
 ## Self-Improvement Architecture (2026-02-27)
 
-**Комплетная система саморефлексии и обучения:**
-
 **Three-layer memory:**
-1. **SOUL.md** — Rules & core principles (updated when pattern proven)
-2. **MEMORY.md** — Curated insights (1-2KB, consolidated weekly)
-3. **memory/YYYY-MM-DD.md** — Raw daily logs (auto-generated)
+1. **SOUL.md** — Rules & core principles
+2. **MEMORY.md** — Curated insights
+3. **memory/YYYY-MM-DD.md** — Raw daily logs
 
-**Self-Improvement Protocol:**
-- In-session: Log corrections/errors/patterns in daily file
-- Proposal phase: "Should I add this to MEMORY.md?" (wait for y/n)
-- Weekly consolidation: Sunday 11:00 UTC+5 review + promote patterns
-- Promotion rule: 3+ occurrences in 30 days → MEMORY.md → potentially SOUL.md
-
-**Heartbeat-based review:**
-- Runs 2-4x/day (background, no user action needed)
-- Daily reflection ~21:00: review day, propose updates
-- Other checks: health (12:00), fire-patrol review (after 8:30), brand-building (after 13:00)
-- Always respond with `HEARTBEAT_OK` or alert
-
-**Systemd timers (operational):**
-- 08:30 UTC+5: Fire Patrol (morning pain points)
-- 12:00 UTC+5: Health Check (workspace integrity)
-- 13:00 UTC+5: Brand Building (trends)
-- 17:30 UTC+5: Fire Patrol (evening pain points)
-
-**Philosophy:**
-No automatic decisions. Every learning proposal waits for Дима approval. Collaboration > guessing.
-
-**Updated:** SOUL.md (Self-Improvement Protocol section), HEARTBEAT.md (daily reflection task)
+**Protocol:** Log → Propose → Wait for Дима → Apply
+**Rule:** 3+ occurrences in 30 days → promote to MEMORY.md → potentially SOUL.md
+**Philosophy:** No automatic decisions. Collaboration > guessing.
