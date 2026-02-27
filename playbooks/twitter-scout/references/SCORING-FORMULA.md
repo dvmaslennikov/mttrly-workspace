@@ -1,287 +1,320 @@
-# Scoring Formula (Detailed)
+# SCORING-FORMULA.md — Weights + Ranking Tiers
 
-How to score and rank filtered tweet candidates.
-
----
-
-## Formula
+## Full Scoring Equation
 
 ```
-score = (engagement + freshness + reply_bonus) × category_weight
+SCORE = (relevance × w_rel) + (freshness × w_fresh) + (reach × w_reach) + 
+        (authority × w_auth) + (tone × w_tone)
 
-Components:
-  engagement = min(likes / 20, 3)               [0-3 points]
-  freshness = max(2 - hours / 36, 0)            [0-2 points]
-  reply_bonus = +1 if tweet.isReply             [0 or 1 point]
-  category_weight = {
-    pain_point: 3.0,      [3x multiplier for highest priority]
-    audience: 2.0,        [2x for learning/growth signals]
-    competitor: 1.5,      [1.5x for alternative platform mentions]
-    monitoring: 0.8       [0.8x for low-priority observations]
-  }
+Where:
+  relevance ∈ [0, 5]     (category match + specificity)
+  freshness ∈ [0, 2]     (age within mode window)
+  reach ∈ [0, 2]         (likes + estimated views)
+  authority ∈ [0, 2]     (author followers + domain expertise)
+  tone ∈ [0, 1]          (writing style + professionalism)
 
-Final score range: 0-18 (approximately)
-```
+  w_rel = 3.0    (category relevance is primary signal)
+  w_fresh = 0.5  (freshness is tiebreaker)
+  w_reach = 2.0  (engagement proves it resonates)
+  w_auth = 1.5   (authority adds credibility)
+  w_tone = 1.0   (tone affects reply appropriateness)
 
----
-
-## Component Breakdown
-
-### Engagement Score (0-3 points)
-
-```
-engagement = min(likes / 20, 3)
-
-Examples:
-  3 likes   → 3/20 = 0.15 points
-  20 likes  → 20/20 = 1.0 points
-  60 likes  → 60/20 = 3.0 points (capped)
-  100 likes → 100/20 = 5.0 → capped at 3.0
-```
-
-**Why divide by 20?**
-- Pain points: Even 3 likes is significant (rare pain)
-- Brand building: 5+ likes shows traction
-- Dividing by 20 normalizes across low engagement
-
-**Handling missing likes:**
-- If `likes` is null or missing → score = 0 for engagement
-- Still apply other components (freshness, category weight)
-
----
-
-### Freshness Score (0-2 points, decays over 72h)
-
-```
-freshness = max(2 - hours / 36, 0)
-
-Examples:
-  0h    (just posted)     → 2 - 0/36 = 2.0 points
-  12h   (morning post)    → 2 - 12/36 = 1.67 points
-  24h   (yesterday)       → 2 - 24/36 = 1.33 points
-  36h                     → 2 - 36/36 = 1.0 point
-  48h                     → 2 - 48/36 = 0.67 points
-  72h   (3 days old)      → 2 - 72/36 = 0.0 points
-```
-
-**Why this curve?**
-- Fresh tweets get higher priority (more engagement potential)
-- Decays linearly over 72h window
-- At 72h exactly: score becomes 0 (already filtered anyway, but doesn't hurt)
-
-**Handling missing createdAt:**
-- If `createdAt` is null → treat as old (freshness = 0)
-- Skip tweet? No, just penalize freshness
-
----
-
-### Reply Bonus (0 or 1 point)
-
-```
-reply_bonus = 1 if tweet.isReply else 0
-
-Why?
-- Replies from domain experts are expertise signals
-- @TheConfigGuy replying to infrastructure question = gold
-- Replies are in real conversations (more organic)
-- People helping people > random post
-```
-
-**Examples:**
-- Original tweet → reply_bonus = 0
-- Reply from @theconfigguy → reply_bonus = 1 (before category weight)
-- Reply from random user → reply_bonus = 1 (we still engage in threads)
-
----
-
-### Category Weight (1.5-3.0x multiplier)
-
-```
-Categories (determined by keyword matching):
-
-1. pain_point (3.0x weight)
-   Keywords: server, down, crashed, aws bill, incident, 3am, failed
-   Why: Highest priority, real problem NOW
-   
-2. audience (2.0x weight)
-   Keywords: solo founder, indie hacker, learning, first deploy, vibe coding
-   Why: High priority, signals growth market
-   
-3. competitor (1.5x weight)
-   Keywords: vercel, railway, expensive, migration, heroku
-   Why: Medium priority, audience signal
-   
-4. monitoring (0.8x weight)
-   Keywords: everything else (community, trends, philosophy)
-   Why: Low priority, impression building not urgent response
-```
-
-**Keyword detection:**
-```python
-def categorize(text):
-  text_lower = text.lower()
-  
-  if any(k in text_lower for k in ["server down", "crashed", "aws bill", "incident"]):
-    return "pain_point"
-  elif any(k in text_lower for k in ["solo founder", "indie", "first deploy", "vibe"]):
-    return "audience"
-  elif any(k in text_lower for k in ["vercel", "railway", "expensive", "migration"]):
-    return "competitor"
-  else:
-    return "monitoring"
+MAX_SCORE = (5 × 3.0) + (2 × 0.5) + (2 × 2.0) + (2 × 1.5) + (1 × 1.0)
+          = 15.0 + 1.0 + 4.0 + 3.0 + 1.0
+          = 24.0 (theoretical max, rarely achieved)
 ```
 
 ---
 
-## Putting It Together
+## Component Scoring
 
-### Example 1: Fresh Pain Point
+### 1. RELEVANCE (0–5 points, weight: 3.0)
 
+Measures how well the tweet matches the category and how specific the pain point / signal is.
+
+#### Category: pain_point
+| Signal | Points | Examples |
+|--------|--------|----------|
+| **Specific incident** (service down, 3am, timeout, OOM, deploy failed) | 5 | "Lambda timeout after deploy" |
+| **Named service + problem** (AWS bill spike, GCP auth issue) | 4 | "$300 bill from overage charges" |
+| **Generic production issue** (things break, prod incident, bad day) | 2 | "Nothing works on Friday" |
+| **Aspirational** (built prod app, handling scale) | 0 | "Built production app without CS" |
+
+**Logic:**
 ```
-Tweet:
-  likes: 46
-  createdAt: 2026-02-27 01:00:00Z
-  now: 2026-02-27 18:00:00Z
-  isReply: false
-  text: "server crashed at 3am, no idea what happened"
-
-Calculation:
-  engagement = min(46 / 20, 3) = 2.3
-  freshness = 2 - 17 / 36 = 1.53
-  reply_bonus = 0 (original tweet)
-  category = pain_point (3.0x)
-  
-  score = (2.3 + 1.53 + 0) × 3.0 = 11.39
-  
-Ranking: ГОРЯЧЕЕ (12+ score threshold doesn't apply here, but HIGH priority)
-```
-
-### Example 2: Old Brand-Building
-
-```
-Tweet:
-  likes: 25
-  createdAt: 2026-02-25 10:00:00Z
-  now: 2026-02-27 18:00:00Z
-  isReply: true
-  text: "finally understood devops, it's not as scary as I thought"
-
-Calculation:
-  engagement = min(25 / 20, 3) = 1.25
-  freshness = 2 - 56 / 36 = 0.44
-  reply_bonus = 1 (is a reply)
-  category = audience (2.0x)
-  
-  score = (1.25 + 0.44 + 1) × 2.0 = 5.38
-  
-Ranking: МОНИТОРИНГ (below 7 threshold, but interesting thread signal)
+if tweet_text contains specific_incident_keyword:
+  relevance_pain = 5
+elif tweet_text contains service_name + error_keyword:
+  relevance_pain = 4
+elif tweet_text matches generic_prod_pattern:
+  relevance_pain = 2
+else:
+  relevance_pain = 0
 ```
 
-### Example 3: Authority Reply to Pain Point
+#### Category: audience
+| Signal | Points | Examples |
+|--------|--------|----------|
+| **Solo founder / zero CS background** (explicitly stated) | 5 | "@walls_jason1: 'I have zero CS degree'" |
+| **Indie developer / bootstrapped** (clear context) | 4 | "Built solo in 3 months" |
+| **Small team / startup** (implied) | 3 | "We're 5 people" |
+| **General audience mention** (broad, not specific) | 1 | "Developers hate X" |
 
+**Logic:**
 ```
-Tweet:
-  likes: 5
-  createdAt: 2026-02-27 14:00:00Z
-  now: 2026-02-27 18:00:00Z
-  isReply: true
-  text: "@someone the problem is your monitoring is reactive not preventive"
-  author: @rakyll
+if tweet_author matches founder_profile:
+  relevance_audience = 5
+elif tweet_text contains indie_signal:
+  relevance_audience = 4
+elif tweet_text contains team_signal:
+  relevance_audience = 3
+else:
+  relevance_audience = 1
+```
 
-Calculation:
-  engagement = min(5 / 20, 3) = 0.25
-  freshness = 2 - 4 / 36 = 1.89
-  reply_bonus = 1 (domain expert replying)
-  category = pain_point (3.0x)
-  
-  score = (0.25 + 1.89 + 1) × 3.0 = 11.13
-  
-Ranking: ГОРЯЧЕЕ (authority expertise signal boosts low engagement)
+#### Category: monitoring (trends, philosophy, no direct action)
+| Signal | Points | Examples |
+|--------|--------|----------|
+| **Emerging pattern** (5+ tweets in 24h on same topic) | 3 | "MCP adoption spike" |
+| **Philosophy / thought leadership** | 2 | "Why on-call burnout exists" |
+| **Community chatter** (mentions, RTs) | 1 | "React v19 released" |
+
+---
+
+### 2. FRESHNESS (0–2 points, weight: 0.5)
+
+Measures recency within mode's time window.
+
+#### Fire Patrol (30-minute window)
+| Age | Points |
+|-----|--------|
+| 0–10 min | 2.0 |
+| 10–20 min | 1.5 |
+| 20–30 min | 1.0 |
+| >30 min | 0.0 (SKIP in filtering) |
+
+**Formula:** `freshness_fire = max(0, 2.0 - (age_minutes / 15))`
+
+#### Brand Building (72-hour window)
+| Age | Points |
+|-----|--------|
+| 0–6 hours | 2.0 |
+| 6–24 hours | 1.5 |
+| 24–48 hours | 1.0 |
+| 48–72 hours | 0.5 |
+| >72 hours | 0.0 (SKIP) |
+
+**Formula:** `freshness_brand = max(0, 2.0 - (age_hours / 36))`
+
+**Rationale:** Fresh content = hot signal. Pain points must be <30 min to reply while trendy. Thought leadership can age 72h.
+
+---
+
+### 3. REACH (0–2 points, weight: 2.0)
+
+Measures engagement (likes + views) relative to mode baseline.
+
+#### Fire Patrol
+| Engagement | Points | Formula |
+|------------|--------|---------|
+| 3–5 likes (50–100 views) | 0.5 | Low signal |
+| 6–15 likes (100–300 views) | 1.0 | Moderate |
+| 16–50 likes (300–800 views) | 1.5 | Strong |
+| 50+ likes (800+ views) | 2.0 | Very strong |
+
+**Formula:** `reach_fire = min(2.0, likes / 25)` (capped at 2.0)
+
+#### Brand Building
+| Engagement | Points | Formula |
+|------------|--------|---------|
+| 5–20 likes (200–500 views) | 0.5 | Low reach |
+| 21–100 likes (500–2K views) | 1.0 | Moderate reach |
+| 100–500 likes (2K–8K views) | 1.5 | Strong reach |
+| 500+ likes (8K+ views) | 2.0 | Viral reach |
+
+**Formula:** `reach_brand = min(2.0, likes / 250)` (capped at 2.0)
+
+**Estimated views:** If bird returns views, use actual. Else, views ≈ likes × 7.
+
+---
+
+### 4. AUTHORITY (0–2 points, weight: 1.5)
+
+Measures author credibility + domain expertise.
+
+#### Domain Expert Bonus
+| Author | Bonus | Notes |
+|--------|-------|-------|
+| @rakyll | +1.0 | Go/infrastructure authority |
+| @copyconstruct | +1.0 | Distributed systems |
+| @TheConfigGuy | +0.5 | DevOps/infrastructure |
+| @fluxdiv | +0.5 | Billing/economics expert |
+| **Authority reply in thread** | +1.0 | Domain expert replying to tweet |
+
+#### Base Authority Score (author followers)
+| Followers | Points |
+|-----------|--------|
+| <1K | 0.0 |
+| 1K–10K | 0.5 |
+| 10K–100K | 1.0 |
+| 100K–1M | 1.5 |
+| 1M+ | 2.0 |
+
+**Final authority score:**
+```
+authority = base_authority + domain_expert_bonus
+           (capped at 2.0)
+```
+
+**Rationale:** Well-known people's problems carry more signal. Domain experts' insights are rare & valuable.
+
+---
+
+### 5. TONE (0–1 point, weight: 1.0)
+
+Measures writing quality + professionalism. Rewards clear, specific language; penalizes generic/lazy posts.
+
+| Characteristic | Tone Score |
+|----------------|-----------|
+| **Specific, technical, detailed** | 1.0 | "AWS Lambda timeout error after deploy, takes 2min to timeout" |
+| **Clear problem + context** | 0.75 | "Deploy failing because of overage charges on GCP" |
+| **Vague but thoughtful** | 0.5 | "When infrastructure breaks at 3am" |
+| **Generic complaint** | 0.25 | "Everything is broken" |
+| **All caps / spam-like** | 0.0 | "BUY NOW!!" or "THIS IS BROKEN!!!!!!" |
+
+**Detection:**
+```
+if has_technical_terms(tweet) and has_specifics(tweet):
+  tone = 1.0
+elif has_problem_context(tweet):
+  tone = 0.75
+elif is_thoughtful_but_vague(tweet):
+  tone = 0.5
+elif is_generic_complaint(tweet):
+  tone = 0.25
+else:
+  tone = 0.0
 ```
 
 ---
 
 ## Ranking Tiers
 
-```
-score >= 12:    ГОРЯЧЕЕ (Hot)
-  → Fire patrol candidates
-  → Reply within 30 min
-  → High priority
-  
-7-11:           ХОРОШЕЕ (Good)
-  → Brand building candidates
-  → Reply within 24h
-  → Medium priority
-  
-3-6:            МОНИТОРИНГ (Monitoring)
-  → Watch, reply selectively
-  → Low priority
-  → High-quality only
-  
-< 3:            SKIP
-  → Not worth reply
-```
+After scoring, tweets are placed into tiers based on their final score and mode.
 
----
+### Fire Patrol Tiers
+| Tier | Score Range | Label | Action |
+|------|-------------|-------|--------|
+| 🔥 ГОРЯЧЕЕ | ≥12.0 | HOT | Reply immediately (Template A/B) |
+| 📊 ХОРОШЕЕ | 8.0–11.9 | GOOD | Reply within 1 hour (Template A/B) |
+| 👀 МОНИТОРИНГ | 5.0–7.9 | MONITORING | Track, reply later if re-trending |
+| ⏭️ SKIP | <5.0 | LOW | Archive, log reason |
 
-## Handling Edge Cases
+### Brand Building Tiers
+| Tier | Score Range | Label | Action |
+|------|-------------|-------|--------|
+| 🔥 ГОРЯЧЕЕ | ≥14.0 | HOT | Reply same-day (Template A/B/C) |
+| 📊 ХОРОШЕЕ | 10.0–13.9 | GOOD | Reply within 24h (Template A/B/C) |
+| 👀 МОНИТОРИНГ | 6.0–9.9 | MONITORING | Monitor, optional reply in 48h |
+| ⏭️ SKIP | <6.0 | LOW | Archive, log reason |
 
-### Tied Scores (Same Score)
-
-If two tweets have identical scores (e.g., both 11.39):
-
-1. **Tiebreaker 1:** Freshness (newer first)
-   - Lower hours_old wins
-2. **Tiebreaker 2:** Engagement (more likes first)
-   - Higher likes wins
-3. **Tiebreaker 3:** Follower count (larger account first)
-   - Higher followers wins
-4. **Tiebreaker 4:** Tweet ID (most recent first)
-   - Larger ID wins
-
-**Reasoning:** Fresh + engaged = better signal
-
----
-
-### Missing Score Components
-
-**If likes missing:**
-- engagement = 0
-- Still calculate freshness × category_weight
-- Proceed with partial score
-
-**If createdAt missing:**
-- freshness = 0
-- Still calculate engagement × category_weight
-- Mark as "age unknown" in output
-
-**If isReply missing (unknown):**
-- reply_bonus = 0 (conservative)
-- Proceed
-
----
-
-## Output Format
-
+**Output format for tier:**
 ```json
 {
-  "tweet_id": "123456",
-  "scoring": {
-    "engagement_score": 2.3,
-    "engagement_breakdown": "46 likes / 20 = 2.3",
-    "freshness_score": 1.53,
-    "freshness_breakdown": "17 hours old → 2 - 17/36 = 1.53",
-    "reply_bonus": 0,
-    "category": "pain_point",
-    "category_weight": 3.0,
-    "total_score": 11.39,
-    "ranking": "ГОРЯЧЕЕ"
-  }
+  "tweet_id": "1756432168",
+  "author": "@fluxdiv",
+  "score": 14.11,
+  "tier": "ГОРЯЧЕЕ",
+  "category": "pain_point",
+  "mode": "fire_patrol",
+  "components": {
+    "relevance": 4.0,
+    "freshness": 1.5,
+    "reach": 1.33,
+    "authority": 1.0,
+    "tone": 0.75
+  },
+  "hook": "Your overage charges are the killer...",
+  "recommendation": "Reply immediately with Template A"
 }
 ```
 
 ---
 
-**Last Updated:** 2026-02-27  
-**Purpose:** Deterministic, transparent scoring
+## Tiebreaker Logic
+
+When two tweets have **identical scores**:
+
+1. **Freshness** (recency wins)
+   - Compare created_at timestamps
+   - Newer tweet ranks higher
+
+2. If freshness tied → **Likes** (engagement wins)
+   - Higher likes = more proven signal
+
+3. If likes tied → **Author followers** (authority wins)
+   - More followers = larger audience impact
+
+4. If all tied → **Random** (maintain determinism with seed)
+   - Use tweet_id + seed for reproducible randomness
+
+---
+
+## Example Calculation
+
+### Tweet: @fluxdiv's overage complaint
+
+**Input:**
+```
+{
+  "text": "The overage charges are the killer. People start free, hit $300+ bill, ghost.",
+  "likes": 66,
+  "views": 462,
+  "created_at": "2026-02-27T05:45:00Z",
+  "age_minutes": 20,
+  "author_followers": 15000,
+  "author": "@fluxdiv",
+  "mode": "fire_patrol"
+}
+```
+
+**Scoring:**
+
+1. **Relevance (pain_point):** "overage charges" + "$300 bill" → specific financial pain → **4.0**
+2. **Freshness (20 min old):** `2.0 - (20/15) = 0.67` → **0.67**
+3. **Reach:** `min(2.0, 66/25) = 2.0` → **2.0**
+4. **Authority:** @fluxdiv (10K–100K) = 1.0 (no domain bonus) → **1.0**
+5. **Tone:** Technical, specific issue → **0.75**
+
+**Total:**
+```
+SCORE = (4.0 × 3.0) + (0.67 × 0.5) + (2.0 × 2.0) + (1.0 × 1.5) + (0.75 × 1.0)
+      = 12.0 + 0.33 + 4.0 + 1.5 + 0.75
+      = 18.58
+```
+
+**Tier:** ГОРЯЧЕЕ (≥12.0 for Fire Patrol) ✅
+
+**Recommendation:** Reply immediately with Template A (empathy on overage pain).
+
+---
+
+## Summary
+
+**Scoring captures:**
+- ✅ Category match (relevance)
+- ✅ Recency (freshness)
+- ✅ Proof of resonance (reach)
+- ✅ Author credibility (authority)
+- ✅ Writing quality (tone)
+
+**Tiers guide action:**
+- ✅ ГОРЯЧЕЕ = act now
+- ✅ ХОРОШЕЕ = act soon
+- ✅ МОНИТОРИНГ = watch
+- ✅ SKIP = log & move on
+
+**Tiebreakers ensure:**
+- ✅ Deterministic ranking (no randomness in equal scores)
+- ✅ Transparency (all components logged)
+- ✅ Mode-aware (different thresholds for fire vs brand)

@@ -1,197 +1,262 @@
-# Filtering Logic (Detailed)
+# FILTERING-LOGIC.md — 6-Step Pipeline + Decision Tree
 
-How to filter raw tweet results into qualified candidates.
+## Overview
 
----
-
-## Filter Application Order
-
-**Apply these in order. If ANY filter fails → skip tweet.**
-
-### 1. Already Engaged (Deduplication)
-```
-Check: Is tweet_id in x-engagement-tracking.md?
-  YES → SKIP (reason: already_replied)
-  NO → continue
-```
-
-**Why:** Don't reply twice to the same tweet (spam signal)
+Filtering removes noise and produces a ranked candidate list. Each step has a **PASS/SKIP** decision.
 
 ---
 
-### 2. Language Check
-```
-Function is_english(text):
-  ascii_chars = text.match(/[a-zA-Z0-9\s.,!?'""-]/g)
-  ratio = ascii_chars.length / text.length
-  return ratio > 0.7
+## 6-Step Pipeline
 
-Check: is_english(tweet.text)?
-  YES → continue
-  NO → SKIP (reason: not_english)
-```
+### Step 1: Original vs Reply
+**Question:** Is this a reply to another tweet or an original tweet?
 
-**Why:** We reply in English, targeting English audience
+| Condition | Action |
+|-----------|--------|
+| **Original tweet** | PASS → Step 2 |
+| **Reply to tweet** | **CONDITIONAL**: Check if reply is from high-authority user (rakyll, copyconstruct, etc.) OR adds novel insight; if yes → PASS; else → SKIP |
+| **Retweet** | SKIP |
 
-**Edge case:** Author name is Cyrillic (OK). Evaluate tweet content, not author name.
+**Rationale:** Original tweets guarantee unique perspective. Replies from domain experts add value; generic replies waste signal.
 
 ---
 
-### 3. Bot Check
-```
-Function is_bot(author):
-  bot_keywords = ["bot", "automated", "script", "api", "crawler", 
-                   "trading bot", "bot token"]
-  name_lower = author.name.toLowerCase()
-  username_lower = author.username.toLowerCase()
-  
-  return bot_keywords.some(k => name_lower.includes(k) || username_lower.includes(k))
+### Step 2: Language Detection
+**Question:** Is the primary language English?
 
-Check: is_bot(tweet.author)?
-  YES → SKIP (reason: is_bot)
-  NO → continue
-```
+| Condition | Action |
+|-----------|--------|
+| **English** (tweet text ≥80% ASCII, common English words detected) | PASS → Step 3 |
+| **Mixed** (has Russian/Chinese/etc. but English ≥50%) | **MANUAL REVIEW** (ask: is core message in English?) |
+| **Non-English** | SKIP |
 
-**Why:** Bots don't engage meaningfully
-
-**Example:**
-- `@bankrbot` → SKIP
-- `@trading_bot_signals` → SKIP
-- `@alex_developer` → OK (not a bot)
+**Detection method:** Simple heuristic—count English stopwords (the, is, are, have, been, for, etc.) vs total words.
 
 ---
 
-### 4. Spam/Promo Check
-```
-Function is_spam(text):
-  spam_keywords = ["buy now", "click here", "sign up", "limited offer",
-                   "coupon", "discount", "check out", "get started"]
-  text_lower = text.toLowerCase()
-  return spam_keywords.some(k => text_lower.includes(k))
+### Step 3: Bot & Spam Filtering
+**Question:** Does the tweet look like bot/spam content?
 
-Check: is_spam(tweet.text)?
-  YES → SKIP (reason: is_spam)
-  NO → continue
-```
+| Pattern | Action |
+|-----------|--------|
+| Author handle contains: `bot`, `automated`, `_bot_` | SKIP |
+| Tweet contains: "deploy the token", "on-chain", "$SOL", "$ETH", "airdrop", "buy now" | SKIP |
+| Tweet contains: multiple hashtags + promotional link in single sentence | SKIP |
+| Tweet contains: "RT @X has retweeted" or similar meta-spam | SKIP |
+| **Otherwise** | PASS → Step 4 |
 
-**Why:** We engage, not pitch. Spam tweets don't need our insight.
+**Exclusion list:** See `EXCLUSION-PATTERNS.md` (loaded separately).
 
 ---
 
-### 5. Engagement Threshold
-```
-Fire Patrol minimum:   likes >= 3
-Brand Building minimum: likes >= 5
+### Step 4: Engagement Filter (Tiered by Mode)
 
-Check: tweet.likes >= threshold?
-  YES → continue
-  NO → SKIP (reason: low_engagement)
-```
+#### Fire Patrol Mode
+**Question:** Does this tweet have enough engagement to signal real pain?
 
-**Why:**
-- Fire Patrol: Pain points are rare, even 3 likes = signal
-- Brand Building: Trends need some traction
+| Metric | Threshold | Action |
+|--------|-----------|--------|
+| **Likes** | ≥3 | — |
+| **Views** | ≥50 (estimated from likes × 7) | — |
+| **Replies** | ≥1 | — |
+| **Age** | ≤30 minutes from now | — |
+| **All met?** | YES | PASS → Step 5 |
+| | NO | SKIP (log reason) |
 
-**Edge case:** If `likes` is missing → set to 0 → SKIP
+**Rationale:** Pain points trend fast. 3 likes from 50 views = real signal (6% engagement). Default est. views = likes × 7 (conservative).
 
----
+#### Brand Building Mode
+**Question:** Does this tweet have enough reach + engagement for thought leadership?
 
-### 6. Age Filter
-```
-Max age: 72 hours
+| Metric | Threshold | Action |
+|--------|-----------|--------|
+| **Likes** | ≥5 | — |
+| **Views** | ≥200 (estimated) | — |
+| **Author followers** | ≥1K (estimated from profile) | — |
+| **Age** | ≤72 hours | — |
+| **All met?** | YES | PASS → Step 5 |
+| | NO | SKIP (log reason) |
 
-Check: tweet_age_hours <= 72?
-  YES → continue
-  NO → SKIP (reason: too_old)
-
-Formula:
-  tweet_age_hours = (now - tweet.createdAt) / 3600
-```
-
-**Why:**
-- Fire Patrol: Quick response needed
-- Brand Building: 72h window catches trends, not ancient posts
-
-**Exact boundary:** Include if age == 72h (use `<=`, not `<`)
+**Rationale:** Brand-building needs reach. 5+ likes on 200 views = viral signal (2.5% engagement). Author must have audience.
 
 ---
 
-### 7. Exclusion Patterns
-```
-exclusion_patterns = [
-  "bankrbot", "deploy the token", "on Base", "web3", "on-chain",
-  "airdrop", "$SOL", "$ETH", "bot token", "trading bot", 
-  "crypto", "defi"
-]
+### Step 5: Deduplication & History
+**Question:** Have we replied to this tweet or author before?
 
-Check: Does tweet.text contain ANY exclusion pattern?
-  YES → SKIP (reason: excluded_pattern)
-  NO → continue
-```
+| Condition | Action |
+|-----------|--------|
+| **Replied** in last 90 days | SKIP (log dedup) |
+| **Same author**, replied in last 30 days | SKIP (avoid spam) |
+| **Author on blocklist** (spammer, repeatedly declined) | SKIP |
+| **Tweet ID** in engagement-tracking.md | SKIP |
+| **Otherwise** | PASS → Step 6 |
 
-**Why:** Crypto/bot spam noise (0% signal)
+**Data source:** Load `data/x-engagement-tracking.md` (timestamp + author + decision).
 
 ---
 
-### 8. Reply Type (Include Both)
+### Step 6: Category Assignment & Scoring
+**Question:** What category is this tweet? Does it score high enough for the mode?
+
+| Category | Fire Patrol | Brand Building |
+|----------|-------------|-----------------|
+| **pain_point** | ✅ Include (score ≥3) | Skip (tactical, not strategic) |
+| **audience** | Maybe (score ≥2, only founder types) | ✅ Include (score ≥3) |
+| **monitoring** | ✅ Include (trending, 5+ mentions) | ✅ Include (score ≥2) |
+
+**Category logic:** See `SCORING-FORMULA.md` for full scoring equation.
+
+**Output:** PASS or SKIP with score + category + reason.
+
+---
+
+## Decision Tree (ASCII)
+
 ```
-Note: Replies (is_reply=true) are INCLUDED, not skipped.
-This is intentional — replies from domain experts are gold.
+Tweet collected from bird CLI
+  │
+  ├─ [Step 1] Is original or high-authority reply?
+  │   NO  → SKIP (retweet/generic reply)
+  │   YES ↓
+  │
+  ├─ [Step 2] Language = English?
+  │   NO  → SKIP (non-English)
+  │   YES ↓
+  │
+  ├─ [Step 3] Not bot/spam?
+  │   NO  → SKIP (spam filter)
+  │   YES ↓
+  │
+  ├─ [Step 4] Engagement threshold met?
+  │   (3+ likes, 50+ views for Fire Patrol)
+  │   (5+ likes, 200+ views for Brand Building)
+  │   NO  → SKIP (too quiet)
+  │   YES ↓
+  │
+  ├─ [Step 5] Not duplicate/previously replied?
+  │   NO  → SKIP (dedup)
+  │   YES ↓
+  │
+  └─ [Step 6] Score + category
+      Score ≥ mode_threshold?
+      NO  → SKIP (low relevance)
+      YES → PASS ✅
+            (output: tweet_id, author, score, category, hook)
+```
+
+---
+
+## Handling Missing Data
+
+When a field is unavailable:
+
+| Field | Missing Value | Default | Rationale |
+|-------|---------------|---------|-----------|
+| `views` | Not provided by bird | `likes × 7` | Conservative est. (6–8% engagement typical) |
+| `author.followers` | Private account | `5000` | Mid-tier default (biased low for safety) |
+| `created_at` | Malformed timestamp | **SKIP** | Can't verify age window |
+| `engagement.replies` | Not counted | `0` | Assume no replies if not provided |
+| `in_reply_to_status_id` | Null | Original (Step 1 PASS) | Treat as original tweet |
+
+---
+
+## Conflict Resolution
+
+**What if a tweet passes Step 4 but fails Step 5 (dedup)?**
+- Check dedup date: if **>90 days**, override dedup (allow replay).
+- Log reason: "Dedup override: 120 days since last engagement".
+
+**What if views are unavailable but likes are 15+?**
+- Assume views = 15 × 7 = 105 (est.)
+- If threshold is 50 (Fire Patrol), PASS; if 200 (Brand Building), SKIP.
+- Log: "Views estimated from likes (tweet has 15 likes)".
+
+**What if author followers are unknown but tweet has 200 views?**
+- Check likes: if ≥5, assume author has audience; PASS.
+- Check likes: if <5, assume micro-account; SKIP (Brand Building only).
+
+---
+
+## Pseudocode
+
+```python
+def filter_tweet(tweet, mode="fire_patrol"):
+    """
+    6-step pipeline with defaults for missing data.
+    Returns: (PASS/SKIP, score, category, reason)
+    """
+    
+    # Step 1: Original or authority reply?
+    if tweet["is_reply"] and not is_authority_author(tweet["author"]):
+        return SKIP, 0, None, "Reply from non-authority"
+    
+    # Step 2: English?
+    if not detect_english(tweet["text"]):
+        return SKIP, 0, None, "Non-English"
+    
+    # Step 3: Bot/spam?
+    if matches_exclusion_pattern(tweet["text"], tweet["author"]):
+        return SKIP, 0, None, "Bot/spam pattern"
+    
+    # Step 4: Engagement threshold?
+    views = tweet.get("views") or (tweet["likes"] * 7)
+    threshold_likes = 3 if mode == "fire_patrol" else 5
+    threshold_views = 50 if mode == "fire_patrol" else 200
+    
+    if tweet["likes"] < threshold_likes or views < threshold_views:
+        return SKIP, 0, None, f"Low engagement (likes={tweet['likes']}, views={views})"
+    
+    # Step 5: Deduplication?
+    if is_duplicate(tweet["id"], tweet["author"], days=90):
+        return SKIP, 0, None, "Dedup: replied in last 90 days"
+    
+    # Step 6: Score & category?
+    category = assign_category(tweet)
+    score = calculate_score(tweet, category)
+    
+    if score < mode_threshold(mode, category):
+        return SKIP, score, category, "Low score"
+    
+    return PASS, score, category, f"Category={category}, Score={score:.1f}"
+```
+
+---
+
+## Metrics to Log
+
+For each filtered tweet, log:
+- Tweet ID
+- Author
+- Original engagement (likes, views, replies, timestamp)
+- Which step caused SKIP (if applicable)
+- Final score (if PASS)
+- Category (if PASS)
+- Timestamp of filter run
 
 Example:
-  Original: @someone "my server is down"
-  Reply:    @theconfigguy "happened to us, here's what worked"
-  → Include both in candidates
-```
-
-**Why:** 83% of replies are relevant + more organic (people helping people)
-
----
-
-## Summary: All Filters
-
-| # | Filter | Fire Patrol | Brand Building | Skip Reason |
-|---|--------|-------------|----------------|------------|
-| 1 | Already engaged | Skip | Skip | already_replied |
-| 2 | Language | English | English | not_english |
-| 3 | Bot check | Not bot | Not bot | is_bot |
-| 4 | Spam check | Not spam | Not spam | is_spam |
-| 5 | Engagement | >= 3 likes | >= 5 likes | low_engagement |
-| 6 | Age | <= 72h | <= 72h | too_old |
-| 7 | Exclusions | Yes | Yes | excluded_pattern |
-| 8 | Reply type | Include | Include | (not skipped) |
-
----
-
-## Example: Apply Filters
-
-**Raw tweet:**
 ```json
 {
-  "id": "123456",
-  "text": "my server is down, 3am, no idea why",
-  "likes": 15,
-  "createdAt": "2026-02-27T03:00:00Z",
-  "author": {"username": "dev_alex", "name": "Alex"},
-  "isReply": false
+  "tweet_id": "1756432168",
+  "author": "@fluxdiv",
+  "likes": 66,
+  "views_est": 462,
+  "status": "PASS",
+  "category": "pain_point",
+  "score": 14.11,
+  "mode": "fire_patrol",
+  "filtered_at": "2026-02-27T06:32:15Z"
 }
 ```
 
-**Scan time:** 2026-02-27T18:00:00Z (15h later)
-
-**Apply filters:**
-1. ✅ Already engaged? NO → continue
-2. ✅ English? YES ("server down, 3am, no idea why") → continue
-3. ✅ Bot? NO (username: dev_alex, name: Alex) → continue
-4. ✅ Spam? NO (no spam keywords) → continue
-5. ✅ Engagement? YES (15 likes >= 3) → continue
-6. ✅ Age? YES (15h <= 72h) → continue
-7. ✅ Exclusions? NO (no crypto/bot patterns) → continue
-8. ✅ Type? Original tweet (OK) → continue
-
-**Result:** PASS all filters → Include in candidates
-
 ---
 
-**Last Updated:** 2026-02-27  
-**Purpose:** Deterministic filtering, no hallucinating
+## Summary
+
+**Order matters:** Language check before engagement (fast fail). Dedup before scoring (save CPU).
+
+**Defaults matter:** Missing views? Use likes×7. Missing followers? Use 5k. Unknown author? Check tweet metrics.
+
+**Transparency matters:** Log every SKIP reason + step number. Makes debugging fast.
+
+**Modes differ:** Fire Patrol = tactical (pain, speed, 30-min window). Brand Building = strategic (reach, philosophy, 72-h window).
