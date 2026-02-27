@@ -1,0 +1,12 @@
+[Unit]
+Description=Twitter Scout Fire Patrol (evening) - 17:30 UTC+5
+Documentation=file:///home/openclaw/.openclaw/workspace/CRON-SCHEDULE.md
+
+[Timer]
+OnCalendar=*-*-* 13:30:00
+Persistent=true
+Unit=fire-patrol-evening.service
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target

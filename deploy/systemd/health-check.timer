@@ -1,0 +1,12 @@
+[Unit]
+Description=Health Check - 12:00 UTC+5
+Documentation=file:///home/openclaw/.openclaw/workspace/CRON-SCHEDULE.md
+
+[Timer]
+OnCalendar=*-*-* 08:00:00
+Persistent=true
+Unit=health-check.service
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target

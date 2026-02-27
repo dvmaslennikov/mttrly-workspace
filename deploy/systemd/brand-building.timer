@@ -1,0 +1,12 @@
+[Unit]
+Description=Twitter Scout Brand Building - 13:00 UTC+5
+Documentation=file:///home/openclaw/.openclaw/workspace/CRON-SCHEDULE.md
+
+[Timer]
+OnCalendar=*-*-* 09:00:00
+Persistent=true
+Unit=brand-building.service
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target

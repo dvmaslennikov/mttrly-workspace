@@ -1,0 +1,15 @@
+[Unit]
+Description=Twitter Scout Brand Building (trends)
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=openclaw
+WorkingDirectory=/home/openclaw/.openclaw/workspace
+ExecStart=/home/openclaw/.openclaw/workspace/playbooks/twitter-scout/scripts/scout-brand-building.sh
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=twitter-scout-brand-building
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=Twitter Scout Fire Patrol (evening)
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=openclaw
+WorkingDirectory=/home/openclaw/.openclaw/workspace
+ExecStart=/home/openclaw/.openclaw/workspace/playbooks/twitter-scout/scripts/scout-fire-patrol.sh
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=twitter-scout-fire-patrol-evening
+
+[Install]
+WantedBy=multi-user.target

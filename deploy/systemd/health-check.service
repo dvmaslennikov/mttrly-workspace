@@ -1,0 +1,15 @@
+[Unit]
+Description=Health Check (workspace integrity)
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=openclaw
+WorkingDirectory=/home/openclaw/.openclaw/workspace
+ExecStart=/bin/bash -c 'git status && echo "✅ Workspace healthy"'
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=twitter-scout-health-check
+
+[Install]
+WantedBy=multi-user.target
