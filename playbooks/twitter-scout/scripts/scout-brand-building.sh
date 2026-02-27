@@ -3,20 +3,34 @@
 # scout-brand-building.sh
 # Trends & philosophy scanner for @mttrly
 # Runs queries for: vibe coding, indie hackers, learning, philosophy
-# Output: JSON candidates + markdown digest
+# Output: JSON candidates file
 
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+WORKSPACE_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 REFS_DIR="$SCRIPT_DIR/references"
 ASSETS_DIR="$SCRIPT_DIR/assets"
-OUTPUT_DIR="${OUTPUT_DIR:-.}"
+OUTPUT_DIR="${OUTPUT_DIR:-$WORKSPACE_DIR}"
+BIRD_CLI="$WORKSPACE_DIR/node_modules/@steipete/bird/dist/cli.js"
 
-# Load environment
+# Load environment (AUTH_TOKEN + CT0 for bird CLI)
 if [ -f ~/.openclaw/.env.bird ]; then
   source ~/.openclaw/.env.bird
 else
-  echo "❌ Error: ~/.openclaw/.env.bird not found"
+  echo "ERROR: ~/.openclaw/.env.bird not found" >&2
+  exit 1
+fi
+
+# Verify bird CLI exists
+if [ ! -f "$BIRD_CLI" ]; then
+  echo "ERROR: bird CLI not found at $BIRD_CLI" >&2
+  exit 1
+fi
+
+# Verify auth is available
+if [ -z "$AUTH_TOKEN" ] && [ -z "$TWITTER_AUTH_TOKEN" ]; then
+  echo "ERROR: No auth credentials. Set AUTH_TOKEN in ~/.openclaw/.env.bird" >&2
   exit 1
 fi
 
@@ -25,12 +39,12 @@ MODE="brand-building"
 TIMESTAMP=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 OUTPUT_FILE="$OUTPUT_DIR/brand-building-candidates-$TIMESTAMP.json"
 
-echo "🎯 BRAND BUILDING SCOUT — Trends & Philosophy"
+echo "BRAND BUILDING SCOUT — Trends & Philosophy"
 echo "Mode: $MODE"
 echo "Timestamp: $TIMESTAMP"
 echo "---"
 
-# Queries from references/QUERIES.md (Brand Building section)
+# Brand Building queries
 declare -a BRAND_BUILDING_QUERIES=(
   '"vibe coding" OR "vibing" OR "vibes" deploy OR build OR code'
   '"built with cursor" OR "built with claude" OR "built with AI"'
@@ -44,41 +58,71 @@ declare -a BRAND_BUILDING_QUERIES=(
   '"bootstrapped" shipped OR profitable OR sustainable'
 )
 
-# Lighter exclusions for brand-building (allow some crypto context if philosophy)
+# Lighter exclusions for brand-building
 EXCLUSIONS='-bankrbot -"trading bot" -defi -airdrop -"bot token"'
 
-# Collect all results
+# Collect results
 RESULTS_FILE="/tmp/brand-building-results-$$.jsonl"
 > "$RESULTS_FILE"
 
-echo "📍 Running queries..."
+echo "Running queries..."
 QUERY_COUNT=0
+SUCCESS_COUNT=0
+FAIL_COUNT=0
+
 for query in "${BRAND_BUILDING_QUERIES[@]}"; do
   QUERY_COUNT=$((QUERY_COUNT + 1))
   FULL_QUERY="$query $EXCLUSIONS"
   echo "  [$QUERY_COUNT] $query"
-  
-  # Run bird search, collect results (JSONL)
-  npx bird search "$FULL_QUERY" -n 25 2>/dev/null | jq -s . >> "$RESULTS_FILE" || true
-  
-  # Rate limit respect
+
+  # Run bird search, capture stderr for diagnostics
+  if node "$BIRD_CLI" search "$FULL_QUERY" -n 25 --json 2>/tmp/bird-err-$$.log | jq '.[] | @json' -r >> "$RESULTS_FILE" 2>/dev/null; then
+    SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
+  else
+    FAIL_COUNT=$((FAIL_COUNT + 1))
+    BIRD_ERR=$(cat /tmp/bird-err-$$.log 2>/dev/null)
+    echo "    WARN: query failed${BIRD_ERR:+ — $BIRD_ERR}" >&2
+  fi
+
   sleep 2
 done
 
-echo "✅ Collected results from $QUERY_COUNT queries"
+rm -f /tmp/bird-err-$$.log
+
+echo "Queries: $QUERY_COUNT total, $SUCCESS_COUNT ok, $FAIL_COUNT failed"
 echo ""
 
-# Parse results
-echo "📊 Parsing and filtering..."
+# Exit with error if ALL queries failed
+if [ "$SUCCESS_COUNT" -eq 0 ]; then
+  echo "ERROR: All $QUERY_COUNT queries failed. Check auth credentials." >&2
+  echo "{\"mode\": \"brand-building\", \"timestamp\": \"$TIMESTAMP\", \"status\": \"all_failed\", \"candidates\": []}" > "$OUTPUT_FILE"
+  rm -f "$RESULTS_FILE"
+  exit 1
+fi
 
-# Call LLM-based filtering/generation (when integrated)
-# For now, just aggregate results
+# Parse and aggregate results
+echo "Parsing and filtering..."
 
-echo "💾 Saving candidates to: $OUTPUT_FILE"
-echo "{\"mode\": \"brand-building\", \"timestamp\": \"$TIMESTAMP\", \"status\": \"ready_for_llm_filtering\"}" > "$OUTPUT_FILE"
+if [ -s "$RESULTS_FILE" ]; then
+  TWEET_COUNT=$(wc -l < "$RESULTS_FILE")
+  echo "Saving $TWEET_COUNT candidates to: $OUTPUT_FILE"
+
+  jq -s -R '{
+    mode: "brand-building",
+    timestamp: "'"$TIMESTAMP"'",
+    query_count: '"$QUERY_COUNT"',
+    successful_queries: '"$SUCCESS_COUNT"',
+    failed_queries: '"$FAIL_COUNT"',
+    tweet_count: ([splits("\n") | select(. != "") | fromjson] | length),
+    candidates: ([splits("\n") | select(. != "") | fromjson] | unique_by(.id) | sort_by(.likeCount) | reverse)
+  }' "$RESULTS_FILE" > "$OUTPUT_FILE"
+else
+  echo "No results collected (0 tweets from $SUCCESS_COUNT successful queries)"
+  echo "{\"mode\": \"brand-building\", \"timestamp\": \"$TIMESTAMP\", \"status\": \"no_results\", \"successful_queries\": $SUCCESS_COUNT, \"candidates\": []}" > "$OUTPUT_FILE"
+fi
+
+rm -f "$RESULTS_FILE"
 
 echo ""
-echo "✅ Brand Building scan complete"
-echo "Next: Feed $OUTPUT_FILE to LLM for filtering + reply generation"
-echo ""
-echo "Run: node $SCRIPT_DIR/../playbooks/twitter/x-evening-digest.js --mode brand-building"
+echo "Brand Building scan complete"
+echo "Output: $OUTPUT_FILE"
