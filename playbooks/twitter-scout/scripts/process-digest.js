@@ -142,7 +142,19 @@ function getPriority(score) {
 
 function isEnglish(text) {
   const ascii = text.match(/[a-zA-Z0-9\s.,!?'""-]/g) || [];
-  return ascii.length / text.length > 0.7;
+  if (ascii.length / text.length <= 0.7) return false;
+
+  // Secondary check: require common English words (catches Latin-script languages like Indonesian/Malay)
+  const lower = text.toLowerCase();
+  const words = lower.split(/\s+/);
+  const commonEnglish = ['the', 'is', 'and', 'for', 'this', 'that', 'with', 'not', 'are', 'have',
+    'was', 'but', 'you', 'your', 'can', 'will', 'from', 'just', 'been', 'when',
+    'how', 'what', 'about', 'more', 'than', 'its', 'has', 'all', 'like', 'would'];
+  const englishWordCount = words.filter(w => commonEnglish.includes(w)).length;
+  const englishRatio = englishWordCount / Math.max(words.length, 1);
+
+  // Need at least 10% common English words OR at least 3 common words in short tweets
+  return englishRatio >= 0.10 || englishWordCount >= 3;
 }
 
 function isBot(author) {
@@ -159,15 +171,38 @@ function isPromo(text) {
 }
 
 function isNoise(text) {
+  const lower = text.toLowerCase();
+
   const noiseKeywords = [
+    // Crypto / Web3 / DeFi
     'ransomware', 'crypto', 'bitcoin', 'ethereum', 'nft', 'trading bot', 'trading signal',
+    'blockchain', 'web3', 'staking', 'tokenomics', 'dao', 'yield farm', 'liquidity pool',
+    'defi', 'dex', 'airdrop', 'token sale', 'ico', 'ido', 'launchpad',
+    'cointelegraph', 'coindesk', 'binance', 'coinbase',
+    // Catch $XRP, $SOL, $ETH, $BTC style tickers
+    '$xrp', '$sol', '$eth', '$btc', '$bnb', '$avax', '$ada', '$dot',
+    'xrpfi', 'flare network', 'flare ecosystem',
+    // Geopolitical / off-topic
+    'xi jinping', 'geopolitical', 'election fraud', 'parliament', 'regime change',
+    'political party', 'government shutdown',
+    // Spam categories
     'interior design', 'gym', 'fitness', 'real estate', 'property',
     'onlyfans', 'adult', 'porn',
     'indian railway', 'railway station', 'bank failure', 'upi transaction', 'indusind',
-    'victim incident response', 'law enforcement', 'regulatory scrutiny', 'cointelegraph'
+    'victim incident response', 'law enforcement', 'regulatory scrutiny'
   ];
-  const lower = text.toLowerCase();
-  return noiseKeywords.some(k => lower.includes(k));
+
+  if (noiseKeywords.some(k => lower.includes(k))) return true;
+
+  // Catch generic crypto ticker pattern: $UPPERCASE (3-5 chars) that isn't a known tech term
+  const tickerMatch = text.match(/\$[A-Z]{3,5}\b/g);
+  if (tickerMatch) {
+    const techTickers = ['$PATH', '$HOME', '$USER', '$PORT', '$NODE', '$TERM'];
+    const hasCryptoTicker = tickerMatch.some(t => !techTickers.includes(t));
+    if (hasCryptoTicker) return true;
+  }
+
+  return false;
 }
 
 function filterTweet(tweet, category, repliedIds, authorHistory) {
@@ -263,21 +298,33 @@ function scoreRelevance(tweet, category) {
 
   // --- Relevance (pain-point directness) ---
   const text = tweet.text.toLowerCase();
-  const directPainKeywords = ['crash', 'crashed', 'monitoring', 'deploy', 'on-call', '3am', 'incident', 'server down', 'site is down', 'app is down', 'woke up'];
+  const directPainKeywords = ['crash', 'crashed', 'monitoring', 'deploy', 'deployment', 'on-call', 'oncall',
+    '3am', '2am', '4am', 'incident', 'server down', 'site is down', 'app is down', 'woke up',
+    'outage', 'downtime', 'rollback', 'pager', 'alert fatigue', 'post-mortem', 'postmortem'];
   const hasDirect = directPainKeywords.some(k => text.includes(k));
+
+  const indirectKeywords = ['server', 'infrastructure', 'devops', 'hosting', 'vps', 'production',
+    'observability', 'uptime', 'latency', 'docker', 'kubernetes', 'k8s', 'ci/cd', 'pipeline',
+    'nginx', 'load balancer', 'ssl', 'dns', 'ssh', 'linux', 'aws', 'gcp', 'azure'];
+  const hasIndirect = indirectKeywords.some(k => text.includes(k));
+
   if (hasDirect) {
     score += 1;
-  } else {
-    const indirectKeywords = ['server', 'infrastructure', 'devops', 'hosting', 'vps', 'production', 'observability'];
-    if (indirectKeywords.some(k => text.includes(k))) {
-      score += 0.5;
-    }
+  } else if (hasIndirect) {
+    score += 0.5;
+  }
+
+  // --- HARD RELEVANCE GATE ---
+  // If tweet has NO DevOps/server context at all, cap score to prevent irrelevant high-engagement tweets
+  const hasAnyRelevance = hasDirect || hasIndirect;
+  if (!hasAnyRelevance) {
+    score = Math.min(score, 1.5);
   }
 
   // --- Freshness ---
   const ageHours = (Date.now() - new Date(tweet.createdAt).getTime()) / (1000 * 60 * 60);
   const freshness = Math.max(2 - ageHours / 36, 0);
-  score += freshness;
+  score += hasAnyRelevance ? freshness : freshness * 0.3; // Reduce freshness bonus for irrelevant tweets
 
   // Cap at 5
   score = Math.min(score, 5);
@@ -294,15 +341,21 @@ function selectTemplates(tweet) {
   const tier = TRACKED_INFLUENCERS[authorLower];
   const text = tweet.text.toLowerCase();
 
-  // Check if competitor mentioned
+  // Check if competitor mentioned (NOTE: 'claude' removed — it's our AI tool, not mttrly competitor)
   const competitorMentions = ['pagerduty', 'opsgenie', 'datadog', 'grafana', 'new relic', 'newrelic',
     'vercel', 'railway', 'heroku', 'render', 'fly.io', 'laravel forge', 'ploi', 'coolify',
-    'chatgpt', 'claude'];
+    'chatgpt'];
   const hasCompetitor = competitorMentions.some(c => text.includes(c));
 
   // Check if pain complaint
   const painKeywords = ['crash', 'down', 'broke', 'failed', 'nightmare', 'hate', 'expensive', 'overkill', '3am', 'woke up'];
   const hasPain = painKeywords.some(k => text.includes(k));
+
+  // Check if tweet has server/deploy/monitoring context (for Template C guard)
+  const serverContext = ['server', 'deploy', 'monitoring', 'infrastructure', 'devops', 'hosting',
+    'production', 'incident', 'on-call', 'uptime', 'downtime', 'outage', 'crash', 'alert',
+    'docker', 'kubernetes', 'nginx', 'vps', 'ssh', 'ci/cd', 'pipeline', 'rollback'];
+  const hasServerContext = serverContext.some(k => text.includes(k));
 
   let safeTemplate, punchyTemplate;
 
@@ -314,7 +367,8 @@ function selectTemplates(tweet) {
   // Competitor in thread
   else if (hasCompetitor) {
     safeTemplate = 'D';
-    punchyTemplate = 'C';
+    // Only use Template C if server context exists, otherwise use A (pure value)
+    punchyTemplate = hasServerContext ? 'C' : 'A';
   }
   // Pain complaint
   else if (hasPain) {
@@ -326,9 +380,23 @@ function selectTemplates(tweet) {
     const rand = Math.random();
     if (rand < 0.30) { safeTemplate = 'A'; punchyTemplate = 'D'; }
     else if (rand < 0.55) { safeTemplate = 'B'; punchyTemplate = 'E'; }
-    else if (rand < 0.75) { safeTemplate = 'C'; punchyTemplate = 'A'; }
+    else if (rand < 0.75) {
+      // Template C guard: only assign if server context exists
+      if (hasServerContext) {
+        safeTemplate = 'C'; punchyTemplate = 'A';
+      } else {
+        safeTemplate = 'A'; punchyTemplate = 'D';
+      }
+    }
     else if (rand < 0.90) { safeTemplate = 'D'; punchyTemplate = 'B'; }
-    else { safeTemplate = 'E'; punchyTemplate = 'C'; }
+    else {
+      // Template C guard for punchy slot too
+      if (hasServerContext) {
+        safeTemplate = 'E'; punchyTemplate = 'C';
+      } else {
+        safeTemplate = 'E'; punchyTemplate = 'A';
+      }
+    }
   }
 
   // Enforce: SAFE and PUNCHY must be DIFFERENT
@@ -338,7 +406,7 @@ function selectTemplates(tweet) {
     punchyTemplate = others[Math.floor(Math.random() * others.length)];
   }
 
-  return { safe: safeTemplate, punchy: punchyTemplate, hasCompetitor };
+  return { safe: safeTemplate, punchy: punchyTemplate, hasCompetitor, hasServerContext };
 }
 
 // ============================================================================
@@ -421,6 +489,8 @@ Template E — "Contrarian Agree" (~10%): "Partly disagree — [nuance] — but 
 9. NO generic openings. Every reply must be unique to the tweet content.
 10. LENGTH: 1-3 sentences max. Short. People are stressed.
 11. No more than 2 consecutive tweets using the same template (across SAFE variants and across PUNCHY variants separately).
+12. ACCURACY: When quoting numbers, prices, stats, or facts from the original tweet, reproduce them EXACTLY. Never paraphrase, round, or change amounts. "$30/month" stays "$30/month", not "$0/month" or "under $30".
+13. CONTEXT FIT: If the tweet is about client-side code, games, or frontend with NO server/deploy/monitoring context, do NOT pitch server management tools. Keep replies about the actual topic.
 
 ═══ TWEETS TO REPLY TO ═══
 

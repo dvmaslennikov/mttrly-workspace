@@ -68,8 +68,8 @@ declare -a BRAND_BUILDING_QUERIES=(
   'from:mipsytipsy (on-call OR incident OR monitoring OR alert)'
 )
 
-# Lighter exclusions for brand-building
-EXCLUSIONS='-bankrbot -"trading bot" -defi -airdrop -"bot token"'
+# Exclusions aligned with fire-patrol + crypto/web3 filter
+EXCLUSIONS='-bankrbot -"trading bot" -defi -airdrop -"bot token" -crypto -web3 -$SOL -$ETH -$BTC -$XRP -"on-chain" -blockchain -nft -"token sale"'
 
 # Collect results
 RESULTS_FILE="/tmp/brand-building-results-$$.jsonl"
