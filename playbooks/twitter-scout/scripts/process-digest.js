@@ -568,12 +568,16 @@ function formatTelegramDigest(mode, tweets, replies) {
   const modeLabel = mode === 'fire-patrol' ? '🚨 Fire Patrol' : '🏗 Brand Building';
   const now = new Date().toISOString().split('T')[0];
 
-  let msg = `<b>${modeLabel} Digest — ${now}</b>\n`;
-  msg += `Tweets: ${tweets.length} candidates\n`;
-  msg += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+  const messages = []; // Array<{ text: string, reply_markup?: object }>
+
+  // [1] Header message (no buttons)
+  let header = `<b>${modeLabel} Digest — ${now}</b>\n`;
+  header += `Tweets: ${tweets.length} candidates`;
+  messages.push({ text: header });
 
   const quickApproveLines = [];
 
+  // [2-6] Per-tweet messages (with inline keyboard)
   tweets.forEach((t, i) => {
     const priority = t._priority || getPriority(t.score);
     const pEmoji = priorityEmoji[priority] || '⚪';
@@ -588,7 +592,7 @@ function formatTelegramDigest(mode, tweets, replies) {
     const safeT = reply?.safe_template || t._templates?.safe || '?';
     const punchyT = reply?.punchy_template || t._templates?.punchy || '?';
 
-    msg += `${pEmoji} <b>${i + 1}/${tweets.length} — ${priority} | ${catLabel}</b>\n`;
+    let msg = `${pEmoji} <b>${i + 1}/${tweets.length} — ${priority} | ${catLabel}</b>\n`;
     msg += `@${t.author.username} | ❤️ ${t.likeCount || 0} | 💬 ${t.replyCount || 0} | Score: ${t.score}${tierLabel} | ${ageH}h${isReply}\n\n`;
 
     // Context in Russian
@@ -599,44 +603,62 @@ function formatTelegramDigest(mode, tweets, replies) {
     // Full tweet text
     msg += `<b>Твит:</b>\n<i>"${escapeHtml(truncate(t.text, 400))}"</i>\n\n`;
 
+    const tweetUrl = `https://x.com/${t.author.username}/status/${t.id}`;
+    const keyboardRows = [];
+
     if (reply) {
+      // SAFE reply
       msg += `🟢 <b>SAFE [${safeT}]:</b>\n${escapeHtml(reply.safe)}\n`;
       if (reply.safe_ru) {
-        msg += `<i>${escapeHtml(reply.safe_ru)}</i>\n\n`;
-      } else {
-        msg += `\n`;
+        msg += `<i>${escapeHtml(reply.safe_ru)}</i>\n`;
       }
+      msg += `<code>${escapeHtml(reply.safe)}</code>\n\n`;
 
+      // PUNCHY reply
       msg += `🟠 <b>PUNCHY [${punchyT}]:</b>\n${escapeHtml(reply.punchy)}\n`;
       if (reply.punchy_ru) {
-        msg += `<i>${escapeHtml(reply.punchy_ru)}</i>\n\n`;
-      } else {
-        msg += `\n`;
+        msg += `<i>${escapeHtml(reply.punchy_ru)}</i>\n`;
       }
+      msg += `<code>${escapeHtml(reply.punchy)}</code>\n\n`;
 
       if (reply.why) {
-        msg += `<b>Почему:</b> ${escapeHtml(reply.why)}\n\n`;
+        msg += `<b>Почему:</b> ${escapeHtml(reply.why)}\n`;
       }
+
+      // Row 1: SAFE + PUNCHY intent buttons
+      keyboardRows.push([
+        { text: `✅ SAFE [${safeT}]`, url: buildIntentUrl(t.id, reply.safe) },
+        { text: `🔥 PUNCHY [${punchyT}]`, url: buildIntentUrl(t.id, reply.punchy) }
+      ]);
     } else {
-      msg += `⚠️ LLM generation failed for this tweet\n\n`;
+      msg += `⚠️ LLM generation failed for this tweet\n`;
     }
 
-    msg += `🔗 x.com/${t.author.username}/status/${t.id}\n`;
-    msg += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+    // Row 2: Open tweet link
+    keyboardRows.push([
+      { text: '📖 Открыть твит', url: tweetUrl }
+    ]);
+
+    const msgObj = { text: msg };
+    if (keyboardRows.length > 0) {
+      msgObj.reply_markup = { inline_keyboard: keyboardRows };
+    }
+    messages.push(msgObj);
 
     // Build quick-approve entry
     const topic = truncate(t.text.replace(/\n/g, ' '), 40);
     quickApproveLines.push(`${i + 1}. @${t.author.username} — ${topic} → S[${safeT}] / P[${punchyT}]`);
   });
 
-  // Quick approve block
-  msg += `📋 <b>Quick Approve:</b>\n`;
+  // [7] Footer: Quick Approve summary (no buttons)
+  let footer = `📋 <b>Quick Approve:</b>\n`;
   quickApproveLines.forEach(line => {
-    msg += `${escapeHtml(line)}\n`;
+    footer += `${escapeHtml(line)}\n`;
   });
-  msg += `\n<i>Ответь: 1P 2S 3P ... (P=punchy, S=safe, X=skip)</i>`;
+  footer += `\n<i>Ответь: 1P 2S 3P ... (P=punchy, S=safe, X=skip)</i>`;
+  messages.push({ text: footer });
 
-  return msg;
+  return messages;
 }
 
 function escapeHtml(text) {
@@ -648,19 +670,47 @@ function truncate(text, maxLen) {
   return text.substring(0, maxLen - 3) + '...';
 }
 
-function sendTelegram(botToken, chatId, message) {
-  // Split long messages (Telegram limit: 4096 chars)
-  const chunks = splitMessage(message, 4000);
+function buildIntentUrl(tweetId, replyText) {
+  const base = `https://x.com/intent/tweet?in_reply_to=${tweetId}`;
+  if (!replyText || !replyText.trim()) return base;
+  let text = replyText.trim();
+  // Pre-check: if encoded URL would exceed 2000 chars, trim the text
+  const maxTextLen = 1600; // conservative limit leaving room for base URL + encoding overhead
+  if (text.length > maxTextLen) {
+    text = text.substring(0, maxTextLen - 3) + '...';
+  }
+  let url = `${base}&text=${encodeURIComponent(text)}`;
+  // Final guard: if URL still > 2000, trim further
+  while (url.length > 2000 && text.length > 50) {
+    text = text.substring(0, text.length - 50) + '...';
+    url = `${base}&text=${encodeURIComponent(text)}`;
+  }
+  return url;
+}
 
-  return chunks.reduce((chain, chunk, i) => {
+function sendTelegram(botToken, chatId, message) {
+  // Accept string (backward compat) or Array<{ text, reply_markup? }>
+  let msgs;
+  if (typeof message === 'string') {
+    // Legacy path: split long string into chunks
+    msgs = splitMessage(message, 4000).map(chunk => ({ text: chunk }));
+  } else {
+    msgs = message;
+  }
+
+  return msgs.reduce((chain, msgObj, i) => {
     return chain.then(() => {
       return new Promise((resolve, reject) => {
-        const data = JSON.stringify({
+        const payload = {
           chat_id: chatId,
-          text: chunk,
+          text: msgObj.text,
           parse_mode: 'HTML',
           disable_web_page_preview: true
-        });
+        };
+        if (msgObj.reply_markup) {
+          payload.reply_markup = msgObj.reply_markup;
+        }
+        const data = JSON.stringify(payload);
 
         const options = {
           hostname: 'api.telegram.org',
@@ -677,7 +727,7 @@ function sendTelegram(botToken, chatId, message) {
           res.on('data', c => body += c);
           res.on('end', () => {
             if (res.statusCode === 200) {
-              console.log(`  Telegram message ${i + 1}/${chunks.length} sent`);
+              console.log(`  Telegram message ${i + 1}/${msgs.length} sent`);
               resolve();
             } else {
               console.error(`  Telegram error ${res.statusCode}:`, body);
@@ -691,14 +741,15 @@ function sendTelegram(botToken, chatId, message) {
         req.end();
       });
     }).then(() => {
-      // Small delay between messages
-      if (i < chunks.length - 1) {
+      // 500ms delay between messages
+      if (i < msgs.length - 1) {
         return new Promise(r => setTimeout(r, 500));
       }
     });
   }, Promise.resolve());
 }
 
+// Legacy: used by sendTelegram() string path (e.g. "no candidates" notice). Kept for backward compat.
 function splitMessage(text, maxLen) {
   if (text.length <= maxLen) return [text];
   const chunks = [];
@@ -823,8 +874,8 @@ async function main() {
 
   // Format and send Telegram digest
   console.log('\nSending Telegram digest...');
-  const message = formatTelegramDigest(mode, topN, replies);
-  await sendTelegram(botToken, chatId, message);
+  const messages = formatTelegramDigest(mode, topN, replies);
+  await sendTelegram(botToken, chatId, messages);
 
   // Save digest to file
   const digestFile = path.join(PACKS_DIR, `${mode}-digest-${new Date().toISOString().split('T')[0]}.json`);
