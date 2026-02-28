@@ -46,26 +46,21 @@ echo "---"
 
 # Fire Patrol queries
 declare -a FIRE_PATROL_QUERIES=(
-  '"server down" OR "server is down" OR "crashed" -test -demo'
-  '"app crashed" OR "app keeps crashing" production -debug'
-  '"502 error" OR "503 error" OR "service unavailable" -test'
-  '"database crashed" OR "db is down" production'
-  '"nginx error" -tutorial -howto'
-  '"aws bill" shocked OR expensive OR "hundreds" -tutorial'
-  '"cloud bill" expensive OR "out of budget" OR surprised'
-  '"deployment failed" production -scheduled -tutorial'
-  '"deploy broke" OR "push broke prod" -howto'
-  '"3am alert" OR "woke me up" production issue'
-  # v3 pain-point queries
-  '("my server crashed" OR "my app crashed" OR "site is down" OR "app is down") (deploy OR hosting OR server) -is:retweet'
-  '("no DevOps" OR "cant afford DevOps" OR "DevOps is hard" OR "hate DevOps" OR "DevOps nightmare") -is:retweet'
-  '("woke up to" OR "3am" OR "middle of the night") (server OR deploy OR alert OR incident OR crash OR down) -is:retweet'
-  '("PagerDuty" OR "OpsGenie" OR "Datadog") (expensive OR overkill OR tired OR hate OR alternative OR "too much") -is:retweet'
-  '("deploy from phone" OR "manage server" OR "fix server") (mobile OR phone OR telegram OR chat) -is:retweet'
+  '(("server down" OR "site is down" OR "app is down") (production OR prod OR deploy OR server OR incident OR on-call)) -test -demo -is:retweet'
+  '(("app crashed" OR "server crashed" OR "production incident") (deploy OR production OR server OR rollback)) -debug -is:retweet'
+  '(("502 error" OR "503 error" OR "service unavailable") (nginx OR production OR deploy OR outage)) -tutorial -is:retweet'
+  '(("database crashed" OR "db is down" OR "db outage") (production OR server OR deploy)) -is:retweet'
+  '(("nginx error" OR "reverse proxy") (production OR outage OR deploy)) -tutorial -is:retweet'
+  '(("aws bill" OR "cloud bill") (server OR production OR deploy OR infrastructure)) -tutorial -is:retweet'
+  '(("deployment failed" OR "deploy broke prod" OR "rollback") (production OR server OR incident)) -scheduled -is:retweet'
+  '(("on-call" OR "pager" OR "pagerduty" OR "opsgenie") (incident OR alert fatigue OR outage OR production)) -is:retweet'
+  '(("3am" OR "2am" OR "4am" OR "middle of the night" OR "woke up") (server OR production OR deploy OR outage OR incident OR pager)) -is:retweet'
+  '(("devops" OR "sre") (incident OR outage OR deploy OR rollback OR monitoring)) -is:retweet'
 )
 
+
 # Exclusions
-EXCLUSIONS='-bankrbot -"deploy the token" -"on Base" -web3 -"on-chain" -airdrop -$SOL -$ETH -"bot token" -"trading bot" -crypto -defi'
+EXCLUSIONS='-bankrbot -"deploy the token" -"on Base" -web3 -"on-chain" -airdrop -$SOL -$ETH -"bot token" -"trading bot" -crypto -defi -rail -railway -station -bus -football -match -fanzine -earthquake -missile -war -breaking -qatar -doha -feeding -newborn -baby -breastfeeding -election -politics'
 
 # Collect results
 RESULTS_FILE="/tmp/fire-patrol-results-$$.jsonl"

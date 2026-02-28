@@ -49,6 +49,41 @@ const TRACKED_INFLUENCERS = {
 
 const AUTHOR_COOLDOWN_DAYS = 4;
 
+const TECH_BIO_TERMS = [
+  'developer', 'engineer', 'founder', 'builder', 'indie hacker', 'hacker', 'sre', 'devops',
+  'platform', 'infrastructure', 'infra', 'backend', 'fullstack', 'cto', 'startup', 'build in public',
+  'software', 'programmer', 'coding'
+];
+
+const NEWS_MEDIA_TERMS = [
+  'news', 'journalist', 'correspondent', 'editor', 'media', 'press', 'breaking'
+];
+
+const SPORTS_TRANSPORT_TERMS = [
+  'fanzine', 'supporters', 'fc', 'afc', 'matchday', 'rail', 'railway', 'transport', 'bus', 'station'
+];
+
+const TECH_INCIDENT_ANCHORS = [
+  'server', 'prod', 'production', 'deploy', 'deployment', 'rollback', 'on-call', 'oncall', 'pager',
+  'incident response', 'outage', 'downtime', 'monitoring', 'logs', 'nginx', 'k8s', 'kubernetes', 'docker',
+  'infra', 'infrastructure', 'latency', 'uptime', 'datadog', 'opsgenie', 'pagerduty', 'ci/cd', 'pipeline',
+  'cloud bill', 'aws bill', 'site is down', 'app is down'
+];
+
+const CONTEXT_BLACKLIST_PATTERNS = [
+  /#breaking/i,
+  /(missile|ballistic|airstrike|war|military|explosion|iran|qatar|doha)/i,
+  /(earthquake|house shook|evacuation|casualties|footage)/i,
+  /(matchday|supporters|fanzine|football|sunderland)/i,
+  /(railway|train station|bus to|beach for 8am)/i,
+  /(newborn|night feeding|breastfeeding|baby woke)/i
+];
+
+const AUTHOR_DENYLIST_EXACT = new Set([
+  'als_fanzine',
+  'networkrail'
+]);
+
 // Ensure directories exist
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 if (!fs.existsSync(PACKS_DIR)) fs.mkdirSync(PACKS_DIR, { recursive: true });
@@ -205,6 +240,50 @@ function isNoise(text) {
   return false;
 }
 
+
+function normalizeText(v) {
+  return (v || '').toString().toLowerCase();
+}
+
+function countMatches(text, terms) {
+  return terms.reduce((acc, t) => acc + (text.includes(t) ? 1 : 0), 0);
+}
+
+function getAuthorType(tweet) {
+  const username = normalizeText(tweet.author?.username);
+  const name = normalizeText(tweet.author?.name);
+  const bio = normalizeText(tweet.author?.description || tweet.author?.bio || '');
+  const text = normalizeText(tweet.text);
+
+  if (AUTHOR_DENYLIST_EXACT.has(username)) return 'sports_transport';
+
+  const profile = `${username} ${name} ${bio}`;
+
+  const newsHits = countMatches(profile, NEWS_MEDIA_TERMS);
+  const sportsTransportHits = countMatches(profile, SPORTS_TRANSPORT_TERMS);
+  const techHits = countMatches(profile, TECH_BIO_TERMS) + countMatches(text, TECH_BIO_TERMS);
+
+  if (newsHits >= 1) return 'news_media';
+  if (sportsTransportHits >= 1) return 'sports_transport';
+
+  // Corporate-ish by naming convention + low tech signal
+  const isCorpStyle = /(inc|llc|ltd|official|company|labs|systems|network|corp)/.test(profile);
+  if (isCorpStyle && techHits === 0) return 'corp_non_tech';
+
+  if (techHits >= 1) return 'tech_individual';
+  return 'unknown';
+}
+
+function isBlacklistedContext(tweet) {
+  const text = `${tweet.text || ''} ${(tweet.author?.name || '')}`;
+  return CONTEXT_BLACKLIST_PATTERNS.some(re => re.test(text));
+}
+
+function hasTechIncidentContext(tweet) {
+  const text = normalizeText(tweet.text);
+  return TECH_INCIDENT_ANCHORS.some(k => text.includes(k));
+}
+
 function filterTweet(tweet, category, repliedIds, authorHistory) {
   if (repliedIds.has(tweet.id)) return { skip: true, reason: 'already_replied' };
 
@@ -217,6 +296,14 @@ function filterTweet(tweet, category, repliedIds, authorHistory) {
       return { skip: true, reason: 'author_cooldown' };
     }
   }
+
+  const authorType = getAuthorType(tweet);
+  if (authorType === 'news_media') return { skip: true, reason: 'author_news_media' };
+  if (authorType === 'sports_transport') return { skip: true, reason: 'author_sports_transport' };
+  if (authorType === 'corp_non_tech') return { skip: true, reason: 'author_corp_non_tech' };
+
+  if (isBlacklistedContext(tweet)) return { skip: true, reason: 'context_blacklisted' };
+  if (!hasTechIncidentContext(tweet)) return { skip: true, reason: 'no_tech_context' };
 
   if (isBot(tweet.author)) return { skip: true, reason: 'is_bot' };
   if (!isEnglish(tweet.text)) return { skip: true, reason: 'not_english' };
@@ -234,7 +321,7 @@ function filterTweet(tweet, category, repliedIds, authorHistory) {
   const ageHours = (Date.now() - tweetTime) / (1000 * 60 * 60);
   if (ageHours > 72) return { skip: true, reason: 'too_old' };
 
-  return { skip: false };
+  return { skip: false, authorType };
 }
 
 // ============================================================================
@@ -262,7 +349,7 @@ function getCategory(tweet) {
   return 'monitoring';
 }
 
-function scoreRelevance(tweet, category) {
+function scoreRelevance(tweet, category, authorType = 'unknown') {
   let score = 0;
   const authorLower = (tweet.author.username || '').toLowerCase();
 
@@ -299,24 +386,31 @@ function scoreRelevance(tweet, category) {
   // --- Relevance (pain-point directness) ---
   const text = tweet.text.toLowerCase();
   const directPainKeywords = ['crash', 'crashed', 'monitoring', 'deploy', 'deployment', 'on-call', 'oncall',
-    '3am', '2am', '4am', 'incident', 'server down', 'site is down', 'app is down', 'woke up',
-    'outage', 'downtime', 'rollback', 'pager', 'alert fatigue', 'post-mortem', 'postmortem'];
+    'incident response', 'server down', 'site is down', 'app is down', 'outage', 'downtime',
+    'rollback', 'pager', 'alert fatigue', 'post-mortem', 'postmortem'];
   const hasDirect = directPainKeywords.some(k => text.includes(k));
+
+  // Time-of-night terms only count when paired with tech anchors
+  const hasNightSignal = /(1:30|2am|2:15|3am|3:45|4:30|middle of the night|woke up)/.test(text);
 
   const indirectKeywords = ['server', 'infrastructure', 'devops', 'hosting', 'vps', 'production',
     'observability', 'uptime', 'latency', 'docker', 'kubernetes', 'k8s', 'ci/cd', 'pipeline',
     'nginx', 'load balancer', 'ssl', 'dns', 'ssh', 'linux', 'aws', 'gcp', 'azure'];
   const hasIndirect = indirectKeywords.some(k => text.includes(k));
 
-  if (hasDirect) {
+  if (hasDirect || (hasNightSignal && hasIndirect)) {
     score += 1;
   } else if (hasIndirect) {
     score += 0.5;
   }
 
+  // Account type weighting (strong signal)
+  if (authorType === 'tech_individual') score += 2;
+  else if (authorType === 'unknown') score += 0;
+
   // --- HARD RELEVANCE GATE ---
   // If tweet has NO DevOps/server context at all, cap score to prevent irrelevant high-engagement tweets
-  const hasAnyRelevance = hasDirect || hasIndirect;
+  const hasAnyRelevance = hasDirect || hasIndirect || (hasNightSignal && hasIndirect);
   if (!hasAnyRelevance) {
     score = Math.min(score, 1.5);
   }
@@ -823,8 +917,8 @@ async function main() {
     if (result.skip) {
       skipReasons[result.reason] = (skipReasons[result.reason] || 0) + 1;
     } else {
-      const score = scoreRelevance(tweet, tweet.category);
-      filtered.push({ ...tweet, score });
+      const score = scoreRelevance(tweet, tweet.category, result.authorType);
+      filtered.push({ ...tweet, score, _authorType: result.authorType });
     }
   });
 
