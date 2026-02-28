@@ -284,6 +284,11 @@ function hasTechIncidentContext(tweet) {
   return TECH_INCIDENT_ANCHORS.some(k => text.includes(k));
 }
 
+function countTechAnchors(tweet) {
+  const text = normalizeText(tweet.text);
+  return TECH_INCIDENT_ANCHORS.reduce((acc, k) => acc + (text.includes(k) ? 1 : 0), 0);
+}
+
 function filterTweet(tweet, category, repliedIds, authorHistory) {
   if (repliedIds.has(tweet.id)) return { skip: true, reason: 'already_replied' };
 
@@ -304,6 +309,11 @@ function filterTweet(tweet, category, repliedIds, authorHistory) {
 
   if (isBlacklistedContext(tweet)) return { skip: true, reason: 'context_blacklisted' };
   if (!hasTechIncidentContext(tweet)) return { skip: true, reason: 'no_tech_context' };
+
+  const techAnchorCount = countTechAnchors(tweet);
+  if (authorType === 'unknown' && techAnchorCount < 2) {
+    return { skip: true, reason: 'unknown_author_weak_signal' };
+  }
 
   if (isBot(tweet.author)) return { skip: true, reason: 'is_bot' };
   if (!isEnglish(tweet.text)) return { skip: true, reason: 'not_english' };
