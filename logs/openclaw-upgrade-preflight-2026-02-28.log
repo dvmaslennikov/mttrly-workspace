@@ -1,0 +1,91 @@
+=== PRE-FLIGHT 2026-02-28T16:28:27+01:00 ===
+2026.2.23
+OpenClaw status
+
+Overview
+┌─────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Item            │ Value                                                                                             │
+├─────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Dashboard       │ http://127.0.0.1:18789/                                                                           │
+│ OS              │ linux 6.8.0-94-generic (x64) · node 22.22.0                                                       │
+│ Tailscale       │ off                                                                                               │
+│ Channel         │ dev (main)                                                                                        │
+│ Git             │ main · @ aceb17a3                                                                                 │
+│ Update          │ available · git main · ↔ origin/main · behind 92 · fetch failed · npm update 2026.2.26 · deps ok  │
+│ Gateway         │ local · ws://127.0.0.1:18789 (local loopback) · reachable 37ms · auth token · dvmaslennikov1.     │
+│                 │ fvds.ru (95.81.99.42) app 2026.2.23 linux 6.8.0-94-generic                                        │
+│ Gateway service │ systemd installed · enabled · running (pid 1571542, state active)                                 │
+│ Node service    │ systemd not installed                                                                             │
+│ Agents          │ 1 · 1 bootstrap file present · sessions 9 · default main active 1m ago                            │
+│ Memory          │ 0 files · 0 chunks · sources memory · plugin memory-core · vector unknown · fts ready · cache on  │
+│                 │ (0)                                                                                               │
+│ Probes          │ skipped (use --deep)                                                                              │
+│ Events          │ none                                                                                              │
+│ Heartbeat       │ 30m (main)                                                                                        │
+│ Sessions        │ 9 active · default gpt-5.3-codex (272k ctx) · ~/.openclaw/agents/main/sessions/sessions.json      │
+└─────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Security audit
+Summary: 0 critical · 2 warn · 1 info
+  WARN Reverse proxy headers are not trusted
+    gateway.bind is loopback and gateway.trustedProxies is empty. If you expose the Control UI through a reverse proxy, configure trusted proxies so local-client c…
+    Fix: Set gateway.trustedProxies to your proxy IPs or keep the Control UI local-only.
+  WARN Some gateway.nodes.denyCommands entries are ineffective
+    gateway.nodes.denyCommands uses exact command-name matching only. - Pattern-like entries (not supported by exact matching): systemctl *openclaw*, service *open…
+    Fix: Use exact command names (for example: canvas.present, canvas.hide, canvas.navigate, canvas.eval, canvas.snapshot, canvas.a2ui.push, canvas.a2ui.pushJSONL, canvas.a2ui.reset). If you need broader restrictions, remove risky commands from allowCommands/default workflows.
+Full report: openclaw security audit
+Deep probe: openclaw security audit --deep
+
+Channels
+┌──────────┬─────────┬────────┬───────────────────────────────────────────────────────────────────────────────────────┐
+│ Channel  │ Enabled │ State  │ Detail                                                                                │
+├──────────┼─────────┼────────┼───────────────────────────────────────────────────────────────────────────────────────┤
+│ Telegram │ ON      │ OK     │ token config (8753…9mls · len 46) · accounts 1/1                                      │
+└──────────┴─────────┴────────┴───────────────────────────────────────────────────────────────────────────────────────┘
+
+Sessions
+┌───────────────────────────────────────────────┬────────┬─────────┬───────────────┬──────────────────────────────────┐
+│ Key                                           │ Kind   │ Age     │ Model         │ Tokens                           │
+├───────────────────────────────────────────────┼────────┼─────────┼───────────────┼──────────────────────────────────┤
+│ agent:main:telegram:direct:5989…              │ direct │ 1m ago  │ gpt-5.3-codex │ 169k/272k (62%) · 🗄️ 198% cached │
+│ agent:main:main                               │ direct │ 1m ago  │ gpt-5.3-codex │ 22k/272k (8%) · 🗄️ 7% cached     │
+│ agent:main:cron:65063591-f0e4-4…              │ direct │ 8h ago  │ gpt-5.3-codex │ 18k/272k (7%) · 🗄️ 410% cached   │
+│ agent:main:cron:65063591-f0e4-4…              │ direct │ 8h ago  │ gpt-5.3-codex │ 18k/272k (7%) · 🗄️ 410% cached   │
+│ agent:main:cron:b2b3463b-6d8f-4…              │ direct │ 23h ago │ gpt-5.3-codex │ 18k/272k (7%) · 🗄️ 345% cached   │
+│ agent:main:cron:b2b3463b-6d8f-4…              │ direct │ 23h ago │ gpt-5.3-codex │ 18k/272k (7%) · 🗄️ 345% cached   │
+│ agent:main:cron:b2055952-2005-4…              │ direct │ 27h ago │ gpt-5.3-codex │ 29k/272k (11%) · 🗄️ 396% cached  │
+│ telegram:slash:59890423                       │ direct │ 32h ago │ gpt-5.3-codex │ unknown/272k (?%)                │
+│ agent:main:telegram:direct:8753…              │ direct │ 33h ago │ gpt-5.3-codex │ unknown/272k (?%)                │
+└───────────────────────────────────────────────┴────────┴─────────┴───────────────┴──────────────────────────────────┘
+
+FAQ: https://docs.openclaw.ai/faq
+Troubleshooting: https://docs.openclaw.ai/troubleshooting
+
+Update available (git behind 92 · npm 2026.2.26). Run: openclaw update
+
+Next steps:
+  Need to share?      openclaw status --all
+  Need to debug live? openclaw logs --follow
+  Need to test channels? openclaw status --deep
+--- crontab ---
+# === Twitter Scout (@mttrly) ===
+# Timezone: UTC+5 (Южный Урал)
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+TZ=Asia/Yekaterinburg
+
+# Fire Patrol (morning) — pain points
+30 8 * * * cd /home/openclaw/.openclaw/workspace/playbooks/twitter-scout && bash scripts/run-scout.sh fire-patrol
+
+# Brand Building (midday) — trends
+0 13 * * * cd /home/openclaw/.openclaw/workspace/playbooks/twitter-scout && bash scripts/run-scout.sh brand-building
+
+# Fire Patrol (evening) — pain points
+30 17 * * * cd /home/openclaw/.openclaw/workspace/playbooks/twitter-scout && bash scripts/run-scout.sh fire-patrol
+
+# Weekly Analytics (понедельник 07:00 UTC+5)
+0 7 * * 1 cd /home/openclaw/.openclaw/workspace && node playbooks/twitter/x-smart-read-weekly.js >> logs/twitter/weekly-$(date +\%Y\%m\%d).log 2>&1
+--- workspace git status ---
+?? UPGRADE-RUNBOOK-2026-02-28.md
+?? daily-packs/fire-patrol-report-example-2026-02-28.md
+?? logs/openclaw-upgrade-preflight-2026-02-28.log
