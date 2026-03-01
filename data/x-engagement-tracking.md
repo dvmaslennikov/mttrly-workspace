@@ -18,3 +18,7 @@
 - Audience signal (high priority)  
 - Competitor (medium priority)
 - Community (low priority)
+
+
+## Seen In Digest
+- 2027738672624242949 — fire-patrol (2026-03-01)

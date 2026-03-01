@@ -126,19 +126,34 @@ function loadConfig() {
 
 function loadTracking() {
   if (!fs.existsSync(TRACKING_FILE)) {
-    fs.writeFileSync(TRACKING_FILE, '# X Engagement Tracking\n\n## Replied To\n(none yet)\n\n## Skipped\n(none yet)\n');
+    fs.writeFileSync(
+      TRACKING_FILE,
+      '# X Engagement Tracking\n\n## Replied To\n(none yet)\n\n## Seen In Digest\n(none yet)\n\n## Skipped\n(none yet)\n'
+    );
   }
+
   const content = fs.readFileSync(TRACKING_FILE, 'utf8');
   const repliedIds = new Set();
+  const seenDigestIds = new Set();
   const authorHistory = {}; // { username: lastReplyDate }
-  let inReplied = false;
+  let section = null;
 
   content.split('\n').forEach(line => {
-    if (line.startsWith('## Replied To')) inReplied = true;
-    else if (line.startsWith('## ')) inReplied = false;
-    if (inReplied) {
-      // New format: - 123456789 — @username topic (2026-02-27) — pain_point
-      const match = line.match(/^- (\d+)\s*—\s*@(\S+)\s.*?\((\d{4}-\d{2}-\d{2})\)/);
+    if (line.startsWith('## Replied To')) {
+      section = 'replied';
+      return;
+    }
+    if (line.startsWith('## Seen In Digest')) {
+      section = 'seen';
+      return;
+    }
+    if (line.startsWith('## ')) {
+      section = null;
+      return;
+    }
+
+    if (section === 'replied') {
+      const match = line.match(/^- (\d+)\s*—\s*@([^\s]+)\s.*?\((\d{4}-\d{2}-\d{2})\)/);
       if (match) {
         repliedIds.add(match[1]);
         const username = match[2].toLowerCase();
@@ -147,14 +162,73 @@ function loadTracking() {
           authorHistory[username] = dateStr;
         }
       } else {
-        // Fallback: old format (just ID)
         const oldMatch = line.match(/^- (\d+)/);
         if (oldMatch) repliedIds.add(oldMatch[1]);
       }
     }
+
+    if (section === 'seen') {
+      const seenMatch = line.match(/^- (\d+)\b/);
+      if (seenMatch) seenDigestIds.add(seenMatch[1]);
+    }
   });
 
-  return { repliedIds, authorHistory };
+  return { repliedIds, seenDigestIds, authorHistory };
+}
+
+function saveSeenDigestIds(ids, mode = 'fire-patrol') {
+  if (!ids || ids.length === 0) return;
+
+  if (!fs.existsSync(TRACKING_FILE)) {
+    fs.writeFileSync(
+      TRACKING_FILE,
+      '# X Engagement Tracking\n\n## Replied To\n(none yet)\n\n## Seen In Digest\n(none yet)\n\n## Skipped\n(none yet)\n'
+    );
+  }
+
+  const content = fs.readFileSync(TRACKING_FILE, 'utf8');
+  const lines = content.split('\n');
+  const existing = new Set();
+
+  let inSeen = false;
+  for (const line of lines) {
+    if (line.startsWith('## Seen In Digest')) {
+      inSeen = true;
+      continue;
+    }
+    if (line.startsWith('## ') && inSeen) {
+      inSeen = false;
+    }
+    if (inSeen) {
+      const m = line.match(/^- (\d+)\b/);
+      if (m) existing.add(m[1]);
+    }
+  }
+
+  const date = new Date().toISOString().slice(0, 10);
+  const toAdd = ids
+    .map(id => String(id))
+    .filter(id => !existing.has(id))
+    .map(id => `- ${id} — ${mode} (${date})`);
+
+  if (toAdd.length === 0) return;
+
+  let markerIdx = lines.findIndex(l => l.startsWith('## Seen In Digest'));
+  if (markerIdx === -1) {
+    lines.push('', '## Seen In Digest', '(none yet)');
+    markerIdx = lines.findIndex(l => l.startsWith('## Seen In Digest'));
+  }
+
+  let sectionEnd = markerIdx + 1;
+  while (sectionEnd < lines.length && !lines[sectionEnd].startsWith('## ')) sectionEnd++;
+
+  if (lines[markerIdx + 1] && lines[markerIdx + 1].trim() === '(none yet)') {
+    lines.splice(markerIdx + 1, 1);
+    sectionEnd--;
+  }
+
+  lines.splice(sectionEnd, 0, ...toAdd);
+  fs.writeFileSync(TRACKING_FILE, lines.join('\n'));
 }
 
 // ============================================================================
@@ -289,8 +363,9 @@ function countTechAnchors(tweet) {
   return TECH_INCIDENT_ANCHORS.reduce((acc, k) => acc + (text.includes(k) ? 1 : 0), 0);
 }
 
-function filterTweet(tweet, category, repliedIds, authorHistory) {
+function filterTweet(tweet, category, repliedIds, seenDigestIds, authorHistory) {
   if (repliedIds.has(tweet.id)) return { skip: true, reason: 'already_replied' };
+  if (seenDigestIds && seenDigestIds.has(tweet.id)) return { skip: true, reason: 'already_seen_in_digest' };
 
   // Author cooldown: skip if same author replied within AUTHOR_COOLDOWN_DAYS
   const authorLower = (tweet.author.username || '').toLowerCase();
@@ -923,7 +998,7 @@ async function main() {
   const skipReasons = {};
 
   categorized.forEach(tweet => {
-    const result = filterTweet(tweet, tweet.category, tracking.repliedIds, tracking.authorHistory);
+    const result = filterTweet(tweet, tweet.category, tracking.repliedIds, tracking.seenDigestIds, tracking.authorHistory);
     if (result.skip) {
       skipReasons[result.reason] = (skipReasons[result.reason] || 0) + 1;
     } else {
@@ -980,6 +1055,9 @@ async function main() {
   console.log('\nSending Telegram digest...');
   const messages = formatTelegramDigest(mode, topN, replies);
   await sendTelegram(botToken, chatId, messages);
+
+  // Persist shown tweet IDs to prevent re-issuing same tweet next runs
+  saveSeenDigestIds(topN.map(t => t.id), mode);
 
   // Save digest to file
   const digestFile = path.join(PACKS_DIR, `${mode}-digest-${new Date().toISOString().split('T')[0]}.json`);
