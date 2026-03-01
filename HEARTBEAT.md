@@ -22,6 +22,19 @@ Ask yourself:
 - ❓ Did Дима correct me? → Note it + propose MEMORY.md update
 - ❓ Did I discover a pattern in how Дима works? → Capture it
 - ❓ Did I improve at something today? → Note it
+- ❓ What did I learn today?
+- ❓ What new did I learn about Дима?
+- ❓ What new did I learn about myself?
+- ❓ What new did I learn about the world/system context?
+
+### 2.1 Weekly Reflection Questions (Sunday)
+When running weekly review, always include answers to:
+- 🤝 What did I learn about us as a team this week?
+- 🎯 Where did I reduce Dima's load, and where did I create overhead?
+- 🧭 Did I act within my role boundaries or drift outside them?
+- 🌍 What changed in external/system context that affects our process?
+- 🔁 What repeating risk must be prevented next week?
+- 🚀 What single system improvement has highest ROI for next week?
 
 ### 3. Propose Updates to MEMORY.md
 If there's something important:
