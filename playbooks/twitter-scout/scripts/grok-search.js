@@ -6,6 +6,9 @@
  * Uses Grok's x_search tool to find relevant tweets via semantic search.
  * Complementary to bird CLI (keyword-based) — Grok understands context better.
  *
+ * For fire-patrol: runs 4 focused sub-prompts in parallel for better coverage.
+ * Other modes: single prompt.
+ *
  * Usage: node grok-search.js <mode> [output-file]
  * Modes: fire-patrol, brand-building, influencer-monitor
  *
@@ -22,41 +25,92 @@ const path = require('path');
 // ============================================================================
 
 const XAI_API_KEY = process.env.XAI_API_KEY || '';
-const XAI_MODEL = 'grok-4-1-fast';
+const XAI_MODEL = 'grok-4-1-fast-reasoning';
 const XAI_ENDPOINT = 'api.x.ai';
 
 const WORKSPACE_DIR = path.resolve(__dirname, '../../..');
 const OUTPUT_DIR = process.env.OUTPUT_DIR || path.join(WORKSPACE_DIR, 'daily-packs');
 
-// Search prompts by mode — semantic queries that Grok understands better than keyword search
-const MODE_PROMPTS = {
-  'fire-patrol': {
-    prompt: `You are an expert at finding genuine developer pain on X.
+// Excluded handles — corporate, news, crypto (max 10 for x_search)
+const EXCLUDED_HANDLES = [
+  'vercel', 'railway_app', 'flydotio', 'supabase',
+  'awscloud', 'TechCrunch', 'bankrbot', 'TheHackersNews'
+];
 
-Find the most recent tweets (last 48 hours) from INDIVIDUAL developers, engineers or indie founders who are visibly frustrated or venting about:
+// Common JSON output instruction appended to all prompts
+const JSON_INSTRUCTION = `
+Return ONLY a valid JSON array (max 8 items), sorted by reply_opportunity descending.
+Each item:
+{
+  "id": "tweet_id_from_url",
+  "text": "full tweet text",
+  "author": { "username": "handle_without_at", "name": "Display Name" },
+  "likeCount": number,
+  "url": "https://x.com/user/status/id",
+  "pain_score": number_1_to_10,
+  "reply_opportunity": number_1_to_10
+}
+pain_score: how intense is the frustration. 10 = maximum pain. 1 = neutral mention.
+reply_opportunity: how natural and welcome a helpful reply would be. 10 = perfect opening.
+If no relevant tweets found, return [].`;
 
-- Production crashes, outages or "everything is down"
-- Deployment failing + rollback hell
-- Getting woken up at 3am by PagerDuty/on-call alerts
-- Alert fatigue / too many false positives from monitoring
-- Infrastructure bills being stupidly high
-- CI/CD pipeline breaking on every merge
-- Post-mortem nightmares or "I spent 4 hours debugging this"
+// ============================================================================
+// SUB-PROMPTS — fire-patrol split into 4 focused categories
+// ============================================================================
 
-Only English tweets from real people (not companies, not news, not crypto/web3, not politics/sports).
+const FIRE_PATROL_SUB_PROMPTS = [
+  {
+    name: 'on-call-3am',
+    prompt: `Find tweets (last 48h) from individual developers frustrated about:
+- Getting woken at 3am/2am/4am by PagerDuty, on-call alerts
+- Production crashes at night, "I was sleeping and got paged"
+- Weekend ruined by incidents
+- "I can't sleep because of on-call"
 
-Prioritize tweets with these signs of real pain:
-- Words like "fuck", "nightmare", "again?!", "3am", "killed my weekend", "I'm done"
-- Personal stories ("I just spent...", "why does this always...")
-- 5+ likes preferred, but quality > quantity
-
-Exclude any promotional, ad-like or neutral technical posts.`,
-    x_search: {
-      from_date: getDateDaysAgo(2),
-      to_date: getToday()
-    }
+Only English. Real people (not companies/news/crypto). Prefer personal stories with emotion.
+${JSON_INSTRUCTION}`
   },
+  {
+    name: 'deploy-rollback',
+    prompt: `Find tweets (last 48h) from individual developers frustrated about:
+- Deployment failing, "pushed to main and broke prod"
+- Rollback hell, "spent hours rolling back"
+- CI/CD breaking on every merge
+- "My deploy pipeline is a nightmare"
 
+Only English. Real people (not companies/news/crypto). Prefer personal venting.
+${JSON_INSTRUCTION}`
+  },
+  {
+    name: 'infra-monitoring',
+    prompt: `Find tweets (last 48h) from individual developers frustrated about:
+- Infrastructure bills being stupidly high (AWS, cloud costs)
+- Alert fatigue, too many false positives from monitoring
+- Post-mortem nightmares, "I spent 4 hours debugging this"
+- Observability / logging pain
+
+Only English. Real people (not companies/news/crypto). Prefer personal stories.
+${JSON_INSTRUCTION}`
+  },
+  {
+    name: 'vibe-coder-pain',
+    prompt: `Find tweets (last 48h) from individual developers or indie founders frustrated about:
+- Built an app with AI (Cursor, Claude, Copilot) but can't deploy it reliably
+- "Vibe coded the whole thing, now production is down at 2am"
+- "I don't know DevOps, my AI app keeps crashing"
+- Solo founder shipping but infra is breaking
+- First deploy fear or failure
+
+Only English. Real people, indie hackers, solo devs. Prefer frustrated personal stories.
+${JSON_INSTRUCTION}`
+  }
+];
+
+// ============================================================================
+// SINGLE-MODE PROMPTS (brand-building, influencer-monitor)
+// ============================================================================
+
+const SINGLE_PROMPTS = {
   'brand-building': {
     prompt: `Find recent tweets (last 48 hours) from solo devs, indie hackers and bootstrapped founders who are:
 
@@ -66,19 +120,13 @@ Exclude any promotional, ad-like or neutral technical posts.`,
 - Complaining "I built the whole app with AI but now I can't deploy it reliably"
 - Discussing "simple server vs complex cloud" or "I don't want to learn DevOps"
 
-Focus ONLY on individual creators (bio contains dev, founder, indie, solo, hacker).
-
-English only. Prefer 5+ likes. Exclude corporate accounts, crypto, politics, news, promo posts.
-
-Especially good: tweets that end with a question or show frustration with infra after AI coding session.`,
-    x_search: {
-      from_date: getDateDaysAgo(2),
-      to_date: getToday()
-    }
+Focus ONLY on individual creators. English only. Exclude corporate accounts, crypto, politics, news, promo.
+${JSON_INSTRUCTION}`,
+    x_search: { from_date: getDateDaysAgo(2), to_date: getToday() }
   },
 
   'influencer-monitor': {
-    prompt: `Find tweets from the last 72 hours by known tech influencers, indie devs or people with 5k+ followers about:
+    prompt: `Find tweets (last 72 hours) by known tech influencers, indie devs or people with 5k+ followers about:
 
 - Server management / deployment / infra pain
 - Observability, monitoring, incident response
@@ -86,16 +134,11 @@ Especially good: tweets that end with a question or show frustration with infra 
 - Opinions on DevOps tools
 - Complaints about Vercel, Railway, Fly.io, Supabase, Heroku (pricing, outages, deploy failures)
 
-Also specifically catch replies/complaints directed at @vercel @railway_app @flydotio @supabase @render @heroku
+Also catch replies/complaints directed at @vercel @railway_app @flydotio @supabase @render @heroku
 
-Only genuine pain or discussion, no promo.
-
-English. Prefer high engagement.`,
-    x_search: {
-      from_date: getDateDaysAgo(3),
-      to_date: getToday(),
-      excluded_x_handles: ['bankrbot']
-    }
+Only genuine pain or discussion, no promo. English. Prefer high engagement.
+${JSON_INSTRUCTION}`,
+    x_search: { from_date: getDateDaysAgo(3), to_date: getToday() }
   }
 };
 
@@ -153,64 +196,9 @@ function xaiRequest(body) {
   });
 }
 
-// ============================================================================
-// MAIN SEARCH
-// ============================================================================
-
-async function searchGrok(mode) {
-  const config = MODE_PROMPTS[mode];
-  if (!config) {
-    console.error(`ERROR: Unknown mode: ${mode}`);
-    process.exit(1);
-  }
-
-  const searchTool = {
-    type: 'x_search',
-    ...config.x_search
-  };
-
-  const structuredPrompt = `${config.prompt}
-
-IMPORTANT: Return your findings as a JSON array. For each tweet found, include:
-[
-  {
-    "id": "tweet_id_from_url",
-    "text": "full tweet text",
-    "author": {
-      "username": "handle_without_at",
-      "name": "Display Name"
-    },
-    "likeCount": 0,
-    "replyCount": 0,
-    "retweetCount": 0,
-    "createdAt": "ISO timestamp if available",
-    "url": "https://x.com/user/status/id",
-    "pain_score": 7,
-    "reply_opportunity": 8
-  }
-]
-
-pain_score (1-10): how intense is the frustration/pain in this tweet. 10 = maximum pain, personal venting. 1 = neutral mention.
-reply_opportunity (1-10): how natural and welcome would a helpful reply be here. 10 = perfect opening for advice. 1 = closed conversation.
-
-Return ONLY the JSON array. Include up to 15 tweets, ranked by reply_opportunity descending. If you can't find the exact metrics, estimate based on what you see. If you find no relevant tweets, return an empty array [].`;
-
-  console.log(`  Grok x_search: ${mode}`);
-
-  const body = {
-    model: XAI_MODEL,
-    input: [
-      { role: 'user', content: structuredPrompt }
-    ],
-    tools: [searchTool]
-  };
-
-  const response = await xaiRequest(body);
-
-  // Extract text content from response
+function extractText(response) {
   let text = '';
   if (response.output) {
-    // New responses API format
     for (const item of response.output) {
       if (item.type === 'message' && item.content) {
         for (const block of item.content) {
@@ -221,28 +209,28 @@ Return ONLY the JSON array. Include up to 15 tweets, ranked by reply_opportunity
       }
     }
   }
+  return text;
+}
 
+function parseTweets(text, subName) {
   if (!text) {
-    console.log('  Grok returned empty response');
+    console.log(`    [${subName}] empty response`);
     return [];
   }
 
-  // Parse JSON array from response
   const jsonMatch = text.match(/\[[\s\S]*\]/);
   if (!jsonMatch) {
-    console.log('  Grok response did not contain JSON array');
-    console.log('  Response preview:', text.substring(0, 200));
+    console.log(`    [${subName}] no JSON array found`);
+    console.log(`    Preview: ${text.substring(0, 150)}`);
     return [];
   }
 
   try {
     const tweets = JSON.parse(jsonMatch[0]);
-    console.log(`  Grok found ${tweets.length} tweets`);
-
-    // Normalize: add source marker + grok scoring fields
     return tweets.map(t => ({
       ...t,
       _source: 'grok',
+      _sub_prompt: subName,
       id: String(t.id || ''),
       likeCount: t.likeCount || 0,
       replyCount: t.replyCount || 0,
@@ -250,14 +238,88 @@ Return ONLY the JSON array. Include up to 15 tweets, ranked by reply_opportunity
       pain_score: Math.min(10, Math.max(0, Number(t.pain_score) || 0)),
       reply_opportunity: Math.min(10, Math.max(0, Number(t.reply_opportunity) || 0)),
       author: {
-        username: (t.author?.username || '').replace(/^@/, ''),
-        name: t.author?.name || t.author?.username || ''
+        username: (t.author?.username || String(t.author || '')).replace(/^@/, ''),
+        name: t.author?.name || t.author?.username || String(t.author || '')
       }
     }));
   } catch (e) {
-    console.error('  Failed to parse Grok JSON:', e.message);
+    console.log(`    [${subName}] JSON parse error: ${e.message}`);
     return [];
   }
+}
+
+// ============================================================================
+// SEARCH FUNCTIONS
+// ============================================================================
+
+async function searchSingle(prompt, xSearchConfig, name) {
+  const body = {
+    model: XAI_MODEL,
+    input: [{ role: 'user', content: prompt }],
+    tools: [{
+      type: 'x_search',
+      ...xSearchConfig,
+      excluded_x_handles: EXCLUDED_HANDLES
+    }]
+  };
+
+  const response = await xaiRequest(body);
+  const text = extractText(response);
+  const tweets = parseTweets(text, name);
+  console.log(`    [${name}] ${tweets.length} tweets`);
+  return tweets;
+}
+
+async function searchFirePatrol() {
+  const xSearchConfig = {
+    from_date: getDateDaysAgo(2),
+    to_date: getToday()
+  };
+
+  console.log('  Running 4 sub-prompts in parallel...');
+
+  const results = await Promise.all(
+    FIRE_PATROL_SUB_PROMPTS.map(sub =>
+      searchSingle(sub.prompt, xSearchConfig, sub.name)
+        .catch(err => {
+          console.error(`    [${sub.name}] failed: ${err.message}`);
+          return [];
+        })
+    )
+  );
+
+  // Merge and deduplicate by tweet ID
+  const seen = new Set();
+  const allTweets = [];
+  for (const tweets of results) {
+    for (const t of tweets) {
+      if (t.id && !seen.has(t.id)) {
+        seen.add(t.id);
+        allTweets.push(t);
+      }
+    }
+  }
+
+  // Sort by reply_opportunity descending
+  allTweets.sort((a, b) => (b.reply_opportunity || 0) - (a.reply_opportunity || 0));
+
+  console.log(`  Grok total: ${allTweets.length} unique tweets from ${results.length} sub-prompts`);
+  return allTweets;
+}
+
+async function searchMode(mode) {
+  if (mode === 'fire-patrol') {
+    return searchFirePatrol();
+  }
+
+  const config = SINGLE_PROMPTS[mode];
+  if (!config) {
+    console.error(`ERROR: Unknown mode: ${mode}`);
+    process.exit(1);
+  }
+
+  console.log(`  Grok x_search: ${mode}`);
+  return searchSingle(config.prompt, config.x_search, mode);
 }
 
 // ============================================================================
@@ -286,15 +348,16 @@ async function main() {
     process.exit(0);
   }
 
-  console.log(`Grok search: ${mode}`);
+  console.log(`Grok search: ${mode} (model: ${XAI_MODEL})`);
 
   try {
-    const tweets = await searchGrok(mode);
+    const tweets = await searchMode(mode);
 
     const result = {
       source: 'grok',
       mode,
       timestamp: new Date().toISOString(),
+      model: XAI_MODEL,
       status: 'ok',
       tweet_count: tweets.length,
       candidates: tweets
@@ -310,7 +373,6 @@ async function main() {
     }
   } catch (err) {
     console.error(`Grok search failed: ${err.message}`);
-    // Non-fatal — output empty results
     const result = { source: 'grok', mode, status: 'error', error: err.message, candidates: [] };
     if (outputFile) {
       fs.writeFileSync(outputFile, JSON.stringify(result, null, 2));

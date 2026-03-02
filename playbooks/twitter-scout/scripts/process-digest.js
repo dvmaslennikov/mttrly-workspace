@@ -428,9 +428,12 @@ function filterTweet(tweet, category, repliedIds, seenDigestIds, authorHistory) 
   const minLikes = grokValidated ? 0 : (category === 'pain_point' ? 3 : 5);
   if ((tweet.likeCount || 0) < minLikes) return { skip: true, reason: 'low_engagement' };
 
-  const tweetTime = new Date(tweet.createdAt).getTime();
-  const ageHours = (Date.now() - tweetTime) / (1000 * 60 * 60);
-  if (ageHours > 72) return { skip: true, reason: 'too_old' };
+  const tweetTime = tweet.createdAt ? new Date(tweet.createdAt).getTime() : NaN;
+  if (!isNaN(tweetTime)) {
+    const ageHours = (Date.now() - tweetTime) / (1000 * 60 * 60);
+    if (ageHours > 72) return { skip: true, reason: 'too_old' };
+  }
+  // Grok tweets without createdAt: trust Grok's date filtering (from_date/to_date)
 
   return { skip: false, authorType };
 }
@@ -519,26 +522,29 @@ function scoreRelevance(tweet, category, authorType = 'unknown') {
   if (authorType === 'tech_individual') score += 2;
   else if (authorType === 'unknown') score += 0;
 
+  // --- Grok semantic scoring bonus (if available from grok-search.js) ---
+  const painScore = Number(tweet.pain_score) || 0;
+  const replyOpp = Number(tweet.reply_opportunity) || 0;
+  const grokScored = painScore > 0 || replyOpp > 0;
+  if (grokScored) {
+    // Up to +1 for pain, up to +1 for reply opportunity
+    score += Math.min(painScore / 10, 1);
+    score += Math.min(replyOpp / 10, 1);
+  }
+
   // --- HARD RELEVANCE GATE ---
   // If tweet has NO DevOps/server context at all, cap score to prevent irrelevant high-engagement tweets
-  const hasAnyRelevance = hasDirect || hasIndirect || (hasNightSignal && hasIndirect);
+  // Grok-scored tweets bypass this gate — Grok already validated relevance
+  const hasAnyRelevance = hasDirect || hasIndirect || (hasNightSignal && hasIndirect) || grokScored;
   if (!hasAnyRelevance) {
     score = Math.min(score, 1.5);
   }
 
   // --- Freshness ---
-  const ageHours = (Date.now() - new Date(tweet.createdAt).getTime()) / (1000 * 60 * 60);
+  const tweetDate = tweet.createdAt ? new Date(tweet.createdAt).getTime() : Date.now();
+  const ageHours = isNaN(tweetDate) ? 12 : (Date.now() - tweetDate) / (1000 * 60 * 60);
   const freshness = Math.max(2 - ageHours / 36, 0);
-  score += hasAnyRelevance ? freshness : freshness * 0.3; // Reduce freshness bonus for irrelevant tweets
-
-  // --- Grok semantic scoring bonus (if available from grok-search.js) ---
-  const painScore = Number(tweet.pain_score) || 0;
-  const replyOpp = Number(tweet.reply_opportunity) || 0;
-  if (painScore > 0 || replyOpp > 0) {
-    // Up to +1 for pain, up to +1 for reply opportunity
-    score += Math.min(painScore / 10, 1);
-    score += Math.min(replyOpp / 10, 1);
-  }
+  score += hasAnyRelevance ? freshness : freshness * 0.3;
 
   // Cap at 7
   score = Math.min(score, 7);

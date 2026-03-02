@@ -58,6 +58,12 @@ declare -a FIRE_PATROL_QUERIES=(
   '(("devops" OR "sre") (incident OR outage OR deploy OR rollback OR monitoring)) -is:retweet'
   '((to:vercel OR to:railway_app OR to:flydotio OR to:supabase) (down OR broken OR deploy OR error)) -is:retweet'
   '(("cursor deploy" OR "AI deploy" OR "vibe deploy") (production OR server OR crash OR error)) -is:retweet'
+  # Casual developer pain — emotional language without DevOps jargon
+  '("killed my weekend" OR "ruined my weekend" OR "there goes my weekend") (code OR deploy OR fix OR bug OR server OR prod) -is:retweet'
+  '("vibe coding" OR "vibe coded" OR "vibe coder") (down OR broke OR crash OR production OR deploy OR "can'"'"'t deploy") -is:retweet'
+  '("built with cursor" OR "built with claude" OR "built with copilot") (broke OR crash OR deploy OR error OR down OR production) -is:retweet'
+  '(("saturday" OR "sunday" OR "weekend") ("still debugging" OR "still fixing" OR "still not fixed" OR "still broken")) (code OR server OR app OR deploy) -is:retweet'
+  '("shipped it" OR "just shipped" OR "finally shipped") (bug OR broke OR crash OR "first user" OR "went down") -is:retweet'
 )
 
 
