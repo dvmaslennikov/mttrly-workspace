@@ -67,7 +67,7 @@ const FIRE_PATROL_SUB_PROMPTS = [
 - Weekend ruined by incidents
 - "I can't sleep because of on-call"
 
-Only English. Real people (not companies/news/crypto). Prefer personal stories with emotion.
+Only English. Real people (not companies/news/crypto/gaming). Strongly prefer tweets with 5+ likes. Include lower-engagement tweets ONLY if pain is exceptionally intense (8+/10).
 ${JSON_INSTRUCTION}`
   },
   {
@@ -78,7 +78,7 @@ ${JSON_INSTRUCTION}`
 - CI/CD breaking on every merge
 - "My deploy pipeline is a nightmare"
 
-Only English. Real people (not companies/news/crypto). Prefer personal venting.
+Only English. Real people (not companies/news/crypto/gaming). IMPORTANT: only tweets with 5+ likes — skip zero-engagement tweets.
 ${JSON_INSTRUCTION}`
   },
   {
@@ -89,7 +89,7 @@ ${JSON_INSTRUCTION}`
 - Post-mortem nightmares, "I spent 4 hours debugging this"
 - Observability / logging pain
 
-Only English. Real people (not companies/news/crypto). Prefer personal stories.
+Only English. Real people (not companies/news/crypto/gaming). IMPORTANT: only tweets with 5+ likes — skip zero-engagement tweets.
 ${JSON_INSTRUCTION}`
   },
   {
@@ -101,7 +101,7 @@ ${JSON_INSTRUCTION}`
 - Solo founder shipping but infra is breaking
 - First deploy fear or failure
 
-Only English. Real people, indie hackers, solo devs. Prefer frustrated personal stories.
+Only English. Real people, indie hackers, solo devs (not companies/news/crypto/gaming). IMPORTANT: only tweets with 5+ likes — skip zero-engagement tweets.
 ${JSON_INSTRUCTION}`
   }
 ];
@@ -120,7 +120,8 @@ const SINGLE_PROMPTS = {
 - Complaining "I built the whole app with AI but now I can't deploy it reliably"
 - Discussing "simple server vs complex cloud" or "I don't want to learn DevOps"
 
-Focus ONLY on individual creators. English only. Exclude corporate accounts, crypto, politics, news, promo.
+Focus ONLY on individual creators. English only. Exclude corporate accounts, crypto, politics, news, promo, gaming.
+Strongly prefer tweets with 5+ likes. Include lower-engagement tweets ONLY if pain is exceptionally intense (8+/10).
 ${JSON_INSTRUCTION}`,
     x_search: { from_date: getDateDaysAgo(2), to_date: getToday() }
   },
@@ -136,7 +137,7 @@ ${JSON_INSTRUCTION}`,
 
 Also catch replies/complaints directed at @vercel @railway_app @flydotio @supabase @render @heroku
 
-Only genuine pain or discussion, no promo. English. Prefer high engagement.
+Only genuine pain or discussion, no promo, no gaming. English. Strongly prefer tweets with 10+ likes — these are influencers so engagement should be higher. Include lower only if exceptionally relevant.
 ${JSON_INSTRUCTION}`,
     x_search: { from_date: getDateDaysAgo(3), to_date: getToday() }
   }

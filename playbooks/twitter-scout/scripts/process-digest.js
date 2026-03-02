@@ -424,8 +424,8 @@ function filterTweet(tweet, category, repliedIds, seenDigestIds, authorHistory) 
   const author = (tweet.author.username || '').toLowerCase();
   if (competitors.includes(author)) return { skip: true, reason: 'is_competitor' };
 
-  // Engagement gate — skip for Grok-validated
-  const minLikes = grokValidated ? 0 : (category === 'pain_point' ? 3 : 5);
+  // Engagement gate — Grok-validated get lower threshold but not zero
+  const minLikes = grokValidated ? 5 : (category === 'pain_point' ? 3 : 5);
   if ((tweet.likeCount || 0) < minLikes) return { skip: true, reason: 'low_engagement' };
 
   const tweetTime = tweet.createdAt ? new Date(tweet.createdAt).getTime() : NaN;
