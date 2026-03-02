@@ -32,19 +32,25 @@ const DATA_DIR = path.join(WORKSPACE_DIR, 'data');
 const PACKS_DIR = path.join(WORKSPACE_DIR, 'daily-packs');
 const TRACKING_FILE = path.join(DATA_DIR, 'x-engagement-tracking.md');
 const OPENCLAW_CLI = path.join(OPENCLAW_DIR, '..', 'openclaw', 'dist', 'entry.js');
-const TOP_N = 5;
+const TOP_N = 8;
 
 // Tracked influencers for scoring boost
 const TRACKED_INFLUENCERS = {
   // Tier 1 — mega accounts (100K+ followers)
   'karpathy': 1, 'levelsio': 1, 'rauchg': 1, 'b0rk': 1,
   'noahkagan': 1, 'simonw': 1, 'marc_louvion': 1,
+  'dvassallo': 1, 'arvidkahl': 1, 'thepatwalls': 1, 'yongfook': 1,
+  'tdinh_me': 1, 'freecodecamp': 1, 'indiehackers': 1,
   // Tier 2 — strong domain experts (10K-100K)
   'mipsytipsy': 2, 'kelseyhightower': 2, 'swyx': 2,
   'jasoncrawford': 2, 'kiwicopple': 2, 'tabordasilva': 2, 'danshipper': 2,
+  'gergelyorosz': 2, 'jezhumble': 2, 'allspaw': 2,
+  'copyconstruct': 2, 'lizthegrey': 2, 'realgenekim': 2,
   // Tier 3 — niche but relevant (5K-30K)
   'chaosengineerr': 3, 'robinebers': 3, 'piqsuite': 3,
-  'diamondbishop': 3, '_baretto': 3
+  'diamondbishop': 3, '_baretto': 3,
+  'cjzafir': 3, 'oneuptimehq': 3, 'fromcodetocloud': 3,
+  'appwrite': 3, 'cursor_ai': 3, 'rohanpaul_ai': 3
 };
 
 const AUTHOR_COOLDOWN_DAYS = 4;
@@ -67,7 +73,10 @@ const TECH_INCIDENT_ANCHORS = [
   'server', 'prod', 'production', 'deploy', 'deployment', 'rollback', 'on-call', 'oncall', 'pager',
   'incident response', 'outage', 'downtime', 'monitoring', 'logs', 'nginx', 'k8s', 'kubernetes', 'docker',
   'infra', 'infrastructure', 'latency', 'uptime', 'datadog', 'opsgenie', 'pagerduty', 'ci/cd', 'pipeline',
-  'cloud bill', 'aws bill', 'site is down', 'app is down'
+  'cloud bill', 'aws bill', 'site is down', 'app is down',
+  'database', 'db', 'migration', 'crash', 'debug', 'bug', 'error', 'hotfix', 'postmortem', 'root cause',
+  'terraform', 'ansible', 'redis', 'postgres', 'mysql', 'mongodb', 'api gateway', 'load balancer',
+  'ssl', 'dns', 'cdn', 'scaling', 'memory leak', 'cpu spike', 'disk full', 'timeout'
 ];
 
 const CONTEXT_BLACKLIST_PATTERNS = [
@@ -382,14 +391,21 @@ function filterTweet(tweet, category, repliedIds, seenDigestIds, authorHistory) 
   if (authorType === 'sports_transport') return { skip: true, reason: 'author_sports_transport' };
   if (authorType === 'corp_non_tech') return { skip: true, reason: 'author_corp_non_tech' };
 
-  if (isBlacklistedContext(tweet)) return { skip: true, reason: 'context_blacklisted' };
-  if (!hasTechIncidentContext(tweet)) return { skip: true, reason: 'no_tech_context' };
+  const grokPain = Number(tweet.pain_score) || 0;
+  const grokValidated = grokPain >= 7; // Grok already validated relevance
 
-  const techAnchorCount = countTechAnchors(tweet);
-  if (authorType === 'unknown' && techAnchorCount < 2) {
-    return { skip: true, reason: 'unknown_author_weak_signal' };
+  // Content-quality gates — skip for Grok-validated tweets
+  if (!grokValidated) {
+    if (isBlacklistedContext(tweet)) return { skip: true, reason: 'context_blacklisted' };
+    if (!hasTechIncidentContext(tweet)) return { skip: true, reason: 'no_tech_context' };
+
+    const techAnchorCount = countTechAnchors(tweet);
+    if (authorType === 'unknown' && techAnchorCount < 2) {
+      return { skip: true, reason: 'unknown_author_weak_signal' };
+    }
   }
 
+  // Operational/spam checks — always apply
   if (isBot(tweet.author)) return { skip: true, reason: 'is_bot' };
   if (!isEnglish(tweet.text)) return { skip: true, reason: 'not_english' };
   if (isPromo(tweet.text)) return { skip: true, reason: 'is_promo' };
@@ -399,7 +415,8 @@ function filterTweet(tweet, category, repliedIds, seenDigestIds, authorHistory) 
   const author = (tweet.author.username || '').toLowerCase();
   if (competitors.includes(author)) return { skip: true, reason: 'is_competitor' };
 
-  const minLikes = category === 'pain_point' ? 3 : 5;
+  // Engagement gate — skip for Grok-validated
+  const minLikes = grokValidated ? 0 : (category === 'pain_point' ? 3 : 5);
   if ((tweet.likeCount || 0) < minLikes) return { skip: true, reason: 'low_engagement' };
 
   const tweetTime = new Date(tweet.createdAt).getTime();
@@ -422,7 +439,7 @@ function getCategory(tweet) {
     return 'pain_point';
   }
 
-  const audienceKeywords = ['indie', 'solo', 'founder', 'vibe', 'learn', 'first', 'deploy', 'afraid', 'anxious', 'scared', 'zero cs', 'zero degree', 'master electrician'];
+  const audienceKeywords = ['indie', 'solo', 'founder', 'vibe', 'learn', 'first', 'deploy', 'afraid', 'anxious', 'scared', 'zero cs', 'zero degree', 'master electrician', 'build in public', 'shipped', 'bootstrapped', 'side project', 'maker', 'saas', 'mrr'];
   if (audienceKeywords.some(k => text.includes(k))) return 'audience';
 
   const painKeywords = ['crash', 'down', 'incident', 'alert', 'failed', 'error', 'nginx', '502', 'deployment failed', 'rollback', '3am', 'on-call', 'pager'];
@@ -505,8 +522,17 @@ function scoreRelevance(tweet, category, authorType = 'unknown') {
   const freshness = Math.max(2 - ageHours / 36, 0);
   score += hasAnyRelevance ? freshness : freshness * 0.3; // Reduce freshness bonus for irrelevant tweets
 
-  // Cap at 5
-  score = Math.min(score, 5);
+  // --- Grok semantic scoring bonus (if available from grok-search.js) ---
+  const painScore = Number(tweet.pain_score) || 0;
+  const replyOpp = Number(tweet.reply_opportunity) || 0;
+  if (painScore > 0 || replyOpp > 0) {
+    // Up to +1 for pain, up to +1 for reply opportunity
+    score += Math.min(painScore / 10, 1);
+    score += Math.min(replyOpp / 10, 1);
+  }
+
+  // Cap at 7
+  score = Math.min(score, 7);
 
   return Math.round(score * 100) / 100;
 }
@@ -744,7 +770,8 @@ function formatTelegramDigest(mode, tweets, replies) {
 
   const priorityEmoji = { HIGH: '🔴', MEDIUM: '🟡', LOW: '⚪' };
   const categoryLabel = { pain_point: 'PAIN POINT', audience: 'AUDIENCE', competitor: 'COMPETITOR', monitoring: 'MONITORING' };
-  const modeLabel = mode === 'fire-patrol' ? '🚨 Fire Patrol' : '🏗 Brand Building';
+  const modeLabels = { 'fire-patrol': '🚨 Fire Patrol', 'brand-building': '🏗 Brand Building', 'influencer-monitor': '👁 Influencer Monitor' };
+  const modeLabel = modeLabels[mode] || mode;
   const now = new Date().toISOString().split('T')[0];
 
   const messages = []; // Array<{ text: string, reply_markup?: object }>

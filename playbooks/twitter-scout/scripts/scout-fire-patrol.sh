@@ -56,6 +56,8 @@ declare -a FIRE_PATROL_QUERIES=(
   '(("on-call" OR "pager" OR "pagerduty" OR "opsgenie") (incident OR alert fatigue OR outage OR production)) -is:retweet'
   '(("3am" OR "2am" OR "4am" OR "middle of the night" OR "woke up") (server OR production OR deploy OR outage OR incident OR pager)) -is:retweet'
   '(("devops" OR "sre") (incident OR outage OR deploy OR rollback OR monitoring)) -is:retweet'
+  '((to:vercel OR to:railway_app OR to:flydotio OR to:supabase) (down OR broken OR deploy OR error)) -is:retweet'
+  '(("cursor deploy" OR "AI deploy" OR "vibe deploy") (production OR server OR crash OR error)) -is:retweet'
 )
 
 

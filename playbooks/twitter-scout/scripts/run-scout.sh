@@ -86,8 +86,11 @@ main() {
     brand-building)
       scout_script="${SCRIPT_DIR}/scout-brand-building.sh"
       ;;
+    influencer-monitor)
+      scout_script="${SCRIPT_DIR}/scout-influencer-monitor.sh"
+      ;;
     *)
-      log "ERROR: Unknown mode: $MODE (use fire-patrol or brand-building)"
+      log "ERROR: Unknown mode: $MODE (use fire-patrol, brand-building, or influencer-monitor)"
       return 1
       ;;
   esac
@@ -125,23 +128,90 @@ main() {
     return $exit_code
   fi
 
-  # Find latest candidates file and process digest
+  # Find latest candidates file from bird scan
   local WORKSPACE_DIR
   WORKSPACE_DIR="$(cd "$SKILL_DIR/../.." && pwd)"
-  local LATEST
-  LATEST=$(ls -t "$WORKSPACE_DIR"/daily-packs/${MODE}-candidates-*.json 2>/dev/null | head -1)
+  local BIRD_FILE
+  BIRD_FILE=$(ls -t "$WORKSPACE_DIR"/daily-packs/${MODE}-candidates-*.json 2>/dev/null | head -1)
 
-  if [ -n "$LATEST" ]; then
+  if [ -z "$BIRD_FILE" ]; then
+    log "⚠️ No candidates file found for $MODE"
+    return 0
+  fi
+
+  # Grok supplementary search (optional — needs XAI_API_KEY)
+  local DIGEST_INPUT="$BIRD_FILE"
+  if [ -n "${XAI_API_KEY:-}" ]; then
     log ""
-    log "Processing digest: $LATEST"
-    if node "$SCRIPT_DIR/process-digest.js" "$LATEST" >> "$LOG_FILE" 2>&1; then
-      log "✅ Digest processed and sent"
+    log "Running Grok supplementary search..."
+    local GROK_FILE="$WORKSPACE_DIR/daily-packs/${MODE}-grok-$(date -u +%Y-%m-%dT%H:%M:%SZ).json"
+    local MERGED_FILE="$WORKSPACE_DIR/daily-packs/${MODE}-merged-$(date -u +%Y-%m-%dT%H:%M:%SZ).json"
+
+    if node "$SCRIPT_DIR/grok-search.js" "$MODE" "$GROK_FILE" >> "$LOG_FILE" 2>&1; then
+      log "✅ Grok search completed"
+      # Merge bird + grok results
+      if node "$SCRIPT_DIR/merge-candidates.js" "$BIRD_FILE" "$GROK_FILE" -o "$MERGED_FILE" >> "$LOG_FILE" 2>&1; then
+        log "✅ Candidates merged"
+        DIGEST_INPUT="$MERGED_FILE"
+      else
+        log "⚠️ Merge failed, using bird-only results"
+      fi
     else
-      log "⚠️ Digest processing failed (non-fatal)"
-      send_telegram_alert "⚠️ <b>Digest processing failed</b> (${MODE})\nCheck log: ${LOG_FILE}"
+      log "⚠️ Grok search failed (non-fatal), using bird-only results"
     fi
   else
-    log "⚠️ No candidates file found for $MODE"
+    log "Grok search: skipped (no XAI_API_KEY)"
+  fi
+
+  # Process digest (pass 1)
+  log ""
+  log "Processing digest: $DIGEST_INPUT"
+  if node "$SCRIPT_DIR/process-digest.js" "$DIGEST_INPUT" >> "$LOG_FILE" 2>&1; then
+    log "✅ Digest processed and sent"
+  else
+    log "⚠️ Digest processing failed (non-fatal)"
+    send_telegram_alert "⚠️ <b>Digest processing failed</b> (${MODE})\nCheck log: ${LOG_FILE}"
+  fi
+
+  # If result is weak (<=2 tweets) or empty, run one extra Grok pass and re-process
+  local NEED_RETRY=0
+  local TOP_COUNT=-1
+  local DIGEST_FILE="$WORKSPACE_DIR/daily-packs/${MODE}-digest-$(date -u +%Y-%m-%d).json"
+
+  if grep -q "No tweets passed filters" "$LOG_FILE" 2>/dev/null; then
+    NEED_RETRY=1
+  fi
+
+  if [ -f "$DIGEST_FILE" ]; then
+    TOP_COUNT=$(node -e "const fs=require('fs');const f=process.argv[1];try{const d=JSON.parse(fs.readFileSync(f,'utf8'));console.log((d.stats&&typeof d.stats.top==='number')?d.stats.top:-1);}catch(e){console.log(-1);}" "$DIGEST_FILE" 2>/dev/null || echo -1)
+    if [ "$TOP_COUNT" -ge 0 ] && [ "$TOP_COUNT" -le 2 ]; then
+      NEED_RETRY=1
+    fi
+  fi
+
+  if [ "$NEED_RETRY" -eq 1 ] && [ -n "${XAI_API_KEY:-}" ]; then
+    log ""
+    log "⚠️ Low result (top=$TOP_COUNT). Running one extra Grok pass..."
+
+    local GROK_RETRY_FILE="$WORKSPACE_DIR/daily-packs/${MODE}-grok-retry-$(date -u +%Y-%m-%dT%H:%M:%SZ).json"
+    local MERGED_RETRY_FILE="$WORKSPACE_DIR/daily-packs/${MODE}-merged-retry-$(date -u +%Y-%m-%dT%H:%M:%SZ).json"
+
+    if node "$SCRIPT_DIR/grok-search.js" "$MODE" "$GROK_RETRY_FILE" >> "$LOG_FILE" 2>&1; then
+      log "✅ Extra Grok pass completed"
+      if node "$SCRIPT_DIR/merge-candidates.js" "$BIRD_FILE" "$GROK_RETRY_FILE" -o "$MERGED_RETRY_FILE" >> "$LOG_FILE" 2>&1; then
+        log "✅ Retry candidates merged"
+        log "Processing retry digest: $MERGED_RETRY_FILE"
+        if node "$SCRIPT_DIR/process-digest.js" "$MERGED_RETRY_FILE" >> "$LOG_FILE" 2>&1; then
+          log "✅ Retry digest processed and sent"
+        else
+          log "⚠️ Retry digest processing failed (non-fatal)"
+        fi
+      else
+        log "⚠️ Retry merge failed, skipping retry digest"
+      fi
+    else
+      log "⚠️ Extra Grok pass failed, skipping retry"
+    fi
   fi
 
   # Cleanup old candidates files (older than 3 days)

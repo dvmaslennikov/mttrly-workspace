@@ -66,6 +66,10 @@ declare -a BRAND_BUILDING_QUERIES=(
   'from:marc_louvion (server OR deploy OR hosting OR crash OR infrastructure)'
   'from:karpathy (vibe coding OR deploy OR infrastructure)'
   'from:mipsytipsy (on-call OR incident OR monitoring OR alert)'
+  'from:dvassallo (server OR deploy OR infrastructure OR shipping OR build)'
+  'from:arvidkahl (server OR deploy OR infrastructure OR shipping OR build)'
+  'from:thepatwalls (server OR deploy OR infrastructure OR shipping OR build)'
+  'from:GergelyOrosz (server OR deploy OR infrastructure OR incident OR on-call)'
 )
 
 # Exclusions aligned with fire-patrol + crypto/web3 filter
