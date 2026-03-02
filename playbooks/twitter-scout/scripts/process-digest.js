@@ -74,9 +74,10 @@ const TECH_INCIDENT_ANCHORS = [
   'incident response', 'outage', 'downtime', 'monitoring', 'logs', 'nginx', 'k8s', 'kubernetes', 'docker',
   'infra', 'infrastructure', 'latency', 'uptime', 'datadog', 'opsgenie', 'pagerduty', 'ci/cd', 'pipeline',
   'cloud bill', 'aws bill', 'site is down', 'app is down',
-  'database', 'db', 'migration', 'crash', 'debug', 'bug', 'error', 'hotfix', 'postmortem', 'root cause',
+  'database', 'db wipe', 'db migration', 'migration failed', 'debug', 'hotfix', 'postmortem', 'root cause',
   'terraform', 'ansible', 'redis', 'postgres', 'mysql', 'mongodb', 'api gateway', 'load balancer',
-  'ssl', 'dns', 'cdn', 'scaling', 'memory leak', 'cpu spike', 'disk full', 'timeout'
+  'ssl', 'dns', 'cdn', 'scaling', 'memory leak', 'cpu spike', 'disk full', 'timeout',
+  'sre', 'toil', '5xx', '4xx', '502', '503', 'grafana', 'prometheus', 'alertmanager', 'runbook'
 ];
 
 const CONTEXT_BLACKLIST_PATTERNS = [
@@ -85,7 +86,15 @@ const CONTEXT_BLACKLIST_PATTERNS = [
   /(earthquake|house shook|evacuation|casualties|footage)/i,
   /(matchday|supporters|fanzine|football|sunderland)/i,
   /(railway|train station|bus to|beach for 8am)/i,
-  /(newborn|night feeding|breastfeeding|baby woke)/i
+  /(newborn|night feeding|breastfeeding|baby woke)/i,
+  // Gaming / VTuber / streaming — "server crashed" in entertainment context
+  /(#VoxPopuLIVE|#DistrictV|#clipsteria|#caevidence|#vcraft|#genshin|#valorant|#minecraft)/i,
+  /\b(vtuber|vtube|hololive|nijisanji|ironmouse|vox akuma|luca kaneshiro)\b/i,
+  /\b(vox|luca|nana)\b.*\b(singing|stream|server crash)/i,
+  /\b(server crash(ed)?)\b.*\b(vox|luca|nana)\b/i,
+  /\b(chunks|piston|respawn|loot|gameplay|streamer|twitch\.tv)\b/i,
+  /\bserver crash(ed)?\b.*\b(game|stream|play|match|round|lobby|map)\b/i,
+  /\b(game|stream|play|match|round|lobby|map)\b.*\bserver crash(ed)?\b/i,
 ];
 
 const AUTHOR_DENYLIST_EXACT = new Set([
