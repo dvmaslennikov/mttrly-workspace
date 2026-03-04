@@ -1,0 +1,58 @@
+{
+  "source": "grok",
+  "mode": "brand-building",
+  "timestamp": "2026-03-03T08:04:44.666Z",
+  "model": "grok-4-1-fast-reasoning",
+  "status": "ok",
+  "tweet_count": 3,
+  "candidates": [
+    {
+      "id": "2028079065433768004",
+      "text": "the localhost link is the most relatable part. everyones first claude code project lives on localhost for way too long because deploying feels like a whole separate skill. once you get past that gap between it works on my machine and its actually live... the whole game changes. next step: ask claude code to deploy it to netlify or vercel for you. one prompt and its done",
+      "author": {
+        "username": "rv_RAJvishnu",
+        "name": "Vish"
+      },
+      "likeCount": 0,
+      "url": "https://x.com/rv_RAJvishnu/status/2028079065433768004",
+      "pain_score": 8,
+      "reply_opportunity": 10,
+      "_source": "grok",
+      "_sub_prompt": "brand-building",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028083167911936234",
+      "text": "horrible advice, Claude Code is expensive, slow and will hallucinate, most of these LLMs also think the year is 2024 which is a nightmare while handling infra  dependencies, you are better off using something Claude Code knows well (next.js) and one click deploy on vercel",
+      "author": {
+        "username": "oojx",
+        "name": "Olajide"
+      },
+      "likeCount": 0,
+      "url": "https://x.com/oojx/status/2028083167911936234",
+      "pain_score": 9,
+      "reply_opportunity": 9,
+      "_source": "grok",
+      "_sub_prompt": "brand-building",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028081132366180708",
+      "text": "i accidentally built another app. wasn't planned. i just had a problem and started building\n\nafter building my 6th app using ai as a non-technical person, here are a few things that i wish someone told me earlier:\n\n1. you probably haven't planned enough. even when you think you have\n2. question the AI on everything. i didn't and it broke my app for 2 days. my fault\n3. stop coding on main. use branches. i learned this the hard way\n4. get code rabbit or something like it. claude code is great but it still ships bugs\n5. set up monitoring from day one. i had no idea my app was going down until users told me\n\nmade a video walking through all of it",
+      "author": {
+        "username": "james_m_wild",
+        "name": "James Wild"
+      },
+      "likeCount": 0,
+      "url": "https://x.com/james_m_wild/status/2028081132366180708",
+      "pain_score": 8,
+      "reply_opportunity": 9,
+      "_source": "grok",
+      "_sub_prompt": "brand-building",
+      "replyCount": 0,
+      "retweetCount": 0
+    }
+  ]
+}

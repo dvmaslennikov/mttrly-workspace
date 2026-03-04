@@ -1,0 +1,37 @@
+{
+  "source": "grok",
+  "mode": "fire-patrol",
+  "timestamp": "2026-03-02T12:53:37.440Z",
+  "status": "ok",
+  "tweet_count": 2,
+  "candidates": [
+    {
+      "id": "2028214211965554878",
+      "text": "absolutely legendary post-mortem in the works for this one\n\nthat one gcp outage due to a flood in france will have nothing on this",
+      "author": {
+        "username": "severeengineer",
+        "name": "severe engineer"
+      },
+      "likeCount": 397,
+      "replyCount": 2,
+      "retweetCount": 9,
+      "createdAt": "2026-03-01T21:02:05Z",
+      "url": "https://x.com/severeengineer/status/2028214211965554878",
+      "_source": "grok"
+    },
+    {
+      "id": "2028075050113585370",
+      "text": "We are facing this problem in our org. How do you migrate your database from Google cloud to AWS with minimal downtime?",
+      "author": {
+        "username": "0xlelouch_",
+        "name": "Abhishek Singh"
+      },
+      "likeCount": 125,
+      "replyCount": 16,
+      "retweetCount": 4,
+      "createdAt": "2026-03-01T11:49:06Z",
+      "url": "https://x.com/0xlelouch_/status/2028075050113585370",
+      "_source": "grok"
+    }
+  ]
+}

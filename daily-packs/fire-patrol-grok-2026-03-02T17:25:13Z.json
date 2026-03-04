@@ -1,0 +1,42 @@
+{
+  "source": "grok",
+  "mode": "fire-patrol",
+  "timestamp": "2026-03-02T17:26:36.051Z",
+  "model": "grok-4-1-fast-reasoning",
+  "status": "ok",
+  "tweet_count": 2,
+  "candidates": [
+    {
+      "id": "2028132150948868233",
+      "text": "Your team is getting a specific alert, but there is no user impact for that alert. \n\nSo engineers are ignoring it. \n\nWhat do you do?\n\nYou also ignore it, or you take measures to fix alert fatigue?\n\nAnd, what makes a “good alert”?\n\n[I was asked this one of interview recently]",
+      "author": {
+        "username": "__karnati",
+        "name": "Sri"
+      },
+      "likeCount": 12,
+      "url": "https://x.com/__karnati/status/2028132150948868233",
+      "pain_score": 8,
+      "reply_opportunity": 10,
+      "_source": "grok",
+      "_sub_prompt": "infra-monitoring",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028215289650053154",
+      "text": "I want to write the incident postmortem so badly",
+      "author": {
+        "username": "mpopv",
+        "name": "Matt Popovich"
+      },
+      "likeCount": 135,
+      "url": "https://x.com/mpopv/status/2028215289650053154",
+      "pain_score": 7,
+      "reply_opportunity": 8,
+      "_source": "grok",
+      "_sub_prompt": "infra-monitoring",
+      "replyCount": 0,
+      "retweetCount": 0
+    }
+  ]
+}

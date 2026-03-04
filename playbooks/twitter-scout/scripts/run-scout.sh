@@ -173,7 +173,7 @@ main() {
     send_telegram_alert "⚠️ <b>Digest processing failed</b> (${MODE})\nCheck log: ${LOG_FILE}"
   fi
 
-  # If result is weak (<=2 tweets) or empty, run one extra Grok pass and re-process
+  # If result is weak (<=3 tweets) or empty, run one extra Grok pass and re-process
   local NEED_RETRY=0
   local TOP_COUNT=-1
   local DIGEST_FILE="$WORKSPACE_DIR/daily-packs/${MODE}-digest-$(date -u +%Y-%m-%d).json"
@@ -184,7 +184,7 @@ main() {
 
   if [ -f "$DIGEST_FILE" ]; then
     TOP_COUNT=$(node -e "const fs=require('fs');const f=process.argv[1];try{const d=JSON.parse(fs.readFileSync(f,'utf8'));console.log((d.stats&&typeof d.stats.top==='number')?d.stats.top:-1);}catch(e){console.log(-1);}" "$DIGEST_FILE" 2>/dev/null || echo -1)
-    if [ "$TOP_COUNT" -ge 0 ] && [ "$TOP_COUNT" -le 2 ]; then
+    if [ "$TOP_COUNT" -ge 0 ] && [ "$TOP_COUNT" -le 3 ]; then
       NEED_RETRY=1
     fi
   fi

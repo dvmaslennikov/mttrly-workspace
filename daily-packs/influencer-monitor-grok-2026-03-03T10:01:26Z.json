@@ -1,0 +1,90 @@
+{
+  "source": "grok",
+  "mode": "influencer-monitor",
+  "timestamp": "2026-03-03T10:02:49.526Z",
+  "model": "grok-4-1-fast-reasoning",
+  "status": "ok",
+  "tweet_count": 5,
+  "candidates": [
+    {
+      "id": "2028183322573033731",
+      "text": "I regret moving away from Vercel\n\nSure using a VPS and Coolify is cool 😎\n\nBut the number of hours lost to debugging, securing, random crashes, broken connections, docker issues, is absurd\n\nJust not worth it",
+      "author": {
+        "username": "ugo_builds",
+        "name": "Ugo"
+      },
+      "likeCount": 29,
+      "url": "https://x.com/ugo_builds/status/2028183322573033731",
+      "pain_score": 9,
+      "reply_opportunity": 10,
+      "_source": "grok",
+      "_sub_prompt": "influencer-monitor",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028433587335581784",
+      "text": "All services were healthy.\n\nCPU was fine.\nMemory was stable.\nHealth checks were green.\n\nUsers were still failing.\n\n- That’s when I understood:\n\nService health ≠ System health.\n\nDistributed systems don’t fail inside boxes.\nThey fail in the path between them.\n\nThis week I’m diving into observability \nbecause if you can’t trace a request,\nyou can’t fix the system.\n\nWhat do you monitor more:\nservices or user journeys?",
+      "author": {
+        "username": "devXritesh",
+        "name": "Ritesh Roushan"
+      },
+      "likeCount": 26,
+      "url": "https://x.com/devXritesh/status/2028433587335581784",
+      "pain_score": 7,
+      "reply_opportunity": 10,
+      "_source": "grok",
+      "_sub_prompt": "influencer-monitor",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028405432868286664",
+      "text": "I've been unable to ship my shiny new code through @vercel for the last couple of hours because a datacenter in Dubai suddenly failed. Here I was thinking my build was broken.",
+      "author": {
+        "username": "HackingButLegal",
+        "name": "Jackie Singh"
+      },
+      "likeCount": 8,
+      "url": "https://x.com/HackingButLegal/status/2028405432868286664",
+      "pain_score": 8,
+      "reply_opportunity": 9,
+      "_source": "grok",
+      "_sub_prompt": "influencer-monitor",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028484488469385591",
+      "text": "All users btw not just some, and fast please, cause my app is legit broken.",
+      "author": {
+        "username": "browntechdude",
+        "name": "Bhuvan"
+      },
+      "likeCount": 6,
+      "url": "https://x.com/browntechdude/status/2028484488469385591",
+      "pain_score": 9,
+      "reply_opportunity": 9,
+      "_source": "grok",
+      "_sub_prompt": "influencer-monitor",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028449413912576448",
+      "text": "Planned to ship 1 of my 4 products today.\nFound out Supabase is blocked in India.\nSwitched auth to Clerk.\nFinally ready to deploy.\nVercel: “Deployments are down.”\nUniverse be like\n“Not today” 🥴",
+      "author": {
+        "username": "deepmishra1283",
+        "name": "deep mishra"
+      },
+      "likeCount": 5,
+      "url": "https://x.com/deepmishra1283/status/2028449413912576448",
+      "pain_score": 8,
+      "reply_opportunity": 9,
+      "_source": "grok",
+      "_sub_prompt": "influencer-monitor",
+      "replyCount": 0,
+      "retweetCount": 0
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "source": "grok",
+  "mode": "fire-patrol",
+  "timestamp": "2026-03-02T14:22:32.241Z",
+  "status": "ok",
+  "tweet_count": 6,
+  "candidates": [
+    {
+      "id": "2028214211965554878",
+      "text": "absolutely legendary post-mortem in the works for this one\n\nthat one gcp outage due to a flood in france will have nothing on this",
+      "author": {
+        "username": "severeengineer",
+        "name": "severe engineer"
+      },
+      "likeCount": 494,
+      "replyCount": 4,
+      "retweetCount": 12,
+      "createdAt": "2026-03-01T21:02:05Z",
+      "url": "https://x.com/severeengineer/status/2028214211965554878",
+      "_source": "grok"
+    },
+    {
+      "id": "2028165188168397086",
+      "text": "there's an AWS outage in me-central-1 because it got bombed",
+      "author": {
+        "username": "initjean",
+        "name": "Jean P.D. Meijer ― 🇪🇺 eu/acc"
+      },
+      "likeCount": 16072,
+      "replyCount": 142,
+      "retweetCount": 1339,
+      "createdAt": "2026-03-01T17:47:17Z",
+      "url": "https://x.com/initjean/status/2028165188168397086",
+      "_source": "grok"
+    },
+    {
+      "id": "2028075050113585370",
+      "text": "We are facing this problem in our org. How do you migrate your database from Google cloud to AWS with minimal downtime?",
+      "author": {
+        "username": "0xlelouch_",
+        "name": "Abhishek Singh"
+      },
+      "likeCount": 125,
+      "replyCount": 16,
+      "retweetCount": 4,
+      "createdAt": "2026-03-01T11:49:06Z",
+      "url": "https://x.com/0xlelouch_/status/2028075050113585370",
+      "_source": "grok"
+    },
+    {
+      "id": "2028076279417983183",
+      "text": "We can start through this too,\nby setting up continuous replication instead of doing a big-bang dump.\n\nQuick approach for minimal downtime:\n\n• Set up CDC/replication from GCP DB → AWS (DMS/native replication)\n• Keep both in sync while traffic still hits GCP\n• Backfill historical data first\n• Run dual-read validation checks\n• Switch traffic via feature flag/DNS cutover\n• Keep rollback window ready\n\nGoal: migrate data first, switch traffic last.\n\nZero-downtime migrations are mostly about sync strategy + safe cutover, not just data copy.",
+      "author": {
+        "username": "devXritesh",
+        "name": "Ritesh Roushan"
+      },
+      "likeCount": 37,
+      "replyCount": 2,
+      "retweetCount": 0,
+      "createdAt": "2026-03-01T11:53:59Z",
+      "url": "https://x.com/devXritesh/status/2028076279417983183",
+      "_source": "grok"
+    },
+    {
+      "id": "2027998424176411034",
+      "text": "30 lines of bash = ai powered on-call engineer\n\ntail logs → pipe to claude → alert slack",
+      "author": {
+        "username": "kamrify",
+        "name": "Kamran Ahmed"
+      },
+      "likeCount": 241,
+      "replyCount": 11,
+      "retweetCount": 13,
+      "createdAt": "2026-03-01T06:44:37Z",
+      "url": "https://x.com/kamrify/status/2027998424176411034",
+      "_source": "grok"
+    },
+    {
+      "id": "2028114513342382123",
+      "text": "Avg Engineer experience in 2026\n\n> AI ships faster than your sprint\n> “Lean team” = you\n> Layoffs = “realignment”\n> Hiring freeze, workload on fire\n> Stock comp = nostalgia\n> “We’re family” (until budget cuts)\n> On-call = insomnia subscription\n> 5 roles. 1 salary.\n\nSenior. Staff. Principal.\nStill fixing CSS at 3 AM.",
+      "author": {
+        "username": "ram_t3ch",
+        "name": "R𝛼m"
+      },
+      "likeCount": 4,
+      "replyCount": 2,
+      "retweetCount": 0,
+      "createdAt": "2026-03-01T14:25:55Z",
+      "url": "https://x.com/ram_t3ch/status/2028114513342382123",
+      "_source": "grok"
+    }
+  ]
+}

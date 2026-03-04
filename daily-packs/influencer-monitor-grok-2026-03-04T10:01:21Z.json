@@ -1,0 +1,74 @@
+{
+  "source": "grok",
+  "mode": "influencer-monitor",
+  "timestamp": "2026-03-04T10:02:36.850Z",
+  "model": "grok-4-1-fast-reasoning",
+  "status": "ok",
+  "tweet_count": 4,
+  "candidates": [
+    {
+      "id": "2028951126628856095",
+      "text": "@flydotio this is not resolved. my machines do not boot",
+      "author": {
+        "username": "spreen_co",
+        "name": "nick spreen(.co)"
+      },
+      "likeCount": 1,
+      "url": "https://x.com/spreen_co/status/2028951126628856095",
+      "pain_score": 10,
+      "reply_opportunity": 10,
+      "_source": "grok",
+      "_sub_prompt": "influencer-monitor",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028466890604204471",
+      "text": "It’s been over 10 hours and our deployments are still failing, causing major issues for us. We’ve tried changing the deployment region, but it’s not working. Please look into this and resolve it ASAP. @vercel @rauchg",
+      "author": {
+        "username": "Saurabh__ishere",
+        "name": "Saurabh Shukla"
+      },
+      "likeCount": 2,
+      "url": "https://x.com/Saurabh__ishere/status/2028466890604204471",
+      "pain_score": 9,
+      "reply_opportunity": 10,
+      "_source": "grok",
+      "_sub_prompt": "influencer-monitor",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028183322573033731",
+      "text": "I regret moving away from Vercel\n\nSure using a VPS and Coolify is cool 😎\n\nBut the number of hours lost to debugging, securing, random crashes, broken connections, docker issues, is absurd\n\nJust not worth it",
+      "author": {
+        "username": "ugo_builds",
+        "name": "Ugo"
+      },
+      "likeCount": 30,
+      "url": "https://x.com/ugo_builds/status/2028183322573033731",
+      "pain_score": 8,
+      "reply_opportunity": 9,
+      "_source": "grok",
+      "_sub_prompt": "influencer-monitor",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028946732516819223",
+      "text": "when supabase was banned in india i successfully self-hosted and migrated all data to the supabase on coolify.\n\neveything was broken ootb, social auth doesn't exist, project settings will crash your website. it was a bloodbath. \n\nyou'll have to debug on your own, downgrade stuff to stable versions, manage dns/ssl/domains etc.\n\nhonestly, if there is any takeaways from this it's don't use supabase anymore. use pocketbase or convex for side project backends",
+      "author": {
+        "username": "shydev69",
+        "name": "shydev"
+      },
+      "likeCount": 70,
+      "url": "https://x.com/shydev69/status/2028946732516819223",
+      "pain_score": 9,
+      "reply_opportunity": 8,
+      "_source": "grok",
+      "_sub_prompt": "influencer-monitor",
+      "replyCount": 0,
+      "retweetCount": 0
+    }
+  ]
+}

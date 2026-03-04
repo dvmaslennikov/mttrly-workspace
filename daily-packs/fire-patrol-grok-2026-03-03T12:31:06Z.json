@@ -1,0 +1,122 @@
+{
+  "source": "grok",
+  "mode": "fire-patrol",
+  "timestamp": "2026-03-03T12:32:37.859Z",
+  "model": "grok-4-1-fast-reasoning",
+  "status": "ok",
+  "tweet_count": 7,
+  "candidates": [
+    {
+      "id": "2028347318286586135",
+      "text": "You've been on-call for 3 weeks straight. 3 incidents last week alone. 2am. 4am. 6am. You're making mistakes now. Small ones. But mistakes. Nobody has offered to rotate you off. How long before you file a complaint?",
+      "author": {
+        "username": "mysticwillz",
+        "name": "THE CODE SCIENTIST"
+      },
+      "likeCount": 17,
+      "url": "https://x.com/mysticwillz/status/2028347318286586135",
+      "pain_score": 9,
+      "reply_opportunity": 10,
+      "_source": "grok",
+      "_sub_prompt": "on-call-3am",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028057759271313569",
+      "text": "Forgot that my AWS Bedrock API connected to Claude Code.\n\nWoke up to a $750 AWS bill.",
+      "author": {
+        "username": "realzecod",
+        "name": "zecod"
+      },
+      "likeCount": 11,
+      "url": "https://x.com/realzecod/status/2028057759271313569",
+      "pain_score": 10,
+      "reply_opportunity": 10,
+      "_source": "grok",
+      "_sub_prompt": "infra-monitoring",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028094762809450553",
+      "text": "New Product Idea:\n\n\"pagerduty but for europeans\"\n\nIf there is an incident on the weekend, it waits until monday to tell you",
+      "author": {
+        "username": "chronark",
+        "name": "chronark"
+      },
+      "likeCount": 265,
+      "url": "https://x.com/chronark/status/2028094762809450553",
+      "pain_score": 7,
+      "reply_opportunity": 9,
+      "_source": "grok",
+      "_sub_prompt": "on-call-3am",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028451626999333059",
+      "text": "The real bottleneck is always the cost vs. risk analysis. Maintaining a warm standby in a second region can double your AWS bill instantly. Most startups pray for the best, but for enterprise apps, if you haven't tested a regional failover, you don't actually have one",
+      "author": {
+        "username": "omranchi00",
+        "name": "Om Kumar Singh"
+      },
+      "likeCount": 5,
+      "url": "https://x.com/omranchi00/status/2028451626999333059",
+      "pain_score": 7,
+      "reply_opportunity": 9,
+      "_source": "grok",
+      "_sub_prompt": "infra-monitoring",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028478048748933284",
+      "text": "Most data teams don't have one observability problem.\n\nThey have three:\n\n1) Local development\n2) Production monitoring\n3) Post-incident analysis\n\nHow we're tackling this in @daftengine:\n\n",
+      "author": {
+        "username": "itsEvKlev",
+        "name": "Everett Kleven"
+      },
+      "likeCount": 6,
+      "url": "https://x.com/itsEvKlev/status/2028478048748933284",
+      "pain_score": 7,
+      "reply_opportunity": 9,
+      "_source": "grok",
+      "_sub_prompt": "infra-monitoring",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028307891241759054",
+      "text": "Breakdown of my February AWS bill to run my side projects:\n\nEC2: $44.22\nRDS (reserved Aurora MySQL): $41.31\nELB: $16.96\nData Transfer: $15.12\nVPC: $11.61\nCodeBuild: $1.29\nS3: $1.10\nECS: $0.67\nECR: $0.29\n------------\nTotal: $132.57\n\nFor completeness, here's August to February-\nAugust: $203.95\nSeptember: $210.77\nOctober: $245.98\nNovember: $261.70\nDecember: $221.30\nJanuary: $146.65\nFebruary: $132.57\n\nIn November, I moved all my instances from Fargate to EC2. <--- cheaper and much more performant.\n\nIn December, I fixed the binpack strategy for one of my projects so I didn't pointlessly run an extra EC2 instance. I also moved my RDS to a reserved instance.\n\nIn January, I moved the most resource intensive scheduled jobs to Fargate and I was able to drop the base container size, which dropped the EC2 instance sizes. Specifically I am able to see that my scheduled Fargate jobs ran for 13 hours and cost a total of $0.67.\n\nNo changes in February that I remember, but it's 3 days shorter than January so 🤷‍♂️",
+      "author": {
+        "username": "VicVijayakumar",
+        "name": "Vic 🌮"
+      },
+      "likeCount": 36,
+      "url": "https://x.com/VicVijayakumar/status/2028307891241759054",
+      "pain_score": 5,
+      "reply_opportunity": 8,
+      "_source": "grok",
+      "_sub_prompt": "infra-monitoring",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028451525677232196",
+      "text": "Nothing like waking up to PagerDuty Alerts because an AWS region has been blown up. I can say this is definitely a first for me",
+      "author": {
+        "username": "MinisterOfEng",
+        "name": "Dan Kozlowski"
+      },
+      "likeCount": 3,
+      "url": "https://x.com/MinisterOfEng/status/2028451525677232196",
+      "pain_score": 8,
+      "reply_opportunity": 7,
+      "_source": "grok",
+      "_sub_prompt": "on-call-3am",
+      "replyCount": 0,
+      "retweetCount": 0
+    }
+  ]
+}

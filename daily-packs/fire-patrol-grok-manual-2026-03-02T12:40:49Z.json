@@ -1,0 +1,79 @@
+{
+  "source": "grok",
+  "mode": "fire-patrol",
+  "timestamp": "2026-03-02T12:42:21.777Z",
+  "status": "ok",
+  "tweet_count": 5,
+  "candidates": [
+    {
+      "id": "2028214211965554878",
+      "text": "absolutely legendary post-mortem in the works for this one\n\nthat one gcp outage due to a flood in france will have nothing on this",
+      "author": {
+        "username": "severeengineer",
+        "name": "severe engineer"
+      },
+      "likeCount": 393,
+      "replyCount": 2,
+      "retweetCount": 9,
+      "createdAt": "2026-03-01T21:02:05Z",
+      "url": "https://x.com/severeengineer/status/2028214211965554878",
+      "_source": "grok"
+    },
+    {
+      "id": "2027984175404568664",
+      "text": "production is down\nceo is in the channel\ni'm in pajamas\nssh from phone\nfix in 5 minutes\n\nhero for today\nvillain tomorrow \nwhen they ask why it broke\n\n#oncall #devops #startuplife",
+      "author": {
+        "username": "mayurstwt",
+        "name": "Mayur Sankhala"
+      },
+      "likeCount": 0,
+      "replyCount": 1,
+      "retweetCount": 0,
+      "createdAt": "2026-03-01T05:48:00Z",
+      "url": "https://x.com/mayurstwt/status/2027984175404568664",
+      "_source": "grok"
+    },
+    {
+      "id": "2027936789252407384",
+      "text": "Web dev is similar, some days you're waiting forever and a half just for CI/CD pipelines to fail 🥱",
+      "author": {
+        "username": "ramennnnoodle",
+        "name": "ramen"
+      },
+      "likeCount": 1,
+      "replyCount": 0,
+      "retweetCount": 0,
+      "createdAt": "2026-03-01T02:39:42Z",
+      "url": "https://x.com/ramennnnoodle/status/2027936789252407384",
+      "_source": "grok"
+    },
+    {
+      "id": "2028091152994611258",
+      "text": "this is why we have branch protection rules and DNS CNAME ownership checks in prod. learned it the hard way when a well-meaning intern redirected our API endpoint to staging and took down mobile apps for 2000 users",
+      "author": {
+        "username": "navneet_rabdiya",
+        "name": "Navneet"
+      },
+      "likeCount": 0,
+      "replyCount": 0,
+      "retweetCount": 0,
+      "createdAt": "2026-03-01T12:53:05Z",
+      "url": "https://x.com/navneet_rabdiya/status/2028091152994611258",
+      "_source": "grok"
+    },
+    {
+      "id": "2027977440451060194",
+      "text": "Then everything broke.\n\nTwo services fighting over the same port. A zombie process that wouldn't die. Gateway tokens that didn't match. Error messages that looked like a foreign language.\n\nOne single infrastructure bug took ~90 minutes and 15+ back-and-forth attempts with Claude to fix.",
+      "author": {
+        "username": "pathfinder_pete",
+        "name": "Peter Harten"
+      },
+      "likeCount": 0,
+      "replyCount": 1,
+      "retweetCount": 0,
+      "createdAt": "2026-03-01T05:21:14Z",
+      "url": "https://x.com/pathfinder_pete/status/2027977440451060194",
+      "_source": "grok"
+    }
+  ]
+}

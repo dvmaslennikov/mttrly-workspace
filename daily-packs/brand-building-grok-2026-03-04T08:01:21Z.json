@@ -1,0 +1,42 @@
+{
+  "source": "grok",
+  "mode": "brand-building",
+  "timestamp": "2026-03-04T08:02:57.690Z",
+  "model": "grok-4-1-fast-reasoning",
+  "status": "ok",
+  "tweet_count": 2,
+  "candidates": [
+    {
+      "id": "2028863550580527607",
+      "text": "for teams its coordination. for solo builders its deployment. ai made coding 10x faster but the infra side didnt change at all. one person can build a full stack app in an afternoon but getting it live with ssl, database, storage still takes a week of devops they dont know",
+      "author": {
+        "username": "gochaberulava",
+        "name": "Gocha Berulava"
+      },
+      "likeCount": 0,
+      "url": "https://x.com/gochaberulava/status/2028863550580527607",
+      "pain_score": 9,
+      "reply_opportunity": 10,
+      "_source": "grok",
+      "_sub_prompt": "brand-building",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028778585230622753",
+      "text": "exactly this. cursor can scaffold your entire app in 20 minutes but the moment you need ssl, database backups, secret management, health checks and actual monitoring you're back to reading devops docs from 2019. the code generation got 100x faster but the deploy pipeline is still manual yaml editing and prayer",
+      "author": {
+        "username": "gochaberulava",
+        "name": "Gocha Berulava"
+      },
+      "likeCount": 0,
+      "url": "https://x.com/gochaberulava/status/2028778585230622753",
+      "pain_score": 9,
+      "reply_opportunity": 10,
+      "_source": "grok",
+      "_sub_prompt": "brand-building",
+      "replyCount": 0,
+      "retweetCount": 0
+    }
+  ]
+}

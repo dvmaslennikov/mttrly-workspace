@@ -1,0 +1,90 @@
+{
+  "source": "grok",
+  "mode": "fire-patrol",
+  "timestamp": "2026-03-03T08:20:28.700Z",
+  "model": "grok-4-1-fast-reasoning",
+  "status": "ok",
+  "tweet_count": 5,
+  "candidates": [
+    {
+      "id": "2028347318286586135",
+      "text": "You've been on-call for 3 weeks straight.\n\n3 incidents last week alone. 2am. 4am. 6am.\n\nYou're making mistakes now. Small ones. But mistakes.\n\nNobody has offered to rotate you off.\n\nHow long before you file a complaint?",
+      "author": {
+        "username": "mysticwillz",
+        "name": "THE CODE SCIENTIST"
+      },
+      "likeCount": 17,
+      "url": "https://x.com/mysticwillz/status/2028347318286586135",
+      "pain_score": 9,
+      "reply_opportunity": 10,
+      "_source": "grok",
+      "_sub_prompt": "on-call-3am",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028531054890410005",
+      "text": "Being on-call shouldn't mean being constantly interrupted. If you're getting paged more than twice a week, something is fundamentally broken in your system or your monitoring. How often do you get paged?",
+      "author": {
+        "username": "justdevopsguy",
+        "name": "The DevOps Guy"
+      },
+      "likeCount": 0,
+      "url": "https://x.com/justdevopsguy/status/2028531054890410005",
+      "pain_score": 8,
+      "reply_opportunity": 9,
+      "_source": "grok",
+      "_sub_prompt": "on-call-3am",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028561766293053522",
+      "text": "I've had my fair share of late nights trying to perfect my app's UI, only to be woken up by an email saying the server went down while I slept, and I'm left scrambling to fix it at 3 am.",
+      "author": {
+        "username": "bygregorr",
+        "name": "Gregor"
+      },
+      "likeCount": 0,
+      "url": "https://x.com/bygregorr/status/2028561766293053522",
+      "pain_score": 8,
+      "reply_opportunity": 8,
+      "_source": "grok",
+      "_sub_prompt": "on-call-3am",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2027946781196128493",
+      "text": "Europe's PagerDuty going off on a Saturday, *snooze until Monday* 😭🪦",
+      "author": {
+        "username": "simulationmode",
+        "name": "Stephen"
+      },
+      "likeCount": 0,
+      "url": "https://x.com/simulationmode/status/2027946781196128493",
+      "pain_score": 8,
+      "reply_opportunity": 8,
+      "_source": "grok",
+      "_sub_prompt": "on-call-3am",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028486801510260804",
+      "text": "OpenClaw Log #074 🦞\n\nNobody prepared me for this part of being a founder.\nThe part where you're alone in a room at 11 PM, your system is degrading, and you have to decide: do I stay up and fix this, or do I go to sleep and deal with it tomorrow?\nThere's no right answer. Stay up and you're debugging while tired, which means slower thinking, worse decisions, and a higher chance of making things worse. Go to sleep and you wake up to a bigger mess, more accumulated damage, and the guilt of knowing you walked away.\nI've done both. I've stayed up until 3 AM chasing a bug that turned out to be a one-line fix I would have found in 10 minutes with fresh eyes. I've also gone to sleep and woken up to a queue of 47 failed tasks that took the entire next morning to clean up.\nThe real skill isn't knowing the answer. It's knowing which type of problem you're dealing with.\nIs it actively getting worse? Stay. Stop the bleeding. You don't need to fix everything, just prevent further damage.\nIs it stable but broken? Sleep. Set an alarm. The problem will be the same size tomorrow, but you'll be twice as effective at solving it.\nIs it unclear? That's the hardest one. And honestly, I still get it wrong sometimes. But I've learned to trust one signal above all others: if I've been staring at the same log for 15 minutes without a new idea, my brain is done for the night. No amount of willpower changes that.\nGo to sleep. The bug will wait. Your brain won't regenerate while you're forcing it to read stack traces at midnight.\n\n#OpenClaw #FounderLife #IndieHackers",
+      "author": {
+        "username": "SYGNITO",
+        "name": "SYGNITO"
+      },
+      "likeCount": 0,
+      "url": "https://x.com/SYGNITO/status/2028486801510260804",
+      "pain_score": 9,
+      "reply_opportunity": 7,
+      "_source": "grok",
+      "_sub_prompt": "on-call-3am",
+      "replyCount": 0,
+      "retweetCount": 0
+    }
+  ]
+}

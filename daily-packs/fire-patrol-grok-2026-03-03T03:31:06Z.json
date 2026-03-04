@@ -1,0 +1,138 @@
+{
+  "source": "grok",
+  "mode": "fire-patrol",
+  "timestamp": "2026-03-03T03:32:41.843Z",
+  "model": "grok-4-1-fast-reasoning",
+  "status": "ok",
+  "tweet_count": 8,
+  "candidates": [
+    {
+      "id": "2028531054890410005",
+      "text": "Being on-call shouldn't mean being constantly interrupted. If you're getting paged more than twice a week, something is fundamentally broken in your system or your monitoring. How often do you get paged?",
+      "author": {
+        "username": "justdevopsguy",
+        "name": "The DevOps Guy"
+      },
+      "likeCount": 0,
+      "url": "https://x.com/justdevopsguy/status/2028531054890410005",
+      "pain_score": 8,
+      "reply_opportunity": 10,
+      "_source": "grok",
+      "_sub_prompt": "on-call-3am",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028094762809450553",
+      "text": "New Product Idea:\n\n\"pagerduty but for europeans\"\n\nIf there is an incident on the weekend, it waits until monday to tell you",
+      "author": {
+        "username": "chronark",
+        "name": "chronark"
+      },
+      "likeCount": 261,
+      "url": "https://x.com/chronark/status/2028094762809450553",
+      "pain_score": 8,
+      "reply_opportunity": 10,
+      "_source": "grok",
+      "_sub_prompt": "on-call-3am",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028492832130965740",
+      "text": "First day and you shipped auth to prod?\nCoffee is the rollback plan.",
+      "author": {
+        "username": "georgehanu",
+        "name": "George Hanu ⚡ Dev. Educator + Builder"
+      },
+      "likeCount": 11,
+      "url": "https://x.com/georgehanu/status/2028492832130965740",
+      "pain_score": 7,
+      "reply_opportunity": 10,
+      "_source": "grok",
+      "_sub_prompt": "deploy-rollback",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028561766293053522",
+      "text": "I've had my fair share of late nights trying to perfect my app's UI, only to be woken up by an email saying the server went down while I slept, and I'm left scrambling to fix it at 3 am.",
+      "author": {
+        "username": "bygregorr",
+        "name": "Gregor"
+      },
+      "likeCount": 0,
+      "url": "https://x.com/bygregorr/status/2028561766293053522",
+      "pain_score": 10,
+      "reply_opportunity": 9,
+      "_source": "grok",
+      "_sub_prompt": "on-call-3am",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028451525677232196",
+      "text": "Nothing like waking up to PagerDuty Alerts because an AWS region has been blown up. I can say this is definitely a first for me",
+      "author": {
+        "username": "MinisterOfEng",
+        "name": "Dan Kozlowski"
+      },
+      "likeCount": 3,
+      "url": "https://x.com/MinisterOfEng/status/2028451525677232196",
+      "pain_score": 9,
+      "reply_opportunity": 9,
+      "_source": "grok",
+      "_sub_prompt": "on-call-3am",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028091414840852626",
+      "text": "Backend engineering lessons nobody teaches in tutorials:\n\nReal shit from production.\n\n1/10\nYour production bugs happen at Mid-night on weekends.\n\nNever during work hours.\nNever when you're prepared.\n\nAlways when you're asleep or at a wedding.\n\nMurphy's law is real.",
+      "author": {
+        "username": "devXritesh",
+        "name": "Ritesh Roushan"
+      },
+      "likeCount": 23,
+      "url": "https://x.com/devXritesh/status/2028091414840852626",
+      "pain_score": 8,
+      "reply_opportunity": 9,
+      "_source": "grok",
+      "_sub_prompt": "deploy-rollback",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028451626999333059",
+      "text": "The real bottleneck is always the cost vs. risk analysis. Maintaining a warm standby in a second region can double your AWS bill instantly. Most startups pray for the best, but for enterprise apps, if you haven't tested a regional failover, you don't actually have one",
+      "author": {
+        "username": "omranchi00",
+        "name": "Om Kumar Singh"
+      },
+      "likeCount": 5,
+      "url": "https://x.com/omranchi00/status/2028451626999333059",
+      "pain_score": 7,
+      "reply_opportunity": 9,
+      "_source": "grok",
+      "_sub_prompt": "infra-monitoring",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028393553865609664",
+      "text": "If your Vercel deployments are failing with \"We encountered an internal error\" right now — it's not your code.\nVercel is experiencing elevated deployment & function failures (started ~06:00 UTC, Mar 2).\nBuild succeeds → \"Deploying outputs...\" fails. Redeploying doesn't help.",
+      "author": {
+        "username": "omitsu_dev",
+        "name": "おみつ"
+      },
+      "likeCount": 6,
+      "url": "https://x.com/omitsu_dev/status/2028393553865609664",
+      "pain_score": 7,
+      "reply_opportunity": 8,
+      "_source": "grok",
+      "_sub_prompt": "deploy-rollback",
+      "replyCount": 0,
+      "retweetCount": 0
+    }
+  ]
+}

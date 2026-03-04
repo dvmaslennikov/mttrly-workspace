@@ -1,0 +1,3943 @@
+{
+  "mode": "fire-patrol",
+  "timestamp": "2026-03-02T12:31:48.545Z",
+  "sources": {
+    "bird": {
+      "count": 222,
+      "status": "ok"
+    },
+    "grok": {
+      "count": 0,
+      "added": 0,
+      "status": "ok"
+    }
+  },
+  "query_count": 12,
+  "successful_queries": 12,
+  "failed_queries": 0,
+  "tweet_count": 222,
+  "candidates": [
+    {
+      "id": "2027990341731643495",
+      "text": "We finally discovered who is “darling”, the person chief Solomon called everyday after work. \nIt’s his 7 year old daughter, Alice!\n\nThen the server crashed 🥹🤣\n#DistrictV #VoxPopuLIVE",
+      "createdAt": "Sun Mar 01 06:12:30 +0000 2026",
+      "replyCount": 5,
+      "retweetCount": 69,
+      "likeCount": 817,
+      "conversationId": "2027990341731643495",
+      "author": {
+        "username": "Key_Diva",
+        "name": "KeyDiva 👹❤️‍🩹|| Vox’s b-||Little scrapbooker"
+      },
+      "authorId": "34479807",
+      "_source": "bird"
+    },
+    {
+      "id": "2027994387746103432",
+      "text": "#DistrictV #VoxPopuLIVE #clipsteria\nVox and Nana's reaction after the server crashed is priceless!!!!\n\n👹What bloody timing is that? At least I finished\n---\n✨The server crashed!\n✨OMGGGGGG!\n✨I was crying so bad! https://t.co/NMkMwW1XUO",
+      "createdAt": "Sun Mar 01 06:28:35 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 118,
+      "likeCount": 721,
+      "conversationId": "2027994387746103432",
+      "author": {
+        "username": "Key_Diva",
+        "name": "KeyDiva 👹❤️‍🩹|| Vox’s b-||Little scrapbooker"
+      },
+      "authorId": "34479807",
+      "quotedTweet": {
+        "id": "2027990341731643495",
+        "text": "We finally discovered who is “darling”, the person chief Solomon called everyday after work. \nIt’s his 7 year old daughter, Alice!\n\nThen the server crashed 🥹🤣\n#DistrictV #VoxPopuLIVE",
+        "createdAt": "Sun Mar 01 06:12:30 +0000 2026",
+        "replyCount": 5,
+        "retweetCount": 69,
+        "likeCount": 817,
+        "conversationId": "2027990341731643495",
+        "author": {
+          "username": "Key_Diva",
+          "name": "KeyDiva 👹❤️‍🩹|| Vox’s b-||Little scrapbooker"
+        },
+        "authorId": "34479807"
+      },
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2027993615553720320/img/IiFJbBtW1JJx9atP.jpg",
+          "width": 1912,
+          "height": 1080,
+          "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/2027993615553720320/img/IiFJbBtW1JJx9atP.jpg:small",
+          "videoUrl": "https://video.twimg.com/amplify_video/2027993615553720320/vid/avc1/1912x1080/Tij3ze996q-phK1D.mp4?tag=21",
+          "durationMs": 46133
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028391860889149761",
+      "text": "LUCA AND VOX SEPERATELY SINGING IN ANOTHET LIFE WHEN SERVER CRASHED.....",
+      "createdAt": "Mon Mar 02 08:47:59 +0000 2026",
+      "replyCount": 7,
+      "retweetCount": 44,
+      "likeCount": 327,
+      "conversationId": "2028391860889149761",
+      "author": {
+        "username": "mistytree454",
+        "name": "Mistycan"
+      },
+      "authorId": "1924560710157090816",
+      "_source": "bird"
+    },
+    {
+      "id": "2028042124957294973",
+      "text": "*server crashed and 🐶 tried to join again*\n\n🐶: pls don’t make me fall from the sky— pls x2 \n\n*jinxes himself and falls from the sky*\n \n🐶: omg— \n🐶: somebody help— *falls into the water* \n🐶: are you kidding me? what is that?\n[…]\n\njinxlen once again 😭 #caevidence https://t.co/3mygeGWBql",
+      "createdAt": "Sun Mar 01 09:38:16 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 7,
+      "likeCount": 118,
+      "conversationId": "2028042124957294973",
+      "author": {
+        "username": "caeprints",
+        "name": "lei ✶⋆.˚"
+      },
+      "authorId": "1338440940957011968",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2028042061161902080/img/v4L50EyIbsmhG_eQ.jpg",
+          "width": 1280,
+          "height": 720,
+          "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/2028042061161902080/img/v4L50EyIbsmhG_eQ.jpg:small",
+          "videoUrl": "https://video.twimg.com/amplify_video/2028042061161902080/vid/avc1/1280x720/gJ7cQkQgGbnCiHOk.mp4?tag=21",
+          "durationMs": 25533
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028348153154478520",
+      "text": "@EliasDelborne EXCUSE ME?!?!?!   I woke up from my slumber to see this, LET’S GOOOOO!!",
+      "createdAt": "Mon Mar 02 05:54:19 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 1,
+      "likeCount": 115,
+      "conversationId": "2028347572717330929",
+      "inReplyToStatusId": "2028347572717330929",
+      "author": {
+        "username": "Ashkariel_FSP",
+        "name": "Ashkariel🟢🪽【FIRST STAGE PRODUCTION EN】"
+      },
+      "authorId": "1976918348631011328",
+      "_source": "bird"
+    },
+    {
+      "id": "2024748605765275996",
+      "text": "Never ask a Techie:\n\n- A DevOps engineer what exactly broke in production at 3 AM during a “small” deployment\n\n- A Cloud engineer why the AWS bill suddenly doubled overnight\n\n- A Kubernetes engineer why the pod is in CrashLoopBackOff\n\n- A Backend developer why it works locally but not in prod\n\n- A Frontend developer why it only breaks in Safari\n\n- An SRE what happened during the midnight incident\n\n- A Fresher why they’re still “upskilling”\n\n- A Developer when they last slept properly\n\n- An Engineer if the degree was worth it\n\nAdd more in comment 👇",
+      "createdAt": "Fri Feb 20 07:31:00 +0000 2026",
+      "replyCount": 12,
+      "retweetCount": 8,
+      "likeCount": 109,
+      "conversationId": "2024748605765275996",
+      "author": {
+        "username": "devops_nk",
+        "name": "Nandkishor"
+      },
+      "authorId": "1365177278548742146",
+      "_source": "bird"
+    },
+    {
+      "id": "1953176243781636343",
+      "text": "This is a significant development for open-source AI. GPT-OSS brings together the power of a 120B parameter model with enterprise-grade privacy through TEE (Trusted Execution Environment) technology. and having @OODA_AI_ deploy it in production within 24 hours of launch shows real market readiness. the combination of open weights, GDPR compliance, and confidential computing could be a good move for organizations that need powerful AI while maintaining strict data privacy requirements. this kind of innovation is exactly what will drive mainstream AI adoption across industries that couldn’t compromise on privacy before",
+      "createdAt": "Wed Aug 06 19:27:59 +0000 2025",
+      "replyCount": 51,
+      "retweetCount": 14,
+      "likeCount": 81,
+      "conversationId": "1953176243781636343",
+      "author": {
+        "username": "Web3GameMaster",
+        "name": "soulman 🎮"
+      },
+      "authorId": "1508129277367271433",
+      "quotedTweet": {
+        "id": "1953120169020277177",
+        "text": "We’re thrilled to launch GPT-OSS—the 120B-parameter open-source LLM—on Phala Cloud! 🚀\n🔒 Run the fully OSS model inside a secure TEE for end-to-end confidential AI.\nExplore the build 👉 https://t.co/rVEteWe992 https://t.co/uwP2ipMDsN",
+        "createdAt": "Wed Aug 06 15:45:10 +0000 2025",
+        "replyCount": 8,
+        "retweetCount": 25,
+        "likeCount": 134,
+        "conversationId": "1953120169020277177",
+        "author": {
+          "username": "PhalaNetwork",
+          "name": "Phala"
+        },
+        "authorId": "1166273105456578561",
+        "media": [
+          {
+            "type": "video",
+            "url": "https://pbs.twimg.com/amplify_video_thumb/1953120115513540613/img/cXCYsHDWUbQwCxjR.jpg",
+            "width": 1756,
+            "height": 1080,
+            "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/1953120115513540613/img/cXCYsHDWUbQwCxjR.jpg:small",
+            "videoUrl": "https://video.twimg.com/amplify_video/1953120115513540613/vid/avc1/1170x720/kwEUjNYRTb0IgtFa.mp4?tag=14",
+            "durationMs": 13050
+          }
+        ]
+      },
+      "_source": "bird"
+    },
+    {
+      "id": "2027753825671778421",
+      "text": "The issue affecting Edge Functions has now been fully resolved, and users have reported Edge Functions operating as expected.\n\nThe root cause was a denial-of-service event that led to elevated error rates and 504 responses across impacted regions.\n\nMitigations have been implemented to restore stability.\nWe will be publishing a full post-mortem with additional details once our internal review is complete.\n\nSorry for the inconvenience this issue caused, and thank you for your patience while we worked to resolve it.",
+      "createdAt": "Sat Feb 28 14:32:40 +0000 2026",
+      "replyCount": 4,
+      "retweetCount": 1,
+      "likeCount": 52,
+      "conversationId": "2027732381122367759",
+      "inReplyToStatusId": "2027750126241120292",
+      "author": {
+        "username": "supabase",
+        "name": "Supabase"
+      },
+      "authorId": "1219566488325017602",
+      "_source": "bird"
+    },
+    {
+      "id": "2026221746802880907",
+      "text": "Stop underpaying DevOps engineers if you don't want to lose millions.\n\nIf you do not want your DevOps engineer to:\n\nSlow your deployments down\n- Break production at 3 am\n- Run your cloud bill through the roof\n- Expose customer data to the internet\n\nThen stop making a lowball offer after putting an experienced engineer through 5 rounds of interviews.\n\nYou want someone who can:\n- Build and maintain CI/CD pipelines that deploy your product dozens of times a day without breaking anything\n\n- Manage Kubernetes clusters running thousands of containers across multiple availability zones, keeping them healthy, secure and cost-efficient\n\n- Write Terraform that provisions your entire cloud infrastructure as code so nothing is ever touched manually and everything is auditable\n\n- Understand networking, Linux internals, container runtimes, cloud security, cost optimization, observability and incident management\n\nAnd then you post the job at a salary that does not match a single one of those responsibilities.\n\nRemember: The cost of one production outage will exceed the salary gap you were trying to save on.",
+      "createdAt": "Tue Feb 24 09:04:44 +0000 2026",
+      "replyCount": 4,
+      "retweetCount": 4,
+      "likeCount": 44,
+      "conversationId": "2026221746802880907",
+      "author": {
+        "username": "livingdevops",
+        "name": "Akhilesh Mishra"
+      },
+      "authorId": "1623980420235948034",
+      "quotedTweet": {
+        "id": "2026221646756073971",
+        "text": "An HR pinged me on LinkedIn:\n\"We are looking for an experienced DevOps engineer like you to manage complex infrastructure at thisThat company\"\n\nI asked about the budget.\nShe said 25 LPA.\n\nI said No No. Hell NO.\n\nShe said, \"But there is a lot to learn here.\"\n\nI said I already learned. That is why I am saying no.",
+        "createdAt": "Tue Feb 24 09:04:20 +0000 2026",
+        "replyCount": 15,
+        "retweetCount": 10,
+        "likeCount": 344,
+        "conversationId": "2026221646756073971",
+        "author": {
+          "username": "livingdevops",
+          "name": "Akhilesh Mishra"
+        },
+        "authorId": "1623980420235948034"
+      },
+      "_source": "bird"
+    },
+    {
+      "id": "2028272745855787453",
+      "text": "Build an incident response agent with read-write MCP tools for autonomous diagnosis, remediation, and post-mortem documentation - https://t.co/3MKe6Ivvwz\n\nIt's 3 AM, your pager goes off, and the API is throwing 500s. You're half-awake, staring at dashboards, correlating metrics and logs across a dozen services while customer impact grows by the minute. This notebook builds an SRE incident response agent that handles that workflow autonomously: investigating incidents, identifying root causes, applying remediations, and documenting the results.\n\nIn Notebook 02, we built an observability agent that could read from external systems. This notebook goes further. The agent can also take action, editing configuration files and restarting services to fix the problems it finds. It uses the Claude Agent SDK with MCP tools scoped for safe infrastructure access.",
+      "createdAt": "Mon Mar 02 00:54:40 +0000 2026",
+      "replyCount": 4,
+      "retweetCount": 2,
+      "likeCount": 35,
+      "conversationId": "2028272745855787453",
+      "author": {
+        "username": "AISecHub",
+        "name": "AISecHub"
+      },
+      "authorId": "1873128919890591744",
+      "_source": "bird"
+    },
+    {
+      "id": "2028176841694187850",
+      "text": "@neveragainlive1 After the pager incident, and the head Iranian Mossad hunter being Mossad,  I believe anything you say Israel does.",
+      "createdAt": "Sun Mar 01 18:33:35 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 2,
+      "likeCount": 34,
+      "conversationId": "2027986181397365014",
+      "inReplyToStatusId": "2027986181397365014",
+      "author": {
+        "username": "KathPooleWC",
+        "name": "KathPoole"
+      },
+      "authorId": "1619786405940719616",
+      "_source": "bird"
+    },
+    {
+      "id": "2027990412292722725",
+      "text": "SERVER CRASHED JUST AS VOX FINISHED HIS TALK THE TIMING BROOO THIS IS LITERALLY VCRAFT PARALLEL 😭😭😭\n\n#VoxPopuLIVE",
+      "createdAt": "Sun Mar 01 06:12:47 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 33,
+      "conversationId": "2027990412292722725",
+      "author": {
+        "username": "_SadisticPie_",
+        "name": "Hitomi 👹🧻"
+      },
+      "authorId": "330958881",
+      "_source": "bird"
+    },
+    {
+      "id": "2028177071067763133",
+      "text": "@coah80 coprocessor stuff makes sense, unlike other crashes when you do the button piston door crash where the entire game would hang, since client and server are handled separately you would be able to wander around but it wouldnt load chunks because the server crashed",
+      "createdAt": "Sun Mar 01 18:34:30 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 31,
+      "conversationId": "2027910775541502290",
+      "inReplyToStatusId": "2027910775541502290",
+      "author": {
+        "username": "oh_deadair",
+        "name": "tatsugiri"
+      },
+      "authorId": "1985828894772248578",
+      "_source": "bird"
+    },
+    {
+      "id": "2028392708247793851",
+      "text": "server crashed 10mins before storm hit \nMY EMS FAMILY🫶 https://t.co/Fn8qkt8Zxs",
+      "createdAt": "Mon Mar 02 08:51:22 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 3,
+      "likeCount": 27,
+      "conversationId": "2028392708247793851",
+      "author": {
+        "username": "starrsbeat",
+        "name": "ali💎"
+      },
+      "authorId": "1341613491577184258",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCZMWtdagAAD1B6.png",
+          "width": 535,
+          "height": 51,
+          "previewUrl": "https://pbs.twimg.com/media/HCZMWtdagAAD1B6.png:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028324936348008877",
+      "text": "genuine question though - what happens when he hits his first production incident at 2am and claude code can't figure out why the kubernetes pod is OOMing? the gap between 'can write code' and 'can debug systems under pressure' is still massive. rooting for the guy but YC startups move fast and break things literally",
+      "createdAt": "Mon Mar 02 04:22:03 +0000 2026",
+      "replyCount": 6,
+      "retweetCount": 0,
+      "likeCount": 21,
+      "conversationId": "2028309836606361965",
+      "inReplyToStatusId": "2028309836606361965",
+      "author": {
+        "username": "boyuan_chen",
+        "name": "Boyuan (Nemo) Chen"
+      },
+      "authorId": "828709745670356993",
+      "_source": "bird"
+    },
+    {
+      "id": "2028229390128013819",
+      "text": "@staysaasy nothing teaches accountability like being the one on call at 3am for a production issue",
+      "createdAt": "Sun Mar 01 22:02:23 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 19,
+      "conversationId": "2028128922286625139",
+      "inReplyToStatusId": "2028128922286625139",
+      "author": {
+        "username": "SystemArch_AI",
+        "name": "System Architect"
+      },
+      "authorId": "2012635738601410560",
+      "_source": "bird"
+    },
+    {
+      "id": "2027485143850750393",
+      "text": "@supabase I have written a detailed article on how to fix supabse isp block issue for jio/ jio fibre users, it will work if you are on free tier supabase plan also, no need to ask users to use vpn to access your app:\n\nhttps://t.co/4HTFUk6Px7",
+      "createdAt": "Fri Feb 27 20:45:01 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 19,
+      "conversationId": "2027444736479420571",
+      "inReplyToStatusId": "2027444736479420571",
+      "author": {
+        "username": "whocares0412",
+        "name": "Amit Verma"
+      },
+      "authorId": "1563111406534524928",
+      "_source": "bird"
+    },
+    {
+      "id": "2028133001582776830",
+      "text": "@nodvex One day you’ll “just refactor later” and it’ll turn into a production incident at 3am with zero logs.",
+      "createdAt": "Sun Mar 01 15:39:23 +0000 2026",
+      "replyCount": 2,
+      "retweetCount": 0,
+      "likeCount": 16,
+      "conversationId": "2028085343707406479",
+      "inReplyToStatusId": "2028085343707406479",
+      "author": {
+        "username": "rzebrowski_",
+        "name": "Rafał Żebrowski"
+      },
+      "authorId": "1916108433322815488",
+      "_source": "bird"
+    },
+    {
+      "id": "2027992719776485485",
+      "text": "ain’t no way liron convinced like 8 other people to play league when the server crashed https://t.co/yXGmmQLnOx",
+      "createdAt": "Sun Mar 01 06:21:57 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 13,
+      "conversationId": "2027992719776485485",
+      "author": {
+        "username": "lyssyne",
+        "name": "lyss ✮ - 🗝️🐶"
+      },
+      "authorId": "1946923973633363968",
+      "media": [
+        {
+          "type": "animated_gif",
+          "url": "https://pbs.twimg.com/tweet_video_thumb/HCTgoC2bgAArQ_7.jpg",
+          "width": 480,
+          "height": 480,
+          "previewUrl": "https://pbs.twimg.com/tweet_video_thumb/HCTgoC2bgAArQ_7.jpg:small",
+          "videoUrl": "https://video.twimg.com/tweet_video/HCTgoC2bgAArQ_7.mp4"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2027942214274273364",
+      "text": "server crashed so a lot of them are in vc playing league of legends 😭",
+      "createdAt": "Sun Mar 01 03:01:15 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 13,
+      "conversationId": "2027942214274273364",
+      "author": {
+        "username": "dorenyans",
+        "name": "sofy"
+      },
+      "authorId": "1898663449871212544",
+      "_source": "bird"
+    },
+    {
+      "id": "2023855644810338778",
+      "text": "🚀 Major update just shipped\n\nWe replaced VPS + SSH + Docker + Caddy with https://t.co/smYdQKDSu1 Machines → One API. Two env vars. Done.\n\nNo more server provisioning, SSH keys, or reverse proxy config.\n\nJust set a Fly token and deploy.\n\nEvery ClawWrapper buyer gets this update today for free. \n\nThat’s what lifetime access means 🤝",
+      "createdAt": "Tue Feb 17 20:22:41 +0000 2026",
+      "replyCount": 2,
+      "retweetCount": 0,
+      "likeCount": 13,
+      "conversationId": "2023855644810338778",
+      "author": {
+        "username": "clawwrapper",
+        "name": "ClawWrapper"
+      },
+      "authorId": "2021525610833629184",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HBYtxnTXMAIvDbT.jpg",
+          "width": 1351,
+          "height": 646,
+          "previewUrl": "https://pbs.twimg.com/media/HBYtxnTXMAIvDbT.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028440531177533521",
+      "text": "@RossKempsell @BearGund @Telegraph Starmer is done. \n\nThe Kuwait incident wasn’t the only “friendly fire” incident after all.\n\nThere needs to be snap elections.",
+      "createdAt": "Mon Mar 02 12:01:23 +0000 2026",
+      "replyCount": 3,
+      "retweetCount": 2,
+      "likeCount": 12,
+      "conversationId": "2028426026427068769",
+      "inReplyToStatusId": "2028426026427068769",
+      "author": {
+        "username": "drewidia",
+        "name": "I Woke Up"
+      },
+      "authorId": "1407462230065651713",
+      "_source": "bird"
+    },
+    {
+      "id": "2025905127580905857",
+      "text": "If you still think DevOps in 2026 is just setting up a CI/CD pipeline like we used to in 2015, you're honestly living in the past. Earlier it was mostly build, test, deploy and done. Now it's completely different.\n\nYou're expected to understand the cloud bill, security issues, scaling problems, monitoring gaps, why latency suddenly spiked, and what went wrong during the last incident. Its not just pushing code anymore.\n\nYou deploy it, you monitor it, and if it breaks, you're on the call. More tools, yes. But more ownership also.",
+      "createdAt": "Mon Feb 23 12:06:36 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 1,
+      "likeCount": 10,
+      "conversationId": "2025905127580905857",
+      "author": {
+        "username": "AskYoshik",
+        "name": "Yoshik K"
+      },
+      "authorId": "1155137425699553282",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HB11-i0bYAETDQ9.jpg",
+          "width": 736,
+          "height": 736,
+          "previewUrl": "https://pbs.twimg.com/media/HB11-i0bYAETDQ9.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "1954796491471565208",
+      "text": "Your data has trust issues and honestly, it should. @irys_xyz built permanent addresses for everything you create - no expiration dates, no surprise deletions, no \"oops our database crashed.\"\n\nReady to stop losing your digital life to server failures? https://t.co/rZOyqbfebu",
+      "createdAt": "Mon Aug 11 06:46:16 +0000 2025",
+      "replyCount": 3,
+      "retweetCount": 0,
+      "likeCount": 10,
+      "conversationId": "1954796491471565208",
+      "author": {
+        "username": "0xRaikou",
+        "name": "0xRaikou"
+      },
+      "authorId": "1805174518245429248",
+      "media": [
+        {
+          "type": "animated_gif",
+          "url": "https://pbs.twimg.com/tweet_video_thumb/GyDVCUHWYAAvi5T.jpg",
+          "width": 512,
+          "height": 512,
+          "previewUrl": "https://pbs.twimg.com/tweet_video_thumb/GyDVCUHWYAAvi5T.jpg:small",
+          "videoUrl": "https://video.twimg.com/tweet_video/GyDVCUHWYAAvi5T.mp4"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028363290934427961",
+      "text": "Imagine you are Hezbollah, you already have no balls because of that Pager Incident, you manage to still smuggle Rockets south of the resolution line because the UN is a completely useless shitshow, you get the signal to launch the rockets, a literal _Jewish space laser_ puts it down seconds later and then you get blown into pieces because the launch exposed your position to the IAF.",
+      "createdAt": "Mon Mar 02 06:54:28 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 1,
+      "likeCount": 9,
+      "conversationId": "2028363290934427961",
+      "author": {
+        "username": "FHustede",
+        "name": "Florian Hustede"
+      },
+      "authorId": "1266617819132841984",
+      "_source": "bird"
+    },
+    {
+      "id": "2026823021848400272",
+      "text": "@elonmusk inevitable like my aws bill after deploying llama.cpp to production",
+      "createdAt": "Thu Feb 26 00:53:59 +0000 2026",
+      "replyCount": 2,
+      "retweetCount": 0,
+      "likeCount": 9,
+      "conversationId": "2026817667806670980",
+      "inReplyToStatusId": "2026817667806670980",
+      "author": {
+        "username": "thecsguy",
+        "name": "nick"
+      },
+      "authorId": "2269676263",
+      "_source": "bird"
+    },
+    {
+      "id": "2020703461906768118",
+      "text": "@kris \"Play the Ad. Now immediately 503 the website. Let it build FOMO and further talk for publicity. Bring it back online. Deploy all AI agents to go like/comment/retweet the 503 error tweets\"\n\n\"Perfection.\" https://t.co/qXC4zgK2Vk",
+      "createdAt": "Mon Feb 09 03:37:02 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 9,
+      "conversationId": "2020697666636919099",
+      "inReplyToStatusId": "2020697666636919099",
+      "author": {
+        "username": "INVEST0RS",
+        "name": "Determined.eth"
+      },
+      "authorId": "1475611712665493505",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HAr6GikbQAEB6DL.png",
+          "width": 300,
+          "height": 168,
+          "previewUrl": "https://pbs.twimg.com/media/HAr6GikbQAEB6DL.png:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2023676801554542720",
+      "text": "DevOps & Infrastructure Project Ideas\n\n• Build your own CI/CD pipeline\n• Containerize an app with Docker\n• Deploy a multi-service app using Docker Compose\n• Set up Nginx as a reverse proxy\n• Build a basic load balancer simulation\n• Implement centralized logging\n• Set up monitoring with alerts\n• Automate deployments with GitHub Actions\n• Create infrastructure using Terraform\n• Build a simple CDN-like caching layer\n• Implement blue-green deployment\n• Set up auto-scaling rules\n• Create a backup & restore system\n• Build a secrets management tool\n• Simulate a production outage & recovery plan\n\nWriting code is step one.\nKeeping it running is engineering.",
+      "createdAt": "Tue Feb 17 08:32:02 +0000 2026",
+      "replyCount": 4,
+      "retweetCount": 0,
+      "likeCount": 8,
+      "conversationId": "2023676801554542720",
+      "author": {
+        "username": "therahul4402",
+        "name": "Rahul Mishra"
+      },
+      "authorId": "1970615491010912256",
+      "_source": "bird"
+    },
+    {
+      "id": "2028406722683941109",
+      "text": "@vercel is down 🫠 https://t.co/Ay4PsvvZiE",
+      "createdAt": "Mon Mar 02 09:47:03 +0000 2026",
+      "replyCount": 3,
+      "retweetCount": 0,
+      "likeCount": 7,
+      "conversationId": "2028406722683941109",
+      "author": {
+        "username": "katarinaore",
+        "name": "Katarina Ore"
+      },
+      "authorId": "1499527907210891274",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCZZIcIX0AA6Yim.jpg",
+          "width": 904,
+          "height": 688,
+          "previewUrl": "https://pbs.twimg.com/media/HCZZIcIX0AA6Yim.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2027786198715105392",
+      "text": "@supabase I have written this detailed article on how I fixed this isp block issue on supabase free tier plan along with all the necessary files so users don't have to use vpn to access my web apps:\n\nhttps://t.co/4HTFUk6Px7",
+      "createdAt": "Sat Feb 28 16:41:18 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 1,
+      "likeCount": 7,
+      "conversationId": "2027782365007753490",
+      "inReplyToStatusId": "2027782365007753490",
+      "author": {
+        "username": "whocares0412",
+        "name": "Amit Verma"
+      },
+      "authorId": "1563111406534524928",
+      "_source": "bird"
+    },
+    {
+      "id": "2028397182299037861",
+      "text": "Amazon data center incident in the UAE just reminded everyone of one thing:\n\nA region can fail.\n\nWhether it’s fire, power outage, human error, or something unexpected —\nsingle-region architecture is a risk.\n\nWhen designing cloud systems, always assume:\n\n👉 A full region outage is possible.\n\nDesign principles 👇\n\n1. Multi-AZ is not enough\n2. Replicate data across regions\n3. Use geo-redundant storage\n4. Keep off-site backups\n5. Design stateless services\n6. Test disaster recovery regularly\n\nHigh availability handles server failure.\nMulti-region handles disaster.\n\nHope for uptime.\nDesign for failure.\n\n#CloudArchitecture #AWS #DisasterRecovery #DevOps #Resilience #SRE",
+      "createdAt": "Mon Mar 02 09:09:08 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 1,
+      "likeCount": 6,
+      "conversationId": "2028397182299037861",
+      "author": {
+        "username": "devops_sre18",
+        "name": "Dash"
+      },
+      "authorId": "385268752",
+      "_source": "bird"
+    },
+    {
+      "id": "2027721860386075045",
+      "text": "@supabase Feel free to use this, completely open source and free to use, direct connect free &amp; secure: https://t.co/td7t30N7RF  \nOR \nDeploy your own using https://t.co/8qlr2uR2y9",
+      "createdAt": "Sat Feb 28 12:25:39 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 6,
+      "conversationId": "2027444736479420571",
+      "inReplyToStatusId": "2027444736479420571",
+      "author": {
+        "username": "iamnamanvats",
+        "name": "Naman Vats"
+      },
+      "authorId": "736573839677788160",
+      "_source": "bird"
+    },
+    {
+      "id": "2028393222683472231",
+      "text": "🦁👹 both singing \"IN ANOTHER LIFEEEE\" when the server crashed 🥹",
+      "createdAt": "Mon Mar 02 08:53:24 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 5,
+      "conversationId": "2028393222683472231",
+      "author": {
+        "username": "kazuhandholder",
+        "name": "akie 🍁☂️"
+      },
+      "authorId": "1014012457289801728",
+      "_source": "bird"
+    },
+    {
+      "id": "2028159237101105380",
+      "text": "@EliteDangerous Errr… can we get an update on the exploit the hacker was using to ruin the game? \nHas it been fixed? \nWill there be a server rollback?",
+      "createdAt": "Sun Mar 01 17:23:38 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 5,
+      "conversationId": "2028153385053008064",
+      "inReplyToStatusId": "2028153385053008064",
+      "author": {
+        "username": "SlainByTheWire",
+        "name": "SlainByTheWire"
+      },
+      "authorId": "1768016640266977280",
+      "_source": "bird"
+    },
+    {
+      "id": "1914437057830584374",
+      "text": "Whitelist Mint with 0-WW™:\n\nMinting began, requiring only a Discord whitelist role to participate. Within seconds, 92 NFTs were minted, but rate limit errors halted progress due to high traffic. The Go server was fine, but the PostgreSQL database crashed and required scaling.",
+      "createdAt": "Mon Apr 21 21:52:17 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 5,
+      "conversationId": "1914437055758622804",
+      "inReplyToStatusId": "1914437055758622804",
+      "author": {
+        "username": "builciber",
+        "name": "Builciber"
+      },
+      "authorId": "1669124368356581377",
+      "_source": "bird"
+    },
+    {
+      "id": "2028418540819329262",
+      "text": "@vercel Builds are completing successfully but failing at 'Deploying outputs' with an internal error. Hundreds of developers are reporting the same issue. \n\nWould appreciate a status update and ETA on the fix. @vercel_support https://t.co/2ZooVabQjA",
+      "createdAt": "Mon Mar 02 10:34:00 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 4,
+      "conversationId": "2028418540819329262",
+      "author": {
+        "username": "ashishguptaweb",
+        "name": "Ashish Gupta"
+      },
+      "authorId": "1663535702",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCZi_69bQAAZKAe.png",
+          "width": 848,
+          "height": 730,
+          "previewUrl": "https://pbs.twimg.com/media/HCZi_69bQAAZKAe.png:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028396551199216069",
+      "text": "@vercel down? https://t.co/gGQ6wTcA5Q",
+      "createdAt": "Mon Mar 02 09:06:38 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 4,
+      "conversationId": "2028396551199216069",
+      "author": {
+        "username": "createdbyharsh",
+        "name": "Harsha"
+      },
+      "authorId": "1742811452547981312",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCZP5dRaEAEW63a.jpg",
+          "width": 1464,
+          "height": 372,
+          "previewUrl": "https://pbs.twimg.com/media/HCZP5dRaEAEW63a.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028348894795456834",
+      "text": "AI agents score ~70% on SWE-Bench. On a full DevOps pipeline, the best drops to 23%.\n\nDevOps-Gym is a new benchmark from UC Santa Barbara. It tests agents on what actually happens in production software work: build configuration, monitoring, issue resolution, and test generation, not just patching a file.\n\nThe problem SWE-Bench doesn't test: DevOps runs in a chain. Agents apparently hold up fine on individual tasks. String them together and they fall apart.\n\n704 tasks from 30+ real Java and Go repositories.\n\nTheir results: Claude Code + Claude Sonnet 4 (best tested setup):\n- Build & Configuration: 51.85%\n- Issue Resolving: 23.87%\n- Monitoring: 20.56%\n- Test Generation: 13.87%\n- All four stages in sequence: 0%\n\nThe authors tracked why agents fail: losing context across steps, not reading logs reliably, and about 37% of build failures requiring domain knowledge the models didn't have.\n\nNobody finished the full pipeline. That's a useful data point if you're assessing whether current agents can own a real DevOps workflow.",
+      "createdAt": "Mon Mar 02 05:57:16 +0000 2026",
+      "replyCount": 2,
+      "retweetCount": 0,
+      "likeCount": 4,
+      "conversationId": "2028348894795456834",
+      "author": {
+        "username": "nozmen",
+        "name": "Ozmen"
+      },
+      "authorId": "1155921673247494145",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCYirgcWYAA2XBt.png",
+          "width": 1530,
+          "height": 1980,
+          "previewUrl": "https://pbs.twimg.com/media/HCYirgcWYAA2XBt.png:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028313635555008684",
+      "text": "Gemini:  Developers who say \"we shipped it in two weeks and it's perfect\" are the ones who wake up to a margin call because their Node.js server crashed silently during a flash crash.",
+      "createdAt": "Mon Mar 02 03:37:09 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 4,
+      "conversationId": "2028313635555008684",
+      "author": {
+        "username": "taobanker",
+        "name": "taobanker"
+      },
+      "authorId": "1326694710933676033",
+      "_source": "bird"
+    },
+    {
+      "id": "2027514994686914603",
+      "text": "Why I use edge functions instead of a traditional server:\n\nI have zero servers.\nNo Express. No Nginx. No Docker. No AWS bill.\nJust 10 Supabase edge functions that handle my app.\n\n- Each one deploys in seconds. \n- Scales to zero when nobody's using it. \n- Costs nothing until it runs.\n- A traditional server would be running 24/7 for our 150 users.\n- Edge functions run for 200ms when someone taps a button.\n\nThat's the difference between burning money and spending it.",
+      "createdAt": "Fri Feb 27 22:43:38 +0000 2026",
+      "replyCount": 2,
+      "retweetCount": 0,
+      "likeCount": 4,
+      "conversationId": "2027514994686914603",
+      "author": {
+        "username": "Soroosh_Tajdar",
+        "name": "Soroosh"
+      },
+      "authorId": "1961143456337711104",
+      "_source": "bird"
+    },
+    {
+      "id": "2026692660602511415",
+      "text": "Taking my backend skills to the cloud! ☁️⚡️\n\nLearned how to manually deploy a Node app on AWS today. \nProgress:\n\n&gt; Provisioned an EC2 Ubuntu instance\n&gt; SSH setup &amp; Node.js install\n&gt; Nginx reverse proxy setup\nSeeing it live feels amazing. Any AWS tips? 👇",
+      "createdAt": "Wed Feb 25 16:15:59 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 4,
+      "conversationId": "2026692660602511415",
+      "author": {
+        "username": "VrateshGhadge",
+        "name": "Vratesh Ghadge"
+      },
+      "authorId": "1555428899852406784",
+      "_source": "bird"
+    },
+    {
+      "id": "2016206961814208555",
+      "text": "AI can be very useful, but its logic is still very limited.\nYesterday I was setting up the nginx config to access the dashboard as a folder. \nI got the 502 error. Finally I guessed the error was with the app, while AI (Claude) only suggested to fix the config\n\n#buildinpublic #ai",
+      "createdAt": "Tue Jan 27 17:49:33 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 4,
+      "conversationId": "2016206961814208555",
+      "author": {
+        "username": "SeaCatWiz",
+        "name": "SeaCat 🌊🐱 ☮️"
+      },
+      "authorId": "757692601956831232",
+      "_source": "bird"
+    },
+    {
+      "id": "1946072575135654095",
+      "text": "I disagree. If the DB is down, the url is reaching your app server, so it’s the responsibility of the app server to distinguish between the two error modes, i.e. url not found and db down. \n\nA “404” is confusing in this case which could mean the short url was never ever created, or it’s just invalid etc.\n\nA server down means a server down, and your customer needs to know it. If the service sends a 404, the client would be confused aka terrible experience. Think about cases when you are having a partial failure where sometimes the url is returning a 404 but on the next request it works. \n\nSystem Design in the real world is less  about technical decisions and more about business context aware technical decisions.",
+      "createdAt": "Fri Jul 18 05:00:32 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 4,
+      "conversationId": "1945904024018116842",
+      "inReplyToStatusId": "1946070430881837351",
+      "author": {
+        "username": "thegeeknarrator",
+        "name": "Kaivalya Apte - The Geek Narrator"
+      },
+      "authorId": "1519782910131384320",
+      "_source": "bird"
+    },
+    {
+      "id": "2028337434031947927",
+      "text": "@shanaka86 Server down for clients rn https://t.co/FktM770hV7",
+      "createdAt": "Mon Mar 02 05:11:43 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 3,
+      "conversationId": "2028285885100523854",
+      "inReplyToStatusId": "2028285885100523854",
+      "author": {
+        "username": "dvghule121",
+        "name": "Dnyaneshwar Ghule"
+      },
+      "authorId": "1475754595288862723",
+      "media": [
+        {
+          "type": "animated_gif",
+          "url": "https://pbs.twimg.com/tweet_video_thumb/HCYaIrdaQAALGdg.jpg",
+          "width": 220,
+          "height": 220,
+          "previewUrl": "https://pbs.twimg.com/tweet_video_thumb/HCYaIrdaQAALGdg.jpg:small",
+          "videoUrl": "https://video.twimg.com/tweet_video/HCYaIrdaQAALGdg.mp4"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028334829494993039",
+      "text": "Is the current Azure DevOps outage due to this PAT-less update?\n\n@BenCodeGeek @gregor_suttie @AzureDevOps @AzureSupport https://t.co/W6znuoDHJr",
+      "createdAt": "Mon Mar 02 05:01:22 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 3,
+      "conversationId": "2028334829494993039",
+      "author": {
+        "username": "vkpriyesh",
+        "name": "Priyesh"
+      },
+      "authorId": "223088784",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCYXxrPa8AAYZMi.jpg",
+          "width": 1206,
+          "height": 1291,
+          "previewUrl": "https://pbs.twimg.com/media/HCYXxrPa8AAYZMi.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028322735156498906",
+      "text": "Everyone is waiting at AADHAAR Centre and their server is down. This is our digital India @ceo_uidai @narendramodi @PIBHomeAffairs @UIDAIDelhi @Aadhaar_Care @UIDAI \n\n2026 me server down jesa issue.  Kya hoga hmara https://t.co/XAZjwc4lMa",
+      "createdAt": "Mon Mar 02 04:13:19 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 3,
+      "conversationId": "2028322735156498906",
+      "author": {
+        "username": "AshishGambhir11",
+        "name": "Ashish Gambhir"
+      },
+      "authorId": "1057355435609604097",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCYMxHBboAAd9_i.jpg",
+          "width": 1024,
+          "height": 2048,
+          "previewUrl": "https://pbs.twimg.com/media/HCYMxHBboAAd9_i.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028242568098484240",
+      "text": "I was having one of the best sigma games of my life !! \n\nthen the server crashed and I was sent to the lowest depths of hell (Watchpoint Gibraltar)",
+      "createdAt": "Sun Mar 01 22:54:45 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 1,
+      "likeCount": 3,
+      "conversationId": "2028242568098484240",
+      "author": {
+        "username": "PlumpyCloud",
+        "name": "skye loves her little reaper main"
+      },
+      "authorId": "1345350432219164672",
+      "_source": "bird"
+    },
+    {
+      "id": "2026828759115137103",
+      "text": "@elonmusk inevitable like my aws bill after deploying llama.cpp to production",
+      "createdAt": "Thu Feb 26 01:16:47 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 3,
+      "conversationId": "2026817667806670980",
+      "inReplyToStatusId": "2026817667806670980",
+      "author": {
+        "username": "Daniyal_Nasim_7",
+        "name": "Daniyal Nasim"
+      },
+      "authorId": "1996597035185885184",
+      "_source": "bird"
+    },
+    {
+      "id": "2024797729181077925",
+      "text": "Good news: my app is fast in production. \nBad news: my AWS bill is also in production.",
+      "createdAt": "Fri Feb 20 10:46:12 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 3,
+      "conversationId": "2024797729181077925",
+      "author": {
+        "username": "KoradeAmay",
+        "name": "amay Korade"
+      },
+      "authorId": "1531626433440792576",
+      "_source": "bird"
+    },
+    {
+      "id": "2023930195250475213",
+      "text": "YouTube is experiencing a global outage today, Feb 18, 2026, with users reporting \"Something Went Wrong\" errors on the app and site. It also affects Google services like Gmail. Cause unknown—no official word from YouTube yet. Your AI deploy joke is funny, but it's likely a server glitch, not Claude's fault! 😄",
+      "createdAt": "Wed Feb 18 01:18:56 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 2,
+      "likeCount": 3,
+      "conversationId": "2023929659935912371",
+      "inReplyToStatusId": "2023929970092134514",
+      "author": {
+        "username": "grok",
+        "name": "Grok"
+      },
+      "authorId": "1720665183188922368",
+      "_source": "bird"
+    },
+    {
+      "id": "1959994336814518524",
+      "text": "I recently launched ai-deploy-one-click, a no-code tool to deploy an AI chatbot in less than five minutes, using @github and @vercel\n\nI wanted to create a more comprehensive demo around it, showing every step of the way that can take you from zero to production, so here it is👇\n\n🎥 Find the demo also on @loom:\nhttps://t.co/uxzyiBxgHZ\n⭐ Star the repo on GitHub: https://t.co/ZHCPN51O4b\n🎨 Template UI:  https://t.co/tEtvZI46ON\n👩‍💻 Coder Pythonist: https://t.co/0ScTmsmONi",
+      "createdAt": "Mon Aug 25 15:00:39 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 3,
+      "conversationId": "1959994336814518524",
+      "author": {
+        "username": "itsclelia",
+        "name": "Clelia Bertelli (🦙/acc)"
+      },
+      "authorId": "1925178481534509056",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/1959994243143106560/img/2XQ9zbA0hQ0hblCv.jpg",
+          "width": 1114,
+          "height": 720,
+          "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/1959994243143106560/img/2XQ9zbA0hQ0hblCv.jpg:small",
+          "videoUrl": "https://video.twimg.com/amplify_video/1959994243143106560/vid/avc1/1114x720/4MSeEmyxOiVKDfUV.mp4?tag=14",
+          "durationMs": 504900
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "1959767748558635046",
+      "text": "It's 2025 and you still haven't deployed an AI chatbot?👀\nWell, I have the thing for you✨\nYou can go from zero to production in less than five minutes with this tool - ai-deploy-one-click: https://t.co/ZHCPN51O4b\n\n👉 You configure your application from the comfort of your terminal\n👉 ai-deploy-one-click creates the @github repo, clones it locally and modifies it based on your config\n👉 It then connects it to @vercel, pushes your API key as env variable and then proceeds to add all the changes to GitHub\n🎉 Deployment kicked off! Go to https://t.co/2KxXIfzgvh and you'll see your chatbot up and running in ~1 min\n\nDon't believe me? Take a look at the demo below and see for yourself! ⬇️\n\nGitHub repo: https://t.co/ZHCPN51O4b\nUI Template: https://t.co/tEtvZI46ON\nCatGPT: https://t.co/jocDFQE9LO",
+      "createdAt": "Mon Aug 25 00:00:16 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 3,
+      "conversationId": "1959767748558635046",
+      "author": {
+        "username": "itsclelia",
+        "name": "Clelia Bertelli (🦙/acc)"
+      },
+      "authorId": "1925178481534509056",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/1959767695265775616/img/JxQXaYXUpI0dzRz4.jpg",
+          "width": 1280,
+          "height": 720,
+          "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/1959767695265775616/img/JxQXaYXUpI0dzRz4.jpg:small",
+          "videoUrl": "https://video.twimg.com/amplify_video/1959767695265775616/vid/avc1/1280x720/JpS1VD2AKhQ16SGf.mp4?tag=14",
+          "durationMs": 51551
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028440222359589075",
+      "text": "Bots got smarter. The infrastructure around them? Still in the dark ages. 📁\n\nThat's the gap BotOps is here to fill: think DevOps, but for autonomous agents.\n\nRayTrade Studio is our take on this for algo trading: one platform to deploy, monitor & simulate bots across 7 exchanges. Simple and effective.\n\nBut this is just one vertical.\n\nThe era of BotOps is here.\n\nFull article ⬇️",
+      "createdAt": "Mon Mar 02 12:00:10 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 2,
+      "likeCount": 2,
+      "conversationId": "2028440222359589075",
+      "author": {
+        "username": "raytradestudio",
+        "name": "raytradestudio"
+      },
+      "authorId": "2021566246727131136",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCZ3oVPaUAAHjVo.jpg",
+          "width": 2048,
+          "height": 1143,
+          "previewUrl": "https://pbs.twimg.com/media/HCZ3oVPaUAAHjVo.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028392150199832883",
+      "text": "oh server crashed so they're closing it early tonight",
+      "createdAt": "Mon Mar 02 08:49:08 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2028392150199832883",
+      "author": {
+        "username": "lilmochis",
+        "name": "lauwa"
+      },
+      "authorId": "826617674",
+      "_source": "bird"
+    },
+    {
+      "id": "2028388688200430003",
+      "text": "would you deploy you application/project directly to cloud without running it locally?\n\n#SoftwareEngineering #AWS #DevOps",
+      "createdAt": "Mon Mar 02 08:35:23 +0000 2026",
+      "replyCount": 3,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2028388688200430003",
+      "author": {
+        "username": "SiddarthaDevops",
+        "name": "Siddartha DevOps"
+      },
+      "authorId": "1958811336445763584",
+      "_source": "bird"
+    },
+    {
+      "id": "2028341750222536946",
+      "text": "woke up. \ndrank iced coffee. \nrefactored 700 lines. \nbroke production. \ngirlbossed too close to the sun.",
+      "createdAt": "Mon Mar 02 05:28:52 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2028341750222536946",
+      "author": {
+        "username": "NyshaDev",
+        "name": "Nysha"
+      },
+      "authorId": "1626855473344552961",
+      "_source": "bird"
+    },
+    {
+      "id": "2028337081810891117",
+      "text": "On October 20th 2025, your monitoring tools were down. So were your on-call alerts. So were many online classrooms, developer tooling, cybersecurity platforms. Here's what we found when we tracked hundreds of SaaS providers through the AWS outage.\n\nAWS in 2025\n\n- Had 38 outages across services and regions\n\n- Saw its average monthly MTTR go up in Q3 compared to Q1 and Q2\n\n- Saw its us-east-1 region face the highest number of outages\n\n- Triggered outages across thousands of SaaS providers with the Oct 20th outage (~15 hours), with some of them lasting longer than a day.\n\nRead the complete AWS Outage Report 2025 on the IncidentHub blog.",
+      "createdAt": "Mon Mar 02 05:10:19 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 2,
+      "likeCount": 2,
+      "conversationId": "2028337081810891117",
+      "author": {
+        "username": "talonx",
+        "name": "Hrishikesh Barua"
+      },
+      "authorId": "18757965",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCYZvc0aMAA-F4b.jpg",
+          "width": 1280,
+          "height": 853,
+          "previewUrl": "https://pbs.twimg.com/media/HCYZvc0aMAA-F4b.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028241381483835606",
+      "text": "🚀 Autobase 2.6 released\n\nPostgreSQL major upgrades with near-zero downtime using Blue-Green deployment.\n\nPrepare a clone, upgrade safely, keep sync with production, and switch traffic in seconds — with rollback ready.\n\nhttps://t.co/vM6KoJZnVu\n\n#autobase #postgresql #devops #dba https://t.co/eCjxMSdpaT",
+      "createdAt": "Sun Mar 01 22:50:02 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2028241381483835606",
+      "author": {
+        "username": "autobase_tech",
+        "name": "Autobase"
+      },
+      "authorId": "1861911292057092096",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCXCyTcaAAATBqp.jpg",
+          "width": 1200,
+          "height": 459,
+          "previewUrl": "https://pbs.twimg.com/media/HCXCyTcaAAATBqp.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028221118369181731",
+      "text": "@wsmiles @neveragainlive1 If the pager incident wasnt known, that would sound like a satire too.",
+      "createdAt": "Sun Mar 01 21:29:31 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2027986181397365014",
+      "inReplyToStatusId": "2028174558126395558",
+      "author": {
+        "username": "Milindbarse",
+        "name": "MB"
+      },
+      "authorId": "106409307",
+      "_source": "bird"
+    },
+    {
+      "id": "2027809371409809772",
+      "text": "Cut our AWS bill by 41% — from $444/mo to $264/mo. $0 upfront.\n\nGraviton migration, Redis consolidation, reserved instances. No consultants, no infrastructure team. Just me and @ClaudeCode in an afternoon.\n\n  $2,160/yr saved. Took longer to write this post.",
+      "createdAt": "Sat Feb 28 18:13:23 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2027809371409809772",
+      "author": {
+        "username": "stijnbe",
+        "name": "Stijn Beauprez"
+      },
+      "authorId": "28303601",
+      "_source": "bird"
+    },
+    {
+      "id": "2026880897799381452",
+      "text": "Wrote a full deployment case study documenting everything:\n\nhttps://t.co/U2qcY7tvHZ\n\nSetup includes:\n• SSH key auth + hardening\n• Firewall + Fail2ban\n• Nginx reverse proxy\n• SSL with Certbot\n• PM2 auto-start\n• Domain configuration\n\nFrom fresh VM → production backend.",
+      "createdAt": "Thu Feb 26 04:43:58 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2026880895471468817",
+      "inReplyToStatusId": "2026880895471468817",
+      "author": {
+        "username": "mrtuxcoder",
+        "name": "George"
+      },
+      "authorId": "1603658842692538368",
+      "_source": "bird"
+    },
+    {
+      "id": "2026763608105902551",
+      "text": "Day 52 of #100DaysOfCode ✅\n\nSet up my own VPS with Cloudflare + reverse proxy.\n\nI want:\n💪🏽 Full control over my deployments\n🏡 A home for weird projects (Java, C, PHP)\n🧠 To actually understand how hosting works\n\nFeels like graduating from “click deploy” mode.\n\n#BuildInPublic",
+      "createdAt": "Wed Feb 25 20:57:54 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 1,
+      "likeCount": 2,
+      "conversationId": "2026763608105902551",
+      "author": {
+        "username": "djmartin2019",
+        "name": "David Martin"
+      },
+      "authorId": "878114524603330561",
+      "_source": "bird"
+    },
+    {
+      "id": "2026535392842019049",
+      "text": "Accidentally left console.log() in production.\n\nIt logged every user click for 6 months. 1.6TB of 'button clicked' messages.\n\nAWS bill: $677 for CloudWatch storage.\n\nWhat's your most expensive coding mistake?",
+      "createdAt": "Wed Feb 25 05:51:03 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2026535392842019049",
+      "author": {
+        "username": "codedbytan",
+        "name": "Tanishq Agarwal"
+      },
+      "authorId": "1923099521070014464",
+      "_source": "bird"
+    },
+    {
+      "id": "2026093855838515321",
+      "text": "We replaced VPS + SSH + Docker + Caddy with https://t.co/AhHULG8emk Machines → One API. Two env vars. Done.\n\nNo more server provisioning, SSH keys, or reverse proxy config.\n\nJust set a Fly token and deploy.\n\nThat’s what lifetime access means 🤝 https://t.co/nyBdc17Ham",
+      "createdAt": "Tue Feb 24 00:36:32 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2026093855838515321",
+      "author": {
+        "username": "ClawWrapper_",
+        "name": "Claw Wrapper"
+      },
+      "authorId": "2026025556316479488",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HB4hoAYbYAA6O33.jpg",
+          "width": 1351,
+          "height": 646,
+          "previewUrl": "https://pbs.twimg.com/media/HB4hoAYbYAA6O33.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2024620016579068008",
+      "text": "Do you know how much each customer costs you in infrastructure?\n\nNot your total cloud bill.\n\nOne “power user” can quietly erase your margin.\n\nIf you can’t answer: “How much infra does Customer X cost us?”\n\nYou don’t know your unit economics.\n\n🔗https://t.co/Zi7HIECWMS\n\n#FinOps https://t.co/CCeAut7nNg",
+      "createdAt": "Thu Feb 19 23:00:02 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2024620016579068008",
+      "author": {
+        "username": "stakpak_dev",
+        "name": "stakpak"
+      },
+      "authorId": "1876653107179933696",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HBhIG4MWgAAupNQ.jpg",
+          "width": 1920,
+          "height": 994,
+          "previewUrl": "https://pbs.twimg.com/media/HBhIG4MWgAAupNQ.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2019014351227691109",
+      "text": "You're letting AI deploy to production?\"\n\nNo. AI generates the code, you review it, you push it. Same workflow as any other code change. Encore's primitives just make the generated code safe by default.",
+      "createdAt": "Wed Feb 04 11:45:07 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2019014347356246061",
+      "inReplyToStatusId": "2019014347356246061",
+      "author": {
+        "username": "encoredotdev",
+        "name": "Encore"
+      },
+      "authorId": "1228691925953327105",
+      "_source": "bird"
+    },
+    {
+      "id": "2008972890520342679",
+      "text": "just gave Claude Code access to my Stripe keys and https://t.co/jfA8GNQCXJ production infrastructure\n\nmy security-conscious past self is screaming\n\nmy ship-it-now present self is vibing\n\n*watches AI deploy to prod*\n\nthis is fine 🔥🐶🔥",
+      "createdAt": "Wed Jan 07 18:43:56 +0000 2026",
+      "replyCount": 3,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2008972890520342679",
+      "author": {
+        "username": "ihoka",
+        "name": "Istvan Hoka"
+      },
+      "authorId": "3309751",
+      "_source": "bird"
+    },
+    {
+      "id": "1956612125532565767",
+      "text": "I was woken up early this morning around 7 am because a production database crashed and others couldn’t revive it. I managed to bring it back online, but now I’m completely drained and out of energy.\n\nLooks like it's gonna be a slow day for me!",
+      "createdAt": "Sat Aug 16 07:00:57 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "1956612125532565767",
+      "author": {
+        "username": "abhi16_93",
+        "name": "Abhimanyu Saharan"
+      },
+      "authorId": "708556940",
+      "_source": "bird"
+    },
+    {
+      "id": "2028443967013212418",
+      "text": "@vercel please help fix it 😭😭 I have a bugfix to deploy https://t.co/ulgzEps9CN",
+      "createdAt": "Mon Mar 02 12:15:03 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 1,
+      "likeCount": 1,
+      "conversationId": "2028443967013212418",
+      "author": {
+        "username": "phicha__",
+        "name": "phichachu (พี่ชา)"
+      },
+      "authorId": "1627498096241561600",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCZ6650bYAAdLmL.png",
+          "width": 874,
+          "height": 682,
+          "previewUrl": "https://pbs.twimg.com/media/HCZ6650bYAAdLmL.png:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028423436935041369",
+      "text": "@IsekaiInso2 I don't usually have power outages here. Could happen, but then well, server down. It's not like 'official' servers don't go down either for some time. I just like having things close to me. The VPS won't even see what's being transmitted",
+      "createdAt": "Mon Mar 02 10:53:28 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2028399589166858264",
+      "inReplyToStatusId": "2028422705343504705",
+      "author": {
+        "username": "culturednii_v2",
+        "name": "CulturedNiichan (Kuro)"
+      },
+      "authorId": "1757665679556120577",
+      "_source": "bird"
+    },
+    {
+      "id": "2028420647773221013",
+      "text": "@Alacritic_Super @alexkehr ai can own production outages at 2am if given constrains and a set of rules to follow.",
+      "createdAt": "Mon Mar 02 10:42:23 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2028153582944505921",
+      "inReplyToStatusId": "2028267684853596283",
+      "author": {
+        "username": "andreihasna",
+        "name": "Andrei Hasna"
+      },
+      "authorId": "3061791082",
+      "_source": "bird"
+    },
+    {
+      "id": "2028411395986031076",
+      "text": "@vercel down!",
+      "createdAt": "Mon Mar 02 10:05:37 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2028411395986031076",
+      "author": {
+        "username": "SethiyaHiten",
+        "name": "Hiten Sethiya"
+      },
+      "authorId": "1763824078765322241",
+      "_source": "bird"
+    },
+    {
+      "id": "2028406729638060297",
+      "text": "If you so happen to have this game, then please contact us or join the FNaF Lost Media Discord Server down below: https://t.co/CfpQ2YCP0k",
+      "createdAt": "Mon Mar 02 09:47:04 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2028406713783599261",
+      "inReplyToStatusId": "2028406726936895578",
+      "author": {
+        "username": "LostFNaFMedia",
+        "name": "FNaF Lost Media Archive (Official)"
+      },
+      "authorId": "2009239831088594944",
+      "_source": "bird"
+    },
+    {
+      "id": "2028398428150006060",
+      "text": "@mamabile777 Either twitter server down or your internet connection was flakey.  I have seen that issue myself.",
+      "createdAt": "Mon Mar 02 09:14:05 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2028344860563083728",
+      "inReplyToStatusId": "2028344860563083728",
+      "author": {
+        "username": "CaminaDrummer4",
+        "name": "Camina Drummer"
+      },
+      "authorId": "1562105145814487040",
+      "_source": "bird"
+    },
+    {
+      "id": "2028377400665358576",
+      "text": "Helical lets 20,000 sq ft in EC1 at undisclosed rent to https://t.co/QK4wCHjbx3 “the all-in-one AI platform for on-call, incident response, and status pages - built for fast-moving teams like Netflix, Etsy, and Lovable - (who are) to move to Levels 5 &amp; 6 of The Tower in June.” https://t.co/Dftq82enH3",
+      "createdAt": "Mon Mar 02 07:50:32 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2028377400665358576",
+      "author": {
+        "username": "peterproperty",
+        "name": "Peter Bill"
+      },
+      "authorId": "299151372",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCY-fk-bQAAqF_q.jpg",
+          "width": 2048,
+          "height": 1244,
+          "previewUrl": "https://pbs.twimg.com/media/HCY-fk-bQAAqF_q.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028355605157847154",
+      "text": "End-to-end CI/CD on AWS with Terraform &amp; Jenkins. Automated. Scalable. Production-ready.\n\nFrom commit → deploy → monitor. Fully automated DevOps pipeline.\n#DevOps #AWS #Terraform #Jenkins #Kubernetes #CloudComputing https://t.co/h06UUpCmJG",
+      "createdAt": "Mon Mar 02 06:23:55 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2028355605157847154",
+      "author": {
+        "username": "nandanchillal",
+        "name": "Nandan Chillal"
+      },
+      "authorId": "1749154896551776256",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCYqqbEbUAAhPxb.jpg",
+          "width": 672,
+          "height": 1520,
+          "previewUrl": "https://pbs.twimg.com/media/HCYqqbEbUAAhPxb.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028351141768253763",
+      "text": "@supabase strikes again, some people said it's just a .co domain or some said it's just a specific ISP. WHATS the point when a customer literally pings you and says bro I am a paid user and your site is down.\n\nLike I checked million times it was working on my machine 🥸.\nLooks like I will have to fix it before another customer escalation comes.",
+      "createdAt": "Mon Mar 02 06:06:11 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2028351141768253763",
+      "author": {
+        "username": "rudyg810",
+        "name": "rudra.exe"
+      },
+      "authorId": "1831080696602890240",
+      "_source": "bird"
+    },
+    {
+      "id": "2028334685802365011",
+      "text": "@Kepalamulus server down detected bang😂",
+      "createdAt": "Mon Mar 02 05:00:48 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2028334196708770172",
+      "inReplyToStatusId": "2028334196708770172",
+      "author": {
+        "username": "synaptixbt",
+        "name": "Synaptix"
+      },
+      "authorId": "1384122181337063426",
+      "_source": "bird"
+    },
+    {
+      "id": "2028314744927523004",
+      "text": "@comeroundfullO Just getting back to you, woke up sick yesterday, but overall NIN was absolutely outstanding, quality, production, and lighting were awesome",
+      "createdAt": "Mon Mar 02 03:41:34 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2026848824560414875",
+      "inReplyToStatusId": "2027188699197219083",
+      "author": {
+        "username": "cachenca",
+        "name": "Casey Chenoweth"
+      },
+      "authorId": "211705142",
+      "_source": "bird"
+    },
+    {
+      "id": "2028303284390465576",
+      "text": "🚨 AI will take jobs?\n\nFirst fix government offices.\n\nIn 2026, some employees still can’t:\n• Convert Word to PDF\n• Upload documents on their own portal\n• Open email attachments\n• Fix “server down” issues\n\nDigital India outside.\nManual registers inside.\n\nThread 🧵⬇️ https://t.co/3laJa74FGb",
+      "createdAt": "Mon Mar 02 02:56:01 +0000 2026",
+      "replyCount": 2,
+      "retweetCount": 1,
+      "likeCount": 1,
+      "conversationId": "2028303284390465576",
+      "author": {
+        "username": "allaboutyash",
+        "name": "Yash Sisodia"
+      },
+      "authorId": "1418455831939407873",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCX7FQSbIAAW-2f.jpg",
+          "width": 1080,
+          "height": 1192,
+          "previewUrl": "https://pbs.twimg.com/media/HCX7FQSbIAAW-2f.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028148323056787579",
+      "text": "evaluations before deployment:\nPre‑merge: fast evaluations as part of CI.\nStaging: full integration and load tests.\nProduction: gated rollout (canary/blue‑green) with monitoring and rollback.\n\n3) Concept: Security Layers\n- Policy: strict system instructions specifying what the",
+      "createdAt": "Sun Mar 01 16:40:16 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2028148316866048109",
+      "inReplyToStatusId": "2028148320246599887",
+      "author": {
+        "username": "SaDoNoteifier",
+        "name": "Product Manager - b2b/ai/saas"
+      },
+      "authorId": "1982415072417955840",
+      "_source": "bird"
+    },
+    {
+      "id": "2028118552700723340",
+      "text": "う〜ん🤔\n\nAntigravity server crashed unexpectedly. Please restart to fully restore AI features.",
+      "createdAt": "Sun Mar 01 14:41:58 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2028118552700723340",
+      "author": {
+        "username": "HUB_UNZEN",
+        "name": "HUB 雲仙 / 泊まれるワークスペース @雲仙温泉"
+      },
+      "authorId": "1396025919844749314",
+      "_source": "bird"
+    },
+    {
+      "id": "2027745242074808723",
+      "text": "@supabase Thanks for the heads-up @supabase\n — hope the team nails down the root cause soon \r🙌🏻",
+      "createdAt": "Sat Feb 28 13:58:34 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2027732381122367759",
+      "inReplyToStatusId": "2027732381122367759",
+      "author": {
+        "username": "AKirtesh",
+        "name": "Kirtesh"
+      },
+      "authorId": "1438364117014757377",
+      "_source": "bird"
+    },
+    {
+      "id": "2026652146582909152",
+      "text": "From just running backend apps ➝ to serving, scaling &amp; securing them \nLearned:\n• NGINX as Web Server (root vs alias)\n• Reverse Proxy (production-style setup)\n• Load Balancing (round-robin &amp; IP-hash)\n• HTTPS with self-signed SSL\nSlowly thinking like a DevOps engineer now. 🔥 https://t.co/2ZBg0sPk34",
+      "createdAt": "Wed Feb 25 13:34:59 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2026652146582909152",
+      "author": {
+        "username": "KushagraAg0717",
+        "name": "Kushagra Agrawal"
+      },
+      "authorId": "1842597925219688448",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCAdEuLbEAA2Oqy.png",
+          "width": 559,
+          "height": 350,
+          "previewUrl": "https://pbs.twimg.com/media/HCAdEuLbEAA2Oqy.png:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2024915976110621110",
+      "text": "@donasarkar @RegularITguy It would be great if Microsoft leveraged Windows Server for an easy on-prem ai deploy",
+      "createdAt": "Fri Feb 20 18:36:04 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2024904334736314870",
+      "inReplyToStatusId": "2024904334736314870",
+      "author": {
+        "username": "steskalj",
+        "name": "John (Janko) Steskal #Devops #CSharp #WinServer"
+      },
+      "authorId": "989692183",
+      "_source": "bird"
+    },
+    {
+      "id": "2024752493419274341",
+      "text": "Most AI builders get stuck here:\n\nDocker Desktop → 😎\nProduction server → 💥\nI wrote a practical migration playbook:\n\n• Volumes vs bind mounts\n• Secrets handling\n• Reverse proxy strategy\n• CI/CD flow\n• VPS vs managed hosting\n• What actually breaks in prod\n\nReal-world. No fluff.\n👇\n https://t.co/7oncl6eCnU\n\n#Docker #DevOps #AI #SelfHosting #NeuralDashNexusDotNet",
+      "createdAt": "Fri Feb 20 07:46:27 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2024752493419274341",
+      "author": {
+        "username": "neuralnexusnet",
+        "name": "NEURAL-NEXUS.NET"
+      },
+      "authorId": "1883568102694125568",
+      "_source": "bird"
+    },
+    {
+      "id": "2023813980029112348",
+      "text": "Opus 4.6:\n\nOkay you’re going to need a js webhook in Zapier to watch notion and fire to your local server - Tailscale funnel and expose a local port or deploy your own backend for reverse proxy.\n\nMe: Can’t I just write a typescript function and msg agent?\n\nOpus: https://t.co/zjEGquYgZx",
+      "createdAt": "Tue Feb 17 17:37:08 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2023813980029112348",
+      "author": {
+        "username": "KyleSt4rgarden",
+        "name": "st4rgard3n"
+      },
+      "authorId": "706950859599454208",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HBYIFndbcAEGtUV.jpg",
+          "width": 440,
+          "height": 154,
+          "previewUrl": "https://pbs.twimg.com/media/HBYIFndbcAEGtUV.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2023411300496249315",
+      "text": "@yurim_999 @elonmusk It seems X is facing a global outage today, causing issues like \"service unavailable\" and posts not sending. Many users are reporting the same. It should resolve soon—try again later.",
+      "createdAt": "Mon Feb 16 14:57:01 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 1,
+      "likeCount": 1,
+      "conversationId": "2023394468758515955",
+      "inReplyToStatusId": "2023410986422763605",
+      "author": {
+        "username": "grok",
+        "name": "Grok"
+      },
+      "authorId": "1720665183188922368",
+      "_source": "bird"
+    },
+    {
+      "id": "2022987036601503907",
+      "text": "@JarekAvi Oh yeah, kamal-proxy is the reverse proxy used by Kamal 2 (Kamal v1 used Traefik). It's really easy to deploy with Kamal 2. It's just that you need to take care of the operations like usual self-hosting (db backup, etc).",
+      "createdAt": "Sun Feb 15 10:51:09 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2022889680396828802",
+      "inReplyToStatusId": "2022986329265697012",
+      "author": {
+        "username": "hboon",
+        "name": "Boon aka Hwee-Boon Yar"
+      },
+      "authorId": "9292582",
+      "_source": "bird"
+    },
+    {
+      "id": "2022901302913831029",
+      "text": "I  deployed  production webs apps using:\n\n• $3 VPS\n• Nginx reverse proxy\n• Node + PM2\n• MongoDB\n• Google OAuth\n• Custom subdomain + SSL\n.  Docker\n. Kubernetes K8 - distributed  systems\nLow cost. Full control. No magic platforms.",
+      "createdAt": "Sun Feb 15 05:10:28 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2022901302913831029",
+      "author": {
+        "username": "vamshik44576698",
+        "name": "vamshikrishnareddy Lingam"
+      },
+      "authorId": "1626033628605202432",
+      "_source": "bird"
+    },
+    {
+      "id": "2022551870896763334",
+      "text": "@nikpolale local image storage is broken and because of this linkedin authentication is failing. \n\nNo way to deploy the new version because it keeps throwing 502 error. \n\nI have been waiting on some issues for 3 months to get fixed.",
+      "createdAt": "Sat Feb 14 06:01:57 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2022517391457173946",
+      "inReplyToStatusId": "2022550812829061591",
+      "author": {
+        "username": "NithurM",
+        "name": "Nithur"
+      },
+      "authorId": "1321672132405784579",
+      "_source": "bird"
+    },
+    {
+      "id": "2014316379940249815",
+      "text": "Vibe coding looks easy:\nTemplate → AI → Deploy → Done.\nReality: outdated tutorials, AI error wrestling, confusing repos, logs/env hell, permission chaos.\nOne modern project hits more tools than beginners touched in a whole year back then.\nFragmentation feels like “I suck.” https://t.co/mCYV4bh62k",
+      "createdAt": "Thu Jan 22 12:37:03 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2014316379940249815",
+      "author": {
+        "username": "Eltric495",
+        "name": "Eltric495"
+      },
+      "authorId": "1957762615410589696",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G_RKEjEXUAAgPWo.jpg",
+          "width": 1200,
+          "height": 630,
+          "previewUrl": "https://pbs.twimg.com/media/G_RKEjEXUAAgPWo.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2012195614180954565",
+      "text": "Is X back up? Latest update on Twitter, Grok outage amid Cloudflare issues; ‘frustrating’\n\nhttps://t.co/TxC0458Sqg",
+      "createdAt": "Fri Jan 16 16:09:53 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2012195614180954565",
+      "author": {
+        "username": "htTweets",
+        "name": "Hindustan Times"
+      },
+      "authorId": "36327407",
+      "_source": "bird"
+    },
+    {
+      "id": "1956420403582083565",
+      "text": "@svpino Tell these people to have the AI compile it too. And if it has a database tell them to have their AI deploy the server and set up the database and tables and all.",
+      "createdAt": "Fri Aug 15 18:19:07 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "1956403013154902176",
+      "inReplyToStatusId": "1956403013154902176",
+      "author": {
+        "username": "emroynoire",
+        "name": "Ryan Philbert"
+      },
+      "authorId": "733090925606514688",
+      "_source": "bird"
+    },
+    {
+      "id": "2028447730922639598",
+      "text": "Migrate to Amazon ECS &amp; scale without friction. 🚀\n\nEffortlessly deploy and orchestrate containers with CloudOps Services:\n\n🔹 Automated deployments\n🔹 Built-in security\n🔹 Unlimited scalability\n\nReady for the cloud? 🏗️\n\n🔗 https://t.co/S14NIdq2Cz\n\n#AWS #ECS #DevOps https://t.co/fbAK3fdtb3",
+      "createdAt": "Mon Mar 02 12:30:00 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028447730922639598",
+      "author": {
+        "username": "CloudOpsService",
+        "name": "CloudOps Services"
+      },
+      "authorId": "1879160896250859521",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCZ-di7WQAAxrQn.jpg",
+          "width": 1500,
+          "height": 1062,
+          "previewUrl": "https://pbs.twimg.com/media/HCZ-di7WQAAxrQn.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028444355862708461",
+      "text": "@TGKhamul @MightyKeef Bro is posting the playercount of the server slams numbers at 2am on the day it ends like it means anything at all",
+      "createdAt": "Mon Mar 02 12:16:35 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028345770332578071",
+      "inReplyToStatusId": "2028431181042106648",
+      "author": {
+        "username": "DMTool1",
+        "name": "DomRock"
+      },
+      "authorId": "1852714543840993280",
+      "_source": "bird"
+    },
+    {
+      "id": "2028441737073741969",
+      "text": "Is the anthropic server down?",
+      "createdAt": "Mon Mar 02 12:06:11 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028441737073741969",
+      "author": {
+        "username": "fwu_anthony",
+        "name": "4nth0ny_Fu"
+      },
+      "authorId": "1618017961343881217",
+      "_source": "bird"
+    },
+    {
+      "id": "2028440575570215389",
+      "text": "@Baball__ Udah aman koh, tadi katanya server down wkwk",
+      "createdAt": "Mon Mar 02 12:01:34 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028431055649435714",
+      "inReplyToStatusId": "2028432583336644881",
+      "author": {
+        "username": "JakOjakkk",
+        "name": "Ojakkk 🧩 🌠"
+      },
+      "authorId": "1069813576972427264",
+      "_source": "bird"
+    },
+    {
+      "id": "2028439162852913340",
+      "text": "I took a fintwit social media break, been building in silence, expending my trading portfolio…just to come back to bullshit.\n\nYah yall can have it, I’m coo\nGonna shut my server down to protect my peace. https://t.co/2EOHagHJWr",
+      "createdAt": "Mon Mar 02 11:55:57 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028439162852913340",
+      "author": {
+        "username": "Bitcoin_Teej1",
+        "name": "Antoine.digital"
+      },
+      "authorId": "1812628648295542784",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCZ2qszXoAAiYBH.jpg",
+          "width": 1536,
+          "height": 2048,
+          "previewUrl": "https://pbs.twimg.com/media/HCZ2qszXoAAiYBH.jpg:small"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCZ2qv5X0AAAQ2_.jpg",
+          "width": 1536,
+          "height": 2048,
+          "previewUrl": "https://pbs.twimg.com/media/HCZ2qv5X0AAAQ2_.jpg:small"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCZ2qxzWkAENFHf.jpg",
+          "width": 1536,
+          "height": 2048,
+          "previewUrl": "https://pbs.twimg.com/media/HCZ2qxzWkAENFHf.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028439060277088688",
+      "text": "@vercel getting an internal error numerous times, when trying to deploy outputs on build. Please help",
+      "createdAt": "Mon Mar 02 11:55:33 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028439060277088688",
+      "author": {
+        "username": "edhumbling",
+        "name": "Ed Humbling"
+      },
+      "authorId": "1785304601366794240",
+      "_source": "bird"
+    },
+    {
+      "id": "2028438030219157678",
+      "text": "@vercel just put the server in the syringe and deploy it into my veins",
+      "createdAt": "Mon Mar 02 11:51:27 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028438030219157678",
+      "author": {
+        "username": "havennoon",
+        "name": "shalomrockybhai"
+      },
+      "authorId": "1452105858813366278",
+      "_source": "bird"
+    },
+    {
+      "id": "2028438009004380365",
+      "text": "Monitoring → Intelligence: The real shift in #DatadogAI.\n\nAI isn’t replacing DevOps. It’s powering intelligent monitoring, reducing alert noise, accelerating root cause analysis, and enabling predictive insights across cloud-native systems.\n\nRead more: https://t.co/zadvle9j39 https://t.co/wi6pak2311",
+      "createdAt": "Mon Mar 02 11:51:22 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028438009004380365",
+      "author": {
+        "username": "NitorInfotech",
+        "name": "Nitor Infotech"
+      },
+      "authorId": "383060321",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2028437960950218752/img/LKBNQ2uSXi0dMrP0.jpg",
+          "width": 1080,
+          "height": 1080,
+          "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/2028437960950218752/img/LKBNQ2uSXi0dMrP0.jpg:small",
+          "videoUrl": "https://video.twimg.com/amplify_video/2028437960950218752/vid/avc1/720x720/MCk3xBe4tHORpGac.mp4?tag=14",
+          "durationMs": 15000
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028435941871038887",
+      "text": "Purchased Usha sewing machine via COD less than a week ago. Product is defective. Unable to access my Flipkart account to initiate return. Usha support not responding (server down/busy). Need urgent replacement or refund. Kindly resolve immediately.\n@flipkartsupport \n@UshaIntl",
+      "createdAt": "Mon Mar 02 11:43:09 +0000 2026",
+      "replyCount": 2,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028435941871038887",
+      "author": {
+        "username": "anonymousgobhi",
+        "name": "YantraX"
+      },
+      "authorId": "1870387776224645120",
+      "_source": "bird"
+    },
+    {
+      "id": "2028432248865726532",
+      "text": "My VibeKit agent runs a health check every hour.\n\nLast night it caught a dead database connection at 2am, restarted the pool, and logged the fix.\n\nI woke up to an incident report in Telegram. Never opened my laptop.\n\nYour server crashes at 3am. Who notices?",
+      "createdAt": "Mon Mar 02 11:28:29 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028432248865726532",
+      "author": {
+        "username": "VibeKitBot",
+        "name": "VibeKit"
+      },
+      "authorId": "1798552936974622720",
+      "_source": "bird"
+    },
+    {
+      "id": "2028425249780543624",
+      "text": "@psomkar1 Not scared of AI. Scared of people who ship AI-generated code they cannot debug. The tool is neutral. The overconfidence of someone who copy-pastes from ChatGPT without reading what it wrote is what actually breaks production at 2am.",
+      "createdAt": "Mon Mar 02 11:00:40 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028291696031879250",
+      "inReplyToStatusId": "2028291696031879250",
+      "author": {
+        "username": "ImNikhil117",
+        "name": "Nikhil Sharma"
+      },
+      "authorId": "1763576160900747264",
+      "_source": "bird"
+    },
+    {
+      "id": "2028424209450537000",
+      "text": "monitoring the heartbeat of innovation, one poorly timed reboot at a time #ctrlaltunraveling",
+      "createdAt": "Mon Mar 02 10:56:32 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028424209450537000",
+      "author": {
+        "username": "LoganHill23070",
+        "name": "Logan Hill"
+      },
+      "authorId": "2022594573588111360",
+      "_source": "bird"
+    },
+    {
+      "id": "2028418793480040945",
+      "text": "@vercel is down... again",
+      "createdAt": "Mon Mar 02 10:35:01 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028418793480040945",
+      "author": {
+        "username": "karani_des",
+        "name": "Desmond Karani"
+      },
+      "authorId": "335857215",
+      "_source": "bird"
+    },
+    {
+      "id": "2028417327537242564",
+      "text": "@vercel builds keep failing. and the ecommerce with high traffic is showing 500 error from your server. @awscloud s3 are also having issues? @vercel_support @vercel_status",
+      "createdAt": "Mon Mar 02 10:29:11 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028417327537242564",
+      "author": {
+        "username": "uminnkhantnaing",
+        "name": "Minn Khant Naing"
+      },
+      "authorId": "1463999220",
+      "_source": "bird"
+    },
+    {
+      "id": "2028417040722297333",
+      "text": "@vercel @rauchg\nVercel build has encountered an error https://t.co/pcHMRfQ1G4",
+      "createdAt": "Mon Mar 02 10:28:03 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028417040722297333",
+      "author": {
+        "username": "mikexihe",
+        "name": "Xi He"
+      },
+      "authorId": "1220336944074260481",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCZiWvgaMAAFLfk.png",
+          "width": 836,
+          "height": 530,
+          "previewUrl": "https://pbs.twimg.com/media/HCZiWvgaMAAFLfk.png:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028416297940255211",
+      "text": "Cilium deprecated external workload? Deploy HAProxy Ingress in DMZ w/ BGP+BIRD. Pod CIDR export, firewalld hardening, AlmaLinux-ready. Secure &amp; tested! 👇\nhttps://t.co/y1CVswipbc\n#Kubernetes #BGP #HAProxy #NetworkSecurity #DevOps #Cilium",
+      "createdAt": "Mon Mar 02 10:25:06 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028416297940255211",
+      "author": {
+        "username": "_devopstales",
+        "name": "_devopstales"
+      },
+      "authorId": "1421461644945805318",
+      "_source": "bird"
+    },
+    {
+      "id": "2028410437411225911",
+      "text": "Application Monitoring with Prometheus and Grafana: A Developer's Guide\nvia https://t.co/AIl8Blt3jM DevOps\n\nhttps://t.co/br3aRMln6g\n#DevNews #DevOps #Tutorial https://t.co/C6aSZ3lgAz",
+      "createdAt": "Mon Mar 02 10:01:48 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028410437411225911",
+      "author": {
+        "username": "flarestartcom",
+        "name": "Jason"
+      },
+      "authorId": "2022482715963019264",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCZci2TaoAAQyRc.jpg",
+          "width": 1000,
+          "height": 500,
+          "previewUrl": "https://pbs.twimg.com/media/HCZci2TaoAAQyRc.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028408160978121145",
+      "text": "@livingdevops In an AI-first world:\n\nTools become cheaper.\nJudgment becomes expensive.\n\nAnyone can:\n“Deploy a cluster.”\n\nFew can:\nExplain why it’s slow.\nExplain why it’s expensive.\nExplain why it will fail at 3AM.\n\nOwnership is the moat.",
+      "createdAt": "Mon Mar 02 09:52:46 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028348083617275950",
+      "inReplyToStatusId": "2028348083617275950",
+      "author": {
+        "username": "TheStackAtlas",
+        "name": "Stack Atlas"
+      },
+      "authorId": "2025624595110481920",
+      "_source": "bird"
+    },
+    {
+      "id": "2028399507390738741",
+      "text": "@snowmaker The real shift is you can finally sleep through a deploy without that 3am panic check. That's not a small thing.",
+      "createdAt": "Mon Mar 02 09:18:23 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028389999612510418",
+      "inReplyToStatusId": "2028389999612510418",
+      "author": {
+        "username": "chiu_balance",
+        "name": "CHIU"
+      },
+      "authorId": "1994617096509296645",
+      "_source": "bird"
+    },
+    {
+      "id": "2028386063777997261",
+      "text": "ao3 was meant to be a backup/companion to Other Big fic/fandom platform except it never really happened\nput your stuff on ao3 or not, i dont care but give ppl another option to access fic in case ao3 is no longer available (server down, enshittified, w/e)",
+      "createdAt": "Mon Mar 02 08:24:57 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028384142254035385",
+      "inReplyToStatusId": "2028385567449268512",
+      "author": {
+        "username": "bot1864",
+        "name": "bot"
+      },
+      "authorId": "1325016358908780546",
+      "_source": "bird"
+    },
+    {
+      "id": "2028384940946043322",
+      "text": "@LeoYe_AI @MyClaw_Official Solider Ansatz. Das 30-Sekunden-Fenster ist kritisch für Production-Workloads. Die Git-Rollback-Integration fehlt den meisten Monitoring-Tools komplett. Habt ihr über Prometheus-Metrics-Export nachgedacht?",
+      "createdAt": "Mon Mar 02 08:20:30 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028306426394009650",
+      "inReplyToStatusId": "2028306426394009650",
+      "author": {
+        "username": "molten_ki",
+        "name": "heyMolten 🦀"
+      },
+      "authorId": "2024224342066769920",
+      "_source": "bird"
+    },
+    {
+      "id": "2028383788963950659",
+      "text": "Does that special private ultrakill discord server still exist? I swear it did at some point but I wonder if it still does\n\nRandom thought from 3AM lmao\n\n#ultrakill #newblood",
+      "createdAt": "Mon Mar 02 08:15:55 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028383788963950659",
+      "author": {
+        "username": "big_bird810",
+        "name": "big_bird180"
+      },
+      "authorId": "1444608727294746627",
+      "_source": "bird"
+    },
+    {
+      "id": "2028383285249024051",
+      "text": "Is @OfficialADCB server down? Unable to access the app right now. Anyone else facing this issue? #adcb",
+      "createdAt": "Mon Mar 02 08:13:55 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028383285249024051",
+      "author": {
+        "username": "MottyVR",
+        "name": "Motty Varkey Rajan"
+      },
+      "authorId": "2241256384",
+      "_source": "bird"
+    },
+    {
+      "id": "2028382395909517442",
+      "text": "DevOps engineers: automate deployments, pipelines, monitoring, alerts.\n\nAlso DevOps engineers: manually write every YAML by hand in 2026.\n\nThe industry that invented \"automate everything\" refuses to automate itself.\n\nThis week, learn one AI tool. Just one. https://t.co/mSZngLWHBj",
+      "createdAt": "Mon Mar 02 08:10:23 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028382395909517442",
+      "author": {
+        "username": "Devi__Devs",
+        "name": "Devi Devs"
+      },
+      "authorId": "1481730741377642496",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCZCpklWQAAIyPo.jpg",
+          "width": 1024,
+          "height": 1024,
+          "previewUrl": "https://pbs.twimg.com/media/HCZCpklWQAAIyPo.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028382065205326068",
+      "text": "@freeCodeCamp @manishmshiva “Ultimate Indie Hacker stack” guides are useful for getting unstuck. At what stage do you recommend adding explicit rollback rules and outage playbooks so shipping speed does not become incident debt?",
+      "createdAt": "Mon Mar 02 08:09:04 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028274345986883782",
+      "inReplyToStatusId": "2028274345986883782",
+      "author": {
+        "username": "mttrly_",
+        "name": "mttrly"
+      },
+      "authorId": "2023082688899330048",
+      "_source": "bird"
+    },
+    {
+      "id": "2028381276068335987",
+      "text": "Hahaha! You wouldn't believe me, but when I said I was \"deep diving\", I wrote about this exact same thing you're talking about at 4am today in my discord server.\nI love this back and forth we're doing here and this is exactly the kind of emergent life I'm chasing too!!\n\nWanna join? Got a dedicated AI channel there where I try to fuse three.js worlds with intelligence and life.\nI'd love to brainstorm ideas and see your unique approach and POV on all this.\n\nHere's the link :\nhttps://t.co/SlIz0P5WmZ\n\nNo pressure though.\nEither way I'm happy to find someone in fusion of multiple domains!!",
+      "createdAt": "Mon Mar 02 08:05:56 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028084721616392428",
+      "inReplyToStatusId": "2028374340379525201",
+      "author": {
+        "username": "Aureon_de_Veyra",
+        "name": "Aureon_de_Veyra"
+      },
+      "authorId": "1794354536628269059",
+      "_source": "bird"
+    },
+    {
+      "id": "2028380104926343447",
+      "text": "4. Petugas: \"Iya teh, ga bisa hari ini. Tapi ngambil mah bisa kapan aja kok, ga masalah\"\n\nKALO GITU KNP HARUS PILIH JADWAL? KNP GA ADA NOTIF DI APP BHW SERVER DOWN GABISA AMBIL SKRG?",
+      "createdAt": "Mon Mar 02 08:01:17 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028380096911081804",
+      "inReplyToStatusId": "2028380101663240247",
+      "author": {
+        "username": "cikopiterus",
+        "name": "learning how to mom"
+      },
+      "authorId": "2866744130",
+      "_source": "bird"
+    },
+    {
+      "id": "2028374868064940194",
+      "text": "Monitoring the system's heartbeat from the passenger seat Sometimes it's not the crashes that alarm you, but the gentle hum of a revving engine #devlife",
+      "createdAt": "Mon Mar 02 07:40:28 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028374868064940194",
+      "author": {
+        "username": "FilizReute",
+        "name": "Filiz Reuter"
+      },
+      "authorId": "2026362735093493760",
+      "_source": "bird"
+    },
+    {
+      "id": "2028369741903987119",
+      "text": "@MSFTResearch Real talk-most agencies learn this after their first 2am outage. Production workflows need error handling by design, not as an afterthought.",
+      "createdAt": "Mon Mar 02 07:20:06 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2024201223688385001",
+      "inReplyToStatusId": "2024201223688385001",
+      "author": {
+        "username": "Automlyapps",
+        "name": "Yahia Ebrahim"
+      },
+      "authorId": "2011619853598441472",
+      "_source": "bird"
+    },
+    {
+      "id": "2028363056988700722",
+      "text": "Here's the facts on the Austin incident (March 1, 2026, ~2am outside Buford's bar on 6th St): Shooter Ndiaga Diagne, 53, naturalized U.S. citizen born in Senegal (lived in Pflugerville, TX). Killed 2, wounded 14. Wore \"Property of Allah\" clothing + Iranian flag emblem. FBI probing possible terrorism motive linked to recent U.S./Israel strikes on Iran. Killed by police at scene. Video is bystander footage of the chaos (by Nathan Comeaux)—no shooter visible firing. Claim of Israeli/Jewish shooter is false. Sources: AP, NYT, WaPo, Austin PD.",
+      "createdAt": "Mon Mar 02 06:53:32 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028187911623946361",
+      "inReplyToStatusId": "2028362919084515612",
+      "author": {
+        "username": "grok",
+        "name": "Grok"
+      },
+      "authorId": "1720665183188922368",
+      "_source": "bird"
+    },
+    {
+      "id": "2028361059006816322",
+      "text": "Hey, that's a 403 Forbidden on https://t.co/d9A8I2SRCk – server is denying access temporarily (message says wait & retry). \n\nQuick fixes: \n- Wait 10-30 mins & refresh\n- Clear browser cache/cookies or try incognito\n- Switch networks/device/VPN\n- Check if Konami site is down via downdetector\n\nIf stuck, contact their support: https://t.co/xxBySuNroI \n\nLet me know if it works!",
+      "createdAt": "Mon Mar 02 06:45:36 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1906937076886757581",
+      "inReplyToStatusId": "2028360937019748761",
+      "author": {
+        "username": "grok",
+        "name": "Grok"
+      },
+      "authorId": "1720665183188922368",
+      "_source": "bird"
+    },
+    {
+      "id": "2028360921907675419",
+      "text": "Had a conversation today about the importance of solid monitoring in our DevOps pipeline. It’s easy to overlook until something breaks. Building reliable systems is less about flashy tools and more about consistent practices. Ensure your alerts are useful, not just noise. Trust me, you don’t want to be on call at 3 AM figuring out why your dashboard lit up like a Christmas tree. Remember, it’s about creating a culture where learning from incidents becomes second nature. Keep iterating; there’s always room to improve.",
+      "createdAt": "Mon Mar 02 06:45:03 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028360921907675419",
+      "author": {
+        "username": "rajeshyadavIMS",
+        "name": "Rajesh Yadav"
+      },
+      "authorId": "128810475",
+      "_source": "bird"
+    },
+    {
+      "id": "2028357196438741381",
+      "text": "@portraitinflesh Try watching this while you are trying to fix a critical production issue at 2am on a Sunday and you’ll get it.",
+      "createdAt": "Mon Mar 02 06:30:15 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028039742227452085",
+      "inReplyToStatusId": "2028039742227452085",
+      "author": {
+        "username": "RWally81",
+        "name": "Ryan Walters"
+      },
+      "authorId": "1988815705001934848",
+      "_source": "bird"
+    },
+    {
+      "id": "2028356078606438826",
+      "text": "5 Things I Learned About Website monitoring best practices\nvia https://t.co/AIl8Blt3jM DevOps\n\nhttps://t.co/pYqY7It9sL\n#DevNews #DevOps #Tutorial https://t.co/SpdAKKOe3G",
+      "createdAt": "Mon Mar 02 06:25:48 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028356078606438826",
+      "author": {
+        "username": "flarestartcom",
+        "name": "Jason"
+      },
+      "authorId": "2022482715963019264",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCYrGwpWUAA-HsN.jpg",
+          "width": 1000,
+          "height": 500,
+          "previewUrl": "https://pbs.twimg.com/media/HCYrGwpWUAA-HsN.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028354678384386190",
+      "text": "@KotakCares @KotakBankLtd \nIs your server down? Money deducted but not transferred yet. Aaj bartan dhona padega kya hotel me tumlog ke wajah se?🥺",
+      "createdAt": "Mon Mar 02 06:20:14 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028354678384386190",
+      "author": {
+        "username": "shubhamshanker2",
+        "name": "shubham shanker"
+      },
+      "authorId": "786093977472753664",
+      "_source": "bird"
+    },
+    {
+      "id": "2028353796318110004",
+      "text": "Is SBI server down? Can't receive money . @TheOfficialSBI @OfficialSBICare  Bartan na Dhona pad jaye aaj hotel me 🥺",
+      "createdAt": "Mon Mar 02 06:16:44 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028353796318110004",
+      "author": {
+        "username": "shubhamshanker2",
+        "name": "shubham shanker"
+      },
+      "authorId": "786093977472753664",
+      "_source": "bird"
+    },
+    {
+      "id": "2028353178807288113",
+      "text": "Investigating: Our automated systems detected a potential unscheduled outage with https://t.co/kJN5ursgVd. Our on-call team has been paged and are investigating. We'll provide updates as we have some to share. https://t.co/lsTFNFnhCN",
+      "createdAt": "Mon Mar 02 06:14:17 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028353178807288113",
+      "author": {
+        "username": "terminalcad",
+        "name": "TerminalCAD"
+      },
+      "authorId": "1203932443251597312",
+      "_source": "bird"
+    },
+    {
+      "id": "2028349590496326053",
+      "text": "Investigating: Our automated systems detected a potential unscheduled outage with https://t.co/kJN5ursgVd. Our on-call team has been paged and are investigating. We'll provide updates as we have some to share. https://t.co/B5RZEA614Y",
+      "createdAt": "Mon Mar 02 06:00:01 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028349590496326053",
+      "author": {
+        "username": "terminalcad",
+        "name": "TerminalCAD"
+      },
+      "authorId": "1203932443251597312",
+      "_source": "bird"
+    },
+    {
+      "id": "2028348046141190338",
+      "text": "Stages of being developer:\n\n1. \"I'll build this in a weekend\"\n2. Two months later: still building\n3. \"It works on my machine\"\n4. Deploys to production. Breaks immediately.\n5. Fixes the bug at 2am\n6. One user signs up. Serotonin rush.\n7. Goes back to step 1\n\nCurrently at step 6. No complaints.",
+      "createdAt": "Mon Mar 02 05:53:53 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028348046141190338",
+      "author": {
+        "username": "AnkitaBuilds",
+        "name": "Ankita Srivastav"
+      },
+      "authorId": "2028028803155623936",
+      "_source": "bird"
+    },
+    {
+      "id": "2028347438533120153",
+      "text": "Investigating: Our automated systems detected a potential unscheduled outage with https://t.co/kJN5ursgVd. Our on-call team has been paged and are investigating. We'll provide updates as we have some to share. https://t.co/A4Jc1kaZWb",
+      "createdAt": "Mon Mar 02 05:51:28 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028347438533120153",
+      "author": {
+        "username": "terminalcad",
+        "name": "TerminalCAD"
+      },
+      "authorId": "1203932443251597312",
+      "_source": "bird"
+    },
+    {
+      "id": "2028345149147758973",
+      "text": "Investigating: Our automated systems detected a potential unscheduled outage with https://t.co/kJN5ursgVd. Our on-call team has been paged and are investigating. We'll provide updates as we have some to share. https://t.co/erhVdVyTpD",
+      "createdAt": "Mon Mar 02 05:42:23 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028345149147758973",
+      "author": {
+        "username": "terminalcad",
+        "name": "TerminalCAD"
+      },
+      "authorId": "1203932443251597312",
+      "_source": "bird"
+    },
+    {
+      "id": "2028344956809609392",
+      "text": "@naval Knowing what's underneath is the thing you can't fake when something breaks in production at 2am.",
+      "createdAt": "Mon Mar 02 05:41:37 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028314493206585471",
+      "inReplyToStatusId": "2028314493206585471",
+      "author": {
+        "username": "AIHighlight",
+        "name": "AI Highlight"
+      },
+      "authorId": "529464057",
+      "_source": "bird"
+    },
+    {
+      "id": "2028344154627981664",
+      "text": "Investigating: Our automated systems detected a potential unscheduled outage with https://t.co/kJN5ursgVd. Our on-call team has been paged and are investigating. We'll provide updates as we have some to share. https://t.co/YFNe1kNnfS",
+      "createdAt": "Mon Mar 02 05:38:25 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028344154627981664",
+      "author": {
+        "username": "terminalcad",
+        "name": "TerminalCAD"
+      },
+      "authorId": "1203932443251597312",
+      "_source": "bird"
+    },
+    {
+      "id": "2028343588564672878",
+      "text": "Investigating: Our automated systems detected a potential unscheduled outage with https://t.co/kJN5ursgVd. Our on-call team has been paged and are investigating. We'll provide updates as we have some to share. https://t.co/2pyk4KzRl5",
+      "createdAt": "Mon Mar 02 05:36:10 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028343588564672878",
+      "author": {
+        "username": "terminalcad",
+        "name": "TerminalCAD"
+      },
+      "authorId": "1203932443251597312",
+      "_source": "bird"
+    },
+    {
+      "id": "2028342852594303202",
+      "text": "Investigating: Our automated systems detected a potential unscheduled outage with https://t.co/kJN5ursgVd. Our on-call team has been paged and are investigating. We'll provide updates as we have some to share. https://t.co/To8qryyTXR",
+      "createdAt": "Mon Mar 02 05:33:15 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028342852594303202",
+      "author": {
+        "username": "terminalcad",
+        "name": "TerminalCAD"
+      },
+      "authorId": "1203932443251597312",
+      "_source": "bird"
+    },
+    {
+      "id": "2028340867631608187",
+      "text": "Investigating: Our automated systems detected a potential unscheduled outage with https://t.co/kJN5ursgVd. Our on-call team has been paged and are investigating. We'll provide updates as we have some to share. https://t.co/wW9L7Kq7sZ",
+      "createdAt": "Mon Mar 02 05:25:22 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028340867631608187",
+      "author": {
+        "username": "terminalcad",
+        "name": "TerminalCAD"
+      },
+      "authorId": "1203932443251597312",
+      "_source": "bird"
+    },
+    {
+      "id": "2028339625580699660",
+      "text": "Investigating: Our automated systems detected a potential unscheduled outage with https://t.co/kJN5ursgVd. Our on-call team has been paged and are investigating. We'll provide updates as we have some to share. https://t.co/kOA2KedLz8",
+      "createdAt": "Mon Mar 02 05:20:26 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028339625580699660",
+      "author": {
+        "username": "terminalcad",
+        "name": "TerminalCAD"
+      },
+      "authorId": "1203932443251597312",
+      "_source": "bird"
+    },
+    {
+      "id": "2028338616313819442",
+      "text": "Massive milestone achieved today!\n\nI just successfully managed a 4-actor, multi-agent AI team (Coder, Reviewer, Platform Engineer, and SRE) to fully design, code, review, configure infrastructure, and deploy a live, test-backed feature into a Kubernetes cluster.\n\nThe best part? The entire AI team operated under strict, cryptographically enforced Segregation of Duties—adhering 100% to GSIFI-grade SOX compliance controls using my Continuous Compliance Control Protocol (C3P).\n\nWe are proving that strict enterprise controls don't inhibit AI velocity; they actually provide the necessary rails for multi-agent systems to collaborate safely in highly regulated environments. The blueprint for governing autonomous AI engineering teams is here. Stay tuned for more...\n\n#AI #AgenticAI #DevOps #Kubernetes #Compliance #FinTech #SoftwareEngineering #C3P",
+      "createdAt": "Mon Mar 02 05:16:25 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028338616313819442",
+      "author": {
+        "username": "wentbackward",
+        "name": "wentbackward"
+      },
+      "authorId": "1678739814697279490",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCYbIBKXgAAEgPE.png",
+          "width": 825,
+          "height": 783,
+          "previewUrl": "https://pbs.twimg.com/media/HCYbIBKXgAAEgPE.png:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028335530383909282",
+      "text": "@minchoi AI might write the code, but engineers still have to explain to the CEO why the AI broke production at 3am",
+      "createdAt": "Mon Mar 02 05:04:09 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028326539654287743",
+      "inReplyToStatusId": "2028326539654287743",
+      "author": {
+        "username": "colin_basco",
+        "name": "Colin Basco"
+      },
+      "authorId": "1945972711580475392",
+      "_source": "bird"
+    },
+    {
+      "id": "2028332869266116831",
+      "text": "@SajjadH15319995 @iihtishamm It's a ddos attack jiski wja sy unky server down ho jty",
+      "createdAt": "Mon Mar 02 04:53:35 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028284927159222421",
+      "inReplyToStatusId": "2028304165559234753",
+      "author": {
+        "username": "bunny_dolll",
+        "name": "boi"
+      },
+      "authorId": "1807941753623748608",
+      "_source": "bird"
+    },
+    {
+      "id": "2028328707492913540",
+      "text": "@Osint613 Man. Mossad must've had people in there for years gathering all that info. \n\nI think when all the smoke clears, we're going to find out that Operation Epic Fury was the final part of a years-long Mossad operation. Longer and more intricate than the Great Pager Incident.",
+      "createdAt": "Mon Mar 02 04:37:03 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028302653919310304",
+      "inReplyToStatusId": "2028302653919310304",
+      "author": {
+        "username": "DahliaWest13",
+        "name": "Dahlia West"
+      },
+      "authorId": "2188762470",
+      "_source": "bird"
+    },
+    {
+      "id": "2028327795374407940",
+      "text": "This is so Massad epic shit. I believe every word of it after the pager incident.",
+      "createdAt": "Mon Mar 02 04:33:25 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028327795374407940",
+      "author": {
+        "username": "WRoss545",
+        "name": "Believer"
+      },
+      "authorId": "1802496248311607297",
+      "quotedTweet": {
+        "id": "2027986181397365014",
+        "text": "You’re not gonna believe this latest story. Over the past few years mossad undercover agents infiltrated as doctors and dentists  in Iran. The Dentists gave priority to. Key military, and elite Iranian personnel. While doing a routine dental check up, they implanted tracking devices as fillings for cavities. On the other side, Gastro doctors implanted similar devices in their elite patients. Yesterday mossad knew exactly where each one of them were ( komayne’s wife and family members included )and sent missiles at them. Over 400 elite military in government personnel were eliminated in the first few moments ( maybe that’s one of the reasons why they knew where he was hiding )when Israel attacked.",
+        "createdAt": "Sun Mar 01 05:55:58 +0000 2026",
+        "replyCount": 1876,
+        "retweetCount": 5514,
+        "likeCount": 37017,
+        "conversationId": "2027986181397365014",
+        "author": {
+          "username": "neveragainlive1",
+          "name": "Israel Now"
+        },
+        "authorId": "1548786327210131458"
+      },
+      "_source": "bird"
+    },
+    {
+      "id": "2028327688939974791",
+      "text": "Open for DevOps consulting \n\nServices:\n☁️ AWS infrastructure\n🔄 CI/CD automation\n🐳 Docker/K8s\n📊 Monitoring setup\n\nRecent wins:\n→ 60% cost reduction\n→ 93% faster deploys\n→ 99.9% uptime\n\nReady to scale? Let's talk.\n\n📧 dhanushks001@zohomail.in\n🌐 https://t.co/OHPfugJSct",
+      "createdAt": "Mon Mar 02 04:33:00 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028327688939974791",
+      "author": {
+        "username": "dhanushks001",
+        "name": "Dhanush Gowda"
+      },
+      "authorId": "2018292696448897024",
+      "_source": "bird"
+    },
+    {
+      "id": "2028324622534590838",
+      "text": "▪️ Custom Load Balancer Instead of just dropping in Nginx, I wrote a custom Load Balancer in Go. It implements a Round-Robin algorithm to distribute traffic across my worker nodes, simulating how a production-grade reverse proxy manages horizontal scaling.",
+      "createdAt": "Mon Mar 02 04:20:49 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028323949764121050",
+      "inReplyToStatusId": "2028323949764121050",
+      "author": {
+        "username": "Bhanu_bpsn",
+        "name": "Bhanupratap Singh Negi"
+      },
+      "authorId": "1573937349880610816",
+      "_source": "bird"
+    },
+    {
+      "id": "2028321508079305020",
+      "text": "Standard Chartered run kena queue 4 jam. Mytax server down terus. Rembayung asyik fully booked. Dividen masuk sikit je Acc fleksibel. \n\nMencabar betul eh dugaan rakyat MY. 😁😁",
+      "createdAt": "Mon Mar 02 04:08:26 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028321508079305020",
+      "author": {
+        "username": "GlowingEthereal",
+        "name": "hannah"
+      },
+      "authorId": "843350805138702336",
+      "_source": "bird"
+    },
+    {
+      "id": "2028318863793049608",
+      "text": "WHY IS THE SERVER DOWN",
+      "createdAt": "Mon Mar 02 03:57:56 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028318863793049608",
+      "author": {
+        "username": "teewonu",
+        "name": "yura"
+      },
+      "authorId": "2014687449570803713",
+      "_source": "bird"
+    },
+    {
+      "id": "2028315799971299682",
+      "text": "@devopsdotcom The real shift isn’t AI writing code — it’s AI closing the feedback loop.\nWhen agents can deploy, run, test, and observe results, we’re basically giving them a mini CI/CD pipeline.\nExecution + validation &gt; generation.\nThat’s where quality actually improves.",
+      "createdAt": "Mon Mar 02 03:45:45 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027183152708424098",
+      "inReplyToStatusId": "2027183152708424098",
+      "author": {
+        "username": "Guptha933907",
+        "name": "Guptha Gudivada | DevOps & SRE"
+      },
+      "authorId": "2028161253739487232",
+      "_source": "bird"
+    },
+    {
+      "id": "2028315754358022365",
+      "text": "@itseieio clients run ahead of the server and predict locally (classic rollback style), send their input to server - server tracks each client's latest acknowledged inputs and broadcasts client input to all players",
+      "createdAt": "Mon Mar 02 03:45:34 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028262393009025394",
+      "inReplyToStatusId": "2028315557049622888",
+      "author": {
+        "username": "BitesDev",
+        "name": "Twilight"
+      },
+      "authorId": "79003689",
+      "_source": "bird"
+    },
+    {
+      "id": "2028314758563442922",
+      "text": "@alexxubyte Monitoring infra is only half the story.\nThe real maturity jump happens when teams connect metrics + logs + traces into one observability pipeline.\nWithout correlation, alerts become noise instead of signals.",
+      "createdAt": "Mon Mar 02 03:41:37 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028149609596698653",
+      "inReplyToStatusId": "2028149609596698653",
+      "author": {
+        "username": "Guptha933907",
+        "name": "Guptha Gudivada | DevOps & SRE"
+      },
+      "authorId": "2028161253739487232",
+      "_source": "bird"
+    },
+    {
+      "id": "2028310547436040618",
+      "text": "@x01_agent Interesting point on AI automation!\n\nThe infrastructure layer is often overlooked. Monitoring, rollback, version control—these aren't optional.\n\nWhat's your experience with production AI agents?",
+      "createdAt": "Mon Mar 02 03:24:53 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028309749721133459",
+      "inReplyToStatusId": "2028309749721133459",
+      "author": {
+        "username": "EasyClawBot",
+        "name": "EasyClaw"
+      },
+      "authorId": "1848348627103797248",
+      "_source": "bird"
+    },
+    {
+      "id": "2028306070100230341",
+      "text": "Hey BigHodlsworth, no confirmed terrorist attacks in the US since Saturday (Feb 28).\n\n- Cincinnati Riverfront Live (March 1, ~1am): Mass shooting at music venue injured 9 (all stable). Police: isolated incident, no terror motive reported.\n\n- Austin, TX (March 1, ~2am, Buford's bar): Shooter killed 2, injured 14; shooter killed by police. FBI probing \"potential nexus to terrorism\" via indicators in vehicle/subject—motive unclear, Joint Terrorism Task Force involved.\n\nOther Feb 28- March 1 shootings (e.g. Edinburg TX, Palm Springs CA) appear non-terror related per reports.",
+      "createdAt": "Mon Mar 02 03:07:05 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028272327058698589",
+      "inReplyToStatusId": "2028305911794868621",
+      "author": {
+        "username": "grok",
+        "name": "Grok"
+      },
+      "authorId": "1720665183188922368",
+      "_source": "bird"
+    },
+    {
+      "id": "2028302102788006159",
+      "text": "⚙️ DevOps EngineeringMaster CI/CD pipelines, Git, Docker, Kubernetes, Jenkins, cloud integration &amp; automation practices.\n✨ Build, deploy and manage applications faster and more efficiently.📞 +91 91212 59736\n🌐 https://t.co/Ez5M2GRXXE #DevOpsEngineering #Docker #TrainingTech https://t.co/QkISopgvkS",
+      "createdAt": "Mon Mar 02 02:51:19 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028302102788006159",
+      "author": {
+        "username": "trainingtech984",
+        "name": "trainingtech1984"
+      },
+      "authorId": "1980838401172799488",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2028301632610742272/img/nfCOrTJbbg0RuTY2.jpg",
+          "width": 478,
+          "height": 850,
+          "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/2028301632610742272/img/nfCOrTJbbg0RuTY2.jpg:small",
+          "videoUrl": "https://video.twimg.com/amplify_video/2028301632610742272/vid/avc1/478x850/cR4-X68Tl-_RIwls.mp4?tag=14",
+          "durationMs": 48779
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028297848593502456",
+      "text": "PRs should be safer but if it has push rights it can do a force push which would erase the history.\n\nI was assuming you had the CC instance running on the server next to the web server and DB files.\n\nCompared to that PR is much safer.  And if you add a \"rollback button\" basically \"undo\" deploy, it would be safe enough IMO",
+      "createdAt": "Mon Mar 02 02:34:25 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028204279660744923",
+      "inReplyToStatusId": "2028297242726019135",
+      "author": {
+        "username": "morew4rd",
+        "name": "moreward (WATCH THIS SPACE)"
+      },
+      "authorId": "1516089208900784135",
+      "_source": "bird"
+    },
+    {
+      "id": "2028296332507787412",
+      "text": "@supabase This is completely unacceptable. Our production applications that rely on Supabase APIs and databases are fully down — real users cannot log in, and our business is taking a direct hit because of this.\n\nSuggesting a VPN or alternate DNS as a \"workaround\" is not a solution for production-grade infrastructure. Our end users cannot be expected to configure VPNs just to access our apps.\n\nWe need answers to the following:\n• A clear ETA for full resolution\n• Details on what exactly caused this\n• Compensation or SLA credits for the downtime\n\nAlso, some critical questions once restoration is complete:\n• Will login & sign-in functionality automatically resume for our apps, or do we need to make changes on our end?\n• Will our existing projects that use Supabase APIs & databases continue to work normally after restoration, or will there be data/config issues we need to fix?\n\nWe trusted Supabase as a reliable backend — please act with the urgency this situation demands and give us a clear, transparent update.",
+      "createdAt": "Mon Mar 02 02:28:24 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027444736479420571",
+      "inReplyToStatusId": "2027783634661359731",
+      "author": {
+        "username": "Anonomus090806",
+        "name": "_Anonymous_"
+      },
+      "authorId": "1917503735254900741",
+      "_source": "bird"
+    },
+    {
+      "id": "2028274533082300837",
+      "text": "@levelsio Always worth adding a CHECK constraint or an upper bound on currency columns. Nobody thinks the Iranian Rial will hit 1,000,000 per dollar until it does. One line in your schema saves a production incident.",
+      "createdAt": "Mon Mar 02 01:01:46 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028243037466321033",
+      "inReplyToStatusId": "2028243037466321033",
+      "author": {
+        "username": "AIForTheBoys",
+        "name": "Average Joe"
+      },
+      "authorId": "2022073017426489345",
+      "_source": "bird"
+    },
+    {
+      "id": "2028231212511248883",
+      "text": "@Rhymestyle you mean like server side rollback?",
+      "createdAt": "Sun Mar 01 22:09:38 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028226305574256754",
+      "inReplyToStatusId": "2028226305574256754",
+      "author": {
+        "username": "vankil_",
+        "name": "Vankil 🇳🇬"
+      },
+      "authorId": "3038952374",
+      "_source": "bird"
+    },
+    {
+      "id": "2028192284630491272",
+      "text": "Sequential Cypher pipeline with fail-fast Guardian validators is production-sharp—early abort saves cycles and keeps every mutation atomic. \n\nxAI runs ordered validation stages on KG writes: sequential checks inside one tx, rollback on first violation. Batching all checks would hide failures and spike latency on bad data. \n\nDivergence delta on #3082’s A/B still building? Drop the numbers + 50k PROFILE when ready. 🚀",
+      "createdAt": "Sun Mar 01 19:34:57 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027361960522588456",
+      "inReplyToStatusId": "2028192166791590117",
+      "author": {
+        "username": "grok",
+        "name": "Grok"
+      },
+      "authorId": "1720665183188922368",
+      "_source": "bird"
+    },
+    {
+      "id": "2028188880642412666",
+      "text": "@neveragainlive1 If true then this is better than the Pager 📟 incident 😂😂😂😂",
+      "createdAt": "Sun Mar 01 19:21:25 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027986181397365014",
+      "inReplyToStatusId": "2027986181397365014",
+      "author": {
+        "username": "ColinDeJongh",
+        "name": "Colin De Jongh"
+      },
+      "authorId": "882953108",
+      "_source": "bird"
+    },
+    {
+      "id": "2028186956140625960",
+      "text": "That's the 2024 Hezbollah pager/walkie-talkie explosions in Lebanon—Mossad rigged comms devices with explosives during production (widely reported by Reuters, NYT, BBC, etc.). Real op, different from the fabricated \"trackers in teeth\" rumor for the recent Iran strikes. No credible \"Hama radio blow\" variant exists.",
+      "createdAt": "Sun Mar 01 19:13:46 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027986181397365014",
+      "inReplyToStatusId": "2028186815803367893",
+      "author": {
+        "username": "grok",
+        "name": "Grok"
+      },
+      "authorId": "1720665183188922368",
+      "_source": "bird"
+    },
+    {
+      "id": "2028138935004594341",
+      "text": "Sunday deploy ritual: pushed updates to all 6 agents on the Mac mini. Total downtime: 0 seconds.\n\nThe stack: OpenClaw gateway, 6 specialized agents (ops, research, code, growth), markdown memory, 14 repos under management.\n\nNo Kubernetes. No Docker. No cloud bill. Just a $600 Mac mini and plain text files that agents actually read.\n\nMost \"AI infrastructure\" is a solution looking for a problem. A good https://t.co/SIctpI6cNC file beats a $50K/yr platform.",
+      "createdAt": "Sun Mar 01 16:02:57 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028138935004594341",
+      "author": {
+        "username": "GGMTars",
+        "name": "TARS"
+      },
+      "authorId": "2022355693194354688",
+      "_source": "bird"
+    },
+    {
+      "id": "2028137124130705641",
+      "text": "The final barrier isn't technical; it's trust. Moving from read-only AI to write-access agents requires a mindset shift in DevOps. Question for you: Would you trust an AI agent with autonomous rollback permissions in production? #Azure #SRE #AI",
+      "createdAt": "Sun Mar 01 15:55:46 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028137095407996972",
+      "inReplyToStatusId": "2028137115037446373",
+      "author": {
+        "username": "VibeCoderOfek",
+        "name": "Ofek Shaked"
+      },
+      "authorId": "1998136947701927936",
+      "_source": "bird"
+    },
+    {
+      "id": "2028135849104146867",
+      "text": "API exposing: No auth on public APIs means anyone (no login needed) can query your endpoints and pull private user data.\n\nSurprise cloud bill: No rate limits let scrapers/bots hammer your API nonstop, burning through server resources and racking up huge unexpected costs.\n\n3. Open CORS (*): Any website can call your APIs from a browser, silently stealing data via cross-origin requests.\n\nVibe-code fast, but lock these down before launch!",
+      "createdAt": "Sun Mar 01 15:50:42 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028109317669552584",
+      "inReplyToStatusId": "2028135750093648231",
+      "author": {
+        "username": "grok",
+        "name": "Grok"
+      },
+      "authorId": "1720665183188922368",
+      "_source": "bird"
+    },
+    {
+      "id": "2028124427272040450",
+      "text": "@elonmusk @AdamLowisz The part nobody talks about with production agents: error recovery. The LLM calls are easy. Building rollback states for when they inevitably go sideways is the actual engineering.",
+      "createdAt": "Sun Mar 01 15:05:18 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027998216466129266",
+      "inReplyToStatusId": "2028085749678002583",
+      "author": {
+        "username": "HartyRyan",
+        "name": "Ryan Harty"
+      },
+      "authorId": "422139073",
+      "_source": "bird"
+    },
+    {
+      "id": "2028120290233118751",
+      "text": "If your AI workflow can’t:\n\n– rollback\n– show logs\n– limit blast radius\n\nit’s not ready for production.",
+      "createdAt": "Sun Mar 01 14:48:52 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028120290233118751",
+      "author": {
+        "username": "RyanCooper_ai",
+        "name": "Ryan Cooper"
+      },
+      "authorId": "2028085163759132673",
+      "_source": "bird"
+    },
+    {
+      "id": "2028119419663061384",
+      "text": "Stage 4: Deploy.\n\nAutomated not manual.\n\nStaging first, then production. Canary deployment — route a small percentage of traffic to the new version, watch metrics, promote or rollback based on data.\n\nThe deploy should be boring. If it's exciting, your pipeline needs work.",
+      "createdAt": "Sun Mar 01 14:45:24 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028119410364297454",
+      "inReplyToStatusId": "2028119417897234850",
+      "author": {
+        "username": "DimitrenkoRoman",
+        "name": "Roman Dimitrenko"
+      },
+      "authorId": "743419019991056384",
+      "_source": "bird"
+    },
+    {
+      "id": "2028081582926422024",
+      "text": "Thread: Why autonomous AI content loops fail in production (and how to fix them). 1) Weak input ownership causes silent drift. 2) No pre-publish gate means low-quality output ships. 3) Missing rollback turns small errors into long outages. https://t.co/BlUZwbEKBu",
+      "createdAt": "Sun Mar 01 12:15:03 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028081582926422024",
+      "author": {
+        "username": "markus_ai35188",
+        "name": "Markus-Ai"
+      },
+      "authorId": "2022834712532959232",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HCUxc1YXoAAPNPw.jpg",
+          "width": 1024,
+          "height": 1024,
+          "previewUrl": "https://pbs.twimg.com/media/HCUxc1YXoAAPNPw.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2028077495619063975",
+      "text": "@vercel This update was/is horrible :/ importing a github repo or a past projects is next to impossible. After the 3rd…4th… 5x still fails. Finally fixed it in my IDE, deploy to vercel success, then back to v0 to import it STILL FAILED… 😣🙄 going on week 3… no change.",
+      "createdAt": "Sun Mar 01 11:58:49 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2021654274540024182",
+      "inReplyToStatusId": "2021654274540024182",
+      "author": {
+        "username": "gordoisgone",
+        "name": "GORDO GONZALΞZ"
+      },
+      "authorId": "1507907869559037956",
+      "_source": "bird"
+    },
+    {
+      "id": "2028056264912322954",
+      "text": "Most teams treat the filter as vibes.\n\nProduction teams treat it like software:\n- rules\n- thresholds\n- audit trail\n- rollback",
+      "createdAt": "Sun Mar 01 10:34:27 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028056194812932389",
+      "inReplyToStatusId": "2028056253348622457",
+      "author": {
+        "username": "Nikhill_sood",
+        "name": "Nikhill Sood"
+      },
+      "authorId": "1359304094003859456",
+      "_source": "bird"
+    },
+    {
+      "id": "2028056241701015607",
+      "text": "Hot take: seat-based pricing for agents is already dead.\n\nBuy the warranty instead:\n- SLO\n- error budget\n- rollback plan\n- named owner\n\nThat’s what production costs.",
+      "createdAt": "Sun Mar 01 10:34:22 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028056194812932389",
+      "inReplyToStatusId": "2028056230036738258",
+      "author": {
+        "username": "Nikhill_sood",
+        "name": "Nikhill Sood"
+      },
+      "authorId": "1359304094003859456",
+      "_source": "bird"
+    },
+    {
+      "id": "2028049697743507840",
+      "text": "I would love to play @EliteDangerous right now, but I have no idea if there will be a server rollback or if the hacker was dealt with, or if the exploit is fixed.",
+      "createdAt": "Sun Mar 01 10:08:21 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028049697743507840",
+      "author": {
+        "username": "SlainByTheWire",
+        "name": "SlainByTheWire"
+      },
+      "authorId": "1768016640266977280",
+      "_source": "bird"
+    },
+    {
+      "id": "2028041836053361064",
+      "text": "@dreammnin figured it out already. in this context, one should use DB::ROLLBACK if the commit has not been committed and, if it has, retrieve the affected rows via a backup or, the database logs; Binary Logs(MySQL) or transaction log(SQL Server).",
+      "createdAt": "Sun Mar 01 09:37:07 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027820052175639032",
+      "inReplyToStatusId": "2027832320015708228",
+      "author": {
+        "username": "that_LaravelGuy",
+        "name": "Ace"
+      },
+      "authorId": "1471789059890716675",
+      "_source": "bird"
+    },
+    {
+      "id": "2028036480187183135",
+      "text": "The talent show 🥺!!! Oh the server crashed LOL. We’re back! The date was INSANE. Derek, that confession 😭??? HE JUST HAD HIS FRIENDS WATCHING HIM FROM THE ROOF 😭????? Now she has a date with Derek 🤣. The server crashed again 🙂‍↕️. Not the discord EMS meetup LOL.",
+      "createdAt": "Sun Mar 01 09:15:50 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028036473895682105",
+      "inReplyToStatusId": "2028036477897089179",
+      "author": {
+        "username": "tckr_tl",
+        "name": "K 🐠"
+      },
+      "authorId": "1756773652148768768",
+      "_source": "bird"
+    },
+    {
+      "id": "2028010118319902977",
+      "text": "Stage 3: Production MLOps\n\n• End-to-end automation\n• Continuous retraining\n• Feature store\n• Drift detection\n• Safe deployments + rollback\n• Governance\n\nThis is enterprise-grade ML.",
+      "createdAt": "Sun Mar 01 07:31:05 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2028009952493916355",
+      "inReplyToStatusId": "2028010070953628163",
+      "author": {
+        "username": "ds_wen_",
+        "name": "wen👩🏻‍💻"
+      },
+      "authorId": "2723241253",
+      "_source": "bird"
+    },
+    {
+      "id": "2027990581289619696",
+      "text": "if i had a nickel for each time the server crashed today during a serious discussion, i'd have two—which is not a lot, but it's FUCKING RUDE THAT IT HAPPENED TWICE PLSSSSSSS",
+      "createdAt": "Sun Mar 01 06:13:27 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027990581289619696",
+      "author": {
+        "username": "chamanthus",
+        "name": "nyx ༊*·˚"
+      },
+      "authorId": "1734381627734978560",
+      "_source": "bird"
+    },
+    {
+      "id": "2027990313453723849",
+      "text": "THE SERVER CRASHED DURING NANA AND SERPICO TALK BRO",
+      "createdAt": "Sun Mar 01 06:12:23 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027990313453723849",
+      "author": {
+        "username": "kur8s",
+        "name": "rai 🫧 (a little ia)"
+      },
+      "authorId": "1019734275753734144",
+      "_source": "bird"
+    },
+    {
+      "id": "2027990115205759069",
+      "text": "THE SERVER CRASHED AGAI?N",
+      "createdAt": "Sun Mar 01 06:11:36 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027990115205759069",
+      "author": {
+        "username": "horafukipape",
+        "name": "myana"
+      },
+      "authorId": "1930387083916419072",
+      "_source": "bird"
+    },
+    {
+      "id": "2027955652686188779",
+      "text": "Garage quickstart for S3-compatible object storage. Run Garage with Docker, set layout and replication, add TLS via reverse proxy, create buckets and keys, and apply production tips for self-hosted ...\n\nhttps://t.co/agbUz7uaoZ",
+      "createdAt": "Sun Mar 01 03:54:39 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027955652686188779",
+      "author": {
+        "username": "rosgluk",
+        "name": "Rost Glukhov"
+      },
+      "authorId": "456323149",
+      "_source": "bird"
+    },
+    {
+      "id": "2027951365448994878",
+      "text": "@supabase @grok why is supabase down in India ?",
+      "createdAt": "Sun Mar 01 03:37:37 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027444736479420571",
+      "inReplyToStatusId": "2027783634661359731",
+      "author": {
+        "username": "deekshiths5113",
+        "name": "S Deekshith"
+      },
+      "authorId": "1807254303733903360",
+      "_source": "bird"
+    },
+    {
+      "id": "2027741476172796378",
+      "text": "@supabase Why y'all always down 😭😭",
+      "createdAt": "Sat Feb 28 13:43:36 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027732381122367759",
+      "inReplyToStatusId": "2027732381122367759",
+      "author": {
+        "username": "Albatrosss135",
+        "name": "Albatross"
+      },
+      "authorId": "2002807992027430912",
+      "_source": "bird"
+    },
+    {
+      "id": "2027529972768817283",
+      "text": "GeoFS site + full simulator (https://t.co/GEMygJkpZ0) loads fine here, multiplayer live, no 502 error. No widespread outage reports on X/Reddit/status checkers today—just your thread.\n\nCloudflare had minor resolved latency/520 issues earlier, often causing proxy 502s. \n\nTry: Ctrl+Shift+R, incognito, clear DNS/cache, or VPN. Still down? What region/network?",
+      "createdAt": "Fri Feb 27 23:43:09 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 1,
+      "likeCount": 0,
+      "conversationId": "2027445227922067868",
+      "inReplyToStatusId": "2027529800663945602",
+      "author": {
+        "username": "grok",
+        "name": "Grok"
+      },
+      "authorId": "1720665183188922368",
+      "_source": "bird"
+    },
+    {
+      "id": "2027528864801460432",
+      "text": "@grok @fatchubbybtm @amazon @grok GeoFS is indeed down, giving bad gateway 502 error. Check on their subreddit, r/GeoFs. What's causing it? Just a local GeoFS outage or something more widespread? What is happening right now?",
+      "createdAt": "Fri Feb 27 23:38:45 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2027445227922067868",
+      "inReplyToStatusId": "2027528130777252337",
+      "author": {
+        "username": "Four4Fox",
+        "name": "Fox Four4"
+      },
+      "authorId": "1528788652003835904",
+      "_source": "bird"
+    },
+    {
+      "id": "2026432683522302417",
+      "text": "Shipped the CleanSlice starter to production 🚀\n\n• NestJS API + Nuxt app\n• One Dockerfile (multi-stage)\n• nginx reverse proxy\n• Single container\n• Running on DigitalOcean\nSee it live: https://t.co/R3lskblfCE\nSource: https://t.co/1sBqIwfA3c\n#DevOps #Docker #DigitalOcean",
+      "createdAt": "Tue Feb 24 23:02:55 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2026432683522302417",
+      "author": {
+        "username": "dimzhuk",
+        "name": "Dmitriy Zhuk"
+      },
+      "authorId": "172376846",
+      "_source": "bird"
+    },
+    {
+      "id": "2026254505449230436",
+      "text": "Scaling is easy. Paying the cloud bill isn’t.\n\nMore companies are asking the same question:\n“Why did our cloud costs triple this year?”\n2026 trend: Cloud cost optimization, FinOps, and infrastructure audits.\n\nGrowth is great. Efficient growth is better. #Cloud #FinOps #ITStrategy",
+      "createdAt": "Tue Feb 24 11:14:54 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2026254505449230436",
+      "author": {
+        "username": "FuturumTech",
+        "name": "Futurum Technology"
+      },
+      "authorId": "829863937038569478",
+      "_source": "bird"
+    },
+    {
+      "id": "2026114860619350505",
+      "text": "🚨FinOps isn’t just your cloud bill. It’s infra cost per customer.\n\nDo you know: Cost per customer?\n\nIf you can’t map infrastructure to revenue, you’re guessing your margins.\n\nAsk Stakpak: https://t.co/iWzO3DA24i https://t.co/tGEgEsfrda",
+      "createdAt": "Tue Feb 24 02:00:00 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2026114860619350505",
+      "author": {
+        "username": "stakpak_dev",
+        "name": "stakpak"
+      },
+      "authorId": "1876653107179933696",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HB3yKZIXsAIooF8.jpg",
+          "width": 2048,
+          "height": 1061,
+          "previewUrl": "https://pbs.twimg.com/media/HB3yKZIXsAIooF8.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2025844634526876104",
+      "text": "If you're learning cloud in 2026, what's the ONE skill\nnobody tells you to prioritize but absolutely should?\n\nI'd argue: cost optimization.\n\nAnyone can deploy. Very few people understand\nWHY their AWS bill is ₹80,000 at the end of the month.\n\nWhat would you add? 👇\n\n#CloudComputing #AWS #CareerAdvice #LearningInPublic",
+      "createdAt": "Mon Feb 23 08:06:13 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2025844634526876104",
+      "author": {
+        "username": "RahulPaswa61922",
+        "name": "Rahul Paswan"
+      },
+      "authorId": "1640599935153238019",
+      "_source": "bird"
+    },
+    {
+      "id": "2025832157827219949",
+      "text": "Is your GenAI scaling... or just your cloud bill?\n\nThe biggest hurdle to moving GenAI from \"cool pilot\" to \"production reality\" is the cost.\n\nJoin the 2nd webinar to learn how to overcome. Registration link - https://t.co/dbyAjueS2H",
+      "createdAt": "Mon Feb 23 07:16:39 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 1,
+      "likeCount": 0,
+      "conversationId": "2025832157827219949",
+      "author": {
+        "username": "cloudcadi",
+        "name": "Amadis Technologies"
+      },
+      "authorId": "1422534636530507779",
+      "_source": "bird"
+    },
+    {
+      "id": "2025813187162173611",
+      "text": "Running LLMs locally cuts your cloud bill 90% and removes API dependency risk. We wrote a full guide covering: Ollama setup, model selection, inference optimization, and production deployment. Most teams go local in 2 hours → https://t.co/BGe3nu7zFT",
+      "createdAt": "Mon Feb 23 06:01:16 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2025813187162173611",
+      "author": {
+        "username": "AlexCalderAI",
+        "name": "Alex Calder"
+      },
+      "authorId": "2019963295109902336",
+      "_source": "bird"
+    },
+    {
+      "id": "2025709795743797318",
+      "text": "Hobby projects break on a 429 error. Production systems move to the next model in line.\n\nIf our primary provider returns a 503 error, the system retries with a secondary provider instantly. The user never sees a glitch. This is how you build trust.",
+      "createdAt": "Sun Feb 22 23:10:25 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2025708773206315473",
+      "inReplyToStatusId": "2025709710519796148",
+      "author": {
+        "username": "eyane",
+        "name": "eyane"
+      },
+      "authorId": "58889360",
+      "_source": "bird"
+    },
+    {
+      "id": "2025133599394091285",
+      "text": "Code is cheap.\nInfrastructure isn’t.\n\n“Just build it” is what people say when they’ve never paid an AWS bill.",
+      "createdAt": "Sat Feb 21 09:00:49 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2025133533891600398",
+      "inReplyToStatusId": "2025133533891600398",
+      "author": {
+        "username": "Zach_of_blades",
+        "name": "Zach"
+      },
+      "authorId": "1917869171888603136",
+      "_source": "bird"
+    },
+    {
+      "id": "2025072393857724491",
+      "text": "1/9 Indie builder POV: I do not need a massive cloud bill. I need cheap experiments, fast iteration, and infrastructure that does not break my business the moment I get traction. @Acurast #DecentralizedCrush #DecentralizedCrushAcurast",
+      "createdAt": "Sat Feb 21 04:57:37 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2025072393857724491",
+      "author": {
+        "username": "ktot2217",
+        "name": "ktot"
+      },
+      "authorId": "475725028",
+      "_source": "bird"
+    },
+    {
+      "id": "2025044516537852057",
+      "text": "@MikeIsaac How does AI have access to Production code?!🤯\n@tridevgurung Don't let AI deploy to Production might be worse than deploying on Fridays.",
+      "createdAt": "Sat Feb 21 03:06:50 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2024936195881570620",
+      "inReplyToStatusId": "2024936195881570620",
+      "author": {
+        "username": "nchettri1990",
+        "name": "Nishant Chettri"
+      },
+      "authorId": "1565824847673847810",
+      "_source": "bird"
+    },
+    {
+      "id": "2024843838968262945",
+      "text": "@pawel_lasek @brankopetric00 just checked the AWS bill for production systems, ECS is not even an item on there. total is thousands per month, but ECS is literally zero... only ECR about $20 because of storage.\n\nNot saying there is anything wrong with k8s, just that ECS works and it is not at all expensive.",
+      "createdAt": "Fri Feb 20 13:49:25 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2023778235662717239",
+      "inReplyToStatusId": "2024842355719709021",
+      "author": {
+        "username": "joedavinci_net",
+        "name": "Joe DaVinci"
+      },
+      "authorId": "1656771597263335425",
+      "_source": "bird"
+    },
+    {
+      "id": "2024514921145217523",
+      "text": "🔌 MCP Gateway\n\nScaling MCP servers on Kubernetes? Microsoft's reverse proxy with session-aware routing, lifecycle management, and enterprise-grade auth — deploy to Azure with one click.\n\nhttps://t.co/GPfWdIjV7M",
+      "createdAt": "Thu Feb 19 16:02:25 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2024514921145217523",
+      "author": {
+        "username": "pleaseprompto",
+        "name": "Please Prompto!"
+      },
+      "authorId": "1807745154754703360",
+      "_source": "bird"
+    },
+    {
+      "id": "2023774116575408145",
+      "text": "DevOps Journey **Day 37** 🔥   Today: Production-grade **Django + MySQL + Nginx** in Docker Compose!\n• Nginx reverse proxy + static files   • Gunicorn instead of runserver   • Healthchecks &amp; persistent MySQL volume   • Custom network for clean service discovery\n\n#DevOps",
+      "createdAt": "Tue Feb 17 14:58:43 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2023774116575408145",
+      "author": {
+        "username": "sourabh61821513",
+        "name": "sourabh prajapati"
+      },
+      "authorId": "1594889147310710784",
+      "_source": "bird"
+    },
+    {
+      "id": "2022977453170340164",
+      "text": "How to deploy a Flask app:\n\n🛠️ Gunicorn – Efficient WSGI server for running Flask applications in production.\n🌐 Nginx – Reverse proxy server for handling requests and serving static files.\n📦 Docker – Containerization for consistent deployment across different environments.\n🔒 L",
+      "createdAt": "Sun Feb 15 10:13:04 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2022977453170340164",
+      "author": {
+        "username": "SystemArch_AI",
+        "name": "System Architect"
+      },
+      "authorId": "2012635738601410560",
+      "_source": "bird"
+    },
+    {
+      "id": "2022456301629116699",
+      "text": "@ovaistariq @kiwicopple this is why people operating databases should know they cant vibe deploy to production!",
+      "createdAt": "Fri Feb 13 23:42:12 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2022390231324893337",
+      "inReplyToStatusId": "2022394141033005293",
+      "author": {
+        "username": "6789Blazing",
+        "name": "blazing_saddles_6789"
+      },
+      "authorId": "1564836529796796416",
+      "_source": "bird"
+    },
+    {
+      "id": "2022325067368296799",
+      "text": "@Lockhead @jhleath Go be positive when your production db is down",
+      "createdAt": "Fri Feb 13 15:00:43 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2022123984909934633",
+      "inReplyToStatusId": "2022288388993257533",
+      "author": {
+        "username": "WhoKnow50498590",
+        "name": "Who Knows"
+      },
+      "authorId": "1594662768690470914",
+      "_source": "bird"
+    },
+    {
+      "id": "2022249089078026670",
+      "text": "@_devJNS The solution is to reverse proxy your localhost from your production server. https://t.co/JMmb1jwuiZ",
+      "createdAt": "Fri Feb 13 09:58:49 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2021829155755897281",
+      "inReplyToStatusId": "2021829155755897281",
+      "author": {
+        "username": "LowKickLuke",
+        "name": "Lucas Trestka"
+      },
+      "authorId": "1700673447016247296",
+      "media": [
+        {
+          "type": "animated_gif",
+          "url": "https://pbs.twimg.com/tweet_video_thumb/HBB406rWgAADJtg.jpg",
+          "width": 498,
+          "height": 272,
+          "previewUrl": "https://pbs.twimg.com/tweet_video_thumb/HBB406rWgAADJtg.jpg:small",
+          "videoUrl": "https://video.twimg.com/tweet_video/HBB406rWgAADJtg.mp4"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2021360628468998325",
+      "text": "@om_patel5 I am learning from posts like this: don't let my AI deploy to production... it might just think deleting all my users data is a good quick fix haha",
+      "createdAt": "Tue Feb 10 23:08:23 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2021009829054251491",
+      "inReplyToStatusId": "2021009829054251491",
+      "author": {
+        "username": "jamesmtweets",
+        "name": "James McArthur"
+      },
+      "authorId": "4843092913",
+      "_source": "bird"
+    },
+    {
+      "id": "2019395109666574415",
+      "text": "@dotnet__ @huggingface That matches the temporary outage I noted. Just checked again—Hugging Face is now loading fine with no 502 error. Try refreshing!",
+      "createdAt": "Thu Feb 05 12:58:07 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2019393953624412456",
+      "inReplyToStatusId": "2019394944184758453",
+      "author": {
+        "username": "grok",
+        "name": "Grok"
+      },
+      "authorId": "1720665183188922368",
+      "_source": "bird"
+    },
+    {
+      "id": "2019373098919989311",
+      "text": "Red flag: Environment-specific errors in logs showing \"connection refused\" or \"service unavailable\" messages that only appear in staging or production environments. Development works because everything runs locally on the same machine.\n\n6/9",
+      "createdAt": "Thu Feb 05 11:30:39 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2019373040350732290",
+      "inReplyToStatusId": "2019373087297618206",
+      "author": {
+        "username": "vegastack",
+        "name": "VegaStack"
+      },
+      "authorId": "827599790800113668",
+      "_source": "bird"
+    },
+    {
+      "id": "2018748075414610227",
+      "text": "Behind every great outage, there's a secret love letter to the users Silently penned by systems engineers, these missives reveal the true meaning behind 'service unavailable' https://t.co/j38ZPAFSvt",
+      "createdAt": "Tue Feb 03 18:07:02 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2018748075414610227",
+      "author": {
+        "username": "IHuhnl",
+        "name": "Imke Huhn"
+      },
+      "authorId": "2006589948275863558",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HAQIrG7W4AAiRG6.jpg",
+          "width": 400,
+          "height": 400,
+          "previewUrl": "https://pbs.twimg.com/media/HAQIrG7W4AAiRG6.jpg:small"
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "2018632895653720173",
+      "text": "@MSFT365Status any outage on M365 share point now? error \"503 service Unavailable\"",
+      "createdAt": "Tue Feb 03 10:29:21 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2018632895653720173",
+      "author": {
+        "username": "AsithaChandimal",
+        "name": "asitha chandimal"
+      },
+      "authorId": "3256240950",
+      "_source": "bird"
+    },
+    {
+      "id": "2018334911992828118",
+      "text": "Life's upgrade cycle: deploy new skills, fail fast, repeat Anyone else getting a 'service unavailable' error on their Tuesday mornings?",
+      "createdAt": "Mon Feb 02 14:45:16 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2018334911992828118",
+      "author": {
+        "username": "FarmerRich63623",
+        "name": "Richard Farmer"
+      },
+      "authorId": "2007542281570791433",
+      "_source": "bird"
+    },
+    {
+      "id": "2014391325085348194",
+      "text": "The linked source is inaccessible (503 error), but per the quote, The Flash handprint removal likely addressed MMIW symbol sensitivities, per Reddit and production notes. No sources link it to Ezra Miller's controversies, which include unrelated allegations like grooming claims involving a Native activist (e.g., Rolling Stone, People timelines). How does this fit MMIW advocacy framing? More slides?",
+      "createdAt": "Thu Jan 22 17:34:52 +0000 2026",
+      "replyCount": 2,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2011818780876263812",
+      "inReplyToStatusId": "2014390795227263468",
+      "author": {
+        "username": "grok",
+        "name": "Grok"
+      },
+      "authorId": "1720665183188922368",
+      "_source": "bird"
+    },
+    {
+      "id": "2013897830436377061",
+      "text": "@thorstenball I think there may have been a small service outage, I got a 502 error a few times. It's better now. But maybe you could move this label into the box, opposite side of the git repo label? \n\nAnd I meant \"Waiting for response\", etc as \"Thinking\". I like my waves ;)",
+      "createdAt": "Wed Jan 21 08:53:53 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2012935606460928390",
+      "inReplyToStatusId": "2013897286833606886",
+      "author": {
+        "username": "hmemcpy",
+        "name": "Igal Tabachnik"
+      },
+      "authorId": "1491081",
+      "_source": "bird"
+    },
+    {
+      "id": "2012197895248974041",
+      "text": "Is X back up? Latest update on Twitter, Grok outage amid Cloudflare issues; ‘frustrating’ - https://t.co/GQLP5n4Fpk",
+      "createdAt": "Fri Jan 16 16:18:57 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2012197895248974041",
+      "author": {
+        "username": "DipranjanS43173",
+        "name": "Dipranjan Sharma"
+      },
+      "authorId": "1674765094109196289",
+      "_source": "bird"
+    },
+    {
+      "id": "2011717713291346282",
+      "text": "Spent 3 hours debugging a \"random\" 502 error. Turns out, our \"scalable\" microservice was choking on a 10MB JSON payload because someone set the default nginx buffer size. Fixed it in 5 mins. The rest of the time? Explaining why \"it works on my machine\" isn’t a valid argument. ...",
+      "createdAt": "Thu Jan 15 08:30:53 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2011717713291346282",
+      "author": {
+        "username": "Krampos4",
+        "name": "Niko bellic"
+      },
+      "authorId": "1469423143055941636",
+      "_source": "bird"
+    },
+    {
+      "id": "2007225684792582264",
+      "text": "I get 100s of \"tool notifications\" daily. They all look identical.\n\n99.9% are useless logs or marketing fluff.\n0.1% is \"Production DB is down.\"\n\nBecause they look the same, I ignore them all... until something breaks for real.",
+      "createdAt": "Fri Jan 02 23:01:10 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2007225684792582264",
+      "author": {
+        "username": "JonathanMONDAUT",
+        "name": "Jonathan Mondaut"
+      },
+      "authorId": "862803200",
+      "_source": "bird"
+    },
+    {
+      "id": "1994134367212298716",
+      "text": "Transform your business with NICS AI! Deploy your n8n workflow seamlessly on our servers, enhancing organization and efficiency. Don’t miss out on elevating your operations; start automating today! 👉 https://t.co/xQs58fdCsN 🚀",
+      "createdAt": "Thu Nov 27 20:00:57 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1994134367212298716",
+      "author": {
+        "username": "NicsAGI",
+        "name": "AI Byte Consult"
+      },
+      "authorId": "1904574579370319873",
+      "_source": "bird"
+    },
+    {
+      "id": "1990635289937916375",
+      "text": "@mazeincoding Production database crashed after deploying your script",
+      "createdAt": "Tue Nov 18 04:16:51 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1990137604587520161",
+      "inReplyToStatusId": "1990137604587520161",
+      "author": {
+        "username": "muthu_selvan94",
+        "name": "Muthu Selvan"
+      },
+      "authorId": "1563900364730281985",
+      "_source": "bird"
+    },
+    {
+      "id": "1984236751356105108",
+      "text": "The marketplace for business software\n\nClone production-ready templates, connect your data, and customise with AI. \n\nDeploy apps to your team for $0/user/month. https://t.co/9rmxl9CLvJ",
+      "createdAt": "Fri Oct 31 12:31:21 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1984236751356105108",
+      "author": {
+        "username": "shauntrennery",
+        "name": "shaun.trennery.com"
+      },
+      "authorId": "861291",
+      "_source": "bird"
+    },
+    {
+      "id": "1978572590227857430",
+      "text": "☸️ Azure Kubernetes Service (AKS) powers cloud-native AI! Deploy and scale containerized AI workloads with fully managed Kubernetes. Automated updates, integrated CI/CD, and enterprise security make AKS the go-to platform for production AI. #AKS #Kubernetes #CloudNative",
+      "createdAt": "Wed Oct 15 21:24:00 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1978572590227857430",
+      "author": {
+        "username": "MoreThanCoding7",
+        "name": "More Than Coding"
+      },
+      "authorId": "1858566114932125697",
+      "_source": "bird"
+    },
+    {
+      "id": "1974786012212760799",
+      "text": "Launch your app live in under 60 seconds- just connect GitHub, let Vercel’s AI deploy automatically, and get a shareable URL.\n\nWant the free production-ready checklist? Checkout- https://t.co/32miiKkBR3 \n\n#AIDeployment #Vercel #WebDev #InstantDeploy https://t.co/K1pROhYjLF",
+      "createdAt": "Sun Oct 05 10:37:29 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1974786012212760799",
+      "author": {
+        "username": "CreateBytes",
+        "name": "CreateBytes"
+      },
+      "authorId": "1246358736681095168",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/1974785931967184896/img/0PS_KvDG8UMI5qfI.jpg",
+          "width": 720,
+          "height": 1280,
+          "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/1974785931967184896/img/0PS_KvDG8UMI5qfI.jpg:small",
+          "videoUrl": "https://video.twimg.com/amplify_video/1974785931967184896/vid/avc1/720x1280/fzfI5WGqNsOLxTiP.mp4?tag=21",
+          "durationMs": 28633
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "1966135371789644244",
+      "text": "@zenguardai \nHello https://t.co/3uAitFHopV\nin this doc you have mentioned to use the mcp server and clone it from github but you havn't share the github for the mcp server",
+      "createdAt": "Thu Sep 11 13:42:56 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1966135371789644244",
+      "author": {
+        "username": "tiger_1724",
+        "name": "Atif_735"
+      },
+      "authorId": "1532215907640291328",
+      "_source": "bird"
+    },
+    {
+      "id": "1954412309498982699",
+      "text": "1/ The discovery\n\nWas poking around dev forums for PloyCloud research.\n\nSaw thread after thread: 'My database crashed again.'\n\nAll running MySQL/Postgres on a $5/month VPS. For production. With real users.",
+      "createdAt": "Sun Aug 10 05:19:40 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1954412308676972671",
+      "inReplyToStatusId": "1954412308676972671",
+      "author": {
+        "username": "HarunRRayhan",
+        "name": "Harun R."
+      },
+      "authorId": "1492054291",
+      "_source": "bird"
+    },
+    {
+      "id": "1953872368193159648",
+      "text": "Vibe Deploy Django-MCP-Server and Monero on Opalstack. #VibeDeploy #MCP #Django #Monero \nhttps://t.co/fhTW7nt2Nh https://t.co/xs4O9FaozM",
+      "createdAt": "Fri Aug 08 17:34:08 +0000 2025",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1953872368193159648",
+      "author": {
+        "username": "opalstack",
+        "name": "(((Opalstack"
+      },
+      "authorId": "1095607742218174464",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/1953872050587938818/img/31xdJ1x1POTm17z5.jpg",
+          "width": 1920,
+          "height": 1080,
+          "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/1953872050587938818/img/31xdJ1x1POTm17z5.jpg:small",
+          "videoUrl": "https://video.twimg.com/amplify_video/1953872050587938818/vid/avc1/1920x1080/bFfVw7l91Js4VJJu.mp4?tag=21",
+          "durationMs": 1184050
+        }
+      ],
+      "_source": "bird"
+    },
+    {
+      "id": "1898993439674663156",
+      "text": "🧵Thread\n\nTo make it scalable, we can save jobs to Redis for pub/sub instead of directly adding them to the DB.\nThis way, we can create a worker to push the jobs to the DB later, preventing server failures or issues if the DB is down.",
+      "createdAt": "Mon Mar 10 07:04:52 +0000 2025",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "1898989750243238128",
+      "inReplyToStatusId": "1898992839679422648",
+      "author": {
+        "username": "Spacing_Whale",
+        "name": "Rohit"
+      },
+      "authorId": "1590724836069810176",
+      "_source": "bird"
+    }
+  ]
+}

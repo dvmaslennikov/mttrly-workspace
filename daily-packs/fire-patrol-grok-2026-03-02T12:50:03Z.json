@@ -1,0 +1,93 @@
+{
+  "source": "grok",
+  "mode": "fire-patrol",
+  "timestamp": "2026-03-02T12:51:49.870Z",
+  "status": "ok",
+  "tweet_count": 6,
+  "candidates": [
+    {
+      "id": "2028214211965554878",
+      "text": "absolutely legendary post-mortem in the works for this one\n\nthat one gcp outage due to a flood in france will have nothing on this",
+      "author": {
+        "username": "severeengineer",
+        "name": "severe engineer"
+      },
+      "likeCount": 397,
+      "replyCount": 2,
+      "retweetCount": 9,
+      "createdAt": "2026-03-01T21:02:05Z",
+      "url": "https://x.com/severeengineer/status/2028214211965554878",
+      "_source": "grok"
+    },
+    {
+      "id": "2028165188168397086",
+      "text": "there's an AWS outage in me-central-1 because it got bombed",
+      "author": {
+        "username": "initjean",
+        "name": "Jean P.D. Meijer ― 🇪🇺 eu/acc"
+      },
+      "likeCount": 15763,
+      "replyCount": 140,
+      "retweetCount": 1295,
+      "createdAt": "2026-03-01T17:47:17Z",
+      "url": "https://x.com/initjean/status/2028165188168397086",
+      "_source": "grok"
+    },
+    {
+      "id": "2028075050113585370",
+      "text": "We are facing this problem in our org. How do you migrate your database from Google cloud to AWS with minimal downtime?",
+      "author": {
+        "username": "0xlelouch_",
+        "name": "Abhishek Singh"
+      },
+      "likeCount": 125,
+      "replyCount": 16,
+      "retweetCount": 4,
+      "createdAt": "2026-03-01T11:49:06Z",
+      "url": "https://x.com/0xlelouch_/status/2028075050113585370",
+      "_source": "grok"
+    },
+    {
+      "id": "2027936789252407384",
+      "text": "Web dev is similar, some days you're waiting forever and a half just for CI/CD pipelines to fail 🥱",
+      "author": {
+        "username": "ramennnnoodle",
+        "name": "ramen"
+      },
+      "likeCount": 1,
+      "replyCount": 0,
+      "retweetCount": 0,
+      "createdAt": "2026-03-01T02:39:42Z",
+      "url": "https://x.com/ramennnnoodle/status/2027936789252407384",
+      "_source": "grok"
+    },
+    {
+      "id": "2028240549061198197",
+      "text": "1/ \nyoung builders, please learn from my mistake. i woke up to a $4,000 bill from aws overnight for anthropic claude usage because of one silly misunderstanding. i'm a student. a solo dev and might not be able to launch my project i've been building for months.",
+      "author": {
+        "username": "techfille006",
+        "name": "Birre"
+      },
+      "likeCount": 2,
+      "replyCount": 3,
+      "retweetCount": 0,
+      "createdAt": "2026-03-01T22:46:44Z",
+      "url": "https://x.com/techfille006/status/2028240549061198197",
+      "_source": "grok"
+    },
+    {
+      "id": "2027984175404568664",
+      "text": "production is down\nceo is in the channel\ni'm in pajamas\nssh from phone\nfix in 5 minutes\n\nhero for today\nvillain tomorrow \nwhen they ask why it broke\n\n#oncall #devops #startuplife",
+      "author": {
+        "username": "mayurstwt",
+        "name": "Mayur Sankhala"
+      },
+      "likeCount": 0,
+      "replyCount": 1,
+      "retweetCount": 0,
+      "createdAt": "2026-03-01T05:48:00Z",
+      "url": "https://x.com/mayurstwt/status/2027984175404568664",
+      "_source": "grok"
+    }
+  ]
+}

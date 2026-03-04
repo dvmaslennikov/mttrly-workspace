@@ -1,0 +1,58 @@
+{
+  "source": "grok",
+  "mode": "influencer-monitor",
+  "timestamp": "2026-03-02T17:51:36.757Z",
+  "model": "grok-4-1-fast-reasoning",
+  "status": "ok",
+  "tweet_count": 3,
+  "candidates": [
+    {
+      "id": "2027743241416671605",
+      "text": "We thought we had monitoring. We had dashboards.\n\nThe system I worked on had a beautiful Grafana setup. CPU usage, memory, request rates, error percentages, queue depths. All of it charted in real time. Color-coded. Clean. The kind of thing you show someone during onboarding and they say \"wow, you've got great observability.\"\n\nWe didn't. We had graphs nobody looked at until something was already on fire.\n\nThe problem became obvious during an incident where payment webhooks from Stripe were arriving but not being processed correctly. The queue looked healthy. Error rates were flat. Response times were normal. Every dashboard said the system was fine.\n\nBut customers were paying and not getting access to what they paid for. We only found out because someone emailed support.\n\nThat's not monitoring. That's decoration.\n\nReal monitoring would've caught it immediately. Not because of a spike on a graph, but because an alert would've fired the moment the ratio between successful payments and successful provisioning events diverged. The business logic should've been monitored, not just the infrastructure.\n\nAfter that incident, I changed how I think about observability entirely.\n\nInfrastructure metrics tell you if the machine is healthy. They don't tell you if the product is working. CPU can be at 5%, memory can be fine, every request can return 200, and your system can still be doing the wrong thing.\n\nWhat I started building instead was monitoring around business outcomes. For a payment system: are charges being created and matched with successful deliveries? For a data pipeline: are the numbers being produced within expected ranges? For an API that serves financial data: is the response actually fresh, or is it serving cached data from an hour ago and nobody knows?\n\nEvery critical flow now has its own check. Not a graph you look at when something feels wrong. An alert that tells you the moment something is wrong, based on what the system is supposed to do, not just whether it's running.\n\nI also learned that logs alone are not observability. I had 200GB of logs on that system and still couldn't trace why one specific user's payment didn't provision correctly. What I needed was structured events with correlation IDs that followed a transaction from charge to delivery. Logs tell you what happened. Structured observability tells you why.\n\nDashboards make you feel safe. Alerts on business logic actually keep you safe.",
+      "author": {
+        "username": "iamselfcustody",
+        "name": "Kerick"
+      },
+      "likeCount": 6,
+      "url": "https://x.com/iamselfcustody/status/2027743241416671605",
+      "pain_score": 8,
+      "reply_opportunity": 10,
+      "_source": "grok",
+      "_sub_prompt": "influencer-monitor",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2028183322573033731",
+      "text": "I regret moving away from Vercel\n\nSure using a VPS and Coolify is cool 😎\n\nBut the number of hours lost to debugging, securing, random crashes, broken connections, docker issues, is absurd\n\nJust not worth it",
+      "author": {
+        "username": "ugo_builds",
+        "name": "Ugo"
+      },
+      "likeCount": 25,
+      "url": "https://x.com/ugo_builds/status/2028183322573033731",
+      "pain_score": 9,
+      "reply_opportunity": 9,
+      "_source": "grok",
+      "_sub_prompt": "influencer-monitor",
+      "replyCount": 0,
+      "retweetCount": 0
+    },
+    {
+      "id": "2027723322373427504",
+      "text": "Vercel complaining that Cloudflare is “putting the Internet at risk” while in last 3 months we’ve had to update Next.js 4727 times because of critical vulnerabilities 🙃",
+      "author": {
+        "username": "JorgeCastilloPr",
+        "name": "Jorge Castillo"
+      },
+      "likeCount": 21,
+      "url": "https://x.com/JorgeCastilloPr/status/2027723322373427504",
+      "pain_score": 7,
+      "reply_opportunity": 7,
+      "_source": "grok",
+      "_sub_prompt": "influencer-monitor",
+      "replyCount": 0,
+      "retweetCount": 0
+    }
+  ]
+}
