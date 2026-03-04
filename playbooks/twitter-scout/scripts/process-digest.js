@@ -50,7 +50,7 @@ const TRACKED_INFLUENCERS = {
   'chaosengineerr': 3, 'robinebers': 3, 'piqsuite': 3,
   'diamondbishop': 3, '_baretto': 3,
   'cjzafir': 3, 'oneuptimehq': 3, 'fromcodetocloud': 3,
-  'appwrite': 3, 'cursor_ai': 3, 'rohanpaul_ai': 3
+  'appwrite': 3, 'cursor_ai': 3
 };
 
 const AUTHOR_COOLDOWN_DAYS = 4;
@@ -332,6 +332,56 @@ function isNoise(text) {
   return false;
 }
 
+function isHolidayCelebration(text) {
+  const lower = text.toLowerCase();
+  const holidayPatterns = [
+    /happy\s+(new year|holidays?|easter|christmas|diwali|ramadan|weekend)/i,
+    /merry\s+(christmas|xmas)/i,
+    /holiday\s+greetings/i,
+    /weekend vibes/i,
+    /have a great (weekend|holiday)/i
+  ];
+  return holidayPatterns.some(re => re.test(lower));
+}
+
+function isCryptoMemecoin(text) {
+  const lower = text.toLowerCase();
+  if (/(pump\.fun|memecoin|token launch|presale|airdrop|contract address|ca:)/i.test(lower)) return true;
+  if (/0x[a-f0-9]{20,}/i.test(text)) return true;
+  const tickerMatch = text.match(/\$[A-Z]{2,6}/g);
+  if (tickerMatch && tickerMatch.length > 0) return true;
+  return false;
+}
+
+function isSalesFunnelThread(text) {
+  const lower = text.toLowerCase();
+  const patterns = [
+    'most people quit right there',
+    'dm me',
+    'link in bio',
+    'book a call',
+    'i will show you how',
+    'step 1/',
+    'thread 🧵',
+    'free call',
+    'limited slots'
+  ];
+  return patterns.some(p => lower.includes(p));
+}
+
+function isMemePost(text) {
+  const lower = text.toLowerCase();
+  return /(me:\s|nobody:\s|devs be like|starter pack|mood:|when you|POV|shitpost|meme)/i.test(lower);
+}
+
+function isAIPhilosophyOffbrand(text) {
+  const lower = (text || '').toLowerCase();
+  const aiPhiloTerms = [
+    'cognitive science', 'alignment', 'research paper', 'new paper', 'arxiv',
+    'model release', 'state of ai', 'agi', 'consciousness', 'benchmarking'
+  ];
+  return aiPhiloTerms.some(k => lower.includes(k));
+}
 
 function normalizeText(v) {
   return (v || '').toString().toLowerCase();
@@ -381,9 +431,19 @@ function countTechAnchors(tweet) {
   return TECH_INCIDENT_ANCHORS.reduce((acc, k) => acc + (text.includes(k) ? 1 : 0), 0);
 }
 
-function filterTweet(tweet, category, repliedIds, seenDigestIds, authorHistory) {
+function filterTweet(tweet, category, repliedIds, seenDigestIds, authorHistory, mode = 'fire-patrol') {
   if (repliedIds.has(tweet.id)) return { skip: true, reason: 'already_replied' };
   if (seenDigestIds && seenDigestIds.has(tweet.id)) return { skip: true, reason: 'already_seen_in_digest' };
+
+  // Influencer mode: require operational context; drop AI philosophy-only content
+  if (mode === 'influencer-monitor') {
+    if (isAIPhilosophyOffbrand(tweet.text) && !hasTechIncidentContext(tweet)) {
+      return { skip: true, reason: 'influencer_ai_philosophy' };
+    }
+    if (!hasTechIncidentContext(tweet)) {
+      return { skip: true, reason: 'influencer_no_ops_context' };
+    }
+  }
 
   // Author cooldown: skip if same author replied within AUTHOR_COOLDOWN_DAYS
   const authorLower = (tweet.author.username || '').toLowerCase();
@@ -402,6 +462,12 @@ function filterTweet(tweet, category, repliedIds, seenDigestIds, authorHistory) 
 
   const grokPain = Number(tweet.pain_score) || 0;
   const grokValidated = grokPain >= 7; // Grok already validated relevance
+
+  // Hard exclusion layer (always)
+  if (isHolidayCelebration(tweet.text)) return { skip: true, reason: 'holiday_post' };
+  if (isCryptoMemecoin(tweet.text)) return { skip: true, reason: 'crypto_memecoin' };
+  if (isSalesFunnelThread(tweet.text)) return { skip: true, reason: 'sales_funnel' };
+  if (isMemePost(tweet.text)) return { skip: true, reason: 'meme_post' };
 
   // Content-quality gates — skip for Grok-validated tweets
   if (!grokValidated) {
@@ -1040,7 +1106,7 @@ async function main() {
   const skipReasons = {};
 
   categorized.forEach(tweet => {
-    const result = filterTweet(tweet, tweet.category, tracking.repliedIds, tracking.seenDigestIds, tracking.authorHistory);
+    const result = filterTweet(tweet, tweet.category, tracking.repliedIds, tracking.seenDigestIds, tracking.authorHistory, mode);
     if (result.skip) {
       skipReasons[result.reason] = (skipReasons[result.reason] || 0) + 1;
     } else {

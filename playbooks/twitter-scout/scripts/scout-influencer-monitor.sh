@@ -72,7 +72,6 @@ declare -a INFLUENCER_MONITOR_QUERIES=(
   'from:cjzafir (server OR deploy OR infrastructure OR monitoring)'
   'from:oneuptimehq (monitoring OR uptime OR incident OR downtime)'
   'from:fromcodetocloud (deploy OR infrastructure OR cloud OR server)'
-  'from:rohanpaul_ai (deploy OR server OR infrastructure OR AI OR production)'
 
   # === DevTools complaint monitoring (users complaining TO these services) ===
   '((to:vercel OR @vercel) (down OR broken OR expensive OR error OR outage)) -is:retweet'
