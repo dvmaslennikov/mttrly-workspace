@@ -7,6 +7,15 @@
 set -euo pipefail
 
 MODE="${1:-fire-patrol}"
+
+# Prevent parallel execution of the same mode
+LOCK_FILE="/tmp/scout-${MODE}.lock"
+exec 9>"$LOCK_FILE"
+if ! flock -n 9; then
+  echo "[$(date -u +'%Y-%m-%d %H:%M:%S UTC')] Another $MODE instance is running, skipping"
+  exit 0
+fi
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_DIR="$(dirname "$SCRIPT_DIR")"
 LOG_DIR="${SKILL_DIR}/logs"

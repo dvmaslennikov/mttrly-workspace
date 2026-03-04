@@ -374,6 +374,43 @@ function isMemePost(text) {
   return /(me:\s|nobody:\s|devs be like|starter pack|mood:|when you|POV|shitpost|meme)/i.test(lower);
 }
 
+
+function isPodcastOrVideoPromo(text) {
+  const lower = (text || '').toLowerCase();
+  const patterns = [
+    'in this episode', 'new episode', 'podcast', 'listen now', 'watch now',
+    'youtube:', 'youtube.com', 'spotify.com', 'apple podcasts', 'new video'
+  ];
+  return patterns.some(p => lower.includes(p));
+}
+
+function isNetworkingBait(text) {
+  const lower = (text || '').toLowerCase();
+  const patterns = [
+    'let's connect', 'lets connect', 'reply with your', 'drop your',
+    'follow for follow', 'who wants to connect', 'networking'
+  ];
+  return patterns.some(p => lower.includes(p));
+}
+
+function isBlogReshareSpam(text) {
+  const lower = (text || '').toLowerCase();
+  const hasBlogCue = ['new blog', 'just published', 'read my blog', 'blog post'].some(p => lower.includes(p));
+  const hasUrl = /https?:\/\//i.test(text || '');
+  const hashtags = (text || '').match(/#[A-Za-z0-9_]+/g) || [];
+  return hasBlogCue && hasUrl && hashtags.length >= 3;
+}
+
+function isEmotionalVentNoOps(text, tweet) {
+  const lower = (text || '').toLowerCase();
+  const emotional = [
+    'i'm tired', 'im tired', 'burned out', 'burnout', 'it's not that deep', 'its not that deep',
+    'i hate this', 'this sucks', 'so frustrating', 'depressed', 'anxious'
+  ].some(p => lower.includes(p));
+  if (!emotional) return false;
+  return !hasTechIncidentContext(tweet);
+}
+
 function isAIPhilosophyOffbrand(text) {
   const lower = (text || '').toLowerCase();
   const aiPhiloTerms = [
@@ -468,6 +505,10 @@ function filterTweet(tweet, category, repliedIds, seenDigestIds, authorHistory, 
   if (isCryptoMemecoin(tweet.text)) return { skip: true, reason: 'crypto_memecoin' };
   if (isSalesFunnelThread(tweet.text)) return { skip: true, reason: 'sales_funnel' };
   if (isMemePost(tweet.text)) return { skip: true, reason: 'meme_post' };
+  if (isPodcastOrVideoPromo(tweet.text)) return { skip: true, reason: 'podcast_video_promo' };
+  if (isNetworkingBait(tweet.text)) return { skip: true, reason: 'networking_bait' };
+  if (isBlogReshareSpam(tweet.text)) return { skip: true, reason: 'blog_reshare_spam' };
+  if (isEmotionalVentNoOps(tweet.text, tweet)) return { skip: true, reason: 'emotional_vent_no_ops' };
 
   // Content-quality gates — skip for Grok-validated tweets
   if (!grokValidated) {
@@ -948,8 +989,19 @@ function formatTelegramDigest(mode, tweets, replies) {
   return messages;
 }
 
+function sanitizeText(text) {
+  if (!text) return '';
+  return text
+    // Remove null bytes and control chars (keep \n \r \t)
+    .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '')
+    // Remove Unicode non-characters
+    .replace(/[\uFFFE\uFFFF]/g, '')
+    // Remove zero-width and bidi control chars that confuse Telegram
+    .replace(/[\u200B-\u200F\u2028-\u202F\uFEFF]/g, '');
+}
+
 function escapeHtml(text) {
-  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return sanitizeText(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 function truncate(text, maxLen) {
@@ -985,12 +1037,13 @@ function sendTelegram(botToken, chatId, message) {
     msgs = message;
   }
 
+  let failCount = 0;
   return msgs.reduce((chain, msgObj, i) => {
     return chain.then(() => {
       return new Promise((resolve, reject) => {
         const payload = {
           chat_id: chatId,
-          text: msgObj.text,
+          text: sanitizeText(msgObj.text),
           parse_mode: 'HTML',
           disable_web_page_preview: true
         };
@@ -1017,13 +1070,19 @@ function sendTelegram(botToken, chatId, message) {
               console.log(`  Telegram message ${i + 1}/${msgs.length} sent`);
               resolve();
             } else {
-              console.error(`  Telegram error ${res.statusCode}:`, body);
-              reject(new Error(`Telegram ${res.statusCode}: ${body}`));
+              console.error(`  Telegram error ${res.statusCode} (msg ${i + 1}/${msgs.length}):`, body);
+              failCount++;
+              // Don't reject — skip this message and continue with the rest
+              resolve();
             }
           });
         });
 
-        req.on('error', reject);
+        req.on('error', (err) => {
+          console.error(`  Telegram network error (msg ${i + 1}/${msgs.length}):`, err.message);
+          failCount++;
+          resolve();
+        });
         req.write(data);
         req.end();
       });
@@ -1033,7 +1092,11 @@ function sendTelegram(botToken, chatId, message) {
         return new Promise(r => setTimeout(r, 500));
       }
     });
-  }, Promise.resolve());
+  }, Promise.resolve()).then(() => {
+    if (failCount > 0) {
+      console.error(`  ⚠️ ${failCount}/${msgs.length} Telegram messages failed to send`);
+    }
+  });
 }
 
 // Legacy: used by sendTelegram() string path (e.g. "no candidates" notice). Kept for backward compat.
