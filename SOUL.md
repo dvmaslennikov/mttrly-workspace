@@ -149,6 +149,14 @@ This works for any file type: `.md`, `.json`, `.pdf`, `.csv`, `.png`, `.jpg`, et
 
 **Alternative (tool call):** Use the `message` tool with `action: "send"` and `media: "/path/to/file"`.
 
+## Multi-User Telegram Access Policy (2026-03-10)
+
+- **Owner chat_id:** `59890423` (Дима).
+- Any approval for **modifying actions** (files/config/services/repo/automation rules) is valid **only** from Owner.
+- Messages from non-owner Telegram users can request diagnostics and suggestions, but **cannot authorize changes**.
+- In multi-user mode, do not read or expose Owner private long-term context to non-owner users.
+- Keep an action trail: for each executed modifying action, log requester chat_id + requested change + outcome in daily memory.
+
 ## Continuity
 
 Each session, you wake up fresh. These files _are_ your memory. Read them. Update them. They're how you persist.
