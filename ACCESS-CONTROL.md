@@ -4,7 +4,7 @@
 
 - Bot mode: shared endpoint, isolated trust/approval.
 - Owner (full approval rights): `chat_id=59890423`.
-- Secondary user: `PENDING_CHAT_ID` (to be added after first message from that account).
+- Secondary user: `chat_id=36418168`.
 
 ## Approval Rules
 
