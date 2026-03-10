@@ -371,9 +371,33 @@ function isSalesFunnelThread(text) {
 
 function isMemePost(text) {
   const lower = text.toLowerCase();
-  return /(me:\s|nobody:\s|devs be like|starter pack|mood:|when you|POV|shitpost|meme)/i.test(lower);
+  return /(me:\s|nobody:\s|devs be like|starter pack|mood:|when you\b|\bPOV\b|\bshitpost\b|\bmeme\b)/i.test(lower);
 }
 
+function isStackListicle(text) {
+  const t = (text || '');
+  const lower = t.toLowerCase();
+
+  const hasToolMarkers = /\b(cursor|claude|v0|replit|supabase|vercel|railway|bolt|windsurf|chatgpt|copilot)\b/i.test(t);
+  const hasListShape = (t.match(/\n/g) || []).length >= 3 || (t.match(/[•✅🔹🔸📌👉]/g) || []).length >= 2;
+  const hasSoloFrame = /\b(solo|bedroom|indie|one[- ]?person|just me|by myself)\b/i.test(lower);
+  const hasPricingFrame = /\$\s?0\s*\/?\s*(month|mo)|\$0\/?mo|free stack/i.test(lower);
+
+  return hasToolMarkers && hasListShape && (hasSoloFrame || hasPricingFrame);
+}
+
+function getReachScore(tweet) {
+  const likes = Number(tweet.likeCount) || 0;
+  const replies = Number(tweet.replyCount) || 0;
+  const retweets = Number(tweet.retweetCount) || 0;
+  return likes + replies + retweets;
+}
+
+function getStructuralKey(tweet) {
+  const text = (tweet.text || '').toLowerCase();
+  if (isStackListicle(text)) return 'stack_listicle';
+  return null;
+}
 
 function isPodcastOrVideoPromo(text) {
   const lower = (text || '').toLowerCase();
@@ -387,7 +411,7 @@ function isPodcastOrVideoPromo(text) {
 function isNetworkingBait(text) {
   const lower = (text || '').toLowerCase();
   const patterns = [
-    'let's connect', 'lets connect', 'reply with your', 'drop your',
+    "let's connect", 'lets connect', 'reply with your', 'drop your',
     'follow for follow', 'who wants to connect', 'networking'
   ];
   return patterns.some(p => lower.includes(p));
@@ -404,7 +428,7 @@ function isBlogReshareSpam(text) {
 function isEmotionalVentNoOps(text, tweet) {
   const lower = (text || '').toLowerCase();
   const emotional = [
-    'i'm tired', 'im tired', 'burned out', 'burnout', 'it's not that deep', 'its not that deep',
+    "i'm tired", 'im tired', 'burned out', 'burnout', "it's not that deep", 'its not that deep',
     'i hate this', 'this sucks', 'so frustrating', 'depressed', 'anxious'
   ].some(p => lower.includes(p));
   if (!emotional) return false;
@@ -509,6 +533,7 @@ function filterTweet(tweet, category, repliedIds, seenDigestIds, authorHistory, 
   if (isNetworkingBait(tweet.text)) return { skip: true, reason: 'networking_bait' };
   if (isBlogReshareSpam(tweet.text)) return { skip: true, reason: 'blog_reshare_spam' };
   if (isEmotionalVentNoOps(tweet.text, tweet)) return { skip: true, reason: 'emotional_vent_no_ops' };
+  if (isStackListicle(tweet.text)) return { skip: true, reason: 'stack_listicle_pattern' };
 
   // Content-quality gates — skip for Grok-validated tweets
   if (!grokValidated) {
@@ -534,6 +559,10 @@ function filterTweet(tweet, category, repliedIds, seenDigestIds, authorHistory, 
   // Engagement gate — Grok-validated get lower threshold but not zero
   const minLikes = grokValidated ? 5 : (category === 'pain_point' ? 3 : 5);
   if ((tweet.likeCount || 0) < minLikes) return { skip: true, reason: 'low_engagement' };
+
+  // Hard reach gate: prevent "dead reach" tweets from entering QA
+  const minReach = grokValidated ? 10 : 12;
+  if (getReachScore(tweet) < minReach) return { skip: true, reason: 'low_reach_hard_gate' };
 
   const tweetTime = tweet.createdAt ? new Date(tweet.createdAt).getTime() : NaN;
   if (!isNaN(tweetTime)) {
@@ -880,6 +909,50 @@ function parseLLMResponse(text) {
   }
 }
 
+function extractNumericTokens(text) {
+  return ((text || '').match(/\$?\d+(?:[\.,]\d+)?(?:\s?(?:k|m|b|%|h|am|pm))?/gi) || [])
+    .map(s => s.trim().toLowerCase());
+}
+
+function hasNumericMismatch(sourceText, replyText) {
+  const sourceNums = new Set(extractNumericTokens(sourceText));
+  const replyNums = extractNumericTokens(replyText);
+  if (replyNums.length === 0) return false;
+  return replyNums.some(n => !sourceNums.has(n));
+}
+
+function buildNoNumberFallback(tweet, variant = 'safe') {
+  const opener = variant === 'punchy'
+    ? 'This is confidence debt in plain sight.'
+    : 'This is classic confidence debt.';
+  return `${opener} The expensive part is recovery clarity after trust breaks, not the first patch.`;
+}
+
+function enforceNumericParity(tweets, replies) {
+  if (!Array.isArray(replies)) return replies;
+  const byId = new Map(tweets.map(t => [String(t.id), t]));
+
+  return replies.map(r => {
+    const tweet = byId.get(String(r.tweet_id));
+    if (!tweet) return r;
+
+    const safeBad = hasNumericMismatch(tweet.text, r.safe || '');
+    const punchyBad = hasNumericMismatch(tweet.text, r.punchy || '');
+
+    if (safeBad) {
+      r.safe = buildNoNumberFallback(tweet, 'safe');
+      r.safe_ru = 'Классический confidence debt: дорогой этап — не первый патч, а восстановление доверия и ясности после сбоя.';
+    }
+
+    if (punchyBad) {
+      r.punchy = buildNoNumberFallback(tweet, 'punchy');
+      r.punchy_ru = 'Это чистый confidence debt: проблема не в первом фиксе, а в том, как долго возвращается доверие к системе.';
+    }
+
+    return r;
+  });
+}
+
 // ============================================================================
 // TELEGRAM
 // ============================================================================
@@ -1193,9 +1266,24 @@ async function main() {
     return;
   }
 
+  // Structural dedup (pattern-level, not just tweet ID)
+  const deduped = [];
+  const seenStructures = new Set();
+  for (const t of filtered) {
+    const key = getStructuralKey(t);
+    if (key) {
+      if (seenStructures.has(key)) {
+        skipReasons.structural_duplicate = (skipReasons.structural_duplicate || 0) + 1;
+        continue;
+      }
+      seenStructures.add(key);
+    }
+    deduped.push(t);
+  }
+
   // Rank and select top N
-  filtered.sort((a, b) => b.score - a.score);
-  const topN = filtered.slice(0, TOP_N);
+  deduped.sort((a, b) => b.score - a.score);
+  const topN = deduped.slice(0, TOP_N);
 
   // Assign templates and metadata to top tweets
   topN.forEach(t => {
@@ -1214,10 +1302,11 @@ async function main() {
   console.log('\nCalling LLM for reply generation...');
   const prompt = buildLLMPrompt(topN);
   const llmResponse = callLLM(prompt);
-  const replies = parseLLMResponse(llmResponse);
+  let replies = parseLLMResponse(llmResponse);
 
   if (replies) {
-    console.log(`LLM generated ${replies.length} reply sets`);
+    replies = enforceNumericParity(topN, replies);
+    console.log(`LLM generated ${replies.length} reply sets (numeric parity enforced)`);
   } else {
     console.log('LLM generation failed — sending digest without replies');
   }
