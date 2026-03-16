@@ -861,9 +861,10 @@ function buildLLMPrompt(tweets) {
     const templates = t._templates;
     const tier = t._tier;
     const priority = t._priority;
+    const ref = `T${i + 1}`;
 
-    return `--- TWEET ${i + 1} ---
-ID: ${t.id}
+    return `--- TWEET ${ref} ---
+REF: ${ref}
 Author: @${t.author.username}${tier ? ` [TIER ${tier} INFLUENCER]` : ''}
 Category: ${t.category}
 Priority: ${priority} (score: ${t.score})
@@ -939,11 +940,10 @@ Template E — "Contrarian Agree" (~10%): "Partly disagree — [nuance] — but 
 ${tweetsBlock}
 
 ═══ OUTPUT FORMAT (strict JSON array) ═══
-IMPORTANT: You MUST generate a reply for EVERY tweet above. One entry per tweet. Copy tweet_id EXACTLY as shown (string).
+IMPORTANT: You MUST generate a reply for EVERY tweet above. One entry per tweet.
 [
   {
-    "tweet_id": "copy exact ID string from above",
-    "tweet_index": 1,
+    "ref": "T1",
     "safe_template": "A",
     "punchy_template": "D",
     "context_ru": "Brief context in Russian (2-3 sentences)...",
@@ -994,7 +994,7 @@ function llmPreFilter(candidates) {
 
   try {
     const result = execSync(
-      `node "${OPENCLAW_CLI}" agent -m ${JSON.stringify(prompt)} --json --session-id twitter-prefilter --timeout 120`,
+      `node "${OPENCLAW_CLI}" agent -m ${JSON.stringify(prompt)} --json --session-id twitter-prefilter-${Date.now()} --timeout 120`,
       {
         cwd: path.join(OPENCLAW_DIR, '..', 'openclaw'),
         timeout: 140000,
@@ -1042,9 +1042,11 @@ function llmPreFilter(candidates) {
 }
 
 function callLLM(prompt) {
+  // Fresh session each call — prevents old format contamination from session history
+  const sessionId = `twitter-digest-${Date.now()}`;
   try {
     const result = execSync(
-      `node "${OPENCLAW_CLI}" agent -m ${JSON.stringify(prompt)} --json --session-id twitter-digest --timeout 180`,
+      `node "${OPENCLAW_CLI}" agent -m ${JSON.stringify(prompt)} --json --session-id ${sessionId} --timeout 180`,
       {
         cwd: path.join(OPENCLAW_DIR, '..', 'openclaw'),
         timeout: 200000,
@@ -1065,7 +1067,6 @@ function callLLM(prompt) {
 
 function parseLLMResponse(text) {
   if (!text) return null;
-  // Extract JSON array from response (might have markdown fences)
   const jsonMatch = text.match(/\[[\s\S]*\]/);
   if (!jsonMatch) {
     console.error('Could not find JSON array in LLM response');
@@ -1073,11 +1074,7 @@ function parseLLMResponse(text) {
     return null;
   }
   try {
-    // CRITICAL: tweet_id values exceed Number.MAX_SAFE_INTEGER (2^53).
-    // Standard JSON.parse loses precision (e.g., ...8952 → ...9000).
-    // Fix: convert numeric tweet_id to strings before parsing.
-    const safeJson = jsonMatch[0].replace(/"tweet_id"\s*:\s*(\d{15,})/g, '"tweet_id": "$1"');
-    return JSON.parse(safeJson);
+    return JSON.parse(jsonMatch[0]);
   } catch (e) {
     console.error('Failed to parse LLM JSON:', e.message);
     return null;
@@ -1105,11 +1102,10 @@ function buildNoNumberFallback(tweet, variant = 'safe') {
 
 function enforceNumericParity(tweets, replies) {
   if (!Array.isArray(replies)) return replies;
-  const byId = new Map(tweets.map(t => [String(t.id), t]));
-  const byIndex = new Map(tweets.map((t, i) => [i + 1, t]));
+  const byRef = new Map(tweets.map((t, i) => [`T${i + 1}`, t]));
 
   return replies.map(r => {
-    const tweet = byId.get(String(r.tweet_id)) || byIndex.get(r.tweet_index);
+    const tweet = byRef.get(r.ref);
     if (!tweet) return r;
 
     const safeBad = hasNumericMismatch(tweet.text, r.safe || '');
@@ -1134,20 +1130,11 @@ function enforceNumericParity(tweets, replies) {
 // ============================================================================
 
 function formatTelegramDigest(mode, tweets, replies) {
-  // Build reply map: match by tweet_id first, fallback to tweet_index (1-based)
-  const replyMap = {};
+  // Build reply map by ref (T1, T2, ...) — simple and reliable
+  const replyByRef = {};
   if (replies) {
     replies.forEach(r => {
-      if (r.tweet_id) replyMap[String(r.tweet_id)] = r;
-    });
-    // Fallback: if tweet_id didn't match, use tweet_index
-    replies.forEach(r => {
-      if (r.tweet_index && r.tweet_index >= 1 && r.tweet_index <= tweets.length) {
-        const t = tweets[r.tweet_index - 1];
-        if (t && !replyMap[String(t.id)]) {
-          replyMap[String(t.id)] = r;
-        }
-      }
+      if (r.ref) replyByRef[r.ref] = r;
     });
   }
 
@@ -1172,7 +1159,8 @@ function formatTelegramDigest(mode, tweets, replies) {
     const pEmoji = priorityEmoji[priority] || '⚪';
     const catLabel = categoryLabel[t.category] || t.category;
     const ageH = Math.round((Date.now() - new Date(t.createdAt).getTime()) / (1000 * 60 * 60));
-    const reply = replyMap[t.id];
+    const ref = `T${i + 1}`;
+    const reply = replyByRef[ref];
     const isReply = t.inReplyToStatusId ? ' (reply в треде)' : '';
     const tier = t._tier;
     const tierLabel = tier ? ` | Tier ${tier}` : '';
@@ -1514,10 +1502,9 @@ async function main() {
     replies = enforceNumericParity(topN, replies);
     console.log(`LLM generated ${replies.length} reply sets (numeric parity enforced)`);
 
-    // Log which tweets didn't get replies (match by tweet_id or tweet_index)
-    const repliedIds = new Set(replies.map(r => String(r.tweet_id)));
-    const repliedIndexes = new Set(replies.map(r => r.tweet_index).filter(Boolean));
-    llmSkipped = topN.filter((t, idx) => !repliedIds.has(String(t.id)) && !repliedIndexes.has(idx + 1));
+    // Log which tweets didn't get replies
+    const repliedRefs = new Set(replies.map(r => r.ref).filter(Boolean));
+    llmSkipped = topN.filter((t, idx) => !repliedRefs.has(`T${idx + 1}`));
     if (llmSkipped.length > 0) {
       console.log(`LLM skipped ${llmSkipped.length} tweets:`);
       llmSkipped.forEach(t => {
@@ -1552,6 +1539,7 @@ async function main() {
     },
     candidates: topN.map((t, idx) => ({
       id: t.id,
+      ref: `T${idx + 1}`,
       author: t.author.username,
       text: t.text.substring(0, 200),
       category: t.category,
@@ -1562,7 +1550,7 @@ async function main() {
       likes: t.likeCount,
       replies_count: t.replyCount,
       url: `https://x.com/${t.author.username}/status/${t.id}`,
-      replies: replies ? (replies.find(r => String(r.tweet_id) === String(t.id)) || replies.find(r => r.tweet_index === idx + 1)) : null
+      replies: replies ? replies.find(r => r.ref === `T${idx + 1}`) : null
     }))
   }, null, 2));
 
