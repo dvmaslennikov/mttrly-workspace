@@ -198,7 +198,13 @@ main() {
     fi
   fi
 
-  if [ "$NEED_RETRY" -eq 1 ] && [ -n "${XAI_API_KEY:-}" ]; then
+  # Skip Grok retry if on cooldown (429 rate limit)
+  local GROK_ON_COOLDOWN=0
+  if [ -f /tmp/grok-cooldown ]; then
+    GROK_ON_COOLDOWN=1
+  fi
+
+  if [ "$NEED_RETRY" -eq 1 ] && [ -n "${XAI_API_KEY:-}" ] && [ "$GROK_ON_COOLDOWN" -eq 0 ]; then
     log ""
     log "⚠️ Low result (top=$TOP_COUNT). Running one extra Grok pass..."
 
@@ -221,6 +227,9 @@ main() {
     else
       log "⚠️ Extra Grok pass failed, skipping retry"
     fi
+  elif [ "$NEED_RETRY" -eq 1 ] && [ "$GROK_ON_COOLDOWN" -eq 1 ]; then
+    log ""
+    log "⏭️ Skipping Grok retry — on cooldown (429 rate limit)"
   fi
 
   # Cleanup old candidates files (older than 3 days)

@@ -69,16 +69,30 @@ const SPORTS_TRANSPORT_TERMS = [
   'fanzine', 'supporters', 'fc', 'afc', 'matchday', 'rail', 'railway', 'transport', 'bus', 'station'
 ];
 
-const TECH_INCIDENT_ANCHORS = [
-  'server', 'prod', 'production', 'deploy', 'deployment', 'rollback', 'on-call', 'oncall', 'pager',
-  'incident response', 'outage', 'downtime', 'monitoring', 'logs', 'nginx', 'k8s', 'kubernetes', 'docker',
-  'infra', 'infrastructure', 'latency', 'uptime', 'datadog', 'opsgenie', 'pagerduty', 'ci/cd', 'pipeline',
-  'cloud bill', 'aws bill', 'site is down', 'app is down',
-  'database', 'db wipe', 'db migration', 'migration failed', 'debug', 'hotfix', 'postmortem', 'root cause',
-  'terraform', 'ansible', 'redis', 'postgres', 'mysql', 'mongodb', 'api gateway', 'load balancer',
-  'ssl', 'dns', 'cdn', 'scaling', 'memory leak', 'cpu spike', 'disk full', 'timeout',
-  'sre', 'toil', '5xx', '4xx', '502', '503', 'grafana', 'prometheus', 'alertmanager', 'runbook'
+// Anchors split into two groups:
+// - WORD_BOUNDARY_ANCHORS: short/ambiguous words that match false positives without \b
+//   e.g. "prod" matches "TV production", "logs" matches "blog's", "sre" matches "desire"
+// - EXACT_ANCHORS: long/unambiguous terms safe to match with includes()
+const WORD_BOUNDARY_ANCHORS = [
+  'prod', 'logs', 'sre', 'toil', 'infra', 'dns', 'cdn', 'ssl', 'ssh',
+  'debug', 'server', 'deploy', 'scaling'
 ];
+const WORD_BOUNDARY_REGEXES = WORD_BOUNDARY_ANCHORS.map(w => new RegExp(`\\b${w}\\b`, 'i'));
+
+const EXACT_ANCHORS = [
+  'production', 'deployment', 'rollback', 'on-call', 'oncall', 'pager',
+  'incident response', 'outage', 'downtime', 'monitoring', 'nginx', 'k8s', 'kubernetes', 'docker',
+  'infrastructure', 'latency', 'uptime', 'datadog', 'opsgenie', 'pagerduty', 'ci/cd', 'pipeline',
+  'cloud bill', 'aws bill', 'site is down', 'app is down',
+  'database', 'db wipe', 'db migration', 'migration failed', 'hotfix', 'postmortem', 'root cause',
+  'terraform', 'ansible', 'redis', 'postgres', 'mysql', 'mongodb', 'api gateway', 'load balancer',
+  'memory leak', 'cpu spike', 'disk full', 'timeout',
+  '5xx', '4xx', '502', '503', 'grafana', 'prometheus', 'alertmanager', 'runbook',
+  'devops', 'kubernetes', 'observability'
+];
+
+// Combined list for backward compat (used in scoring etc.)
+const TECH_INCIDENT_ANCHORS = [...WORD_BOUNDARY_ANCHORS, ...EXACT_ANCHORS];
 
 const CONTEXT_BLACKLIST_PATTERNS = [
   /#breaking/i,
@@ -268,12 +282,21 @@ function getPriority(score) {
 // ============================================================================
 
 function isEnglish(text) {
-  const ascii = text.match(/[a-zA-Z0-9\s.,!?'""-]/g) || [];
-  if (ascii.length / text.length <= 0.7) return false;
+  // Strip URLs, @mentions, #hashtags before checking — they skew ASCII ratio
+  const cleaned = text
+    .replace(/https?:\/\/\S+/g, '')
+    .replace(/@\w+/g, '')
+    .replace(/#\w+/g, '')
+    .trim();
+
+  if (!cleaned) return true; // Tweet is only URLs/mentions — treat as English
+
+  const ascii = cleaned.match(/[a-zA-Z0-9\s.,!?'""-]/g) || [];
+  if (ascii.length / cleaned.length <= 0.7) return false;
 
   // Secondary check: require common English words (catches Latin-script languages like Indonesian/Malay)
-  const lower = text.toLowerCase();
-  const words = lower.split(/\s+/);
+  const lower = cleaned.toLowerCase();
+  const words = lower.split(/\s+/).filter(w => w.length > 0);
   const commonEnglish = ['the', 'is', 'and', 'for', 'this', 'that', 'with', 'not', 'are', 'have',
     'was', 'but', 'you', 'your', 'can', 'will', 'from', 'just', 'been', 'when',
     'how', 'what', 'about', 'more', 'than', 'its', 'has', 'all', 'like', 'would'];
@@ -282,6 +305,20 @@ function isEnglish(text) {
 
   // Need at least 10% common English words OR at least 3 common words in short tweets
   return englishRatio >= 0.10 || englishWordCount >= 3;
+}
+
+// Wrapper: tweets with strong tech signal bypass English check
+// But only if text is mostly Latin (code/tech tweets with URLs, not CJK)
+function isEnglishOrTech(text, tweet) {
+  if (isEnglish(text)) return true;
+  // Check ASCII ratio on cleaned text — CJK tweets should not bypass
+  const cleaned = text.replace(/https?:\/\/\S+/g, '').replace(/@\w+/g, '').replace(/#\w+/g, '').trim();
+  if (!cleaned) return true;
+  const ascii = cleaned.match(/[a-zA-Z0-9\s.,!?'""-]/g) || [];
+  const asciiRatio = ascii.length / cleaned.length;
+  // Only allow tech bypass for mostly-Latin text (>50% ASCII)
+  if (asciiRatio > 0.5 && countTechAnchors(tweet || {text}) >= 3) return true;
+  return false;
 }
 
 function isBot(author) {
@@ -484,12 +521,28 @@ function isBlacklistedContext(tweet) {
 
 function hasTechIncidentContext(tweet) {
   const text = normalizeText(tweet.text);
-  return TECH_INCIDENT_ANCHORS.some(k => text.includes(k));
+  if (WORD_BOUNDARY_REGEXES.some(re => re.test(text))) return true;
+  if (EXACT_ANCHORS.some(k => text.includes(k))) return true;
+  return false;
 }
 
 function countTechAnchors(tweet) {
   const text = normalizeText(tweet.text);
-  return TECH_INCIDENT_ANCHORS.reduce((acc, k) => acc + (text.includes(k) ? 1 : 0), 0);
+  let count = 0;
+  count += WORD_BOUNDARY_REGEXES.reduce((acc, re) => acc + (re.test(text) ? 1 : 0), 0);
+  count += EXACT_ANCHORS.reduce((acc, k) => acc + (text.includes(k) ? 1 : 0), 0);
+  return count;
+}
+
+// Context-aware "production" check: only count as tech if another anchor is nearby
+function isProductionTechContext(text) {
+  const lower = normalizeText(text);
+  if (!lower.includes('production')) return false;
+  // Check if any other tech anchor exists in the text
+  const otherAnchors = EXACT_ANCHORS.filter(k => k !== 'production');
+  if (otherAnchors.some(k => lower.includes(k))) return true;
+  if (WORD_BOUNDARY_REGEXES.some(re => re.test(lower))) return true;
+  return false;
 }
 
 function filterTweet(tweet, category, repliedIds, seenDigestIds, authorHistory, mode = 'fire-patrol') {
@@ -538,17 +591,41 @@ function filterTweet(tweet, category, repliedIds, seenDigestIds, authorHistory, 
   // Content-quality gates — skip for Grok-validated tweets
   if (!grokValidated) {
     if (isBlacklistedContext(tweet)) return { skip: true, reason: 'context_blacklisted' };
-    if (!hasTechIncidentContext(tweet)) return { skip: true, reason: 'no_tech_context' };
+
+    const hasTech = hasTechIncidentContext(tweet);
+    const textLower = normalizeText(tweet.text);
+
+    // Brand-building mode: broader context — include indie hackers, shipping, building
+    const BRAND_BUILDING_ANCHORS = [
+      'shipped', 'shipping', 'launched', 'built', 'building', 'saas', 'mrr', 'revenue',
+      'side project', 'indie', 'solo founder', 'bootstrapped', 'maker', 'startup',
+      'cursor', 'copilot', 'replit', 'windsurf', 'vibe cod', 'ai tool',
+      'first user', 'public launch', 'product hunt', 'open source'
+    ];
+    const hasBrandContext = mode === 'brand-building' && BRAND_BUILDING_ANCHORS.some(k => textLower.includes(k));
+
+    if (!hasTech && !hasBrandContext) {
+      // "production" alone (without other tech anchors) is ambiguous — TV, music, etc.
+      const onlyProduction = textLower.includes('production') && !isProductionTechContext(tweet.text);
+      if (!onlyProduction) return { skip: true, reason: 'no_tech_context' };
+    }
+    // If hasTech passed only via "production", verify it's tech context
+    if (hasTech && !hasBrandContext && textLower.includes('production')) {
+      const techAnchorCount = countTechAnchors(tweet);
+      if (techAnchorCount <= 1 && !isProductionTechContext(tweet.text)) {
+        return { skip: true, reason: 'no_tech_context_production_ambiguous' };
+      }
+    }
 
     const techAnchorCount = countTechAnchors(tweet);
-    if (authorType === 'unknown' && techAnchorCount < 2) {
+    if (authorType === 'unknown' && techAnchorCount < 1 && !hasBrandContext) {
       return { skip: true, reason: 'unknown_author_weak_signal' };
     }
   }
 
   // Operational/spam checks — always apply
   if (isBot(tweet.author)) return { skip: true, reason: 'is_bot' };
-  if (!isEnglish(tweet.text)) return { skip: true, reason: 'not_english' };
+  if (!isEnglishOrTech(tweet.text, tweet)) return { skip: true, reason: 'not_english' };
   if (isPromo(tweet.text)) return { skip: true, reason: 'is_promo' };
   if (isNoise(tweet.text)) return { skip: true, reason: 'is_noise' };
 
@@ -556,12 +633,21 @@ function filterTweet(tweet, category, repliedIds, seenDigestIds, authorHistory, 
   const author = (tweet.author.username || '').toLowerCase();
   if (competitors.includes(author)) return { skip: true, reason: 'is_competitor' };
 
-  // Engagement gate — Grok-validated get lower threshold but not zero
-  const minLikes = grokValidated ? 5 : (category === 'pain_point' ? 3 : 5);
+  // Engagement gate — mode-aware thresholds
+  let minLikes;
+  if (grokValidated) {
+    minLikes = 3;
+  } else if (mode === 'brand-building') {
+    minLikes = 2;
+  } else if (mode === 'fire-patrol' || category === 'pain_point') {
+    minLikes = 3;
+  } else {
+    minLikes = 5; // influencer-monitor
+  }
   if ((tweet.likeCount || 0) < minLikes) return { skip: true, reason: 'low_engagement' };
 
   // Hard reach gate: prevent "dead reach" tweets from entering QA
-  const minReach = grokValidated ? 10 : 12;
+  const minReach = grokValidated ? 8 : 8;
   if (getReachScore(tweet) < minReach) return { skip: true, reason: 'low_reach_hard_gate' };
 
   const tweetTime = tweet.createdAt ? new Date(tweet.createdAt).getTime() : NaN;
@@ -853,9 +939,11 @@ Template E — "Contrarian Agree" (~10%): "Partly disagree — [nuance] — but 
 ${tweetsBlock}
 
 ═══ OUTPUT FORMAT (strict JSON array) ═══
+IMPORTANT: You MUST generate a reply for EVERY tweet above. One entry per tweet. Copy tweet_id EXACTLY as shown (string).
 [
   {
-    "tweet_id": "123...",
+    "tweet_id": "copy exact ID string from above",
+    "tweet_index": 1,
     "safe_template": "A",
     "punchy_template": "D",
     "context_ru": "Brief context in Russian (2-3 sentences)...",
@@ -868,6 +956,89 @@ ${tweetsBlock}
 ]
 
 Return ONLY the JSON array. No markdown, no explanation.`;
+}
+
+// ============================================================================
+// LLM PRE-FILTER — validate candidates are about real software/DevOps
+// ============================================================================
+
+function buildPreFilterPrompt(candidates) {
+  const tweets = candidates.map((t, i) =>
+    `${i + 1}. [${t.id}] @${t.author.username}: "${(t.text || '').substring(0, 200)}"`
+  ).join('\n');
+
+  return `You are a classifier for a DevOps marketing tool. For each tweet, rate how relevant it is for a server management / DevOps audience on a scale of 1-5.
+
+5 = Directly about server ops, deployment, infrastructure, monitoring, incidents
+4 = About software engineering with clear DevOps/deployment angle
+3 = Tech-adjacent (coding, shipping products, indie hacking) — useful for brand building
+2 = Vaguely tech but mostly off-topic (gaming servers, TV production, general career advice)
+1 = Not tech at all (sports, politics, entertainment, crypto)
+
+Return ONLY a JSON array: [{"id": "tweet_id", "score": number}]
+No explanations. One entry per tweet.
+
+TWEETS:
+${tweets}`;
+}
+
+function llmPreFilter(candidates) {
+  if (candidates.length === 0) return candidates;
+
+  // Take top 50 by engagement to limit LLM cost
+  const sorted = [...candidates].sort((a, b) => (b.likeCount || 0) - (a.likeCount || 0));
+  const batch = sorted.slice(0, 50);
+  const prompt = buildPreFilterPrompt(batch);
+
+  console.log(`\nLLM pre-filter: checking ${batch.length} candidates...`);
+
+  try {
+    const result = execSync(
+      `node "${OPENCLAW_CLI}" agent -m ${JSON.stringify(prompt)} --json --session-id twitter-prefilter --timeout 120`,
+      {
+        cwd: path.join(OPENCLAW_DIR, '..', 'openclaw'),
+        timeout: 140000,
+        maxBuffer: 2 * 1024 * 1024,
+        encoding: 'utf8',
+        stdio: ['pipe', 'pipe', 'pipe']
+      }
+    );
+
+    const parsed = JSON.parse(result);
+    const text = parsed?.result?.payloads?.[0]?.text || '';
+    const jsonMatch = text.match(/\[[\s\S]*\]/);
+    if (!jsonMatch) {
+      console.log('LLM pre-filter: no JSON in response, falling back to all candidates');
+      return candidates;
+    }
+
+    // Fix numeric precision: tweet IDs exceed Number.MAX_SAFE_INTEGER
+    const safeJson = jsonMatch[0].replace(/"id"\s*:\s*(\d{15,})/g, '"id": "$1"');
+    const verdicts = JSON.parse(safeJson);
+
+    // Score threshold: 3+ = relevant (tech-adjacent or better)
+    const LLM_RELEVANCE_THRESHOLD = 3;
+    const relevantIds = new Set(
+      verdicts.filter(v => (v.score || 0) >= LLM_RELEVANCE_THRESHOLD).map(v => String(v.id))
+    );
+    const irrelevantIds = new Set(
+      verdicts.filter(v => (v.score || 0) < LLM_RELEVANCE_THRESHOLD).map(v => String(v.id))
+    );
+
+    console.log(`LLM pre-filter: ${relevantIds.size} relevant (score>=${LLM_RELEVANCE_THRESHOLD}), ${irrelevantIds.size} irrelevant`);
+    verdicts.forEach(v => console.log(`  [${v.id}] score=${v.score}`));
+
+    // Keep candidates that were marked relevant OR were not in the batch (weren't checked)
+    return candidates.filter(t => {
+      const id = String(t.id);
+      if (irrelevantIds.has(id)) return false;
+      return true; // relevant or not checked
+    });
+  } catch (err) {
+    console.error('LLM pre-filter failed:', err.message);
+    console.log('Falling back to regex-only filtering');
+    return candidates;
+  }
 }
 
 function callLLM(prompt) {
@@ -902,7 +1073,11 @@ function parseLLMResponse(text) {
     return null;
   }
   try {
-    return JSON.parse(jsonMatch[0]);
+    // CRITICAL: tweet_id values exceed Number.MAX_SAFE_INTEGER (2^53).
+    // Standard JSON.parse loses precision (e.g., ...8952 → ...9000).
+    // Fix: convert numeric tweet_id to strings before parsing.
+    const safeJson = jsonMatch[0].replace(/"tweet_id"\s*:\s*(\d{15,})/g, '"tweet_id": "$1"');
+    return JSON.parse(safeJson);
   } catch (e) {
     console.error('Failed to parse LLM JSON:', e.message);
     return null;
@@ -931,9 +1106,10 @@ function buildNoNumberFallback(tweet, variant = 'safe') {
 function enforceNumericParity(tweets, replies) {
   if (!Array.isArray(replies)) return replies;
   const byId = new Map(tweets.map(t => [String(t.id), t]));
+  const byIndex = new Map(tweets.map((t, i) => [i + 1, t]));
 
   return replies.map(r => {
-    const tweet = byId.get(String(r.tweet_id));
+    const tweet = byId.get(String(r.tweet_id)) || byIndex.get(r.tweet_index);
     if (!tweet) return r;
 
     const safeBad = hasNumericMismatch(tweet.text, r.safe || '');
@@ -958,9 +1134,21 @@ function enforceNumericParity(tweets, replies) {
 // ============================================================================
 
 function formatTelegramDigest(mode, tweets, replies) {
+  // Build reply map: match by tweet_id first, fallback to tweet_index (1-based)
   const replyMap = {};
   if (replies) {
-    replies.forEach(r => { replyMap[r.tweet_id] = r; });
+    replies.forEach(r => {
+      if (r.tweet_id) replyMap[String(r.tweet_id)] = r;
+    });
+    // Fallback: if tweet_id didn't match, use tweet_index
+    replies.forEach(r => {
+      if (r.tweet_index && r.tweet_index >= 1 && r.tweet_index <= tweets.length) {
+        const t = tweets[r.tweet_index - 1];
+        if (t && !replyMap[String(t.id)]) {
+          replyMap[String(t.id)] = r;
+        }
+      }
+    });
   }
 
   const priorityEmoji = { HIGH: '🔴', MEDIUM: '🟡', LOW: '⚪' };
@@ -1266,10 +1454,27 @@ async function main() {
     return;
   }
 
+  // LLM pre-filter: validate that candidates are about real software/DevOps
+  const preFiltered = llmPreFilter(filtered);
+  const llmDropped = filtered.length - preFiltered.length;
+  if (llmDropped > 0) {
+    console.log(`LLM pre-filter removed ${llmDropped} irrelevant candidates`);
+    skipReasons.llm_prefilter_irrelevant = llmDropped;
+  }
+
+  if (preFiltered.length === 0) {
+    console.log('No tweets passed LLM pre-filter. Sending notice to Telegram.');
+    await sendTelegram(botToken, chatId,
+      `📭 <b>${mode} Digest</b> — No suitable tweets after LLM validation.\n` +
+      `Regex passed ${filtered.length}, LLM marked all as irrelevant.`
+    );
+    return;
+  }
+
   // Structural dedup (pattern-level, not just tweet ID)
   const deduped = [];
   const seenStructures = new Set();
-  for (const t of filtered) {
+  for (const t of preFiltered) {
     const key = getStructuralKey(t);
     if (key) {
       if (seenStructures.has(key)) {
@@ -1304,11 +1509,24 @@ async function main() {
   const llmResponse = callLLM(prompt);
   let replies = parseLLMResponse(llmResponse);
 
+  let llmSkipped = [];
   if (replies) {
     replies = enforceNumericParity(topN, replies);
     console.log(`LLM generated ${replies.length} reply sets (numeric parity enforced)`);
+
+    // Log which tweets didn't get replies (match by tweet_id or tweet_index)
+    const repliedIds = new Set(replies.map(r => String(r.tweet_id)));
+    const repliedIndexes = new Set(replies.map(r => r.tweet_index).filter(Boolean));
+    llmSkipped = topN.filter((t, idx) => !repliedIds.has(String(t.id)) && !repliedIndexes.has(idx + 1));
+    if (llmSkipped.length > 0) {
+      console.log(`LLM skipped ${llmSkipped.length} tweets:`);
+      llmSkipped.forEach(t => {
+        console.log(`  - ${t.id} @${t.author.username} (${t.category}, score=${t.score})`);
+      });
+    }
   } else {
     console.log('LLM generation failed — sending digest without replies');
+    llmSkipped = topN;
   }
 
   // Format and send Telegram digest
@@ -1327,10 +1545,12 @@ async function main() {
     version: 3,
     stats: {
       collected: candidates.length,
-      filtered: filtered.length,
-      top: topN.length
+      regex_passed: filtered.length,
+      llm_prefilter_passed: preFiltered.length,
+      top: topN.length,
+      llm_skipped: llmSkipped.map(t => t.id)
     },
-    candidates: topN.map(t => ({
+    candidates: topN.map((t, idx) => ({
       id: t.id,
       author: t.author.username,
       text: t.text.substring(0, 200),
@@ -1342,7 +1562,7 @@ async function main() {
       likes: t.likeCount,
       replies_count: t.replyCount,
       url: `https://x.com/${t.author.username}/status/${t.id}`,
-      replies: replies ? replies.find(r => r.tweet_id === t.id) : null
+      replies: replies ? (replies.find(r => String(r.tweet_id) === String(t.id)) || replies.find(r => r.tweet_index === idx + 1)) : null
     }))
   }, null, 2));
 

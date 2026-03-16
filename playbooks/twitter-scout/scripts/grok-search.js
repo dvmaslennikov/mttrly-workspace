@@ -28,6 +28,9 @@ const XAI_API_KEY = process.env.XAI_API_KEY || '';
 const XAI_MODEL = 'grok-4-1-fast-reasoning';
 const XAI_ENDPOINT = 'api.x.ai';
 
+const GROK_COOLDOWN_FILE = '/tmp/grok-cooldown';
+const GROK_COOLDOWN_HOURS = 6;
+
 const WORKSPACE_DIR = path.resolve(__dirname, '../../..');
 const OUTPUT_DIR = process.env.OUTPUT_DIR || path.join(WORKSPACE_DIR, 'daily-packs');
 
@@ -182,6 +185,10 @@ function xaiRequest(body) {
             reject(new Error(`JSON parse error: ${e.message}`));
           }
         } else {
+          // On 429 — set cooldown to avoid repeated failures
+          if (res.statusCode === 429) {
+            try { fs.writeFileSync(GROK_COOLDOWN_FILE, String(Date.now())); } catch (e) {}
+          }
           reject(new Error(`xAI API ${res.statusCode}: ${body.substring(0, 500)}`));
         }
       });
@@ -347,6 +354,24 @@ async function main() {
       console.log(JSON.stringify(result));
     }
     process.exit(0);
+  }
+
+  // Check cooldown from previous 429
+  if (fs.existsSync(GROK_COOLDOWN_FILE)) {
+    try {
+      const cooldownTs = parseInt(fs.readFileSync(GROK_COOLDOWN_FILE, 'utf8').trim(), 10);
+      const hoursAgo = (Date.now() - cooldownTs) / (1000 * 60 * 60);
+      if (hoursAgo < GROK_COOLDOWN_HOURS) {
+        const remaining = Math.round((GROK_COOLDOWN_HOURS - hoursAgo) * 10) / 10;
+        console.log(`SKIP: Grok on cooldown (429 rate limit ${remaining}h ago). Retry in ${remaining}h.`);
+        const result = { source: 'grok', mode, status: 'skipped', reason: 'cooldown_429', candidates: [] };
+        if (outputFile) fs.writeFileSync(outputFile, JSON.stringify(result, null, 2));
+        process.exit(0);
+      } else {
+        // Cooldown expired, clean up
+        fs.unlinkSync(GROK_COOLDOWN_FILE);
+      }
+    } catch (e) { /* ignore corrupt file */ }
   }
 
   console.log(`Grok search: ${mode} (model: ${XAI_MODEL})`);
